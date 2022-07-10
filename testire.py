@@ -9165,6 +9165,14 @@ if number_of_accounts == 2 or number_of_accounts == 3:
             jewel_lev1 = jewel_lev1_A  # 글레이즈드 링
             jewel_lev2 = jewel_lev2_A  # 루비베리 브로치
             jewel_lev3 = jewel_lev3_A  # 로얄 곰젤리 크라운
+            magic_lev1 = magic_lev1_A  # 고농축 에스프레소 
+            magic_lev2 = magic_lev2_A  # 울퉁불퉁 뿔고구마 
+            magic_lev3 = magic_lev3_A  # 향기로운 포도주스 
+            magic_lev4 = magic_lev4_A  # 빨리감기 태엽장치
+            magic_lev5 = magic_lev5_A  # 수수께끼의 파우더 주머니         
+            magic_lev6 = magic_lev6_A  # 수수께끼의 빛나는 파우더 주머니     
+            magic_lev7 = magic_lev7_A  # 수수께끼의 신비한 파우더 주머니     
+            
             smith_num = smith_num_A  # 대장간 건물 수
             jelly_num = jelly_num_A  # 젤리쨈 건물 수
             rollc_num = rollc_num_A  # 롤케이크 건물 수
@@ -9273,6 +9281,14 @@ if number_of_accounts == 2 or number_of_accounts == 3:
             jewel_lev1 = jewel_lev1_B  # 글레이즈드 링
             jewel_lev2 = jewel_lev2_B  # 루비베리 브로치
             jewel_lev3 = jewel_lev3_B  # 로얄 곰젤리 크라운
+            magic_lev1 = magic_lev1_B  # 고농축 에스프레소 
+            magic_lev2 = magic_lev2_B  # 울퉁불퉁 뿔고구마 
+            magic_lev3 = magic_lev3_B  # 향기로운 포도주스 
+            magic_lev4 = magic_lev4_B  # 빨리감기 태엽장치  
+            magic_lev5 = magic_lev5_B  # 수수께끼의 파우더 주머니         
+            magic_lev6 = magic_lev6_B  # 수수께끼의 빛나는 파우더 주머니     
+            magic_lev7 = magic_lev7_B  # 수수께끼의 신비한 파우더 주머니
+            
             smith_num = smith_num_B  # 대장간 건물 수
             jelly_num = jelly_num_B  # 젤리쨈 건물 수
             rollc_num = rollc_num_B  # 롤케이크 건물 수
@@ -9381,6 +9397,14 @@ if number_of_accounts == 2 or number_of_accounts == 3:
             jewel_lev1 = jewel_lev1_C  # 글레이즈드 링
             jewel_lev2 = jewel_lev2_C  # 루비베리 브로치
             jewel_lev3 = jewel_lev3_C  # 로얄 곰젤리 크라운
+            magic_lev1 = magic_lev1_C  # 고농축 에스프레소 
+            magic_lev2 = magic_lev2_C  # 울퉁불퉁 뿔고구마 
+            magic_lev3 = magic_lev3_C  # 향기로운 포도주스 
+            magic_lev4 = magic_lev4_C  # 빨리감기 태엽장치
+            magic_lev5 = magic_lev5_C  # 수수께끼의 파우더 주머니         
+            magic_lev6 = magic_lev6_C  # 수수께끼의 빛나는 파우더 주머니     
+            magic_lev7 = magic_lev7_C  # 수수께끼의 신비한 파우더 주머니
+            
             smith_num = smith_num_C  # 대장간 건물 수
             jelly_num = jelly_num_C  # 젤리쨈 건물 수
             rollc_num = rollc_num_C  # 롤케이크 건물 수
