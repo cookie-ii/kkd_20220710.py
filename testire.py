@@ -10,6 +10,22 @@ pag.FAILSAFE = False
 macro_start = time.time()  # 전체 사이클 타임확인을 위한 시작시간 체크
 
 # //// 여기부턴 조건 확인용
+
+# 이번 사이클 기본재료 재고(생산 클릭 전)
+wood_bef_action = 0
+jelbean_bef_action = 0
+sugar_bef_action = 0
+
+# 이 설정 수량보다 적을 경우 수동 매크로 돌림
+wood_manual_macro = 2000
+jelbean_manual_macro = 2000
+sugar_manual_macro = 2000
+
+# 수동 매크로 돌릴 조건
+wood_macro_action = False
+jelbean_macro_action = False
+sugar_macro_action = False
+
 bWood_Quick = False  # 나무 쾌속생산!
 bJelbean_Quick = False  # 젤리빈 쾌속생산!
 bSugar_Quick = False  # 각설탕 쾌속생산!
@@ -1479,7 +1495,8 @@ def prod_action(image, list_image, account, check_num):
             if now_time - start_time > 30:
                 print('동작 최대시간 초과 입니다.')
                 return False
-            target_numb = check_num - prod_check(image, account)
+            number_bef_action = prod_check(image, account)
+            target_numb = check_num - number_bef_action
 
             # 목표 수량 미만
             if target_numb > 0:
@@ -10048,6 +10065,33 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         if Arena_Event(account):
                             Arena_action(account, set_max_power)
 
+                        # 수동 매크로 동작 - 건물에 들어간 후 수동 매크로 돌려야 하는 거면 Enter_building(account) 넣어줄 것.
+                        Enter_Building(account)
+                        if wood_bef_action < wood_manual_macro:
+                            print('나무 부족! 수동 매크로!')
+                            wood_macro_action = True
+                        else:
+                            wood_macro_action = False
+                        
+                        if jelbean_bef_action < jelbean_manual_macro:
+                            print('젤리빈 부족! 수동 매크로!')
+                            jelbean_macro_action = True
+                        else:
+                            jelbean_macro_action = False
+                        
+                        if sugar_bef_action < sugar_manual_macro:
+                            print('설탕 부족! 수동 매크로!')
+                            sugar_macro_action = True
+                        else:
+                            sugar_macro_action = False
+                        
+                        if wood_macro_action and jelbean_macro_action and sugar_macro_action:
+                            print('여기에 조건에 따른 수동 매크로 선택, 클릭 동작 추가 - 총 8개 경우의 수')
+                        if wood_macro_action and not jelbean_macro_action and sugar_macro_action:
+                            print('여기에 조건에 따른 수동 매크로 선택, 클릭 동작 추가 - 총 8개 경우의 수')
+                        if not wood_macro_action and jelbean_macro_action and sugar_macro_action:
+                            print('여기에 조건에 따른 수동 매크로 선택, 클릭 동작 추가 - 총 8개 경우의 수')
+                        
                         break
 
                     in_pos = pag.locateCenterOnScreen('bInPosition.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
@@ -10106,18 +10150,18 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                     elif pix_prod == pix_wood:
                         pix_error_count = 0
                         print('wood!')
-                        Wood_to_Cotton(account, wood_min, wood_max, wood_prod, prod_direction_left)
+                        wood_bef_action = Wood_to_Cotton(account, wood_min, wood_max, wood_prod, prod_direction_left)
                         cycle_check = cycle_check + 1
 
                     elif pix_prod == pix_jelbean:
                         pix_error_count = 0
                         print('jelbean!')
-                        Wood_to_Cotton(account, jelbean_min, jelbean_max, jelbean_prod, prod_direction_left)
+                        jelbean_bef_action = Wood_to_Cotton(account, jelbean_min, jelbean_max, jelbean_prod, prod_direction_left)
 
                     elif pix_prod == pix_sugar:
                         pix_error_count = 0
                         print('sugar!')
-                        Wood_to_Cotton(account, sugar_min, sugar_max, sugar_prod, prod_direction_left)
+                        sugar_bef_action = Wood_to_Cotton(account, sugar_min, sugar_max, sugar_prod, prod_direction_left)
 
                     elif pix_prod == pix_biscuit:
                         pix_error_count = 0
