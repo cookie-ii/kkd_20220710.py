@@ -5660,6 +5660,8 @@ def Angmu_Action(prd_name, ctr, account):
         if (item_check):
             if Angmu_check(ctr[0] + 9, account) > 324:
                 # print('어머 이건 사야해!')
+            # if (prd_name == 'trade_star.png') or (prd_name == 'crystal_magic.png') or (prd_name == 'crystal_quick.png') or (prd_name == 'crystal_quick.png') or (prd_name == 'crystal_power.png') or (Angmu_check(ctr[0]+9,account) > 324):
+            #     print('어머 이건 사야해!')
                 print('어머 이건 사야해! item_check', item_check)
                 pag.click(item_check)
                 time.sleep(1)
