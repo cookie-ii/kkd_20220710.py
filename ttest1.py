@@ -1330,26 +1330,36 @@ import random
 # print((account//2)*960)
 # print((account%2)*540)
 
-account=0
-screen = ImageGrab.grab()
-pix_pass_reward = screen.getpixel((901 + (account // 2) * 960, 138 + (account % 2) * 540))  # 패스 보상# pix_reward = screen.getpixel((39 + (account // 2) * 960, 340 + (account % 2) * 540))  # 소원나무 일일보상 칸 좌상단
-# pix_pass_reward_exist = (254, 0, 0)# print(pix_reward)
-pix_pass_reward_exist = (254, 1, 1)
-print(pix_pass_reward)
 
-account=1
-screen = ImageGrab.grab()
-pix_pass_reward = screen.getpixel((901 + (account // 2) * 960, 138 + (account % 2) * 540))  # 패스 보상# pix_reward = screen.getpixel((39 + (account // 2) * 960, 340 + (account % 2) * 540))  # 소원나무 일일보상 칸 좌상단
-# pix_pass_reward_exist = (254, 0, 0)# print(pix_reward)
-pix_pass_reward_exist = (254, 1, 1)
-print(pix_pass_reward)
+#
+# wood = 1000
+# jelbean = 1500
+# sugar = 1200
+# a = wood, jelbean, sugar
+# print(a)
 
-account=2
-screen = ImageGrab.grab()
-pix_pass_reward = screen.getpixel((901 + (account // 2) * 960, 138 + (account % 2) * 540))  # 패스 보상# pix_reward = screen.getpixel((39 + (account // 2) * 960, 340 + (account % 2) * 540))  # 소원나무 일일보상 칸 좌상단
-# pix_pass_reward_exist = (254, 0, 0)# print(pix_reward)
-pix_pass_reward_exist = (254, 1, 1)
-print(pix_pass_reward)
+
+
+# account=0
+# screen = ImageGrab.grab()
+# pix_pass_reward = screen.getpixel((901 + (account // 2) * 960, 138 + (account % 2) * 540))  # 패스 보상# pix_reward = screen.getpixel((39 + (account // 2) * 960, 340 + (account % 2) * 540))  # 소원나무 일일보상 칸 좌상단
+# # pix_pass_reward_exist = (254, 0, 0)# print(pix_reward)
+# pix_pass_reward_exist = (254, 1, 1)
+# print(pix_pass_reward)
+#
+# account=1
+# screen = ImageGrab.grab()
+# pix_pass_reward = screen.getpixel((901 + (account // 2) * 960, 138 + (account % 2) * 540))  # 패스 보상# pix_reward = screen.getpixel((39 + (account // 2) * 960, 340 + (account % 2) * 540))  # 소원나무 일일보상 칸 좌상단
+# # pix_pass_reward_exist = (254, 0, 0)# print(pix_reward)
+# pix_pass_reward_exist = (254, 1, 1)
+# print(pix_pass_reward)
+#
+# account=2
+# screen = ImageGrab.grab()
+# pix_pass_reward = screen.getpixel((901 + (account // 2) * 960, 138 + (account % 2) * 540))  # 패스 보상# pix_reward = screen.getpixel((39 + (account // 2) * 960, 340 + (account % 2) * 540))  # 소원나무 일일보상 칸 좌상단
+# # pix_pass_reward_exist = (254, 0, 0)# print(pix_reward)
+# pix_pass_reward_exist = (254, 1, 1)
+# print(pix_pass_reward)
 
 
 
@@ -1390,9 +1400,10 @@ print(pix_pass_reward)
 # print('pix_jokji3_wait', pix_jokji3_wait)
 # print('pix_jokji4_wait', pix_jokji4_wait)
 
-
-# pix_status = screen.getpixel((605 + (account // 2) * 960, 55 + (account % 2) * 540))  # 상단골드
-# print(pix_status)
+account =0
+screen = ImageGrab.grab()
+pix_status = screen.getpixel((605 + (account // 2) * 960, 55 + (account % 2) * 540))  # 상단골드
+print(pix_status)
 
 # pix_prod = screen.getpixel((610 + (account // 2) * 960, 140 + (account % 2) * 540))
 # print(pix_prod)

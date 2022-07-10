@@ -258,6 +258,21 @@ jewel_lev1_A = 25  # 글레이즈드 링
 jewel_lev2_A = 25  # 루비베리 브로치
 jewel_lev3_A = 25  # 로얄 곰젤리 크라운
 
+magic_num_A = 1    # 마법공방
+magic_lev1_A = 20    # 고농축 에스프레소
+magic_lev2_A = 20    # 울퉁불퉁 뿔고구마
+magic_lev3_A = 20    # 향기로운 포도주스
+magic_lev4_A = 0    # 빨리감기 태엽장치
+magic_lev5_A = 0    # 수수께끼의 파우더 주머니
+magic_lev6_A = 0    # 수수께끼의 빛나는 파우더 주머니
+magic_lev7_A = 0    # 수수께끼의 신비한 파우더 주머니
+magic_lev8_A = 0    # 힘의 설탕결정
+magic_lev9_A = 0    # 신속의 설탕결정
+magic_lev10_A = 0    # 마력의 설탕결정
+magic_lev11_A = 0    # 토핑 조각
+magic_lev12_A = 0    # 찬란한 빛조각
+
+
 # 마늘맛바게뜨---------------------------------------------
 
 wood_min_B = 1800
@@ -370,6 +385,19 @@ jewel_lev1_B = 100  # 글레이즈드 링
 jewel_lev2_B = 100  # 루비베리 브로치
 jewel_lev3_B = 100  # 로얄 곰젤리 크라운
 
+magic_num_B = 1    # 마법공방
+magic_lev1_B = 20    # 고농축 에스프레소
+magic_lev2_B = 20    # 울퉁불퉁 뿔고구마
+magic_lev3_B = 20    # 향기로운 포도주스
+magic_lev4_B = 0    # 빨리감기 태엽장치
+magic_lev5_B = 0    # 수수께끼의 파우더 주머니
+magic_lev6_B = 0    # 수수께끼의 빛나는 파우더 주머니
+magic_lev7_B = 0    # 수수께끼의 신비한 파우더 주머니
+magic_lev8_B = 0    # 힘의 설탕결정
+magic_lev9_B = 0    # 신속의 설탕결정
+magic_lev10_B = 0    # 마력의 설탕결정
+magic_lev11_B = 0    # 토핑 조각
+magic_lev12_B = 0    # 찬란한 빛조각
 # ---------------------------------------------------------------------
 
 wood_min_C = 1800
@@ -481,6 +509,21 @@ jewel_num_C = 2  # 살롱 드 쥬얼리 건물 수
 jewel_lev1_C = 80  # 글레이즈드 링
 jewel_lev2_C = 80  # 루비베리 브로치
 jewel_lev3_C = 80  # 로얄 곰젤리 크라운
+
+magic_num_C = 1    # 마법공방
+magic_lev1_C = 20    # 고농축 에스프레소
+magic_lev2_C = 20    # 울퉁불퉁 뿔고구마
+magic_lev3_C = 20    # 향기로운 포도주스
+magic_lev4_C = 0    # 빨리감기 태엽장치
+magic_lev5_C = 0    # 수수께끼의 파우더 주머니
+magic_lev6_C = 0    # 수수께끼의 빛나는 파우더 주머니
+magic_lev7_C = 0    # 수수께끼의 신비한 파우더 주머니
+magic_lev8_C = 0    # 힘의 설탕결정
+magic_lev9_C = 0    # 신속의 설탕결정
+magic_lev10_C = 0    # 마력의 설탕결정
+magic_lev11_C = 0    # 토핑 조각
+magic_lev12_C = 0    # 찬란한 빛조각
+
 
 def macro_production(account):
     try:
@@ -2107,7 +2150,7 @@ def Wood_to_Cotton(account, Min_number, Max_number, Making_Level, prod_direction
         print('중간수량 : 설정 레벨로 진행합니다.')  # 773 -> 850
         pag.moveTo(random.randint(850 - 5, 850 + 5) + (account // 2) * 960, random.randint(200 - 3, 200 + 3) + (Making_Level - 1) * 153 + (account % 2) * 540)  # 1렙이면 200. 2~3렙은 153씩 올라감
         pag.mouseDown()
-        time.sleep(0.5)
+        time.sleep(0.3)
         pag.mouseUp()
         time.sleep(0.8)
         Skip_Next(account, prod_direction_left)
@@ -2171,9 +2214,9 @@ def Wood_to_Cotton(account, Min_number, Max_number, Making_Level, prod_direction
 def Skip_Next(account, prod_direction_left):
     if prod_direction_left:  # 이레가 수정햇서
         pag.click(164 + (account // 2) * 960, 280 + (account % 2) * 540)
-        time.sleep(0.3)
+        time.sleep(0.4)
         pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(336, 398) + (account % 2) * 540)
-        time.sleep(0.3)
+        time.sleep(0.4)
         # prod_warehousefull = pag.locateCenterOnScreen('prod_warehousefull.PNG', confidence=0.95, region=(339 + (account // 2) * 960, 253 + (account % 2) * 540, 175, 87))
         # time.sleep(1)
         # if (prod_warehousefull):  # 이레가 추가 ㅠ.ㅠ
@@ -2184,9 +2227,9 @@ def Skip_Next(account, prod_direction_left):
         #     time.sleep(0.3)
     else:
         pag.click(485 + (account // 2) * 960, 280 + (account % 2) * 540)
-        time.sleep(0.3)
+        time.sleep(0.4)
         pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(336, 398) + (account % 2) * 540)
-        time.sleep(0.3)
+        time.sleep(0.4)
 
     cond_network = pag.locateCenterOnScreen('cond_network.png', confidence=0.96, region=(440 + (account // 2) * 960, 363 + (account % 2) * 540, 43, 29))
     if (cond_network):
@@ -2606,7 +2649,6 @@ def find_sowon_num(image, account, list_output, x1, x2):
             ctr = pag.center(p)
             list_output.append(ctr)
     return
-
 
 def Sowon_numb(account):
     slash_found = False
@@ -5921,6 +5963,10 @@ def Angmu_Aft_Refresh(account):
                             print('판별 완료', ctr)
                         elif Angmu_Action('trade_star.png', ctr, account):
                             print('별조각 판별 완료1', ctr)
+                        elif Angmu_Action('trade_swift_sugar.png', ctr, account):
+                            print('신속의 설탕결정 판별 완료1', ctr)
+                        elif Angmu_Action('trade_pure_sugar.png', ctr, account):
+                            print('순수의 설탕결정 판별 완료1', ctr)
                         else:
                             print('여긴 어디 나는 누구?')
 
@@ -5935,16 +5981,20 @@ def Angmu_Aft_Refresh(account):
                         # print('생산품까지 확인')
                         print('생산품까지 확인, ctr:', ctr)
                         if (account) == 0:
-                            if Angmu_Action('trade_cotton.png', ctr, account):
-                                print('솜 판별 완료', ctr)
-                            elif Angmu_Action('trade_berry.png', ctr, account):
-                                print('베리 판별 완료', ctr)
+                            # if Angmu_Action('trade_cotton.png', ctr, account):
+                            #     print('솜 판별 완료', ctr)
+                            # elif Angmu_Action('trade_berry.png', ctr, account):
+                            #     print('베리 판별 완료', ctr)
                             # elif Angmu_Action('trade_biscuit.png', ctr, account):
                             #     print('판별 완료',ctr)
-                            elif Angmu_Action('trade_milk.png', ctr, account):
+                            if Angmu_Action('trade_milk.png', ctr, account):
                                 print('우유 판별 완료',ctr)
                             elif Angmu_Action('trade_star.png', ctr, account):
                                 print('별조각 판별 완료', ctr)
+                            elif Angmu_Action('trade_swift_sugar.png', ctr, account):
+                                print('신속의 설탕결정 판별 완료', ctr)
+                            elif Angmu_Action('trade_pure_sugar.png', ctr, account):
+                                print('순수의 설탕결정 판별 완료', ctr)
                             else:
                                 print('여긴 어디 나는 누구 계정0')
                         if (account) == 1:
@@ -5958,12 +6008,17 @@ def Angmu_Aft_Refresh(account):
                             #     print('판별 완료',ctr)
                             elif Angmu_Action('trade_star.png', ctr, account):
                                 print('별조각 판별 완료', ctr)
+                            elif Angmu_Action('trade_swift_sugar.png', ctr, account):
+                                print('신속의 설탕결정 판별 완료', ctr)
+                            elif Angmu_Action('trade_pure_sugar.png', ctr, account):
+                                print('순수의 설탕결정 판별 완료', ctr)
+
                             else:
                                 print('여긴 어디 나는 누구 계정1')
                         if (account) == 2:
-                            if Angmu_Action('trade_berry.png', ctr, account):
-                                print('베리 판별 완료', ctr)
-                            elif Angmu_Action('trade_cotton.png', ctr, account):
+                            # if Angmu_Action('trade_berry.png', ctr, account):
+                            #     print('베리 판별 완료', ctr)
+                            if Angmu_Action('trade_cotton.png', ctr, account):
                                 print('솜 판별 완료',ctr)
                             # elif Angmu_Action('trade_biscuit.png', ctr, account):
                             #     print('판별 완료',ctr)
@@ -5971,6 +6026,11 @@ def Angmu_Aft_Refresh(account):
                             #     print('판별 완료',ctr)
                             elif Angmu_Action('trade_star.png', ctr, account):
                                 print('별조각 판별 완료', ctr)
+                            elif Angmu_Action('trade_swift_sugar.png', ctr, account):
+                                print('신속의 설탕결정 판별 완료', ctr)
+                            elif Angmu_Action('trade_pure_sugar.png', ctr, account):
+                                print('순수의 설탕결정 판별 완료', ctr)
+
                             else:
                                 print('여긴 어디 나는 누구 계정2')
 
@@ -5990,7 +6050,7 @@ def Angmu_Aft_Refresh(account):
             pag.moveTo(random.randint(786, 820) + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540))
             pag.mouseDown()
             time.sleep(0.5)
-            pag.moveTo(random.randint(786, 820) - 150 * 4 + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540), 5)  # 153인데 20 더 여유줌
+            pag.moveTo(random.randint(786, 820) - 150 * 3 + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540), 5)  # 153인데 20 더 여유줌
             time.sleep(0.5)
             pag.mouseUp()
             time.sleep(0.5)
@@ -8726,29 +8786,32 @@ if number_of_accounts == 2 or number_of_accounts == 3:
     # ---------------------- 3계정에 맞춤 + 무조건 수동매크로 종료
         if (man_macroA) or (man_macroB) or (man_macroC):
             print('수동 매크로 동작중... 종료한다!', man_mac_time - now_time + man_macro_chk_time)
-            if(man_macroA):
+            if(man_macroA) and bAcc_A_First and not bAcc_C_First:
                 pag.click(man_macroA)
                 time.sleep(2)
                 man_macro_working = pag.locateCenterOnScreen('man_macro_working.png', confidence=0.9, region=(960, 540, 513, 523))
                 pag.click(man_macro_working)
                 time.sleep(2)
-                pag.hotkey('alt', 'F4')  # 강제종료해!
+                man_macro_stop = pag.locateCenterOnScreen('macro_stop.png', confidence=0.9, region=(960, 540, 513, 523))
+                pag.click(man_macro_stop)
                 time.sleep(2)
-            elif(man_macroB):
+            elif(man_macroB) and not bAcc_A_First and not bAcc_C_First:
                 pag.click(man_macroB)
                 time.sleep(2)
                 man_macro_working = pag.locateCenterOnScreen('man_macro_working.png', confidence=0.9, region=(1156, 540, 513, 523))
                 pag.click(man_macro_working)
                 time.sleep(2)
-                pag.hotkey('alt', 'F4')  # 강제종료해!
+                man_macro_stop = pag.locateCenterOnScreen('macro_stop.png', confidence=0.9, region=(1156, 540, 513, 523))
+                pag.click(man_macro_stop)
                 time.sleep(2)
-            else:
+            elif(man_macroC) and not bAcc_A_First and bAcc_C_First:
                 pag.click(man_macroC)
                 time.sleep(2)
                 man_macro_working = pag.locateCenterOnScreen('man_macro_working.png', confidence=0.9, region=(1398, 540, 513, 523))
                 pag.click(man_macro_working)
                 time.sleep(2)
-                pag.hotkey('alt', 'F4')  # 강제종료해!
+                man_macro_stop = pag.locateCenterOnScreen('macro_stop.png', confidence=0.9, region=(1398, 540, 513, 523))
+                pag.click(man_macro_stop)
                 time.sleep(2)
             time.sleep(5)
         else:
@@ -9115,6 +9178,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
             beer_num = beer_num_A  # 오크통 쉼터 건물 수
             muffin_num = muffin_num_A  # 퐁 드 파티세리 건물 수
             jewel_num = jewel_num_A  # 살롱 드 쥬얼리 건물 수
+            magic_num = magic_num_A  # 마법공방
             fountain_set_time = fountain_set_time_A  # 분수 클릭 주기
             cookie_set_time = cookie_set_time_A  # 쿠하 클릭 주기
             set_max_power = set_max_power_A  # 아레나 상대 전투력 커트라인
@@ -9222,6 +9286,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
             beer_num = beer_num_B  # 오크통 쉼터 건물 수
             muffin_num = muffin_num_B  # 퐁 드 파티세리 건물 수
             jewel_num = jewel_num_B  # 살롱 드 쥬얼리 건물 수
+            magic_num = magic_num_B  # 마법공방
             fountain_set_time = fountain_set_time_B  # 분수 클릭 주기
             cookie_set_time = cookie_set_time_B  # 쿠하 클릭 주기
             set_max_power = set_max_power_B  # 아레나 상대 전투력 커트라인
@@ -9329,6 +9394,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
             beer_num = beer_num_C  # 오크통 쉼터 건물 수
             muffin_num = muffin_num_C  # 퐁 드 파티세리 건물 수
             jewel_num = jewel_num_C  # 살롱 드 쥬얼리 건물 수
+            magic_num = magic_num_C # 마법공방
             fountain_set_time = fountain_set_time_C  # 분수 클릭 주기
             cookie_set_time = cookie_set_time_C  # 쿠하 클릭 주기
             set_max_power = set_max_power_C  # 아레나 상대 전투력 커트라인
@@ -10066,6 +10132,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                             Arena_action(account, set_max_power)
 
                         # 수동 매크로 동작 - 건물에 들어간 후 수동 매크로 돌려야 하는 거면 Enter_building(account) 넣어줄 것.
+                        # 나무건물 들어감
                         Enter_Building(account)
                         if wood_bef_action < wood_manual_macro:
                             print('나무 부족! 수동 매크로!')
@@ -10085,13 +10152,66 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         else:
                             sugar_macro_action = False
                         
-                        if wood_macro_action and jelbean_macro_action and sugar_macro_action:
-                            print('여기에 조건에 따른 수동 매크로 선택, 클릭 동작 추가 - 총 8개 경우의 수')
-                        if wood_macro_action and not jelbean_macro_action and sugar_macro_action:
-                            print('여기에 조건에 따른 수동 매크로 선택, 클릭 동작 추가 - 총 8개 경우의 수')
-                        if not wood_macro_action and jelbean_macro_action and sugar_macro_action:
-                            print('여기에 조건에 따른 수동 매크로 선택, 클릭 동작 추가 - 총 8개 경우의 수')
-                        
+                        if wood_macro_action and not jelbean_macro_action and not sugar_macro_action:   # 1,2
+                            # 나무건물 들어감
+                            Enter_Building(account)
+                            if account == 0:
+                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(960+406, 540+115+48*6, 104,48))
+                            if account == 1:
+                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1156+406, 540+115+48*6, 104,48))
+                            if account == 2:
+                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1398+406, 540+115+48*6, 104,48))
+                            
+                        elif not wood_macro_action and jelbean_macro_action and not sugar_macro_action:   # 3, 4
+                            if account == 0:
+                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(960+406, 540+115+48*5, 104,48))
+                            if account == 1:
+                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1156+406, 540+115+48*5, 104,48))
+                            if account == 2:
+                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1398+406, 540+115+48*5, 104,48))
+                            
+                        elif not wood_macro_action and not jelbean_macro_action and sugar_macro_action:   # 5, 6
+                            if account == 0:
+                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(960+406, 540+115+48*4, 104,48))
+                            if account == 1:
+                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1156+406, 540+115+48*4, 104,48))
+                            if account == 2:
+                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1398+406, 540+115+48*4, 104,48))
+                            
+                        elif wood_macro_action and jelbean_macro_action and not sugar_macro_action:    # 1, 2, 3, 4
+                            if account == 0:
+                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(960+406, 540+115+48*3, 104,48))
+                            if account == 1:
+                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1156+406, 540+115+48*3, 104,48))
+                            if account == 2:
+                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1398+406, 540+115+48*3, 104,48))
+                            
+                        elif wood_macro_action and not jelbean_macro_action and sugar_macro_action:    # 1, 2, 5, 6
+                            if account == 0:
+                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(960+406, 540+115+48*2, 104,48))
+                            if account == 1:
+                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1156+406, 540+115+48*2, 104,48))
+                            if account == 2:
+                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1398+406, 540+115+48*2, 104,48))
+                            
+                        elif not wood_macro_action and jelbean_macro_action and sugar_macro_action:    # 3, 4, 5, 6
+                            if account == 0:
+                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(960+406, 540+115+48*1, 104,48))
+                            if account == 1:
+                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1156+406, 540+115+48*1, 104,48))
+                            if account == 2:
+                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1398+406, 540+115+48*1, 104,48))
+                            
+                        elif wood_macro_action and jelbean_macro_action and sugar_macro_action:    # 1, 2, 3, 4, 5, 6
+                            if account == 0:
+                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(960+406, 540+115+48*0, 104,48))
+                            if account == 1:
+                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1156+406, 540+115+48*0, 104,48))
+                            if account == 2:
+                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1398+406, 540+115+48*0, 104,48))
+                            
+                        elif not wood_macro_action and not jelbean_macro_action and not sugar_macro_action:   # 아무것도 안돌려!
+                            print('수동매크로 - 돌릴 게 없네요')
                         break
 
                     in_pos = pag.locateCenterOnScreen('bInPosition.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
@@ -12113,28 +12233,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                     pix_muffin = (191, 91, 59)  # 머핀 - muffin
                     pix_jewel = (135, 90, 50)  # 글레이즈드링 - jewel
                     pix_magic = (93, 55, 48)  # 마법공방 - magic
-                    #
-                    # pix_wood = (117, 59, 41)  # 나무
-                    # pix_jelbean = (1, 239, 236)  # 젤리빈
-                    # pix_sugar = (255, 255, 255)  # 설탕
-                    # pix_biscuit = (206, 132, 58)  # 비스킷
-                    # pix_berry = (187, 41, 46)  # 젤리베리
-                    # pix_milk = (233, 242, 242)  # 우유
-                    # pix_cotton = (255, 247, 255)  # 솜
-                    # pix_smith = (163, 117, 85)  # 도끼 스미스
-                    # pix_jelly = (13, 172, 202)  # 젤리빈 잼 젤리
-                    # pix_rollc = (214, 147, 102)  # 솔새 롤케
-                    # pix_bread = (142, 66, 9)  # 호밀빵 브레드
-                    # pix_jampy = (166, 30, 44)  # 젤리스튜 잼파이
-                    # pix_doye = (157, 84, 43)  # 비스킷 화분 - 도예
-                    # pix_flower = (255, 31, 130)  # 캔디꽃 - flower
-                    # pix_milky = (214, 230, 230)  # 크림 - milky
-                    # pix_latte = (255, 251, 239)  # 젤리빈 라떼 - latte
-                    # pix_dolls = (109, 235, 249)  # 쿠션 - dolls
-                    # pix_beer = (152, 102, 65)  # 크림루트비어 - beer
-                    # pix_muffin = (192, 91, 59)  # 머핀 - muffin
-                    # pix_jewel = (130, 90, 53)  # 글레이즈드링 - jewel
-                    # pix_magic = (225, 164, 3)  # 마법공방 - magic
+
                     pix_status_in = (194, 144, 10)  # 생산건물 내
 
                     if keyboard.is_pressed('space'):
@@ -13278,6 +13377,206 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                     bSecond = False
                                     break
                             # 작업 역방향 끝
+
+                    elif pix_prod == pix_magic:
+                        pix_error_count = 0
+                        print('magic!')
+                        if not bProdHigh or magic_num == 1:
+                            bSecond = False
+                            # 작업 순방향 시작
+                            if not (magic_lev1 == 0) and not bmagiccompleted:
+                                if not prod_action('magic_lev1.png', 'magic_stby_lv1.png', account, magic_lev1):
+                                    if (magic_lev2 == 0):
+                                        bmagiccompleted = True
+                                    if not (magic_lev2 == 0) and not bmagiccompleted:
+                                        if not prod_action('magic_lev2.png', 'magic_stby_lv2.png', account, magic_lev2):
+                                            if (magic_lev3 == 0):
+                                                bmagiccompleted = True
+                                            if not (magic_lev3 == 0) and not bmagiccompleted:
+                                                if not prod_action('magic_lev3.png', 'magic_stby_lv3.png', account, magic_lev3):
+                                                    if (magic_lev4 == 0):
+                                                        bmagiccompleted = True
+                                                    if not (magic_lev4 == 0) and not bmagiccompleted:
+                                                        Updown(account, 'up')
+                                                        if not prod_action('magic_lev4.png', 'magic_stby_lv4.png', account, magic_lev4):
+                                                            if (magic_lev5 == 0):
+                                                                bmagiccompleted = True
+                                                            if not (magic_lev5 == 0) and not bmagiccompleted:
+                                                                Updown(account, 'up')
+                                                                if not prod_action('magic_lev5.png', 'magic_stby_lv5.png', account, magic_lev5):
+                                                                    if (magic_lev6 == 0):
+                                                                        bmagiccompleted = True
+                                                                    if not (magic_lev6 == 0) and not bmagiccompleted:
+                                                                        Updown(account, 'up')
+                                                                        if not prod_action('magic_lev6.png', 'magic_stby_lv6.png', account, magic_lev6):
+                                                                            if (magic_lev7 == 0):
+                                                                                bmagiccompleted = True
+                                                                            if not (magic_lev7 == 0) and not bmagiccompleted:
+                                                                                Updown(account, 'up')
+                                                                                if not prod_action('magic_lev7.png', 'magic_stby_lv7.png', account, magic_lev7):
+                                                                                    bmagiccompleted = True
+                                                                                Skip_Next(account, prod_direction_left)
+                                                                            else:
+                                                                                Skip_Next(account, prod_direction_left)
+                                                                        else:
+                                                                            Skip_Next(account, prod_direction_left)
+                                                                    else:
+                                                                        Skip_Next(account, prod_direction_left)
+                                                                else:
+                                                                    Skip_Next(account, prod_direction_left)
+                                                            else:
+                                                                Skip_Next(account, prod_direction_left)
+                                                        else:
+                                                            Skip_Next(account, prod_direction_left)
+                                                    else:
+                                                        Skip_Next(account, prod_direction_left)
+                                                else:
+                                                    Skip_Next(account, prod_direction_left)
+                                            else:
+                                                Skip_Next(account, prod_direction_left)
+                                        else:
+                                            Skip_Next(account, prod_direction_left)
+                                    else:
+                                        Skip_Next(account, prod_direction_left)
+                                else:
+                                    Skip_Next(account, prod_direction_left)
+                            else:
+                                Skip_Next(account, prod_direction_left)
+                            # 작업 순방향 끝
+                        while True:
+                            if keyboard.is_pressed('end'):
+                                break
+                            if not bProdHigh or magic_num == 1:
+                                break
+                            if bProdHigh and not bSecond and magic_num == 2:  # 첫 번째 건물 작업
+                                # 작업 순방향 시작
+                                if not (magic_lev1 == 0):
+                                    if not prod_action('magic_lev1.png', 'magic_stby_lv1.png', account, magic_lev1):
+                                        if not (magic_lev2 == 0):
+                                            if not prod_action('magic_lev2.png', 'magic_stby_lv2.png', account, magic_lev2):
+                                                if not (magic_lev3 == 0):
+                                                    if not prod_action('magic_lev3.png', 'magic_stby_lv3.png', account, magic_lev3):
+                                                        if not (magic_lev4 == 0):
+                                                            Updown(account, 'up')
+                                                            if not prod_action('magic_lev4.png', 'magic_stby_lv4.png', account, magic_lev4):
+                                                                if not (magic_lev5 == 0):
+                                                                    Updown(account, 'up')
+                                                                    if not prod_action('magic_lev5.png', 'magic_stby_lv5.png', account, magic_lev5):
+                                                                        if not (magic_lev6 == 0):
+                                                                            Updown(account, 'up')
+                                                                            if not prod_action('magic_lev6.png', 'magic_stby_lv6.png', account, magic_lev6):
+                                                                                if not (magic_lev7 == 0):
+                                                                                    Updown(account, 'up')
+                                                                                    prod_action('magic_lev7.png', 'magic_stby_lv7.png', account, magic_lev7)
+                                                                                    Skip_Next(account, prod_direction_left)
+                                                                                    bSecond = True
+                                                                                    break
+                                                                                else:
+                                                                                    Skip_Next(account, prod_direction_left)
+                                                                                    bSecond = True
+                                                                                    break
+                                                                            else:
+                                                                                Skip_Next(account, prod_direction_left)
+                                                                                bSecond = True
+                                                                                break
+                                                                        else:
+                                                                            Skip_Next(account, prod_direction_left)
+                                                                            bSecond = True
+                                                                            break
+                                                                    else:
+                                                                        Skip_Next(account, prod_direction_left)
+                                                                        bSecond = True
+                                                                        break
+                                                                else:
+                                                                    Skip_Next(account, prod_direction_left)
+                                                                    bSecond = True
+                                                                    break
+                                                            else:
+                                                                Skip_Next(account, prod_direction_left)
+                                                                bSecond = True
+                                                                break
+                                                        else:
+                                                            Skip_Next(account, prod_direction_left)
+                                                            bSecond = True
+                                                            break
+                                                    else:
+                                                        Skip_Next(account, prod_direction_left)
+                                                        bSecond = True
+                                                        break
+                                                else:
+                                                    Skip_Next(account, prod_direction_left)
+                                                    bSecond = True
+                                                    break
+                                            else:
+                                                Skip_Next(account, prod_direction_left)
+                                                bSecond = True
+                                                break
+                                        else:
+                                            Skip_Next(account, prod_direction_left)
+                                            bSecond = True
+                                            break
+                                    else:
+                                        Skip_Next(account, prod_direction_left)
+                                        bSecond = True
+                                        break
+                                else:
+                                    Skip_Next(account, prod_direction_left)
+                                    bSecond = True
+                                    break
+                                # 작업 순방향 끝
+                            if bProdHigh and bSecond and magic_num == 2:  # 두 번째 건물 작업
+                                # 작업 역방향 시작
+                                if (magic_lev7 == 0):
+                                    if (magic_lev6 == 0):
+                                        if (magic_lev5 == 0):
+                                            if (magic_lev4 == 0):
+                                                if (magic_lev3 == 0):
+                                                    if (magic_lev2 == 0):
+                                                        prod_action('magic_lev1.png', 'magic_stby_lv1.png', account, magic_lev1)
+                                                        Skip_Next(account, prod_direction_left)
+                                                        bSecond = False
+                                                        break
+                                                    else:
+                                                        prod_action('magic_lev2.png', 'magic_stby_lv2.png', account, magic_lev2)
+                                                        Skip_Next(account, prod_direction_left)
+                                                        bSecond = False
+                                                        break
+                                                else:
+                                                    prod_action('magic_lev3.png', 'magic_stby_lv3.png', account, magic_lev3)
+                                                    Skip_Next(account, prod_direction_left)
+                                                    bSecond = False
+                                                    break
+                                            else:
+                                                Updown(account, 'up')
+                                                prod_action('magic_lev4.png', 'magic_stby_lv4.png', account, magic_lev4)
+                                                Skip_Next(account, prod_direction_left)
+                                                bSecond = False
+                                                break
+                                        else:
+                                            Updown(account, 'up')
+                                            Updown(account, 'up')
+                                            prod_action('magic_lev5.png', 'magic_stby_lv5.png', account, magic_lev5)
+                                            Skip_Next(account, prod_direction_left)
+                                            bSecond = False
+                                            break
+                                    else:
+                                        Updown(account, 'up')
+                                        Updown(account, 'up')
+                                        Updown(account, 'up')
+                                        prod_action('magic_lev6.png', 'magic_stby_lv6.png', account, magic_lev6)
+                                        Skip_Next(account, prod_direction_left)
+                                        bSecond = False
+                                        break
+                                else:
+                                    Updown(account, 'up')
+                                    Updown(account, 'up')
+                                    Updown(account, 'up')
+                                    Updown(account, 'up')
+                                    prod_action('magic_lev7.png', 'magic_stby_lv7.png', account, magic_lev7)
+                                    Skip_Next(account, prod_direction_left)
+                                    bSecond = False
+                                    break
+                                # 작업 역방향 끝
 
 
                     elif pix_prod == pix_milky:
