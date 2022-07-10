@@ -11419,6 +11419,205 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                     break
                             # 작업 역방향 끝
 
+                    elif pix_prod == pix_magic:
+                        pix_error_count = 0
+                        print('magic!')
+                        if not bProdHigh or magic_num == 1:
+                            bSecond = False
+                            # 작업 순방향 시작
+                            if not (magic_lev1 == 0) and not bmagiccompleted:
+                                if not prod_action('magic_lev1.png', 'magic_stby_lv1.png', account, magic_lev1):
+                                    if (magic_lev2 == 0):
+                                        bmagiccompleted = True
+                                    if not (magic_lev2 == 0) and not bmagiccompleted:
+                                        if not prod_action('magic_lev2.png', 'magic_stby_lv2.png', account, magic_lev2):
+                                            if (magic_lev3 == 0):
+                                                bmagiccompleted = True
+                                            if not (magic_lev3 == 0) and not bmagiccompleted:
+                                                if not prod_action('magic_lev3.png', 'magic_stby_lv3.png', account, magic_lev3):
+                                                    if (magic_lev4 == 0):
+                                                        bmagiccompleted = True
+                                                    if not (magic_lev4 == 0) and not bmagiccompleted:
+                                                        Updown(account, 'up')
+                                                        if not prod_action('magic_lev4.png', 'magic_stby_lv4.png', account, magic_lev4):
+                                                            if (magic_lev5 == 0):
+                                                                bmagiccompleted = True
+                                                            if not (magic_lev5 == 0) and not bmagiccompleted:
+                                                                Updown(account, 'up')
+                                                                if not prod_action('magic_lev5.png', 'magic_stby_lv5.png', account, magic_lev5):
+                                                                    if (magic_lev6 == 0):
+                                                                        bmagiccompleted = True
+                                                                    if not (magic_lev6 == 0) and not bmagiccompleted:
+                                                                        Updown(account, 'up')
+                                                                        if not prod_action('magic_lev6.png', 'magic_stby_lv6.png', account, magic_lev6):
+                                                                            if (magic_lev7 == 0):
+                                                                                bmagiccompleted = True
+                                                                            if not (magic_lev7 == 0) and not bmagiccompleted:
+                                                                                Updown(account, 'up')
+                                                                                if not prod_action('magic_lev7.png', 'magic_stby_lv7.png', account, magic_lev7):
+                                                                                    bmagiccompleted = True
+                                                                                Skip_Next(account, prod_direction_left)
+                                                                            else:
+                                                                                Skip_Next(account, prod_direction_left)
+                                                                        else:
+                                                                            Skip_Next(account, prod_direction_left)
+                                                                    else:
+                                                                        Skip_Next(account, prod_direction_left)
+                                                                else:
+                                                                    Skip_Next(account, prod_direction_left)
+                                                            else:
+                                                                Skip_Next(account, prod_direction_left)
+                                                        else:
+                                                            Skip_Next(account, prod_direction_left)
+                                                    else:
+                                                        Skip_Next(account, prod_direction_left)
+                                                else:
+                                                    Skip_Next(account, prod_direction_left)
+                                            else:
+                                                Skip_Next(account, prod_direction_left)
+                                        else:
+                                            Skip_Next(account, prod_direction_left)
+                                    else:
+                                        Skip_Next(account, prod_direction_left)
+                                else:
+                                    Skip_Next(account, prod_direction_left)
+                            else:
+                                Skip_Next(account, prod_direction_left)
+                            # 작업 순방향 끝
+                        while True:
+                            if keyboard.is_pressed('end'):
+                                break
+                            if not bProdHigh or magic_num == 1:
+                                break
+                            if bProdHigh and not bSecond and magic_num == 2:  # 첫 번째 건물 작업
+                                # 작업 순방향 시작
+                                if not (magic_lev1 == 0):
+                                    if not prod_action('magic_lev1.png', 'magic_stby_lv1.png', account, magic_lev1):
+                                        if not (magic_lev2 == 0):
+                                            if not prod_action('magic_lev2.png', 'magic_stby_lv2.png', account, magic_lev2):
+                                                if not (magic_lev3 == 0):
+                                                    if not prod_action('magic_lev3.png', 'magic_stby_lv3.png', account, magic_lev3):
+                                                        if not (magic_lev4 == 0):
+                                                            Updown(account, 'up')
+                                                            if not prod_action('magic_lev4.png', 'magic_stby_lv4.png', account, magic_lev4):
+                                                                if not (magic_lev5 == 0):
+                                                                    Updown(account, 'up')
+                                                                    if not prod_action('magic_lev5.png', 'magic_stby_lv5.png', account, magic_lev5):
+                                                                        if not (magic_lev6 == 0):
+                                                                            Updown(account, 'up')
+                                                                            if not prod_action('magic_lev6.png', 'magic_stby_lv6.png', account, magic_lev6):
+                                                                                if not (magic_lev7 == 0):
+                                                                                    Updown(account, 'up')
+                                                                                    prod_action('magic_lev7.png', 'magic_stby_lv7.png', account, magic_lev7)
+                                                                                    Skip_Next(account, prod_direction_left)
+                                                                                    bSecond = True
+                                                                                    break
+                                                                                else:
+                                                                                    Skip_Next(account, prod_direction_left)
+                                                                                    bSecond = True
+                                                                                    break
+                                                                            else:
+                                                                                Skip_Next(account, prod_direction_left)
+                                                                                bSecond = True
+                                                                                break
+                                                                        else:
+                                                                            Skip_Next(account, prod_direction_left)
+                                                                            bSecond = True
+                                                                            break
+                                                                    else:
+                                                                        Skip_Next(account, prod_direction_left)
+                                                                        bSecond = True
+                                                                        break
+                                                                else:
+                                                                    Skip_Next(account, prod_direction_left)
+                                                                    bSecond = True
+                                                                    break
+                                                            else:
+                                                                Skip_Next(account, prod_direction_left)
+                                                                bSecond = True
+                                                                break
+                                                        else:
+                                                            Skip_Next(account, prod_direction_left)
+                                                            bSecond = True
+                                                            break
+                                                    else:
+                                                        Skip_Next(account, prod_direction_left)
+                                                        bSecond = True
+                                                        break
+                                                else:
+                                                    Skip_Next(account, prod_direction_left)
+                                                    bSecond = True
+                                                    break
+                                            else:
+                                                Skip_Next(account, prod_direction_left)
+                                                bSecond = True
+                                                break
+                                        else:
+                                            Skip_Next(account, prod_direction_left)
+                                            bSecond = True
+                                            break
+                                    else:
+                                        Skip_Next(account, prod_direction_left)
+                                        bSecond = True
+                                        break
+                                else:
+                                    Skip_Next(account, prod_direction_left)
+                                    bSecond = True
+                                    break
+                                # 작업 순방향 끝
+                            if bProdHigh and bSecond and magic_num == 2:  # 두 번째 건물 작업
+                                # 작업 역방향 시작
+                                if (magic_lev7 == 0):
+                                    if (magic_lev6 == 0):
+                                        if (magic_lev5 == 0):
+                                            if (magic_lev4 == 0):
+                                                if (magic_lev3 == 0):
+                                                    if (magic_lev2 == 0):
+                                                        prod_action('magic_lev1.png', 'magic_stby_lv1.png', account, magic_lev1)
+                                                        Skip_Next(account, prod_direction_left)
+                                                        bSecond = False
+                                                        break
+                                                    else:
+                                                        prod_action('magic_lev2.png', 'magic_stby_lv2.png', account, magic_lev2)
+                                                        Skip_Next(account, prod_direction_left)
+                                                        bSecond = False
+                                                        break
+                                                else:
+                                                    prod_action('magic_lev3.png', 'magic_stby_lv3.png', account, magic_lev3)
+                                                    Skip_Next(account, prod_direction_left)
+                                                    bSecond = False
+                                                    break
+                                            else:
+                                                Updown(account, 'up')
+                                                prod_action('magic_lev4.png', 'magic_stby_lv4.png', account, magic_lev4)
+                                                Skip_Next(account, prod_direction_left)
+                                                bSecond = False
+                                                break
+                                        else:
+                                            Updown(account, 'up')
+                                            Updown(account, 'up')
+                                            prod_action('magic_lev5.png', 'magic_stby_lv5.png', account, magic_lev5)
+                                            Skip_Next(account, prod_direction_left)
+                                            bSecond = False
+                                            break
+                                    else:
+                                        Updown(account, 'up')
+                                        Updown(account, 'up')
+                                        Updown(account, 'up')
+                                        prod_action('magic_lev6.png', 'magic_stby_lv6.png', account, magic_lev6)
+                                        Skip_Next(account, prod_direction_left)
+                                        bSecond = False
+                                        break
+                                else:
+                                    Updown(account, 'up')
+                                    Updown(account, 'up')
+                                    Updown(account, 'up')
+                                    Updown(account, 'up')
+                                    prod_action('magic_lev7.png', 'magic_stby_lv7.png', account, magic_lev7)
+                                    Skip_Next(account, prod_direction_left)
+                                    bSecond = False
+                                    break
+                                # 작업 역방향 끝
 
                     elif pix_prod == pix_milky:
                         pix_error_count = 0
