@@ -96,8 +96,8 @@ bMacroTime = True  # 매크로 도는 중?
 bProdHigh = False  # 동일 건물 2개인 경우 2번째 건물에서 높은 생산품 우선 생산
 bSecond = False  # 두 번째 건물 작업이냐?
 
-bAcc_A_First = True  # 계정 먼저 시작 순서(True일 때 A부터, 아니면 B부터)
-bAcc_C_First = False     # C계정 먼저 시작해요!
+bAcc_A_First = False  # 계정 먼저 시작 순서(True일 때 A부터, 아니면 B부터)
+bAcc_C_First = True     # C계정 먼저 시작해요!
 
 bFirstCookhouA = False  # 첫 쿠하(클릭)
 bFirstCookhouB = False  # 첫 쿠하(클릭)
@@ -149,7 +149,7 @@ quick_production = 1     # 빠른 생산할 때 몇렙으로 돌릴까? - quick�
 
 
 wood_min_A = 1800
-wood_max_A = 2000
+wood_max_A = 2200
 wood_prod_A = 2
 
 jelbean_min_A = 2000
@@ -261,7 +261,7 @@ jewel_lev3_A = 25  # 로얄 곰젤리 크라운
 magic_num_A = 1    # 마법공방
 magic_lev1_A = 20    # 고농축 에스프레소
 magic_lev2_A = 20    # 울퉁불퉁 뿔고구마
-magic_lev3_A = 20    # 향기로운 포도주스
+magic_lev3_A = 40    # 향기로운 포도주스
 magic_lev4_A = 0    # 빨리감기 태엽장치
 magic_lev5_A = 0    # 수수께끼의 파우더 주머니
 magic_lev6_A = 0    # 수수께끼의 빛나는 파우더 주머니
@@ -276,7 +276,7 @@ magic_lev12_A = 0    # 찬란한 빛조각
 # 마늘맛바게뜨---------------------------------------------
 
 wood_min_B = 1800
-wood_max_B = 2000
+wood_max_B = 2200
 wood_prod_B = 2
 
 jelbean_min_B = 2000
@@ -388,7 +388,7 @@ jewel_lev3_B = 100  # 로얄 곰젤리 크라운
 magic_num_B = 1    # 마법공방
 magic_lev1_B = 20    # 고농축 에스프레소
 magic_lev2_B = 20    # 울퉁불퉁 뿔고구마
-magic_lev3_B = 20    # 향기로운 포도주스
+magic_lev3_B = 40    # 향기로운 포도주스
 magic_lev4_B = 0    # 빨리감기 태엽장치
 magic_lev5_B = 0    # 수수께끼의 파우더 주머니
 magic_lev6_B = 0    # 수수께끼의 빛나는 파우더 주머니
@@ -401,7 +401,7 @@ magic_lev12_B = 0    # 찬란한 빛조각
 # ---------------------------------------------------------------------
 
 wood_min_C = 1800
-wood_max_C = 2000
+wood_max_C = 2200
 wood_prod_C = 2
 
 jelbean_min_C = 2000
@@ -513,7 +513,7 @@ jewel_lev3_C = 80  # 로얄 곰젤리 크라운
 magic_num_C = 1    # 마법공방
 magic_lev1_C = 20    # 고농축 에스프레소
 magic_lev2_C = 20    # 울퉁불퉁 뿔고구마
-magic_lev3_C = 20    # 향기로운 포도주스
+magic_lev3_C = 40    # 향기로운 포도주스
 magic_lev4_C = 0    # 빨리감기 태엽장치
 magic_lev5_C = 0    # 수수께끼의 파우더 주머니
 magic_lev6_C = 0    # 수수께끼의 빛나는 파우더 주머니
@@ -1506,7 +1506,7 @@ def prod_action(image, list_image, account, check_num):
         if (prod_full_list3) or (prod_full_list4) or (prod_full_list5) or (prod_full_list6) or (prod_full_list7):
             print('리스트 full!1')
             return True
-        if now_time - start_time > 30:
+        if now_time - start_time > 10:
             print('동작 최대시간 초과 입니다.')
             return False
         if keyboard.is_pressed('end'):
@@ -4078,7 +4078,7 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
             mark_x_mission = pag.locateCenterOnScreen('mark_x_mission.png', confidence=0.8, region=(778 + (account // 2) * 960, 124 + (account % 2) * 540, 50, 50))  # 미션 취소
             cond_error_page = pag.locateCenterOnScreen('cond_error_page.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 검은 바탕... 렉 등에 의한 오류?
             kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
-
+            kkd_ad = pag.locateCenterOnScreen('cond_error_ad.png', confidence=0.95, region=(1, 1 , 960*2, 540*2))
             print('[Kingdom_ready] 현재 픽셀값 : ', pix_status, '실행 %s초 지났습니다.' % int(now_time - start_time), account, '계정, 현재시간:', datetime.now().strftime('%H:%M:%S'))
             # print('[Kingdom_ready] 실행 %s초 지났습니다.' % int(now_time - start_time), '현재시간:', datetime.now().strftime('%H:%M:%S'))
             if now_time - start_time >= 300:
@@ -4086,6 +4086,45 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
                 End_kkd(account)  # 쿠킹덤 종료. 15분 안엔 끝나겠지.
                 Kingdom_ready(account, 'kkd_out')  # 재부팅
                 start_time = 0
+
+            #현재 계정 매크로 종료...흠....
+            man_macroA = pag.locateCenterOnScreen('cond_manual_macro.png', confidence=0.9, region=(500 + (account // 2) * 960, 1 + (account % 2) * 540, 422, 29))
+            man_macroB = pag.locateCenterOnScreen('cond_manual_macro.png', confidence=0.9, region=(500 + (account // 2) * 960, 1 + (account % 2) * 540, 422, 29))
+            man_macroC = pag.locateCenterOnScreen('cond_manual_macro.png', confidence=0.9, region=(500 + (account // 2) * 960, 1 + (account % 2) * 540, 422, 29))
+            if account == 0 and man_macroA:
+                print('A계정 수동 매크로 동작중... 종료한다!')
+                pag.click(man_macroA)
+                time.sleep(2)
+                man_macro_working = pag.locateCenterOnScreen('man_macro_working.png', confidence=0.9, region=(960, 540, 513, 523))
+                pag.click(man_macro_working)
+                time.sleep(2)
+                man_macro_stop = pag.locateCenterOnScreen('macro_stop.png', confidence=0.9, region=(960, 540, 513, 523))
+                pag.click(man_macro_stop)
+                time.sleep(2)
+            elif account == 1 and man_macroB:
+                print('B계정 수동 매크로 동작중... 종료한다!')
+                pag.click(man_macroB)
+                time.sleep(2)
+                man_macro_working = pag.locateCenterOnScreen('man_macro_working.png', confidence=0.9, region=(1156, 540, 513, 523))
+                pag.click(man_macro_working)
+                time.sleep(2)
+                man_macro_stop = pag.locateCenterOnScreen('macro_stop.png', confidence=0.9, region=(1156, 540, 513, 523))
+                pag.click(man_macro_stop)
+                time.sleep(2)
+            elif account == 2 and man_macroC:
+                print('C계정 수동 매크로 동작중... 종료한다!')
+                pag.click(man_macroC)
+                time.sleep(2)
+                man_macro_working = pag.locateCenterOnScreen('man_macro_working.png', confidence=0.9, region=(1398, 540, 513, 523))
+                pag.click(man_macro_working)
+                time.sleep(2)
+                man_macro_stop = pag.locateCenterOnScreen('macro_stop.png', confidence=0.9, region=(1398, 540, 513, 523))
+                pag.click(man_macro_stop)
+                time.sleep(2)
+
+            if (kkd_ad):
+                print('광고 없애!')
+                pag.click(kkd_ad)
 
             if (pix_status_boldline1 == pix_status_boldline_yes) and (pix_status_boldline2 == pix_status_boldline_yes): # 테두리가 두꺼워졌다면!
                 print('테두리가 두꺼워졋서!!!', '계정:', account)
@@ -5658,9 +5697,9 @@ def Angmu_Action(prd_name, ctr, account):
                 return True
         item_check = pag.locateCenterOnScreen(prd_name, confidence=0.82, region=(ctr[0] + 35, 345 + (account % 2) * 540, 60, 50))
         if (item_check):
-            if Angmu_check(ctr[0] + 9, account) > 324:
+            # if Angmu_check(ctr[0] + 9, account) > 324:
                 # print('어머 이건 사야해!')
-            # if (prd_name == 'trade_star.png') or (prd_name == 'crystal_magic.png') or (prd_name == 'crystal_quick.png') or (prd_name == 'crystal_quick.png') or (prd_name == 'crystal_power.png') or (Angmu_check(ctr[0]+9,account) > 324):
+            if (prd_name == 'trade_star.png') or (prd_name == 'crystal_magic.png') or (prd_name == 'crystal_quick.png') or (prd_name == 'crystal_quick.png') or (prd_name == 'crystal_power.png') or (Angmu_check(ctr[0]+9,account) > 324):
             #     print('어머 이건 사야해!')
                 print('어머 이건 사야해! item_check', item_check)
                 pag.click(item_check)
@@ -8711,9 +8750,7 @@ def Arena_action(account, set_max_power):
                                         print('전투 진입!')
                                         pag.click(827 + (account // 2) * 960, 491 + (account % 2) * 540)
                                         bFight_started = True
-                                    # else:
-                                    #     print('???')
-                                    #     pag.hotkey('esc')
+
                                     # 전투 전 0.5초 주기
                                     time.sleep(0.5)
                                 else:  # 전투에 들어갔다면 트로피 모양 보일 때까지 대기
@@ -8763,63 +8800,63 @@ def Arena_action(account, set_max_power):
 
 man_macro_chk_time = time.time()
 if number_of_accounts == 2 or number_of_accounts == 3:
-    while True:
-        man_macroA = pag.locateCenterOnScreen('cond_manual_macro.png', confidence=0.8, region=(663, 2, 32, 30))  # account 아직 정하기 전이라 숫자로 넣음 흑흑
-        man_macroB = pag.locateCenterOnScreen('cond_manual_macro.png', confidence=0.8, region=(663, 2 + 540, 32, 30))
-        man_macroC = pag.locateCenterOnScreen('cond_manual_macro.png', confidence=0.8, region=(663+960, 2, 32, 30))
-
-        now_time = time.time()
-        if now_time - man_macro_chk_time > man_mac_time:
-            print('수동 매크로 동작 시간 초과하여 자동 매크로로 넘어갑니다.')
-            if (man_macroA):
-                pag.click(man_macroA)
-                time.sleep(1)
-            if (man_macroB):
-                pag.click(man_macroB)
-                time.sleep(1)
-            if (man_macroC):
-                pag.click(man_macroC)
-                time.sleep(1)
-            break
-
-        if keyboard.is_pressed('END'):
-            break
+    # while True:
+    #     man_macroA = pag.locateCenterOnScreen('cond_manual_macro.png', confidence=0.8, region=(663, 2, 32, 30))  # account 아직 정하기 전이라 숫자로 넣음 흑흑
+    #     man_macroB = pag.locateCenterOnScreen('cond_manual_macro.png', confidence=0.8, region=(663, 2 + 540, 32, 30))
+    #     man_macroC = pag.locateCenterOnScreen('cond_manual_macro.png', confidence=0.8, region=(663+960, 2, 32, 30))
+    #
+    #     now_time = time.time()
+    #     if now_time - man_macro_chk_time > man_mac_time:
+    #         print('수동 매크로 동작 시간 초과하여 자동 매크로로 넘어갑니다.')
+    #         if (man_macroA):
+    #             pag.click(man_macroA)
+    #             time.sleep(1)
+    #         if (man_macroB):
+    #             pag.click(man_macroB)
+    #             time.sleep(1)
+    #         if (man_macroC):
+    #             pag.click(man_macroC)
+    #             time.sleep(1)
+    #         break
+    #
+    #     if keyboard.is_pressed('END'):
+    #         break
 
     # ---------------------- 3계정에 맞춤 + 무조건 수동매크로 종료
-        if (man_macroA) or (man_macroB) or (man_macroC):
-            print('수동 매크로 동작중... 종료한다!', man_mac_time - now_time + man_macro_chk_time)
-            if(man_macroA) and bAcc_A_First and not bAcc_C_First:
-                pag.click(man_macroA)
-                time.sleep(2)
-                man_macro_working = pag.locateCenterOnScreen('man_macro_working.png', confidence=0.9, region=(960, 540, 513, 523))
-                pag.click(man_macro_working)
-                time.sleep(2)
-                man_macro_stop = pag.locateCenterOnScreen('macro_stop.png', confidence=0.9, region=(960, 540, 513, 523))
-                pag.click(man_macro_stop)
-                time.sleep(2)
-            elif(man_macroB) and not bAcc_A_First and not bAcc_C_First:
-                pag.click(man_macroB)
-                time.sleep(2)
-                man_macro_working = pag.locateCenterOnScreen('man_macro_working.png', confidence=0.9, region=(1156, 540, 513, 523))
-                pag.click(man_macro_working)
-                time.sleep(2)
-                man_macro_stop = pag.locateCenterOnScreen('macro_stop.png', confidence=0.9, region=(1156, 540, 513, 523))
-                pag.click(man_macro_stop)
-                time.sleep(2)
-            elif(man_macroC) and not bAcc_A_First and bAcc_C_First:
-                pag.click(man_macroC)
-                time.sleep(2)
-                man_macro_working = pag.locateCenterOnScreen('man_macro_working.png', confidence=0.9, region=(1398, 540, 513, 523))
-                pag.click(man_macro_working)
-                time.sleep(2)
-                man_macro_stop = pag.locateCenterOnScreen('macro_stop.png', confidence=0.9, region=(1398, 540, 513, 523))
-                pag.click(man_macro_stop)
-                time.sleep(2)
-            time.sleep(5)
-        else:
-            print('수동 매크로 동작이 아니므로 자동 매크로 시작합니다.')
-            time.sleep(1)
-            break
+    #     if (man_macroA) or (man_macroB) or (man_macroC):
+    #         print('수동 매크로 동작중... 종료한다!', man_mac_time - now_time + man_macro_chk_time)
+    #         if(man_macroA) and bAcc_A_First and not bAcc_C_First:
+    #             pag.click(man_macroA)
+    #             time.sleep(2)
+    #             man_macro_working = pag.locateCenterOnScreen('man_macro_working.png', confidence=0.9, region=(960, 540, 513, 523))
+    #             pag.click(man_macro_working)
+    #             time.sleep(2)
+    #             man_macro_stop = pag.locateCenterOnScreen('macro_stop.png', confidence=0.9, region=(960, 540, 513, 523))
+    #             pag.click(man_macro_stop)
+    #             time.sleep(2)
+    #         elif(man_macroB) and not bAcc_A_First and not bAcc_C_First:
+    #             pag.click(man_macroB)
+    #             time.sleep(2)
+    #             man_macro_working = pag.locateCenterOnScreen('man_macro_working.png', confidence=0.9, region=(1156, 540, 513, 523))
+    #             pag.click(man_macro_working)
+    #             time.sleep(2)
+    #             man_macro_stop = pag.locateCenterOnScreen('macro_stop.png', confidence=0.9, region=(1156, 540, 513, 523))
+    #             pag.click(man_macro_stop)
+    #             time.sleep(2)
+    #         elif(man_macroC) and not bAcc_A_First and bAcc_C_First:
+    #             pag.click(man_macroC)
+    #             time.sleep(2)
+    #             man_macro_working = pag.locateCenterOnScreen('man_macro_working.png', confidence=0.9, region=(1398, 540, 513, 523))
+    #             pag.click(man_macro_working)
+    #             time.sleep(2)
+    #             man_macro_stop = pag.locateCenterOnScreen('macro_stop.png', confidence=0.9, region=(1398, 540, 513, 523))
+    #             pag.click(man_macro_stop)
+    #             time.sleep(2)
+    #         time.sleep(5)
+    #     else:
+    #         print('수동 매크로 동작이 아니므로 자동 매크로 시작합니다.')
+    #         time.sleep(1)
+    #         break
     # ---------------------- 2계정에 맞춤 + 수동매크로 시간 끝나고 종료
         # if (man_macroA) or (man_macroB) or (man_macroC):
         #     print('수동 매크로 동작중...',man_mac_time-now_time+man_macro_chk_time)
@@ -9026,6 +9063,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
             bbeercompleted = False
             bmuffincompleted = False
             bjewelcompleted = False
+            bmagiccompleted = False
             if not bFirstCookhouA:
                 cookie_time_A = time.time()
             if not bFirstFountainA:
@@ -9061,6 +9099,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
             bbeercompleted = False
             bmuffincompleted = False
             bjewelcompleted = False
+            bmagiccompleted = False
             if not bFirstCookhouA:
                 cookie_time_A = time.time()
             if not bFirstFountainA:
@@ -10158,83 +10197,121 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                             Arena_action(account, set_max_power)
 
                         # 수동 매크로 동작 - 건물에 들어간 후 수동 매크로 돌려야 하는 거면 Enter_building(account) 넣어줄 것.
-                        # 나무건물 들어감
-                        Enter_Building(account)
-                        if wood_bef_action < wood_manual_macro:
-                            print('나무 부족! 수동 매크로!')
-                            wood_macro_action = True
-                        else:
+                        if wood_bef_action > wood_manual_macro or not wood_bef_action:
+                            print('나무 안부족!', wood_bef_action)
                             wood_macro_action = False
-                        
-                        if jelbean_bef_action < jelbean_manual_macro:
-                            print('젤리빈 부족! 수동 매크로!')
-                            jelbean_macro_action = True
                         else:
+                            wood_macro_action = True
+                        
+                        if jelbean_bef_action > jelbean_manual_macro or not jelbean_bef_action:
+                            print('젤리빈 안부족!', jelbean_bef_action)
                             jelbean_macro_action = False
-                        
-                        if sugar_bef_action < sugar_manual_macro:
-                            print('설탕 부족! 수동 매크로!')
-                            sugar_macro_action = True
                         else:
+                            jelbean_macro_action = True
+                        
+                        if sugar_bef_action > sugar_manual_macro or not sugar_bef_action:
+                            print('설탕 안부족!', sugar_bef_action)
                             sugar_macro_action = False
+                        else:
+                            sugar_macro_action = True
                         
                         if wood_macro_action and not jelbean_macro_action and not sugar_macro_action:   # 1,2
                             # 나무건물 들어감
                             Enter_Building(account)
+                            print('1,2 매크로 돌려요')
                             if account == 0:
-                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(960+406, 540+115+48*6, 104,48))
+                                macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(960+406, 540+115+48*6, 104, 60))
+                                pag.click(macro_play)
                             if account == 1:
-                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1156+406, 540+115+48*6, 104,48))
+                                macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1156+406, 540+115+48*6, 104, 60))
+                                pag.click(macro_play)
                             if account == 2:
-                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1398+406, 540+115+48*6, 104,48))
+                                macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1398+406, 540+115+48*6, 104, 60))
+                                pag.click(macro_play)
                             
                         elif not wood_macro_action and jelbean_macro_action and not sugar_macro_action:   # 3, 4
+                            # 나무건물 들어감
+                            Enter_Building(account)
+                            print('3,4 매크로 돌려요')
                             if account == 0:
-                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(960+406, 540+115+48*5, 104,48))
+                                macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(960+406, 540+115+48*5, 104, 60))
+                                pag.click(macro_play)
                             if account == 1:
-                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1156+406, 540+115+48*5, 104,48))
+                                macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1156+406, 540+115+48*5, 104, 60))
+                                pag.click(macro_play)
                             if account == 2:
-                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1398+406, 540+115+48*5, 104,48))
+                                macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1398+406, 540+115+48*5, 104, 60))
+                                pag.click(macro_play)
                             
                         elif not wood_macro_action and not jelbean_macro_action and sugar_macro_action:   # 5, 6
+                            # 나무건물 들어감
+                            Enter_Building(account)
+                            print('5, 6 매크로 돌려요')
                             if account == 0:
-                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(960+406, 540+115+48*4, 104,48))
+                                macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(960+406, 540+115+48*4, 104, 60))
+                                pag.click(macro_play)
                             if account == 1:
-                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1156+406, 540+115+48*4, 104,48))
+                                macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1156+406, 540+115+48*4, 104, 60))
+                                pag.click(macro_play)
                             if account == 2:
-                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1398+406, 540+115+48*4, 104,48))
+                                macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1398+406, 540+115+48*4, 104, 60))
+                                pag.click(macro_play)
                             
                         elif wood_macro_action and jelbean_macro_action and not sugar_macro_action:    # 1, 2, 3, 4
+                            # 나무건물 들어감
+                            Enter_Building(account)
+                            print('1, 2, 3, 4 매크로 돌려요')
                             if account == 0:
-                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(960+406, 540+115+48*3, 104,48))
+                                macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(960+406, 540+115+48*3, 104, 60))
+                                pag.click(macro_play)
                             if account == 1:
-                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1156+406, 540+115+48*3, 104,48))
+                                macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1156+406, 540+115+48*3, 104, 60))
+                                pag.click(macro_play)
                             if account == 2:
-                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1398+406, 540+115+48*3, 104,48))
+                                macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1398+406, 540+115+48*3, 104, 60))
+                                pag.click(macro_play)
                             
                         elif wood_macro_action and not jelbean_macro_action and sugar_macro_action:    # 1, 2, 5, 6
+                            # 나무건물 들어감
+                            Enter_Building(account)
+                            print('1, 2, 5, 6 매크로 돌려요')
                             if account == 0:
-                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(960+406, 540+115+48*2, 104,48))
+                                macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(960+406, 540+115+48*2, 104, 60))
+                                pag.click(macro_play)
                             if account == 1:
-                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1156+406, 540+115+48*2, 104,48))
+                                macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1156+406, 540+115+48*2, 104, 60))
+                                pag.click(macro_play)
                             if account == 2:
-                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1398+406, 540+115+48*2, 104,48))
+                                macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1398+406, 540+115+48*2, 104, 60))
+                                pag.click(macro_play)
                             
                         elif not wood_macro_action and jelbean_macro_action and sugar_macro_action:    # 3, 4, 5, 6
+                            # 나무건물 들어감
+                            Enter_Building(account)
+                            print('3, 4, 5, 6 매크로 돌려요')
                             if account == 0:
-                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(960+406, 540+115+48*1, 104,48))
+                                macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(960+406, 540+115+48*1, 104, 60))
+                                pag.click(macro_play)
                             if account == 1:
-                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1156+406, 540+115+48*1, 104,48))
+                                macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1156+406, 540+115+48*1, 104, 60))
+                                pag.click(macro_play)
                             if account == 2:
-                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1398+406, 540+115+48*1, 104,48))
+                                macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1398+406, 540+115+48*1, 104, 60))
+                                pag.click(macro_play)
                             
                         elif wood_macro_action and jelbean_macro_action and sugar_macro_action:    # 1, 2, 3, 4, 5, 6
+                            # 나무건물 들어감
+                            Enter_Building(account)
+                            print('1, 2, 3, 4, 5, 6 매크로 돌려요')
                             if account == 0:
-                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(960+406, 540+115+48*0, 104,48))
+                                macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(960+406, 540+115+48*0, 104, 60))
+                                pag.click(macro_play)
                             if account == 1:
-                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1156+406, 540+115+48*0, 104,48))
+                                macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1156+406, 540+115+48*0, 104, 60))
+                                pag.click(macro_play)
                             if account == 2:
-                                man_macro_play = pag.locateCenterOnScreen('man_macro_play.png', confidence=0.9, region=(1398+406, 540+115+48*0, 104,48))
+                                macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1398+406, 540+115+48*0, 104, 60))
+                                pag.click(macro_play)
                             
                         elif not wood_macro_action and not jelbean_macro_action and not sugar_macro_action:   # 아무것도 안돌려!
                             print('수동매크로 - 돌릴 게 없네요')
