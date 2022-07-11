@@ -5931,7 +5931,15 @@ def Angmu_Aft_Refresh(account):
                     for p in trade_baseline_list:
                         ctr = pag.center(p)
                         # 범위 내 조건 확인
-                        if Angmu_Action('trade_assist_lv1.png', ctr, account):
+                        if Angmu_Action('crystal_pure.png', ctr, account):
+                            print('판별 완료',ctr)
+                        elif Angmu_Action('crystal_magic.png', ctr, account):
+                            print('판별 완료',ctr)
+                        elif Angmu_Action('crystal_power.png', ctr, account):
+                            print('판별 완료',ctr)
+                        elif Angmu_Action('crystal_quick.png', ctr, account):
+                            print('판별 완료',ctr)
+                        elif Angmu_Action('trade_assist_lv1.png', ctr, account):
                             print('판별 완료', ctr)
                         elif Angmu_Action('trade_assist_lv2.png', ctr, account):
                             print('판별 완료', ctr)
@@ -8233,111 +8241,6 @@ def research_action(account, what_research, where_to):
         time.sleep(3)
         Kingdom_ready(account, 'kkd_out')
         return True
-
-
-# def Smith_action(account, prod_direction_left bsmithcompleted):
-#     # prod_action의 return값은 continue?이고
-#     # 생산함수를 합친 action 함수 return값은 completed?이다
-#     if bsmithcompleted:
-#         Skip_Next(account, prod_direction_left)
-#         return True
-
-#     Max_lev = 0
-#     # 최대 레벨 확인
-#     if smith_lev7 > 0:
-#         Max_lev = 7
-#     elif smith_lev6 > 0:
-#         Max_lev = 6
-#     elif smith_lev5 > 0:
-#         Max_lev = 5
-#     elif smith_lev4 > 0:
-#         Max_lev = 4
-#     elif smith_lev3 > 0:
-#         Max_lev = 3
-#     elif smith_lev2 > 0:
-#         Max_lev = 2
-#     elif smith_lev1 > 0:
-#         Max_lev = 1
-#     else:
-#         print('대장간 생간 목표수량이 없습니다.')
-#         Skip_Next(account, prod_direction_left)
-#         return True
-
-#     if 3 >= Max_lev > 0:
-
-
-#     if not (smith_lev1==0) and not bsmithcompleted and Max_lev >= 1:
-#         if not prod_action('smith_lev1.png', 'smith_stby_lv1.png', account, smith_lev1):
-#             if (smith_lev2==0):
-#                 return True
-#             if not (smith_lev2==0) and not bsmithcompleted and Max_lev >= 2:
-#                 if not prod_action('smith_lev2.png', 'smith_stby_lv2.png', account, smith_lev2):
-#                     if (smith_lev3==0):
-#                         return True
-#                     if not (smith_lev3==0) and not bsmithcompleted and Max_lev >= 3:
-#                         if not prod_action('smith_lev3.png', 'smith_stby_lv3.png', account, smith_lev3):
-#                             if (smith_lev4==0):
-#                                 return True
-#                             if not (smith_lev4==0) and not bsmithcompleted and Max_lev >= 4:
-#                                 Updown(account,'up')
-#                                 if not prod_action('smith_lev4.png', 'smith_stby_lv4.png', account, smith_lev4):
-#                                     if (smith_lev5==0):
-#                                         return True
-#                                     if not (smith_lev5==0) and not bsmithcompleted and Max_lev >= 5:
-#                                         Updown(account,'up')
-#                                         if not prod_action('smith_lev5.png', 'smith_stby_lv5.png', account, smith_lev5):
-#                                             if (smith_lev6==0):
-#                                                 return True
-#                                             if not (smith_lev6==0) and not bsmithcompleted and Max_lev >= 6:
-#                                                 Updown(account,'up')
-#                                                 if not prod_action('smith_lev6.png', 'smith_stby_lv6.png', account, smith_lev6):
-#                                                     if (smith_lev7==0):
-#                                                         return True
-#                                                     if not (smith_lev7==0) and not bsmithcompleted and Max_lev >= 7:
-#                                                         Updown(account,'up')
-#                                                         if not prod_action('smith_lev7.png', 'smith_stby_lv7.png', account, smith_lev7):
-#                                                             return True
-#                                                         Skip_Next(account, prod_direction_left)
-#                                                         return False
-#                                                     else:
-#                                                         Skip_Next(account, prod_direction_left)
-#                                                         return False
-#                                                 else:
-#                                                     Skip_Next(account, prod_direction_left)
-#                                                     return False
-#                                             else:
-#                                                 Skip_Next(account, prod_direction_left)
-#                                                 return False
-#                                         else:
-#                                             Skip_Next(account, prod_direction_left)
-#                                             return False
-#                                     else:
-#                                         Skip_Next(account, prod_direction_left)
-#                                         return False
-#                                 else:
-#                                     Skip_Next(account, prod_direction_left)
-#                                     return False
-#                             else:
-#                                 Skip_Next(account, prod_direction_left)
-#                                 return False
-#                         else:
-#                             Skip_Next(account, prod_direction_left)
-#                             return False
-#                     else:
-#                         Skip_Next(account, prod_direction_left)
-#                         return False
-#                 else:
-#                     Skip_Next(account, prod_direction_left)
-#                     return False
-#             else:
-#                 Skip_Next(account, prod_direction_left)
-#                 return False
-#         else:
-#             Skip_Next(account, prod_direction_left)
-#             return False
-#     else:
-#         Skip_Next(account, prod_direction_left)
-#         return False
 
 def Arena_Event(account):
     try:
