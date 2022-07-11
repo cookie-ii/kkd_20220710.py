@@ -5963,62 +5963,17 @@ def Angmu_Aft_Refresh(account):
                 # Angmu_Action('trade_tro_1', trade_tro_1)
                 # Angmu_Action('trade_tro_2', trade_tro_2)
 
-            if 2 >= Scroll_count >= 1:
-                print('스크롤 ==', Scroll_count)
-                trade_baseline = pag.locateAllOnScreen('trade_baseline.png', confidence=0.9, region=(2 + (account // 2) * 960, 325 + (account % 2) * 540, 750, 26)) # 0.943하면 잘 못읽나?
-                trade_baseline_list = list(trade_baseline)
-                if len(trade_baseline_list) != 0:
-                    for p in trade_baseline_list:
-                        ctr = pag.center(p)
-                        # 범위 내 조건 확인
-                        if Angmu_Action('crystal_pure.png', ctr, account):
-                            print('판별 완료',ctr)
-                        elif Angmu_Action('crystal_magic.png', ctr, account):
-                            print('판별 완료',ctr)
-                        elif Angmu_Action('crystal_power.png', ctr, account):
-                            print('판별 완료',ctr)
-                        elif Angmu_Action('crystal_quick.png', ctr, account):
-                            print('판별 완료',ctr)
-                        elif Angmu_Action('trade_assist_lv1.png', ctr, account):
-                            print('판별 완료', ctr)
-                        elif Angmu_Action('trade_assist_lv2.png', ctr, account):
-                            print('판별 완료', ctr)
-                        elif Angmu_Action('trade_bomb_lv1.png', ctr, account):
-                            print('판별 완료', ctr)
-                        elif Angmu_Action('trade_bomb_lv2.png', ctr, account):
-                            print('판별 완료', ctr)
-                        elif Angmu_Action('trade_fist_lv1.png', ctr, account):
-                            print('판별 완료', ctr)
-                        elif Angmu_Action('trade_fist_lv2.png', ctr, account):
-                            print('판별 완료', ctr)
-                        elif Angmu_Action('trade_recovery_lv1.png', ctr, account):
-                            print('판별 완료', ctr)
-                        elif Angmu_Action('trade_recovery_lv2.png', ctr, account):
-                            print('판별 완료', ctr)
-                        elif Angmu_Action('trade_shield_lv1.png', ctr, account):
-                            print('판별 완료', ctr)
-                        elif Angmu_Action('trade_shield_lv2.png', ctr, account):
-                            print('판별 완료', ctr)
-                        elif Angmu_Action('trade_shooting_lv1.png', ctr, account):
-                            print('판별 완료', ctr)
-                        elif Angmu_Action('trade_shooting_lv2.png', ctr, account):
-                            print('판별 완료', ctr)
-                        elif Angmu_Action('trade_staff_lv1.png', ctr, account):
-                            print('판별 완료', ctr)
-                        elif Angmu_Action('trade_staff_lv2.png', ctr, account):
-                            print('판별 완료', ctr)
-                        elif Angmu_Action('trade_sword_lv1.png', ctr, account):
-                            print('판별 완료', ctr)
-                        elif Angmu_Action('trade_sword_lv2.png', ctr, account):
-                            print('판별 완료', ctr)
-                        elif Angmu_Action('trade_star.png', ctr, account):
-                            print('별조각 판별 완료1', ctr)
-                        elif Angmu_Action('trade_swift_sugar.png', ctr, account):
-                            print('신속의 설탕결정 판별 완료1', ctr)
-                        elif Angmu_Action('trade_pure_sugar.png', ctr, account):
-                            print('순수의 설탕결정 판별 완료1', ctr)
-                        else:
-                            print('여긴 어디 나는 누구?')
+            # if 2 >= Scroll_count >= 1:
+            #     print('스크롤 ==', Scroll_count)
+            #     trade_baseline = pag.locateAllOnScreen('trade_baseline.png', confidence=0.9, region=(2 + (account // 2) * 960, 325 + (account % 2) * 540, 750, 26)) # 0.943하면 잘 못읽나?
+            #     trade_baseline_list = list(trade_baseline)
+            #     if len(trade_baseline_list) != 0:
+            #         for p in trade_baseline_list:
+            #             ctr = pag.center(p)
+            #             # 범위 내 조건 확인
+                        
+            #             else:
+            #                 print('여긴 어디 나는 누구?')
 
             if 5 > Scroll_count >= 1:
                 print('스크롤 ==', Scroll_count)
@@ -6037,7 +5992,53 @@ def Angmu_Aft_Refresh(account):
                             #     print('베리 판별 완료', ctr)
                             # elif Angmu_Action('trade_biscuit.png', ctr, account):
                             #     print('판별 완료',ctr)
-                            if Angmu_Action('trade_milk.png', ctr, account):
+                            if Angmu_Action('crystal_pure.png', ctr, account):
+                                print('판별 완료',ctr)
+                            elif Angmu_Action('crystal_magic.png', ctr, account):
+                                print('판별 완료',ctr)
+                            elif Angmu_Action('crystal_power.png', ctr, account):
+                                print('판별 완료',ctr)
+                            elif Angmu_Action('crystal_quick.png', ctr, account):
+                                print('판별 완료',ctr)
+                            elif Angmu_Action('trade_assist_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_assist_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_bomb_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_bomb_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_fist_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_fist_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_recovery_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_recovery_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_shield_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_shield_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_shooting_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_shooting_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_staff_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_staff_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_sword_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_sword_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_star.png', ctr, account):
+                                print('별조각 판별 완료1', ctr)
+                            elif Angmu_Action('trade_swift_sugar.png', ctr, account):
+                                print('신속의 설탕결정 판별 완료1', ctr)
+                            elif Angmu_Action('trade_pure_sugar.png', ctr, account):
+                                print('순수의 설탕결정 판별 완료1', ctr)
+                            elif Angmu_Action('trade_milk.png', ctr, account):
                                 print('우유 판별 완료',ctr)
                             elif Angmu_Action('trade_star.png', ctr, account):
                                 print('별조각 판별 완료', ctr)
@@ -6050,7 +6051,53 @@ def Angmu_Aft_Refresh(account):
                         if (account) == 1:
                             # if Angmu_Action('trade_berry.png', ctr, account):
                             #     print('베리 판별 완료', ctr)
-                            if Angmu_Action('trade_cotton.png', ctr, account):
+                            if Angmu_Action('crystal_pure.png', ctr, account):
+                                print('판별 완료',ctr)
+                            elif Angmu_Action('crystal_magic.png', ctr, account):
+                                print('판별 완료',ctr)
+                            elif Angmu_Action('crystal_power.png', ctr, account):
+                                print('판별 완료',ctr)
+                            elif Angmu_Action('crystal_quick.png', ctr, account):
+                                print('판별 완료',ctr)
+                            elif Angmu_Action('trade_assist_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_assist_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_bomb_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_bomb_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_fist_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_fist_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_recovery_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_recovery_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_shield_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_shield_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_shooting_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_shooting_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_staff_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_staff_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_sword_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_sword_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_star.png', ctr, account):
+                                print('별조각 판별 완료1', ctr)
+                            elif Angmu_Action('trade_swift_sugar.png', ctr, account):
+                                print('신속의 설탕결정 판별 완료1', ctr)
+                            elif Angmu_Action('trade_pure_sugar.png', ctr, account):
+                                print('순수의 설탕결정 판별 완료1', ctr)
+                            elif Angmu_Action('trade_cotton.png', ctr, account):
                                 print('솜 판별 완료',ctr)
                             # elif Angmu_Action('trade_biscuit.png', ctr, account):
                             #     print('판별 완료',ctr)
@@ -6068,7 +6115,53 @@ def Angmu_Aft_Refresh(account):
                         if (account) == 2:
                             # if Angmu_Action('trade_berry.png', ctr, account):
                             #     print('베리 판별 완료', ctr)
-                            if Angmu_Action('trade_cotton.png', ctr, account):
+                            if Angmu_Action('crystal_pure.png', ctr, account):
+                                print('판별 완료',ctr)
+                            elif Angmu_Action('crystal_magic.png', ctr, account):
+                                print('판별 완료',ctr)
+                            elif Angmu_Action('crystal_power.png', ctr, account):
+                                print('판별 완료',ctr)
+                            elif Angmu_Action('crystal_quick.png', ctr, account):
+                                print('판별 완료',ctr)
+                            elif Angmu_Action('trade_assist_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_assist_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_bomb_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_bomb_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_fist_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_fist_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_recovery_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_recovery_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_shield_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_shield_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_shooting_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_shooting_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_staff_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_staff_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_sword_lv1.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_sword_lv2.png', ctr, account):
+                                print('판별 완료', ctr)
+                            elif Angmu_Action('trade_star.png', ctr, account):
+                                print('별조각 판별 완료1', ctr)
+                            elif Angmu_Action('trade_swift_sugar.png', ctr, account):
+                                print('신속의 설탕결정 판별 완료1', ctr)
+                            elif Angmu_Action('trade_pure_sugar.png', ctr, account):
+                                print('순수의 설탕결정 판별 완료1', ctr)
+                            elif Angmu_Action('trade_cotton.png', ctr, account):
                                 print('솜 판별 완료',ctr)
                             # elif Angmu_Action('trade_biscuit.png', ctr, account):
                             #     print('판별 완료',ctr)
