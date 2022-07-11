@@ -1462,7 +1462,8 @@ def prod_action(image, list_image, account, check_num):
     # cond_2nd_clear = pag.locateCenterOnScreen('cond_2nd_clear.png', confidence=0.96, region=(75 - 10 + (account//2)*960, 200 - 10 + (account%2) * 540, 20, 20))
     # cond_2nd_clear1 = pag.locateCenterOnScreen('cond_2nd_clear1.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + (account % 2) * 540, 20, 20))
     cond_3rd_clear1 = pag.locateCenterOnScreen('cond_3rd_clear1.png', confidence=0.94, region=(75 - 10 +(account // 2) * 960, 200 - 10 +  70+(account % 2) * 540, 20, 20))  # 세번째 3번째 칸 비었으면 생산시작!
-    if (cond_3rd_clear1):
+    cond_3rd_clear_magic = pag.locateCenterOnScreen('cond_3rd_clear_magic.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + 70 + (account % 2) * 540, 20, 20))  # 세번째 3번째 칸 비었으면 생산시작!
+    if (cond_3rd_clear1) or cond_3rd_clear_magic:
         ShowTime = True
     else:
         return True
