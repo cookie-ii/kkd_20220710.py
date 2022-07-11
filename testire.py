@@ -10197,6 +10197,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                             Arena_action(account, set_max_power)
 
                         # 수동 매크로 동작 - 건물에 들어간 후 수동 매크로 돌려야 하는 거면 Enter_building(account) 넣어줄 것.
+                        print('수동 매크로 실행할까 말까')
                         if wood_bef_action > wood_manual_macro or not wood_bef_action:
                             print('나무 안부족!', wood_bef_action)
                             wood_macro_action = False
