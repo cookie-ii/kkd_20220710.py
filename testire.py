@@ -5931,7 +5931,15 @@ def Angmu_Aft_Refresh(account):
                     for p in trade_baseline_list:
                         ctr = pag.center(p)
                         # 범위 내 조건 확인
-                        if Angmu_Action('trade_assist_lv1.png', ctr, account):
+                        if Angmu_Action('crystal_pure.png', ctr, account):
+                            print('판별 완료',ctr)
+                        elif Angmu_Action('crystal_magic.png', ctr, account):
+                            print('판별 완료',ctr)
+                        elif Angmu_Action('crystal_power.png', ctr, account):
+                            print('판별 완료',ctr)
+                        elif Angmu_Action('crystal_quick.png', ctr, account):
+                            print('판별 완료',ctr)
+                        elif Angmu_Action('trade_assist_lv1.png', ctr, account):
                             print('판별 완료', ctr)
                         elif Angmu_Action('trade_assist_lv2.png', ctr, account):
                             print('판별 완료', ctr)
