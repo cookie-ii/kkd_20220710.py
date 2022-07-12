@@ -4079,6 +4079,7 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
             cond_error_page = pag.locateCenterOnScreen('cond_error_page.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 검은 바탕... 렉 등에 의한 오류?
             kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
             kkd_ad = pag.locateCenterOnScreen('cond_error_ad.png', confidence=0.95, region=(1, 1 , 960*2, 540*2))
+            kkd_ad1 = pag.locateCenterOnScreen('cond_error_ad1.png', confidence=0.95, region=(1, 1, 960 * 2, 540 * 2))
             print('[Kingdom_ready] 현재 픽셀값 : ', pix_status, '실행 %s초 지났습니다.' % int(now_time - start_time), account, '계정, 현재시간:', datetime.now().strftime('%H:%M:%S'))
             # print('[Kingdom_ready] 실행 %s초 지났습니다.' % int(now_time - start_time), '현재시간:', datetime.now().strftime('%H:%M:%S'))
             if now_time - start_time >= 300:
@@ -4125,6 +4126,10 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
             if (kkd_ad):
                 print('광고 없애!')
                 pag.click(kkd_ad)
+
+            if (kkd_ad1):
+                print('광고 없애!1')
+                pag.click(kkd_ad1)
 
             if (pix_status_boldline1 == pix_status_boldline_yes) and (pix_status_boldline2 == pix_status_boldline_yes): # 테두리가 두꺼워졌다면!
                 print('테두리가 두꺼워졋서!!!', '계정:', account)
