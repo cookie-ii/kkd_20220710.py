@@ -8476,6 +8476,7 @@ def Power_check(x1, x2):
     find_num_arena('up_as_0.png', x1, x2, list_num_0)
     find_num_arena('up_as_0_1.png', x1, x2, list_num_0)
     find_num_arena('up_a_1.png', x1, x2, list_num_1)
+    find_num_arena('up_as_1.png', x1, x2, list_num_1)
     find_num_arena('up_a_2.png', x1, x2, list_num_2)
     find_num_arena('up_as_2.png', x1, x2, list_num_2)
     find_num_arena('up_a_3.png', x1, x2, list_num_3)
