@@ -96,8 +96,8 @@ bMacroTime = True  # 매크로 도는 중?
 bProdHigh = False  # 동일 건물 2개인 경우 2번째 건물에서 높은 생산품 우선 생산
 bSecond = False  # 두 번째 건물 작업이냐?
 
-bAcc_A_First = False  # 계정 먼저 시작 순서(True일 때 A부터, 아니면 B부터)
-bAcc_C_First = True     # C계정 먼저 시작해요!
+bAcc_A_First = True  # 계정 먼저 시작 순서(True일 때 A부터, 아니면 B부터)
+bAcc_C_First = False     # C계정 먼저 시작해요!
 
 bFirstCookhouA = False  # 첫 쿠하(클릭)
 bFirstCookhouB = False  # 첫 쿠하(클릭)
