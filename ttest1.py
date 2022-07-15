@@ -1642,258 +1642,619 @@ def Angmu_check(x1, account):
 
     print('현재 재고는 =', its_number)
     return its_number
-Scroll_count = 0
-start_time = time.time()
-while True:
-    if Scroll_count == 0:
-        print('기둥동네예요!')
-        trade_kidung = pag.locateCenterOnScreen('trade_kidung.png', confidence=0.85, region=(2 + (account // 2) * 960, 350 + (account % 2) * 540, 917, 45))
-        trade_block = pag.locateCenterOnScreen('trade_block.png', confidence=0.85, region=(2 + (account // 2) * 960, 350 + (account % 2) * 540, 917, 45))
-        trade_nachimban = pag.locateCenterOnScreen('trade_nachimban.png', confidence=0.85, region=(2 + (account // 2) * 960, 350 + (account % 2) * 540, 917, 45))
-        # trade_tro_1 = pag.locateCenterOnScreen('trade_tro_1.png', confidence=0.85, region=(2,350+account*540,917,40))
-        # trade_tro_2 = pag.locateCenterOnScreen('trade_tro_2.png', confidence=0.85, region=(2,350+account*540,917,40))
+# Scroll_count = 0
+# start_time = time.time()
+# while True:
+#     if Scroll_count == 0:
+#         print('기둥동네예요!')
+#         trade_kidung = pag.locateCenterOnScreen('trade_kidung.png', confidence=0.85, region=(2 + (account // 2) * 960, 350 + (account % 2) * 540, 917, 45))
+#         trade_block = pag.locateCenterOnScreen('trade_block.png', confidence=0.85, region=(2 + (account // 2) * 960, 350 + (account % 2) * 540, 917, 45))
+#         trade_nachimban = pag.locateCenterOnScreen('trade_nachimban.png', confidence=0.85, region=(2 + (account // 2) * 960, 350 + (account % 2) * 540, 917, 45))
+#         # trade_tro_1 = pag.locateCenterOnScreen('trade_tro_1.png', confidence=0.85, region=(2,350+account*540,917,40))
+#         # trade_tro_2 = pag.locateCenterOnScreen('trade_tro_2.png', confidence=0.85, region=(2,350+account*540,917,40))
+#
+#         if (trade_kidung):
+#             kidung_numb = Angmu_check(trade_kidung[0] - 26, account)
+#         else:
+#             kidung_numb = 0
+#         if (trade_block):
+#             block_numb = Angmu_check(trade_block[0] - 26, account)
+#         else:
+#             block_numb = 0
+#         if (trade_nachimban):
+#             nachimban_numb = Angmu_check(trade_nachimban[0] - 26, account)
+#         else:
+#             nachimban_numb = 0
+#         max_numb = max(kidung_numb, block_numb, nachimban_numb)
+#         if kidung_numb > 0 and kidung_numb == max_numb:
+#             pag.click(trade_kidung)
+#             time.sleep(0.5)
+#             pag.click(random.randint(420, 500) + (account // 2) * 960, random.randint(370, 400) + (account % 2) * 540)
+#             time.sleep(2)
+#         if block_numb > 0 and block_numb == max_numb:
+#             pag.click(trade_block)
+#             time.sleep(0.5)
+#             pag.click(random.randint(420, 500) + (account // 2) * 960, random.randint(370, 400) + (account % 2) * 540)
+#             time.sleep(2)
+#         if nachimban_numb > 0 and nachimban_numb == max_numb:
+#             pag.click(trade_nachimban)
+#             time.sleep(0.5)
+#             pag.click(random.randint(420, 500) + (account // 2) * 960, random.randint(370, 400) + (account % 2) * 540)
+#             time.sleep(2)
+#         # Angmu_Action('trade_tro_1', trade_tro_1)
+#         # Angmu_Action('trade_tro_2', trade_tro_2)
+#
+#     if 2 >= Scroll_count >= 1:
+#         print('스크롤 ==', Scroll_count)
+#         trade_baseline = pag.locateAllOnScreen('trade_baseline.png', confidence=0.9, region=(2 + (account // 2) * 960, 325 + (account % 2) * 540, 750, 26)) # 0.943하면 잘 못읽나?
+#         trade_baseline_list = list(trade_baseline)
+#         if len(trade_baseline_list) != 0:
+#             for p in trade_baseline_list:
+#                 ctr = pag.center(p)
+#                 # 범위 내 조건 확인
+#                 if Angmu_Action('crystal_pure.png', ctr, account):
+#                     print('판별 완료',ctr)
+#                 elif Angmu_Action('crystal_magic.png', ctr, account):
+#                     print('판별 완료',ctr)
+#                 elif Angmu_Action('crystal_power.png', ctr, account):
+#                     print('판별 완료',ctr)
+#                 elif Angmu_Action('crystal_quick.png', ctr, account):
+#                     print('판별 완료',ctr)
+#                 elif Angmu_Action('trade_assist_lv1.png', ctr, account):
+#                     print('판별 완료', ctr)
+#                 elif Angmu_Action('trade_assist_lv2.png', ctr, account):
+#                     print('판별 완료', ctr)
+#                 elif Angmu_Action('trade_bomb_lv1.png', ctr, account):
+#                     print('판별 완료', ctr)
+#                 elif Angmu_Action('trade_bomb_lv2.png', ctr, account):
+#                     print('판별 완료', ctr)
+#                 elif Angmu_Action('trade_fist_lv1.png', ctr, account):
+#                     print('판별 완료', ctr)
+#                 elif Angmu_Action('trade_fist_lv2.png', ctr, account):
+#                     print('판별 완료', ctr)
+#                 elif Angmu_Action('trade_recovery_lv1.png', ctr, account):
+#                     print('판별 완료', ctr)
+#                 elif Angmu_Action('trade_recovery_lv2.png', ctr, account):
+#                     print('판별 완료', ctr)
+#                 elif Angmu_Action('trade_shield_lv1.png', ctr, account):
+#                     print('판별 완료', ctr)
+#                 elif Angmu_Action('trade_shield_lv2.png', ctr, account):
+#                     print('판별 완료', ctr)
+#                 elif Angmu_Action('trade_shooting_lv1.png', ctr, account):
+#                     print('판별 완료', ctr)
+#                 elif Angmu_Action('trade_shooting_lv2.png', ctr, account):
+#                     print('판별 완료', ctr)
+#                 elif Angmu_Action('trade_staff_lv1.png', ctr, account):
+#                     print('판별 완료', ctr)
+#                 elif Angmu_Action('trade_staff_lv2.png', ctr, account):
+#                     print('판별 완료', ctr)
+#                 elif Angmu_Action('trade_sword_lv1.png', ctr, account):
+#                     print('판별 완료', ctr)
+#                 elif Angmu_Action('trade_sword_lv2.png', ctr, account):
+#                     print('판별 완료', ctr)
+#                 elif Angmu_Action('trade_star.png', ctr, account):
+#                     print('별조각 판별 완료1', ctr)
+#                 elif Angmu_Action('trade_swift_sugar.png', ctr, account):
+#                     print('신속의 설탕결정 판별 완료1', ctr)
+#                 elif Angmu_Action('trade_pure_sugar.png', ctr, account):
+#                     print('순수의 설탕결정 판별 완료1', ctr)
+#                 else:
+#                     print('여긴 어디 나는 누구?')
+#
+#     if 5 > Scroll_count >= 1:
+#         print('스크롤 ==', Scroll_count)
+#         trade_baseline = pag.locateAllOnScreen('trade_baseline.png', confidence=0.943, region=(2 + (account // 2) * 960, 325 + (account % 2) * 540, 750, 26))
+#         trade_baseline_list = list(trade_baseline)
+#         print('trade_baseline_list:', trade_baseline_list)
+#         if len(trade_baseline_list) != 0:
+#             for p in trade_baseline_list:
+#                 ctr = pag.center(p)
+#                 # print('생산품까지 확인')
+#                 print('생산품까지 확인, ctr:', ctr)
+#                 if (account) == 0:
+#                     # if Angmu_Action('trade_cotton.png', ctr, account):
+#                     #     print('솜 판별 완료', ctr)
+#                     # elif Angmu_Action('trade_berry.png', ctr, account):
+#                     #     print('베리 판별 완료', ctr)
+#                     # elif Angmu_Action('trade_biscuit.png', ctr, account):
+#                     #     print('판별 완료',ctr)
+#                     if Angmu_Action('trade_milk.png', ctr, account):
+#                         print('우유 판별 완료',ctr)
+#                     elif Angmu_Action('trade_star.png', ctr, account):
+#                         print('별조각 판별 완료', ctr)
+#                     elif Angmu_Action('trade_swift_sugar.png', ctr, account):
+#                         print('신속의 설탕결정 판별 완료', ctr)
+#                     elif Angmu_Action('trade_pure_sugar.png', ctr, account):
+#                         print('순수의 설탕결정 판별 완료', ctr)
+#                     else:
+#                         print('여긴 어디 나는 누구 계정0')
+#                 if (account) == 1:
+#                     # if Angmu_Action('trade_berry.png', ctr, account):
+#                     #     print('베리 판별 완료', ctr)
+#                     if Angmu_Action('trade_cotton.png', ctr, account):
+#                         print('솜 판별 완료',ctr)
+#                     # elif Angmu_Action('trade_biscuit.png', ctr, account):
+#                     #     print('판별 완료',ctr)
+#                     # elif Angmu_Action('trade_milk.png', ctr, account):
+#                     #     print('판별 완료',ctr)
+#                     elif Angmu_Action('trade_star.png', ctr, account):
+#                         print('별조각 판별 완료', ctr)
+#                     elif Angmu_Action('trade_swift_sugar.png', ctr, account):
+#                         print('신속의 설탕결정 판별 완료', ctr)
+#                     elif Angmu_Action('trade_pure_sugar.png', ctr, account):
+#                         print('순수의 설탕결정 판별 완료', ctr)
+#
+#                     else:
+#                         print('여긴 어디 나는 누구 계정1')
+#                 if (account) == 2:
+#                     # if Angmu_Action('trade_berry.png', ctr, account):
+#                     #     print('베리 판별 완료', ctr)
+#                     if Angmu_Action('trade_cotton.png', ctr, account):
+#                         print('솜 판별 완료',ctr)
+#                     # elif Angmu_Action('trade_biscuit.png', ctr, account):
+#                     #     print('판별 완료',ctr)
+#                     # elif Angmu_Action('trade_milk.png', ctr, account):
+#                     #     print('판별 완료',ctr)
+#                     elif Angmu_Action('trade_star.png', ctr, account):
+#                         print('별조각 판별 완료', ctr)
+#                     elif Angmu_Action('trade_swift_sugar.png', ctr, account):
+#                         print('신속의 설탕결정 판별 완료', ctr)
+#                     elif Angmu_Action('trade_pure_sugar.png', ctr, account):
+#                         print('순수의 설탕결정 판별 완료', ctr)
+#
+#                     else:
+#                         print('여긴 어디 나는 누구 계정2')
+#
+#     # if Scroll_count >= 2:
+#     #     print('아이고 힘들다 2~')
+#     #     trade_assist_lv3 = pag.locateCenterOnScreen('trade_assist_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
+#     #     trade_bomb_lv3 = pag.locateCenterOnScreen('trade_bomb_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
+#     #     trade_fist_lv3 = pag.locateCenterOnScreen('trade_fist_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
+#     #     trade_recovery_lv3 = pag.locateCenterOnScreen('trade_recovery_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
+#     #     trade_shield_lv3 = pag.locateCenterOnScreen('trade_shield_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
+#     #     trade_shooting_lv3 = pag.locateCenterOnScreen('trade_shooting_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
+#     #     trade_staff_lv3 = pag.locateCenterOnScreen('trade_staff_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
+#     #     trade_sword_lv3 = pag.locateCenterOnScreen('trade_sword_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
+#
+#     # 드래그드래그
+#     print('드래그')
+#     pag.moveTo(random.randint(786, 820) + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540))
+#     pag.mouseDown()
+#     time.sleep(0.5)
+#     pag.moveTo(random.randint(786, 820) - 150 * 3 + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540), 5)  # 153인데 20 더 여유줌
+#     time.sleep(0.5)
+#     pag.mouseUp()
+#     time.sleep(0.5)
+#
+#     # ++ 작업 후 >= 3으로변경
+#     if Scroll_count >= 4:
+#         print('완료')
+#         pag.click(284 + (account // 2) * 960, 15 + (account % 2) * 540)
+#         time.sleep(0.1)
+#         pag.hotkey('esc')
+#         time.sleep(2)
+#         pag.hotkey('esc')
+#         time.sleep(6)
+#
+#
+#     start_lineup = time.time()
+#     while True:
+#         if keyboard.is_pressed('end'):
+#             print('end 누름')
+#             break
+#         now_lineup = time.time()
+#         if now_lineup - start_lineup > 20:
+#             print('뭐얏...', '현재시간:', datetime.now().strftime('%H:%M:%S'))
+#             Scroll_count = Scroll_count + 1
+#             break
+#         if now_lineup - start_lineup > 60:
+#             print('뭐얏...111', '현재시간:', datetime.now().strftime('%H:%M:%S'))
+#
+#         cond_network = pag.locateCenterOnScreen('cond_network.png', confidence=0.96, region=(440 + (account // 2) * 960, 363 + (account % 2) * 540, 43, 29))
+#         if (cond_network):
+#             pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(377 - 5, 377 + 5) + (account % 2) * 540)
+#             time.sleep(0.3)
+#
+#         cond_trade_angmu_confirm = pag.locateCenterOnScreen('cond_trade_angmu_confirm.png', confidence=0.85, region=(420 + (account // 2) * 960, 80 + (account % 2) * 540, 58, 33))  # 해상무역센터 앵무 교역소 위치 확인
+#         if not (cond_trade_angmu_confirm):
+#             print('튕기거나 빠져나갔나봐요...')
+#
+#
+#         trade_baseline_gray = pag.locateCenterOnScreen('trade_baseline_gray.png', confidence=0.9, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+#         if (trade_baseline_gray):
+#             if (92 + (account // 2) * 960 >= trade_baseline_gray[0] > 70 + (account // 2) * 960) or (92 + 157 + (account // 2) * 960 >= trade_baseline_gray[0] > 70 + 157 + (account // 2) * 960):
+#                 Scroll_count = Scroll_count + 1
+#                 break
+#             else:                 # 아니면 살짝 왼쪽으로 돌려서 영점조정
+#                 pag.moveTo(790 + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540))
+#                 pag.mouseDown()
+#                 time.sleep(0.5)
+#                 pag.moveTo(790 + 50 + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540), 2)  # 한 번 움직여보고
+#                 time.sleep(0.5)
+#                 trade_baseline_gray_new = pag.locateCenterOnScreen('trade_baseline_gray.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+#                 if (trade_baseline_gray_new):
+#                     pag.moveTo(790+(account//2)*960*2 + 50 - trade_baseline_gray_new[0] + 73, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540), 3)  # 153인데 20 더 여유줌
+#                 time.sleep(0.5)
+#                 pag.mouseUp()
+#                 time.sleep(0.5)
+#
+#         trade_baseline = pag.locateCenterOnScreen('trade_baseline.png', confidence=0.9, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+#         if (trade_baseline):
+#             print(92 + 157 + (account // 2) * 960, '>=', trade_baseline[0], '>', 70 + 157 + (account // 2) * 960)
+#             if (92 + (account // 2) * 960 >= trade_baseline[0] > 70 + (account // 2) * 960) or (92 + 157 + (account // 2) * 960 >= trade_baseline[0] > 70 + 157 + (account // 2) * 960):
+#                 print(92 + 157 + (account // 2) * 960*2 ,'>=', trade_baseline[0] ,'>', 70 + 157 + (account // 2) * 960)
+#                 Scroll_count = Scroll_count + 1
+#                 break
+#             else:            # 약간 왼쪽으로(trade baseline 뉴 찾을때까지) 돌려
+#                 pag.moveTo(790 + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540))
+#                 pag.mouseDown()
+#                 time.sleep(0.5)
+#                 pag.moveTo(790 + 50 + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540), 2)  # 한 번 움직여보고
+#                 time.sleep(0.5)
+#                 trade_baseline_new = pag.locateCenterOnScreen('trade_baseline.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+#                 if (trade_baseline_new):
+#                     pag.moveTo(790+(account//2)*960*2 + 50 - trade_baseline_new[0] + 73, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540), 3)  # 153인데 20 더 여유줌
+#                 time.sleep(0.5)
+#                 pag.mouseUp()
+#                 time.sleep(0.5)
 
-        if (trade_kidung):
-            kidung_numb = Angmu_check(trade_kidung[0] - 26, account)
-        else:
-            kidung_numb = 0
-        if (trade_block):
-            block_numb = Angmu_check(trade_block[0] - 26, account)
-        else:
-            block_numb = 0
-        if (trade_nachimban):
-            nachimban_numb = Angmu_check(trade_nachimban[0] - 26, account)
-        else:
-            nachimban_numb = 0
-        max_numb = max(kidung_numb, block_numb, nachimban_numb)
-        if kidung_numb > 0 and kidung_numb == max_numb:
-            pag.click(trade_kidung)
-            time.sleep(0.5)
-            pag.click(random.randint(420, 500) + (account // 2) * 960, random.randint(370, 400) + (account % 2) * 540)
-            time.sleep(2)
-        if block_numb > 0 and block_numb == max_numb:
-            pag.click(trade_block)
-            time.sleep(0.5)
-            pag.click(random.randint(420, 500) + (account // 2) * 960, random.randint(370, 400) + (account % 2) * 540)
-            time.sleep(2)
-        if nachimban_numb > 0 and nachimban_numb == max_numb:
-            pag.click(trade_nachimban)
-            time.sleep(0.5)
-            pag.click(random.randint(420, 500) + (account // 2) * 960, random.randint(370, 400) + (account % 2) * 540)
-            time.sleep(2)
-        # Angmu_Action('trade_tro_1', trade_tro_1)
-        # Angmu_Action('trade_tro_2', trade_tro_2)
 
-    if 2 >= Scroll_count >= 1:
-        print('스크롤 ==', Scroll_count)
-        trade_baseline = pag.locateAllOnScreen('trade_baseline.png', confidence=0.9, region=(2 + (account // 2) * 960, 325 + (account % 2) * 540, 750, 26)) # 0.943하면 잘 못읽나?
-        trade_baseline_list = list(trade_baseline)
-        if len(trade_baseline_list) != 0:
-            for p in trade_baseline_list:
-                ctr = pag.center(p)
-                # 범위 내 조건 확인
-                if Angmu_Action('crystal_pure.png', ctr, account):
-                    print('판별 완료',ctr)
-                elif Angmu_Action('crystal_magic.png', ctr, account):
-                    print('판별 완료',ctr)
-                elif Angmu_Action('crystal_power.png', ctr, account):
-                    print('판별 완료',ctr)
-                elif Angmu_Action('crystal_quick.png', ctr, account):
-                    print('판별 완료',ctr)
-                elif Angmu_Action('trade_assist_lv1.png', ctr, account):
-                    print('판별 완료', ctr)
-                elif Angmu_Action('trade_assist_lv2.png', ctr, account):
-                    print('판별 완료', ctr)
-                elif Angmu_Action('trade_bomb_lv1.png', ctr, account):
-                    print('판별 완료', ctr)
-                elif Angmu_Action('trade_bomb_lv2.png', ctr, account):
-                    print('판별 완료', ctr)
-                elif Angmu_Action('trade_fist_lv1.png', ctr, account):
-                    print('판별 완료', ctr)
-                elif Angmu_Action('trade_fist_lv2.png', ctr, account):
-                    print('판별 완료', ctr)
-                elif Angmu_Action('trade_recovery_lv1.png', ctr, account):
-                    print('판별 완료', ctr)
-                elif Angmu_Action('trade_recovery_lv2.png', ctr, account):
-                    print('판별 완료', ctr)
-                elif Angmu_Action('trade_shield_lv1.png', ctr, account):
-                    print('판별 완료', ctr)
-                elif Angmu_Action('trade_shield_lv2.png', ctr, account):
-                    print('판별 완료', ctr)
-                elif Angmu_Action('trade_shooting_lv1.png', ctr, account):
-                    print('판별 완료', ctr)
-                elif Angmu_Action('trade_shooting_lv2.png', ctr, account):
-                    print('판별 완료', ctr)
-                elif Angmu_Action('trade_staff_lv1.png', ctr, account):
-                    print('판별 완료', ctr)
-                elif Angmu_Action('trade_staff_lv2.png', ctr, account):
-                    print('판별 완료', ctr)
-                elif Angmu_Action('trade_sword_lv1.png', ctr, account):
-                    print('판별 완료', ctr)
-                elif Angmu_Action('trade_sword_lv2.png', ctr, account):
-                    print('판별 완료', ctr)
-                elif Angmu_Action('trade_star.png', ctr, account):
-                    print('별조각 판별 완료1', ctr)
-                elif Angmu_Action('trade_swift_sugar.png', ctr, account):
-                    print('신속의 설탕결정 판별 완료1', ctr)
-                elif Angmu_Action('trade_pure_sugar.png', ctr, account):
-                    print('순수의 설탕결정 판별 완료1', ctr)
-                else:
-                    print('여긴 어디 나는 누구?')
-
-    if 5 > Scroll_count >= 1:
-        print('스크롤 ==', Scroll_count)
-        trade_baseline = pag.locateAllOnScreen('trade_baseline.png', confidence=0.943, region=(2 + (account // 2) * 960, 325 + (account % 2) * 540, 750, 26))
-        trade_baseline_list = list(trade_baseline)
-        print('trade_baseline_list:', trade_baseline_list)
-        if len(trade_baseline_list) != 0:
-            for p in trade_baseline_list:
-                ctr = pag.center(p)
-                # print('생산품까지 확인')
-                print('생산품까지 확인, ctr:', ctr)
-                if (account) == 0:
-                    # if Angmu_Action('trade_cotton.png', ctr, account):
-                    #     print('솜 판별 완료', ctr)
-                    # elif Angmu_Action('trade_berry.png', ctr, account):
-                    #     print('베리 판별 완료', ctr)
-                    # elif Angmu_Action('trade_biscuit.png', ctr, account):
-                    #     print('판별 완료',ctr)
-                    if Angmu_Action('trade_milk.png', ctr, account):
-                        print('우유 판별 완료',ctr)
-                    elif Angmu_Action('trade_star.png', ctr, account):
-                        print('별조각 판별 완료', ctr)
-                    elif Angmu_Action('trade_swift_sugar.png', ctr, account):
-                        print('신속의 설탕결정 판별 완료', ctr)
-                    elif Angmu_Action('trade_pure_sugar.png', ctr, account):
-                        print('순수의 설탕결정 판별 완료', ctr)
-                    else:
-                        print('여긴 어디 나는 누구 계정0')
-                if (account) == 1:
-                    # if Angmu_Action('trade_berry.png', ctr, account):
-                    #     print('베리 판별 완료', ctr)
-                    if Angmu_Action('trade_cotton.png', ctr, account):
-                        print('솜 판별 완료',ctr)
-                    # elif Angmu_Action('trade_biscuit.png', ctr, account):
-                    #     print('판별 완료',ctr)
-                    # elif Angmu_Action('trade_milk.png', ctr, account):
-                    #     print('판별 완료',ctr)
-                    elif Angmu_Action('trade_star.png', ctr, account):
-                        print('별조각 판별 완료', ctr)
-                    elif Angmu_Action('trade_swift_sugar.png', ctr, account):
-                        print('신속의 설탕결정 판별 완료', ctr)
-                    elif Angmu_Action('trade_pure_sugar.png', ctr, account):
-                        print('순수의 설탕결정 판별 완료', ctr)
-
-                    else:
-                        print('여긴 어디 나는 누구 계정1')
-                if (account) == 2:
-                    # if Angmu_Action('trade_berry.png', ctr, account):
-                    #     print('베리 판별 완료', ctr)
-                    if Angmu_Action('trade_cotton.png', ctr, account):
-                        print('솜 판별 완료',ctr)
-                    # elif Angmu_Action('trade_biscuit.png', ctr, account):
-                    #     print('판별 완료',ctr)
-                    # elif Angmu_Action('trade_milk.png', ctr, account):
-                    #     print('판별 완료',ctr)
-                    elif Angmu_Action('trade_star.png', ctr, account):
-                        print('별조각 판별 완료', ctr)
-                    elif Angmu_Action('trade_swift_sugar.png', ctr, account):
-                        print('신속의 설탕결정 판별 완료', ctr)
-                    elif Angmu_Action('trade_pure_sugar.png', ctr, account):
-                        print('순수의 설탕결정 판별 완료', ctr)
-
-                    else:
-                        print('여긴 어디 나는 누구 계정2')
-
-    # if Scroll_count >= 2:
-    #     print('아이고 힘들다 2~')
-    #     trade_assist_lv3 = pag.locateCenterOnScreen('trade_assist_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
-    #     trade_bomb_lv3 = pag.locateCenterOnScreen('trade_bomb_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
-    #     trade_fist_lv3 = pag.locateCenterOnScreen('trade_fist_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
-    #     trade_recovery_lv3 = pag.locateCenterOnScreen('trade_recovery_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
-    #     trade_shield_lv3 = pag.locateCenterOnScreen('trade_shield_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
-    #     trade_shooting_lv3 = pag.locateCenterOnScreen('trade_shooting_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
-    #     trade_staff_lv3 = pag.locateCenterOnScreen('trade_staff_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
-    #     trade_sword_lv3 = pag.locateCenterOnScreen('trade_sword_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
-
-    # 드래그드래그
-    print('드래그')
-    pag.moveTo(random.randint(786, 820) + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540))
-    pag.mouseDown()
-    time.sleep(0.5)
-    pag.moveTo(random.randint(786, 820) - 150 * 3 + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540), 5)  # 153인데 20 더 여유줌
-    time.sleep(0.5)
-    pag.mouseUp()
-    time.sleep(0.5)
-
-    # ++ 작업 후 >= 3으로변경
-    if Scroll_count >= 4:
-        print('완료')
-        pag.click(284 + (account // 2) * 960, 15 + (account % 2) * 540)
-        time.sleep(0.1)
-        pag.hotkey('esc')
-        time.sleep(2)
-        pag.hotkey('esc')
-        time.sleep(6)
-
-
-    start_lineup = time.time()
+def prod_check(image, account):
+    error_count = 0
     while True:
         if keyboard.is_pressed('end'):
-            print('end 누름')
             break
-        now_lineup = time.time()
-        if now_lineup - start_lineup > 20:
-            print('뭐얏...', '현재시간:', datetime.now().strftime('%H:%M:%S'))
-            Scroll_count = Scroll_count + 1
+        its_location = pag.locateCenterOnScreen(image, region=(590 + (account // 2) * 960, 83 + (account % 2) * 540, 30, 455), confidence=0.95)
+        if not (its_location):
+            error_count = error_count + 1
+            time.sleep(0.5)
+            pag.moveTo(610 + (account // 2) * 960, 295 + (account % 2) * 540)
+            pag.mouseDown()
+            time.sleep(0.5)
+            pag.moveTo(610 + (account // 2) * 960, 295 + (account % 2) * 540 + 5, 1)  # 153인데 20 더 여유줌
+            time.sleep(0.5)
+            pag.mouseUp()
+            time.sleep(0.8)
+            if error_count > 2:
+                print('두 번 읽었지만 읽지 못했습니다. 999로 가정합니다.')
+                return 9999
+        else:
             break
-        if now_lineup - start_lineup > 60:
-            print('뭐얏...111', '현재시간:', datetime.now().strftime('%H:%M:%S'))
+    if (its_location):  # 해당 이미지를 찾은 경우
+        its_number = 0  # 숫자 초기화(없는 경우 그대로 유지되겠지?)
+        list_real_num = list()  # 실제값 계산을 위한 리스트 생성
+        list_num_0 = list()
+        list_num_1 = list()
+        list_num_2 = list()
+        list_num_3 = list()
+        list_num_4 = list()
+        list_num_5 = list()
+        list_num_6 = list()
+        list_num_7 = list()
+        list_num_8 = list()
+        list_num_9 = list()
+        # 으아아아아 숫자 가져와아아아아
+        find_num('prod_0.png', its_location[1], list_num_0)
+        find_num('prod_0_1.png', its_location[1], list_num_0)
+        find_num('prod_1.png', its_location[1], list_num_1)
+        # find_num('prod_1_1.png', its_location[1], list_num_1)   # 이레가 삭제햇서요...
+        find_num('prod_2.png', its_location[1], list_num_2)
+        find_num('prod_3.png', its_location[1], list_num_3)
+        find_num('prod_3_1.png', its_location[1], list_num_3)
+        find_num('prod_4.png', its_location[1], list_num_4)
+        find_num('prod_4_1.png', its_location[1], list_num_4)
+        find_num('prod_4_2.png', its_location[1], list_num_4)
+        find_num('prod_5.png', its_location[1], list_num_5)
+        find_num('prod_6.png', its_location[1], list_num_6)
+        find_num('prod_7.png', its_location[1], list_num_7)
+        find_num('prod_8.png', its_location[1], list_num_8)
+        find_num('prod_8_1.png', its_location[1], list_num_8)
+        find_num('prod_9.png', its_location[1], list_num_9)
+        find_num('prod_9_1.png', its_location[1], list_num_9)
+        list_num_0 = del_duplication(3, list_num_0)
+        list_num_1 = del_duplication(3, list_num_1)
+        list_num_2 = del_duplication(3, list_num_2)
+        list_num_3 = del_duplication(3, list_num_3)
+        list_num_4 = del_duplication(3, list_num_4)
+        list_num_5 = del_duplication(3, list_num_5)
+        list_num_6 = del_duplication(3, list_num_6)
+        list_num_7 = del_duplication(3, list_num_7)
+        list_num_8 = del_duplication(3, list_num_8)
+        list_num_9 = del_duplication(3, list_num_9)
+        if (list_num_0):  # Y좌표에 따른 숫자 배치. X좌표에 따라 배치돼야 하므로 X좌표는 살리고 Y좌표는 숫자 계산을 위해 리스트 값으로 대체
+            for p in list_num_0:
+                list_real_num.append((p[0], 0))
 
-        cond_network = pag.locateCenterOnScreen('cond_network.png', confidence=0.96, region=(440 + (account // 2) * 960, 363 + (account % 2) * 540, 43, 29))
-        if (cond_network):
-            pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(377 - 5, 377 + 5) + (account % 2) * 540)
+        if (list_num_1):
+            for p in list_num_1:
+                list_real_num.append((p[0], 1))
+
+        if (list_num_2):
+            for p in list_num_2:
+                list_real_num.append((p[0], 2))
+
+        if (list_num_3):
+            for p in list_num_3:
+                list_real_num.append((p[0], 3))
+
+        if (list_num_4):
+            for p in list_num_4:
+                list_real_num.append((p[0], 4))
+
+        if (list_num_5):
+            for p in list_num_5:
+                list_real_num.append((p[0], 5))
+
+        if (list_num_6):
+            for p in list_num_6:
+                list_real_num.append((p[0], 6))
+
+        if (list_num_7):
+            for p in list_num_7:
+                list_real_num.append((p[0], 7))
+
+        if (list_num_8):
+            for p in list_num_8:
+                list_real_num.append((p[0], 8))
+
+        if (list_num_9):
+            for p in list_num_9:
+                list_real_num.append((p[0], 9))
+
+        # 지겨운 실제값 리스트를 받았으니
+        list_real_num.sort()  # 추려서
+
+        for i in range(len(list_real_num)):  # 실제 int값으로 변환
+            its_number = its_number + list_real_num[i][1] * 10 ** (len(list_real_num) - i - 1)
+
+        print('현재 재고는 =', its_number)
+        return its_number
+
+def find_num(image, yPosition, list_output):
+    prod_num = pag.locateAllOnScreen(image, confidence=0.87, grayscale=True, region=(620 + (account // 2) * 960, yPosition + 20, 33, 18))
+    num_list = list(prod_num)
+    if len(num_list) != 0:
+        for p in num_list:
+            ctr = pag.center(p)
+            list_output.append(ctr)
+    return
+
+
+def del_duplication(dif, list_origin):
+    list_origin.sort()
+    list_origin = list(set(list_origin))
+    del_list = list()
+    if len(list_origin) > 1:  # 중복 확인. 0,1,2,3,4 이런식이면 0과 1~4, 1과 2~4, 3과 4 이런식으로 중복 비교
+        for i in range(len(list_origin) - 1):
+            for j in range(len(list_origin) - 1 - i):
+                # if abs(int(list_origin[i][0])-int(list_origin[i+1+j][0])) < dif and abs(int(list_origin[i][1])-int(list_origin[i+1+j][1])) < dif:
+                if abs(int(list_origin[i][0]) - int(list_origin[i + 1 + j][0])) < dif:
+                    del_list.append(list_origin[i])
+                if list_origin[i][0] == list_origin[i + 1 + j][0]:
+                    del_list.append(list_origin[i])
+    list_origin = [x for x in list_origin if x not in del_list]
+    list_origin.sort()
+    return list_origin
+
+def Updown(account, updown):
+    try:
+        if updown == 'up':
+            pag.moveTo(610 + (account // 2) * 960, 295 + (account % 2) * 540)
+            pag.mouseDown()
+            time.sleep(0.5)
+            pag.moveTo(610 + (account // 2) * 960, 295 + (account % 2) * 540 - 173, 2)  # 153인데 20 더 여유줌
+            time.sleep(0.5)
+            pag.mouseUp()
+            time.sleep(0.5)
+            pag.click(262 + (account // 2) * 960, 328 + (account % 2) * 540)
+            time.sleep(2)
+        if updown == 'down':
+            pag.moveTo(610 + (account // 2) * 960, 295 + (account % 2) * 540)
+            pag.mouseDown()
+            time.sleep(0.5)
+            pag.moveTo(610 + (account // 2) * 960, 295 + (account % 2) * 540 + 173, 2)  # 153인데 20 더 여유줌
+            time.sleep(0.5)
+            pag.mouseUp()
+            time.sleep(0.5)
+            pag.click(262 + (account // 2) * 960, 328 + (account % 2) * 540)
+            time.sleep(2)
+        if updown == 'leftup':
+            pag.moveTo(94 + (account // 2) * 960, 295 + (account % 2) * 540)
+            pag.mouseDown()
+            time.sleep(0.5)
+            pag.moveTo(94 + (account // 2) * 960, 295 + (account % 2) * 540 - 173, 2)  # 153인데 20 더 여유줌
+            time.sleep(0.5)
+            pag.mouseUp()
+            # time.sleep(0.5)
+            # pag.click(262 + (account//2)*960, 328 + (account%2) * 540)
+            time.sleep(2)
+    except:
+        print('에러가 났어요! Updown')
+        # Kingdom_ready(account, 'kkd_out')  # 재부팅
+
+def prod_action(image, list_image, account, check_num):
+    # print('Prod_action함수!', image, list_image, account, check_num)
+    start_time = time.time()
+    error_count = 0
+
+    cond_network = pag.locateCenterOnScreen('cond_network.png', confidence=0.96, region=(440 + (account // 2) * 960, 363 + (account % 2) * 540, 43, 29))
+    if (cond_network):
+        pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(377 - 5, 377 + 5) + (account % 2) * 540)
+        time.sleep(0.3)
+
+    # cond_halted = pag.locateCenterOnScreen('cond_halted.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+    # if (cond_halted):
+    #     # pag.click(740 + (account // 2) * 960, 310 + (account % 2) * 540)
+    #     pag.click(cond_halted)
+    #     End_kkd(account)
+    #     Kingdom_ready(account, 'kkd_out')  # 재부팅
+    #     return False
+
+    # cond_halted1 = pag.locateCenterOnScreen('cond_halted1.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+    # cond_halted_close = pag.locateCenterOnScreen('cond_halted_close.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+    # if (cond_halted1):
+    #     pag.click(cond_halted_close)
+    #     time.sleep(7)
+    #     Kingdom_ready(account, 'kkd_out')  # 재부팅
+
+    prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.945, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
+    if not (prod_refresh):
+        # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
+        pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(190, 410) + (account % 2) * 540)
+        time.sleep(0.3)
+
+    # cond_2nd_clear = pag.locateCenterOnScreen('cond_2nd_clear.png', confidence=0.96, region=(75 - 10 + (account//2)*960, 200 - 10 + (account%2) * 540, 20, 20))
+    # cond_2nd_clear1 = pag.locateCenterOnScreen('cond_2nd_clear1.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + (account % 2) * 540, 20, 20))
+    cond_3rd_clear1 = pag.locateCenterOnScreen('cond_3rd_clear1.png', confidence=0.94, region=(75 - 10 +(account // 2) * 960, 200 - 10 +  70+(account % 2) * 540, 20, 20))  # 세번째 3번째 칸 비었으면 생산시작!
+    if (cond_3rd_clear1):
+        ShowTime = True
+    else:
+        return True
+
+    print('Prod_action함수!', image, list_image, account, check_num)
+
+    while ShowTime:
+        # cond_network = pag.locateCenterOnScreen('cond_network.png', confidence=0.96, region=(440 + (account // 2) * 960, 363 + (account % 2) * 540, 43, 29))
+        # if (cond_network):
+        #     pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(377 - 5, 377 + 5) + (account % 2) * 540)
+        #     time.sleep(0.6)
+        #
+        # cond_halted = pag.locateCenterOnScreen('cond_halted.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+        # if (cond_halted):
+        #     # pag.click(740 + (account // 2) * 960, 310 + (account % 2) * 540)
+        #     pag.click(cond_halted)
+        #     End_kkd(account)
+        #     Kingdom_ready(account, 'kkd_out')  # 재부팅
+        #     return False
+        #
+        # cond_halted1 = pag.locateCenterOnScreen('cond_halted1.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+        # cond_halted_close = pag.locateCenterOnScreen('cond_halted_close.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+        # if (cond_halted1):
+        #     pag.click(cond_halted_close)
+        #     time.sleep(7)
+        #     Kingdom_ready(account, 'kkd_out')  # 재부팅
+
+        now_time = time.time()
+        prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.945, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
+        if not (prod_refresh):
+            # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
+            pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(190, 410) + (account % 2) * 540)
             time.sleep(0.3)
+        # 클릭했는데도 리스트가 가득 차있다? 어찔까... 그냥 넘어가면 최고렙을 계속 찍을..지도?
+        prod_full_list3 = pag.locateCenterOnScreen('prod_full_list3.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+        prod_full_list4 = pag.locateCenterOnScreen('prod_full_list4.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+        prod_full_list5 = pag.locateCenterOnScreen('prod_full_list5.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+        prod_full_list6 = pag.locateCenterOnScreen('prod_full_list6.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+        prod_full_list7 = pag.locateCenterOnScreen('prod_full_list7.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+        # 3~7렙 Full list인 경우 다음 건물로 넘어감. 하지만 고렙 생산..중이면 그거 취소 못하고 저렙 생산이 안될텐데...
+        if (prod_full_list3) or (prod_full_list4) or (prod_full_list5) or (prod_full_list6) or (prod_full_list7):
+            print('리스트 full!1')
+            return True
+        if now_time - start_time > 10:
+            print('동작 최대시간 초과 입니다.')
+            return False
+        if keyboard.is_pressed('end'):
+            return True
 
-        cond_trade_angmu_confirm = pag.locateCenterOnScreen('cond_trade_angmu_confirm.png', confidence=0.85, region=(420 + (account // 2) * 960, 80 + (account % 2) * 540, 58, 33))  # 해상무역센터 앵무 교역소 위치 확인
-        if not (cond_trade_angmu_confirm):
-            print('튕기거나 빠져나갔나봐요...')
+        ctr = pag.locateCenterOnScreen(image, confidence=0.87, region=(560 + (account // 2) * 960, 75 + (account % 2) * 540, 105, 460))    # 생산품 이미지 큰거, 오른쪽에 핀으로 꽂혀있는거
+        prd_done = pag.locateCenterOnScreen('prod_done.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 마지막 칸 바닥이 보임 = 생산 다 누름
+        list_full = pag.locateCenterOnScreen('Cond_makinglist_full.png', confidence=0.97, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))   # 생산시 생기는 흰화살표 윗부분 /
+        list_full1 = pag.locateCenterOnScreen('Cond_makinglist_full1.png', confidence=0.97, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 생산시 생기는 흰화살표 세모꼴 <
+        lack_of_material = pag.locateCenterOnScreen('lack_material.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+        not_opened = pag.locateCenterOnScreen('Cond_not_opened.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))      # '확인'버튼
+        ctr_list = pag.locateCenterOnScreen(list_image, confidence=0.9, region=(40 + (account // 2) * 960, 168 + (account % 2) * 540, 71, 321))    #  생산 대기중인 제품? 나무+원배경
+        play_halted = pag.locateCenterOnScreen('cond_g_play.png', region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
 
+        # if (play_halted):
+        #     pag.click(play_halted)
 
-        trade_baseline_gray = pag.locateCenterOnScreen('trade_baseline_gray.png', confidence=0.9, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
-        if (trade_baseline_gray):
-            if (92 + (account // 2) * 960 >= trade_baseline_gray[0] > 70 + (account // 2) * 960) or (92 + 157 + (account // 2) * 960 >= trade_baseline_gray[0] > 70 + 157 + (account // 2) * 960):
-                Scroll_count = Scroll_count + 1
-                break
-            else:                 # 아니면 살짝 왼쪽으로 돌려서 영점조정
-                pag.moveTo(790 + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540))
+        if (ctr):  # 이미지 찾음
+            print('이미지 검색!', image)
+            while True:
+                if ctr.y < 465 + (account % 2) * 540:  # 최대 밑으로 스크롤 한 경우 464+540*account 이하여야 함. 넘어가면 불안쓰
+                    print('이미지 범위 내에요!')
+                    break
+                else:
+                    print('이미지가 너무 밑에 있어 올립니다.')
+                    Updown(account, 'up')  # 순방향 위로 드래그
+                    ctr = pag.locateCenterOnScreen(image, confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+            now_time = time.time()
+            if now_time - start_time > 30:
+                print('동작 최대시간 초과 입니다.')
+                return False
+            number_bef_action = prod_check(image, account)
+            target_numb = check_num - number_bef_action
+
+            # 목표 수량 미만
+            if target_numb > 0:
+                print('목표 수량 미달!', target_numb)
+                if (list_full) or (list_full1) or (prd_done):  # 생산 완료
+                    print('목표 생산물 클릭 완료!!')
+                    return True
+                elif (lack_of_material):  # 재료 부족
+                    print('재료가 부족해요')
+                    pag.click(284 + (account // 2) * 960, 15 + (account % 2) * 540)
+                    time.sleep(0.3)
+                    pag.hotkey('esc')
+                    time.sleep(0.3)
+                    return False
+                elif (not_opened):  # 안 연거
+                    print('열지 않은 제품이라서 넘어가겠어요~!')
+                    pag.click(284 + (account // 2) * 960, 15 + (account % 2) * 540)
+                    time.sleep(0.3)
+                    pag.hotkey('esc')
+                    time.sleep(0.3)
+                    return False
+                else:  # 그거 아니면 생산 클릭           실제 생산!
+                    print('생산품 클릭!')
+                    pag.moveTo(ctr[0] + 235, ctr[1] + 48)
+                    # pag.moveTo(ctr[0] + 177, ctr[1] + 48)
+                    # time.sleep(0.2)
+                    pag.mouseDown()
+                    time.sleep(0.3)
+                    pag.mouseUp()
+                    time.sleep(0.5)
+
+                    lack_of_material = pag.locateCenterOnScreen('lack_material.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+                    if (lack_of_material):
+                        print('재료가 부족해요')
+                        pag.click(284 + (account // 2) * 960, 15 + (account % 2) * 540)
+                        time.sleep(0.3)
+                        pag.hotkey('esc')
+                        time.sleep(0.3)
+                        return False
+
+            # 목표 수량 초과
+            if target_numb <= 0:
+                print('목표 수량 초과!')
+                if (ctr_list):     # 생산 대기중인 제품 삭제!
+                    if 111 + (account // 2) * 960 >= ctr_list.x + (account // 2) * 960 >= 40 + (account // 2) * 960:
+                        print('이 제품은 충분히 생산했으니 삭제하겠써요!')
+                        pag.click(ctr_list)
+                        time.sleep(0.7)
+                else:
+                    return False
+        else:  # 이미지 못찾음
+            print('이미지를 찾지 못했습니다.')
+            if error_count > 2:  # 그래도 못찾으면 에러
+                return False
+            if error_count == 1:
+                pag.moveTo(610 + (account // 2) * 960, 295 + (account % 2) * 540)
                 pag.mouseDown()
                 time.sleep(0.5)
-                pag.moveTo(790 + 50 + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540), 2)  # 한 번 움직여보고
-                time.sleep(0.5)
-                trade_baseline_gray_new = pag.locateCenterOnScreen('trade_baseline_gray.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
-                if (trade_baseline_gray_new):
-                    pag.moveTo(790+(account//2)*960*2 + 50 - trade_baseline_gray_new[0] + 73, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540), 3)  # 153인데 20 더 여유줌
+                pag.moveTo(610 + (account // 2) * 960, 295 + (account % 2) * 540 + 15, 2)  # 15 내리고 이미지 다시 찾음
                 time.sleep(0.5)
                 pag.mouseUp()
-                time.sleep(0.5)
-
-        trade_baseline = pag.locateCenterOnScreen('trade_baseline.png', confidence=0.9, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
-        if (trade_baseline):
-            print(92 + 157 + (account // 2) * 960, '>=', trade_baseline[0], '>', 70 + 157 + (account // 2) * 960)
-            if (92 + (account // 2) * 960 >= trade_baseline[0] > 70 + (account // 2) * 960) or (92 + 157 + (account // 2) * 960 >= trade_baseline[0] > 70 + 157 + (account // 2) * 960):
-                print(92 + 157 + (account // 2) * 960*2 ,'>=', trade_baseline[0] ,'>', 70 + 157 + (account // 2) * 960)
-                Scroll_count = Scroll_count + 1
-                break
-            else:            # 약간 왼쪽으로(trade baseline 뉴 찾을때까지) 돌려
-                pag.moveTo(790 + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540))
+                time.sleep(2)
+                error_count = error_count + 1
+            if error_count == 0:
+                pag.moveTo(610 + (account // 2) * 960, 295 + (account % 2) * 540)
                 pag.mouseDown()
                 time.sleep(0.5)
-                pag.moveTo(790 + 50 + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540), 2)  # 한 번 움직여보고
-                time.sleep(0.5)
-                trade_baseline_new = pag.locateCenterOnScreen('trade_baseline.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
-                if (trade_baseline_new):
-                    pag.moveTo(790+(account//2)*960*2 + 50 - trade_baseline_new[0] + 73, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540), 3)  # 153인데 20 더 여유줌
+                pag.moveTo(610 + (account // 2) * 960, 295 + (account % 2) * 540 - 10, 2)  # 10 올리고 이미지 다시 찾음
                 time.sleep(0.5)
                 pag.mouseUp()
-                time.sleep(0.5)
+                time.sleep(2)
+                error_count = error_count + 1
+
+prod_action()
