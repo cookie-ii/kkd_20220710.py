@@ -1414,7 +1414,7 @@ import random
 # pix_status = screen.getpixel((460 + (account // 2) * 960, 90 + (account % 2) * 540))  # 소원나무 확인 뽀인트
 # print(pix_status)
 
-account = 0
+
 def Angmu_Action(prd_name, ctr, account):
     try:
         cond_network = pag.locateCenterOnScreen('cond_network.png', confidence=0.96, region=(440 + (account // 2) * 960, 363 + (account % 2) * 540, 43, 29))
@@ -2098,18 +2098,20 @@ def prod_action(image, list_image, account, check_num):
     #     Kingdom_ready(account, 'kkd_out')  # 재부팅
 
     prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.945, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
-    if not (prod_refresh):
-        # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
-        pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(190, 410) + (account % 2) * 540)
-        time.sleep(0.3)
+    if not (prod_refresh) or (prod_refresh.y):
 
-    # cond_2nd_clear = pag.locateCenterOnScreen('cond_2nd_clear.png', confidence=0.96, region=(75 - 10 + (account//2)*960, 200 - 10 + (account%2) * 540, 20, 20))
-    # cond_2nd_clear1 = pag.locateCenterOnScreen('cond_2nd_clear1.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + (account % 2) * 540, 20, 20))
-    cond_3rd_clear1 = pag.locateCenterOnScreen('cond_3rd_clear1.png', confidence=0.94, region=(75 - 10 +(account // 2) * 960, 200 - 10 +  70+(account % 2) * 540, 20, 20))  # 세번째 3번째 칸 비었으면 생산시작!
-    if (cond_3rd_clear1):
+        time.sleep(0.3)
         ShowTime = True
     else:
         return True
+
+    # cond_2nd_clear = pag.locateCenterOnScreen('cond_2nd_clear.png', confidence=0.96, region=(75 - 10 + (account//2)*960, 200 - 10 + (account%2) * 540, 20, 20))
+    # cond_2nd_clear1 = pag.locateCenterOnScreen('cond_2nd_clear1.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + (account % 2) * 540, 20, 20))
+    # cond_3rd_clear1 = pag.locateCenterOnScreen('cond_3rd_clear1.png', confidence=0.94, region=(75 - 10 +(account // 2) * 960, 200 - 10 +  70+(account % 2) * 540, 20, 20))  # 세번째 3번째 칸 비었으면 생산시작!
+    # if (cond_3rd_clear1):
+    #     ShowTime = True
+    # else:
+    #     return True
 
     print('Prod_action함수!', image, list_image, account, check_num)
 
@@ -2256,5 +2258,8 @@ def prod_action(image, list_image, account, check_num):
                 pag.mouseUp()
                 time.sleep(2)
                 error_count = error_count + 1
-
-prod_action()
+account = 2
+# prod_action()
+prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.945, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
+if not (prod_refresh) or 140<= (prod_refresh.y) <= 140+175:
+    print(prod_refresh)

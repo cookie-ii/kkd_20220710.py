@@ -5,6 +5,7 @@ import keyboard
 import pyautogui as pag
 from PIL import ImageGrab
 import sys
+import math
 
 pag.FAILSAFE = False
 macro_start = time.time()  # 전체 사이클 타임확인을 위한 시작시간 체크
@@ -97,7 +98,7 @@ bProdHigh = False  # 동일 건물 2개인 경우 2번째 건물에서 높은 �
 bSecond = False  # 두 번째 건물 작업이냐?
 
 bAcc_A_First = False  # 계정 먼저 시작 순서(True일 때 A부터, 아니면 B부터)
-bAcc_C_First = True     # C계정 먼저 시작해요!
+bAcc_C_First = False     # C계정 먼저 시작해요!
 
 bFirstCookhouA = False  # 첫 쿠하(클릭)
 bFirstCookhouB = False  # 첫 쿠하(클릭)
@@ -199,7 +200,7 @@ rollc_lev3_A = 245  # 뻐꾹뻐꾹 시계
 rollc_lev4_A = 300  # 백조깃털 드림캐처
 
 bread_num_A = 2  # 빵집 건물 수
-bread_lev1_A = 130  # 든든한 호밀빵
+bread_lev1_A = 110  # 든든한 호밀빵
 bread_lev2_A = 90  # 달콤쫀득 잼파이
 bread_lev3_A = 90  # 은행 포카치아
 bread_lev4_A = 50  # 슈가코팅 도넛
@@ -207,7 +208,7 @@ bread_lev5_A = 100  # 폭신 카스테라
 bread_lev6_A = 0  # 골드리치 크로와상
 
 jampy_num_A = 2  # 잼파이 건물 수
-jampy_lev1_A = 200  # 따끈따끈 젤리스튜
+jampy_lev1_A = 0  # 따끈따끈 젤리스튜
 jampy_lev2_A = 120  # 곰젤리 버거
 jampy_lev3_A = 120  # 캔디크림 파스타
 jampy_lev4_A = 150  # 폭신폭신 오므라이스
@@ -234,7 +235,7 @@ milky_lev2_A = 100  # 버터
 milky_lev3_A = 100  # 수제 치즈
 
 latte_num_A = 2  # 라떼 건물 수
-latte_lev1_A = 200  # 젤리빈 라떼
+latte_lev1_A = 140  # 젤리빈 라떼
 latte_lev2_A = 120  # 몽글몽글 버블티
 latte_lev3_A = 0  # 스윗베리 에이드
 
@@ -249,9 +250,9 @@ beer_lev2_A = 60  # 레드베리 주스
 beer_lev3_A = 60  # 빈티지 와일드 보틀
 
 muffin_num_A = 1  # 퐁 드 파티세리 건물 수
-muffin_lev1_A = 40  # 으스스 머핀
-muffin_lev2_A = 40  # 생딸기 케이크
-muffin_lev3_A = 40  # 파티파티 쉬폰케이크
+muffin_lev1_A = 50  # 으스스 머핀
+muffin_lev2_A = 50  # 생딸기 케이크
+muffin_lev3_A = 50  # 파티파티 쉬폰케이크
 
 jewel_num_A = 1  # 살롱 드 쥬얼리 건물 수
 jewel_lev1_A = 25  # 글레이즈드 링
@@ -334,10 +335,10 @@ bread_lev5_B = 225  # 폭신 카스테라
 bread_lev6_B = 0  # 골드리치 크로와상
 
 jampy_num_B = 2  # 잼파이 건물 수
-jampy_lev1_B = 190  # 따끈따끈 젤리스튜
+jampy_lev1_B = 180  # 따끈따끈 젤리스튜
 jampy_lev2_B = 100  # 곰젤리 버거
 jampy_lev3_B = 40  # 캔디크림 파스타
-jampy_lev4_B = 25  # 폭신폭신 오므라이스
+jampy_lev4_B = 40  # 폭신폭신 오므라이스
 jampy_lev5_B = 70  # 콤비네이션 피자젤리
 jampy_lev6_B = 0  # 고급스러운 젤리빈 정식
 
@@ -348,11 +349,11 @@ doye_lev3_B = 250  # 반짝이는 색동구슬
 doye_lev4_B = 250  # 무지갯빛 디저트 보울
 
 flower_num_B = 2  # 꽃가게 건물 수
-flower_lev1_B = 100  # 캔디꽃
-flower_lev2_B = 100  # 행복한 꽃화분
-flower_lev3_B = 59  # 캔디꽃다발
+flower_lev1_B = 70  # 캔디꽃
+flower_lev2_B =900  # 행복한 꽃화분
+flower_lev3_B = 60  # 캔디꽃다발
 flower_lev4_B = 55  # 롤리팝 꽃바구니
-flower_lev5_B = 15  # 유리꽃 부케
+flower_lev5_B = 25  # 유리꽃 부케
 flower_lev6_B = 72  # 찬란한 요거트 화환
 
 milky_num_B = 2  # 우유 가공소 건물 수
@@ -371,9 +372,9 @@ dolls_lev2_B = 140  # 곰젤리 솜인형
 dolls_lev3_B = 0  # 용과 드래곤 솜인형
 
 beer_num_B = 2  # 오크통 쉼터 건물 수
-beer_lev1_B = 90  # 크림 루트비어
-beer_lev2_B = 90  # 레드베리 주스
-beer_lev3_B = 90  # 빈티지 와일드 보틀
+beer_lev1_B = 100  # 크림 루트비어
+beer_lev2_B = 100  # 레드베리 주스
+beer_lev3_B = 100  # 빈티지 와일드 보틀
 
 muffin_num_B = 2  # 퐁 드 파티세리 건물 수
 muffin_lev1_B = 65  # 으스스 머핀
@@ -459,10 +460,10 @@ bread_lev5_C = 350  # 폭신 카스테라
 bread_lev6_C = 0  # 골드리치 크로와상
 
 jampy_num_C = 2  # 잼파이 건물 수
-jampy_lev1_C = 100  # 따끈따끈 젤리스튜
+jampy_lev1_C = 90  # 따끈따끈 젤리스튜
 jampy_lev2_C = 100  # 곰젤리 버거
 jampy_lev3_C = 100  # 캔디크림 파스타
-jampy_lev4_C = 90  # 폭신폭신 오므라이스
+jampy_lev4_C = 100  # 폭신폭신 오므라이스
 jampy_lev5_C = 200  # 콤비네이션 피자젤리
 jampy_lev6_C = 0  # 고급스러운 젤리빈 정식
 
@@ -473,11 +474,11 @@ doye_lev3_C = 250  # 반짝이는 색동구슬
 doye_lev4_C = 300  # 무지갯빛 디저트 보울
 
 flower_num_C = 2  # 꽃가게 건물 수
-flower_lev1_C = 100  # 캔디꽃
+flower_lev1_C = 90  # 캔디꽃
 flower_lev2_C = 60  # 행복한 꽃화분
 flower_lev3_C = 50  # 캔디꽃다발
 flower_lev4_C = 50  # 롤리팝 꽃바구니
-flower_lev5_C = 70  # 유리꽃 부케
+flower_lev5_C = 40  # 유리꽃 부케
 flower_lev6_C = 100  # 찬란한 요거트 화환
 
 milky_num_C = 2  # 우유 가공소 건물 수
@@ -1457,19 +1458,22 @@ def prod_action(image, list_image, account, check_num):
         Kingdom_ready(account, 'kkd_out')  # 재부팅
 
     prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.945, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
-    if not (prod_refresh):
-        # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
-        pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(190, 410) + (account % 2) * 540)
+    if not (prod_refresh) or 140<= (prod_refresh.y) <= 140+175:
+        ShowTime = True
+    else:
+        return False
+        # # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
+        # pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(190, 410) + (account % 2) * 540)
         time.sleep(0.3)
 
     # cond_2nd_clear = pag.locateCenterOnScreen('cond_2nd_clear.png', confidence=0.96, region=(75 - 10 + (account//2)*960, 200 - 10 + (account%2) * 540, 20, 20))
     # cond_2nd_clear1 = pag.locateCenterOnScreen('cond_2nd_clear1.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + (account % 2) * 540, 20, 20))
-    cond_3rd_clear1 = pag.locateCenterOnScreen('cond_3rd_clear1.png', confidence=0.94, region=(75 - 10 +(account // 2) * 960, 200 - 10 +  70+(account % 2) * 540, 20, 20))  # 세번째 3번째 칸 비었으면 생산시작!
-    cond_3rd_clear2 = pag.locateCenterOnScreen('cond_3rd_clear2.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + 70 + (account % 2) * 540, 20, 20))  # 세번째 3번째 칸 비었으면 생산시작!
-    if (cond_3rd_clear1) or (cond_3rd_clear2):
-        ShowTime = True
-    else:
-        return True
+    # cond_3rd_clear1 = pag.locateCenterOnScreen('cond_3rd_clear1.png', confidence=0.94, region=(75 - 10 +(account // 2) * 960, 200 - 10 +  70+(account % 2) * 540, 20, 20))  # 세번째 3번째 칸 비었으면 생산시작!
+    # cond_3rd_clear2 = pag.locateCenterOnScreen('cond_3rd_clear2.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + 70 + (account % 2) * 540, 20, 20))  # 세번째 3번째 칸 비었으면 생산시작!
+    # if (cond_3rd_clear1) or (cond_3rd_clear2):
+    #     ShowTime = True
+    # else:
+    #     return True
 
     print('Prod_action함수!', image, list_image, account, check_num)
 
@@ -1495,19 +1499,23 @@ def prod_action(image, list_image, account, check_num):
             Kingdom_ready(account, 'kkd_out')  # 재부팅
 
         now_time = time.time()
-        prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.945, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
-        if not (prod_refresh):
-            # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
-            pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(190, 410) + (account % 2) * 540)
-            time.sleep(0.3)
+        # prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.945, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
+        # if not (prod_refresh):
+        #     # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
+        #     pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(190, 410) + (account % 2) * 540)
+        #     time.sleep(0.3)
         # 클릭했는데도 리스트가 가득 차있다? 어찔까... 그냥 넘어가면 최고렙을 계속 찍을..지도?
-        prod_full_list3 = pag.locateCenterOnScreen('prod_full_list3.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-        prod_full_list4 = pag.locateCenterOnScreen('prod_full_list4.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-        prod_full_list5 = pag.locateCenterOnScreen('prod_full_list5.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-        prod_full_list6 = pag.locateCenterOnScreen('prod_full_list6.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-        prod_full_list7 = pag.locateCenterOnScreen('prod_full_list7.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+        # prod_full_list3 = pag.locateCenterOnScreen('prod_full_list3.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+        # prod_full_list4 = pag.locateCenterOnScreen('prod_full_list4.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+        # prod_full_list5 = pag.locateCenterOnScreen('prod_full_list5.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+        # prod_full_list6 = pag.locateCenterOnScreen('prod_full_list6.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+        # prod_full_list7 = pag.locateCenterOnScreen('prod_full_list7.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+        # prod_full_list8 = pag.locateCenterOnScreen('prod_full_list8.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+        z0 = pag.locateCenterOnScreen('z0.png', confidence=0.95, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        if z0:
         # 3~7렙 Full list인 경우 다음 건물로 넘어감. 하지만 고렙 생산..중이면 그거 취소 못하고 저렙 생산이 안될텐데...
-        if (prod_full_list3) or (prod_full_list4) or (prod_full_list5) or (prod_full_list6) or (prod_full_list7):
+        # if (prod_full_list3) or (prod_full_list4) or (prod_full_list5) or (prod_full_list6) or (prod_full_list7):
+        # if (prod_full_list3) or (prod_full_list4) or (prod_full_list5) or (prod_full_list6) or (prod_full_list7) or (prod_full_list8):
             print('리스트 full!1')
             return True
         if now_time - start_time > 10:
@@ -1616,7 +1624,6 @@ def prod_action(image, list_image, account, check_num):
                 pag.mouseUp()
                 time.sleep(2)
                 error_count = error_count + 1
-
 
 # 부팅 확인할 때 쓰는
 def Check_Initiating(account):
@@ -2041,53 +2048,54 @@ def Enter_Building(account):
 
 def list_clear(account):
     while True:
-        # cond_2nd_clear = pag.locateCenterOnScreen('cond_2nd_clear.png', confidence=0.96, region=(75 - 10 + (account//2)*960, 200 - 10 + (account%2) * 540, 20, 20))
-        # cond_2nd_clear1 = pag.locateCenterOnScreen('cond_2nd_clear1.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + (account % 2) * 540, 20, 20))
-        cond_3rd_clear1 = pag.locateCenterOnScreen('cond_3rd_clear1.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + 70+(account % 2) * 540, 20, 20))
-        cond_3rd_clear2 = pag.locateCenterOnScreen('cond_3rd_clear2.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + 70 + (account % 2) * 540, 20, 20))
-        if (cond_3rd_clear1) or (cond_3rd_clear2):
-            prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.945, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
-            if (prod_refresh):
-                pag.click(prod_refresh)  # >> 클릭(즉시생산)
-                # remain_time_dia = pag.locateCenterOnScreen('remain_time_dia.png', confidence = 0.945, region = (90,145+account*540,24,20))
+        prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.945, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
+        # # cond_2nd_clear = pag.locateCenterOnScreen('cond_2nd_clear.png', confidence=0.96, region=(75 - 10 + (account//2)*960, 200 - 10 + (account%2) * 540, 20, 20))
+        # # cond_2nd_clear1 = pag.locateCenterOnScreen('cond_2nd_clear1.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + (account % 2) * 540, 20, 20))
+        # cond_3rd_clear1 = pag.locateCenterOnScreen('cond_3rd_clear1.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + 70+(account % 2) * 540, 20, 20))
+        # cond_3rd_clear2 = pag.locateCenterOnScreen('cond_3rd_clear2.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + 70 + (account % 2) * 540, 20, 20))
+        # if (cond_3rd_clear1) or (cond_3rd_clear2):
+        #     prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.945, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
+        if (prod_refresh):
+            pag.click(prod_refresh)  # >> 클릭(즉시생산)
+            # remain_time_dia = pag.locateCenterOnScreen('remain_time_dia.png', confidence = 0.945, region = (90,145+account*540,24,20))
+            time.sleep(0.8)
+            remain_time_less_minute = pag.locateCenterOnScreen('remain_time_less_minute.png', confidence=0.945, region=(570 + (account // 2) * 960, 239 + (account % 2) * 540, 49, 25))  # 다이아 10 확인
+            if (remain_time_less_minute):
+                pag.click(random.randint(651 - 5, 651 + 5) + (account // 2) * 960, random.randint(85 - 5, 85 + 5) + (account % 2) * 540)  # 즉시생산 창닫기
                 time.sleep(0.8)
-                remain_time_less_minute = pag.locateCenterOnScreen('remain_time_less_minute.png', confidence=0.945, region=(570 + (account // 2) * 960, 239 + (account % 2) * 540, 49, 25))  # 다이아 10 확인
-                if (remain_time_less_minute):
-                    pag.click(random.randint(651 - 5, 651 + 5) + (account // 2) * 960, random.randint(85 - 5, 85 + 5) + (account % 2) * 540)  # 즉시생산 창닫기
-                    time.sleep(0.8)
-                    print('1분 내에 끝날 거라 남겼슴돠')
-                    return
-                else:
-                    print('1분 넘게 남아 삭제함돠1')
-                    pag.click(random.randint(651 - 5, 651 + 5) + (account // 2) * 960, random.randint(85 - 5, 85 + 5) + (account % 2) * 540)  # 즉시생산 창닫기
-                    time.sleep(0.2)
-                    pag.click(random.randint(75 - 5, 75 + 5) + (account // 2) * 960, random.randint(200 - 5, 200 + 5) - 73 + (account % 2) * 540)  # 첫째 칸 클릭
-                    time.sleep(0.2)
-                    pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(378 - 5, 378 + 5) + (account % 2) * 540)  # 확인
-                    time.sleep(0.4)
-                    return
+                print('1분 내에 끝날 거라 남겼슴돠')
+                return
             else:
-                # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
-                # pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(190, 410) + (account % 2) * 540)
-                pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(336, 398) + (account % 2) * 540)
-                time.sleep(0.3)
-                return True
+                print('1분 넘게 남아 삭제함돠1')
+                pag.click(random.randint(651 - 5, 651 + 5) + (account // 2) * 960, random.randint(85 - 5, 85 + 5) + (account % 2) * 540)  # 즉시생산 창닫기
+                time.sleep(0.2)
+                pag.click(random.randint(75 - 5, 75 + 5) + (account // 2) * 960, random.randint(200 - 5, 200 + 5) - 73 + (account % 2) * 540)  # 첫째 칸 클릭
+                time.sleep(0.2)
+                pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(378 - 5, 378 + 5) + (account % 2) * 540)  # 확인
+                time.sleep(0.4)
+                return
         else:
-            prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.945, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
-            if not (prod_refresh):
-                # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
-                pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(336, 398) + (account % 2) * 540)
-                time.sleep(0.3)
-            # 둘째 칸 취소
-            pag.click(random.randint(75 - 5, 75 + 5) + (account // 2) * 960, random.randint(200 - 5, 200 + 5) + (account % 2) * 540)
+            # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
+            # pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(190, 410) + (account % 2) * 540)
+            pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(336, 398) + (account % 2) * 540)
+            time.sleep(0.3)
+            return True
+    else:
+        prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.945, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
+        if not (prod_refresh):
+            # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
+            pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(336, 398) + (account % 2) * 540)
+            time.sleep(0.3)
+        # 둘째 칸 취소
+        pag.click(random.randint(75 - 5, 75 + 5) + (account // 2) * 960, random.randint(200 - 5, 200 + 5) + (account % 2) * 540)
 
-        # 그새 생산 완료돼서 둘 째 칸 생산중이면 뜨는 취소창은 빼기
-        cond_cancel = pag.locateCenterOnScreen('cond_cancel.png', confidence=0.96, region=(469 + (account // 2) * 960, 221 + (account % 2) * 540, 36, 19))
-        if (cond_cancel):
-            pag.click(random.randint(628 - 5, 628 + 5) + (account // 2) * 960, random.randint(166 - 5, 166 + 5) + (account % 2) * 540)
-            time.sleep(0.5)
-        # 안넣으니 클릭하고 바로 빈칸 캐치해서 멈출때가 있군....
+    # 그새 생산 완료돼서 둘 째 칸 생산중이면 뜨는 취소창은 빼기
+    cond_cancel = pag.locateCenterOnScreen('cond_cancel.png', confidence=0.96, region=(469 + (account // 2) * 960, 221 + (account % 2) * 540, 36, 19))
+    if (cond_cancel):
+        pag.click(random.randint(628 - 5, 628 + 5) + (account // 2) * 960, random.randint(166 - 5, 166 + 5) + (account % 2) * 540)
         time.sleep(0.5)
+    # 안넣으니 클릭하고 바로 빈칸 캐치해서 멈출때가 있군....
+    time.sleep(0.5)
 
 
 def Wood_to_Cotton(account, Min_number, Max_number, Making_Level, prod_direction_left):  # Min 넘버 미만일 때 1렙, Min-Max사이일 땐 2렙
@@ -2111,30 +2119,24 @@ def Wood_to_Cotton(account, Min_number, Max_number, Making_Level, prod_direction
         time.sleep(7)
         Kingdom_ready(account, 'kkd_out')  # 재부팅
 
-    prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.945, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
-    if not (prod_refresh):
-        # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
-        pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(336, 398) + (account % 2) * 540)
-        time.sleep(0.3)
-    # 클릭했는데도 리스트가 가득 차있다? 얘들은 좋지
-    prod_full_list3 = pag.locateCenterOnScreen('prod_full_list3.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    prod_full_list4 = pag.locateCenterOnScreen('prod_full_list4.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    prod_full_list5 = pag.locateCenterOnScreen('prod_full_list5.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    prod_full_list6 = pag.locateCenterOnScreen('prod_full_list6.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    prod_full_list7 = pag.locateCenterOnScreen('prod_full_list7.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+    # prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.945, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
+    # if not (prod_refresh):
+    #     # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
+    #     pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(336, 398) + (account % 2) * 540)
+    #     time.sleep(0.3)
+    # # 클릭했는데도 리스트가 가득 차있다? 얘들은 좋지
+    # prod_full_list3 = pag.locateCenterOnScreen('prod_full_list3.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+    # prod_full_list4 = pag.locateCenterOnScreen('prod_full_list4.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+    # prod_full_list5 = pag.locateCenterOnScreen('prod_full_list5.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+    # prod_full_list6 = pag.locateCenterOnScreen('prod_full_list6.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+    # prod_full_list7 = pag.locateCenterOnScreen('prod_full_list7.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+    # prod_full_list8 = pag.locateCenterOnScreen('prod_full_list8.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+    z0 =pag.locateCenterOnScreen('z0.png', confidence=0.95, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
     # 3~7렙 Full list인 경우 다음 건물로 넘어감. 하지만 고렙 생산..중이면 그거 취소 못하고 저렙 생산이 안될텐데...
-    if (prod_full_list3) or (prod_full_list4) or (prod_full_list5) or (prod_full_list6) or (prod_full_list7):
+    # if (prod_full_list3) or (prod_full_list4) or (prod_full_list5) or (prod_full_list6) or (prod_full_list7):
+    if (z0):
         print('리스트 full!2')
-        prod_warehousefull = pag.locateCenterOnScreen('prod_warehousefull.PNG', confidence=0.95, region=(339 + (account // 2) * 960, 253 + (account % 2) * 540, 175, 87))
-        time.sleep(1)
-        if (prod_warehousefull):  # 이레가 추가 ㅠ.ㅠ
-            print('욕심을 버리시오 중생이여..')
-            pag.click(455 + (account // 2) * 960, 379 + (account % 2) * 540)
-            time.sleep(0.3)
-            pag.click(164 + (account // 2) * 960, 280 + (account % 2) * 540)
-            time.sleep(0.3)
-        else:
-            Skip_Next(account, prod_direction_left)
+        Skip_Next(account, prod_direction_left)
         return False
     # else:
     #     prod_empty = pag.locateAllOnScreen('prod_empty.png', confidence = 0.96, region = (42,97+account*540,66,391))
@@ -2142,7 +2144,6 @@ def Wood_to_Cotton(account, Min_number, Max_number, Making_Level, prod_direction
     #     empty_space = len(prod_empty)+1
 
     its_number = Upper_numb(account)
-
 
     # print('확인한 상단 숫자 =', its_number)
     if Max_number * 0.8 > its_number:  # 최대 수량의 80% 이하이면
@@ -2165,6 +2166,10 @@ def Wood_to_Cotton(account, Min_number, Max_number, Making_Level, prod_direction
         print('위험수량 : 1레벨로 생산합니다.')
 
         while True:
+            if keyboard.is_pressed('end'):
+                print('end 누름')
+                break
+
             now_time = time.time()
             if now_time - start_time > 30:
                 return
@@ -2173,9 +2178,6 @@ def Wood_to_Cotton(account, Min_number, Max_number, Making_Level, prod_direction
                 pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(377 - 5, 377 + 5) + (account % 2) * 540)
                 time.sleep(0.3)
 
-            if keyboard.is_pressed('end'):
-                print('end 누름')
-                break
             prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.945, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
             if (prod_refresh):
                 pag.click(prod_refresh)  # >> 클릭(즉시생산)
@@ -2202,7 +2204,7 @@ def Wood_to_Cotton(account, Min_number, Max_number, Making_Level, prod_direction
         pag.mouseDown()
         time.sleep(0.3)
         pag.mouseUp()
-        time.sleep(0.3)
+        time.sleep(0.5)
         Skip_Next(account, prod_direction_left)
         return bujockhaeyo
 
@@ -2242,78 +2244,14 @@ def Skip_Next(account, prod_direction_left):
         time.sleep(0.3)
     # 220201 흠.. 대충 범위 내 점점점의 점 하나를 찾아 클릭하는 것..
     # 클릭 괜찮은 x좌표 223~427, 클릭 안되는 y좌표 777~862(237~322)
-    # dotdotdot_1 = pag.locateCenterOnScreen('dotdotdot_1.png', confidence=0.85, region=(163 + (account // 2) * 960, 280 + (account % 2) * 540, 205, 132))  # 화살표 피한 센터 위치
-    # dotdotdot_1_1 = pag.locateCenterOnScreen('dotdotdot_1.png', confidence=0.85, region=(150 + (account // 2) * 960, 280 + (account % 2) * 540, 370, 110))  # 화살표 아래 넓은 위치
-    # dotdotdot_2 = pag.locateCenterOnScreen('dotdotdot_2.png', confidence=0.88, region=(163 + (account // 2) * 960, 280 + (account % 2) * 540, 205, 132))  # 화살표 피한 센터 위치
-    # dotdotdot_2_1 = pag.locateCenterOnScreen('dotdotdot_2.png', confidence=0.88, region=(150 + (account // 2) * 960, 280 + (account % 2) * 540, 370, 110))  # 화살표 아래 넓은 위치
-    # dotdotdot_3 = pag.locateCenterOnScreen('dotdotdot_3.png', confidence=0.85, region=(163 + (account // 2) * 960, 280 + (account % 2) * 540, 205, 132))  # 화살표 피한 센터 위치
-    # dotdotdot_3_1 = pag.locateCenterOnScreen('dotdotdot_3.png', confidence=0.85, region=(150 + (account // 2) * 960, 280 + (account % 2) * 540, 370, 110))  # 화살표 아래 넓은 위치
     dotdotdot4 = pag.locateCenterOnScreen('dotdotdot4.png', confidence=0.814, region=(150 + (account // 2) * 960, 200 + (account % 2) * 540, 360, 160))
     dotdotdot5 = pag.locateCenterOnScreen('dotdotdot5.png', confidence=0.814, region=(150 + (account // 2) * 960, 200 + (account % 2) * 540, 360, 160))
 
-    # if (dotdotdot_1):
-    #     print('dotdotdot_1 = ', dotdotdot_1)
-    #     if (dotdotdot_1.y+88 >= 468 + (account % 2) * 540):
-    #         # dotdotdot_1.y = dotdotdot_1.y - (dotdotdot_1.y + 88 - 468)
-    #         pag.click(dotdotdot_1.x, dotdotdot_1.y + 60)
-    #     else:
-    #         pag.click(dotdotdot_1.x, dotdotdot_1.y+88)
-    #     time.sleep(0.3)
-    # if (dotdotdot_1_1):
-    #     print('dotdotdot_1_1 = ', dotdotdot_1_1)
-    #     if (dotdotdot_1_1.y+88 >= 468 + (account % 2) * 540):
-    #         # dotdotdot_1_1.y = dotdotdot_1_1.y - (dotdotdot_1_1.y + 88 - 468)
-    #         pag.click(dotdotdot_1_1.x, dotdotdot_1_1.y + 60)
-    #     else:
-    #         pag.click(dotdotdot_1_1.x, dotdotdot_1_1.y+88)
-    #     time.sleep(0.3)
-    # if (dotdotdot_2):
-    #     print('dotdotdot_2 = ', dotdotdot_2)
-    #     if (dotdotdot_2.y+88 >= 468 + (account % 2) * 540):
-    #         # dotdotdot_2.y = dotdotdot_2.y - (dotdotdot_2.y + 88 - 468)
-    #         pag.click(dotdotdot_2.x, dotdotdot_2.y + 60)
-    #     else:
-    #         pag.click(dotdotdot_2.x, dotdotdot_2.y+88)
-    #     time.sleep(0.3)
-    # if (dotdotdot_2_1):
-    #     print('dotdotdot_2_1 = ', dotdotdot_2_1)
-    #     if (dotdotdot_2_1.y+88 >= 468 + (account % 2) * 540):
-    #         # dotdotdot_2_1.y = dotdotdot_2_1.y - (dotdotdot_2_1.y + 88 - 468)
-    #         pag.click(dotdotdot_2_1.x, dotdotdot_2_1.y + 60)
-    #     else:
-    #         pag.click(dotdotdot_2_1.x, dotdotdot_2_1.y+88)
-    #     time.sleep(0.3)
-    # if (dotdotdot_3):
-    #     print('dotdotdot_3 = ', dotdotdot_3)
-    #     if (dotdotdot_3.y+88 >= 468 + (account % 2) * 540):
-    #         # dotdotdot_3.y = dotdotdot_3.y - (dotdotdot_3.y + 88 - 468)
-    #         pag.click(dotdotdot_3.x, dotdotdot_3.y + 60)
-    #     else:
-    #         pag.click(dotdotdot_3.x, dotdotdot_3.y+88)
-    #     time.sleep(0.3)
-    # if (dotdotdot_3_1):
-    #     print('dotdotdot_3_1 = ', dotdotdot_3_1)
-    #     if (dotdotdot_3_1.y+88 >= 468 + (account % 2) * 540):
-    #         # dotdotdot_3_1.y = dotdotdot_3_1.y - (dotdotdot_3_1.y + 88 - 468)
-    #         pag.click(dotdotdot_3_1.x, dotdotdot_3_1.y + 60)
-    #     else:
-    #         pag.click(dotdotdot_3_1.x, dotdotdot_3_1.y+88)
-    #     time.sleep(0.3)
     if (dotdotdot4):
         # print('dotdotdot4:', dotdotdot4)
         if (dotdotdot4.y+88 >= 468 + (account % 2) * 540):
             dotdotdot4.y = dotdotdot4.y - (dotdotdot4.y + 88 - 468)
             pag.click(dotdotdot4.x, dotdotdot4.y)
-            # print('dotdotdot4.y = ', dotdotdot4.y)
-        # elif ((415 + (account // 2) * 960) >= dotdotdot4.x >= (232 + (account // 2) * 960)):  # x좌표가 괜찮은 구간에 있다?
-        #     print(dotdotdot4.x)
-        #     if ((330 + (account % 2) * 540) >= dotdotdot4.y + 88 >= 227 + (account % 2) * 540):  # X좌표는 괜찮은데 Y좌표가 걸려?
-        #         changed_dot = int(dotdotdot4.y) + 103 + 88
-        #         pag.click(dotdotdot4.x, changed_dot)
-        #         print('changed_dot = ', changed_dot)
-        #     else:                                                                        # Y좌표가 안걸리는 x좌표 자리!
-        #         pag.click(dotdotdot4.x, dotdotdot4.y+88)
-        #         print('dotdotdot4 = ', dotdotdot4.x, dotdotdot4.y + 88)
         elif (dotdotdot4.x >= 415+(account//2)*960):
             changed_dot = dotdotdot4.x + (424+(account//2)*960 - dotdotdot4.x)
             pag.click(changed_dot, dotdotdot4.y+88)
@@ -2322,23 +2260,11 @@ def Skip_Next(account, prod_direction_left):
             pag.click(changed_dot, dotdotdot4.y + 88)
         else:
             pag.click(dotdotdot4.x, dotdotdot4.y+88)
-            # print('dotdotdot4.y+88 = ', dotdotdot4.y+88)
         time.sleep(0.3)
         if (dotdotdot5):
-            # print('dotdotdot5:', dotdotdot5)
             if (dotdotdot5.y + 88 >= 468 + (account % 2) * 540):
                 dotdotdot5.y = dotdotdot5.y - (dotdotdot5.y + 88 - 468)
                 pag.click(dotdotdot5.x, dotdotdot5.y)
-                # print('dotdotdot5.y = ', dotdotdot5.y)
-            # elif ((415 + (account // 2) * 960) >= dotdotdot5.x >= (232 + (account // 2) * 960)):  # x좌표가 괜찮은 구간에 있다?
-            #     print(dotdotdot5.x)
-            #     if ((330 + (account % 2) * 540) >= dotdotdot5.y + 88 >= 227 + (account % 2) * 540):  # X좌표는 괜찮은데 Y좌표가 걸려?
-            #         changed_dot = int(dotdotdot5.y) + 103 + 88
-            #         pag.click(dotdotdot5.x, changed_dot)
-            #         print('changed_dot = ', changed_dot)
-            #     else:                                                                        # Y좌표가 안걸리는 x좌표 자리!
-            #         pag.click(dotdotdot5.x, dotdotdot5.y+88)
-            #         print('dotdotdot5 = ', dotdotdot5.x, dotdotdot5.y + 88)
             elif (dotdotdot5.x >= 415 + (account // 2) * 960):
                 changed_dot = dotdotdot5.x + (424 + (account // 2) * 960 - dotdotdot5.x)
                 pag.click(changed_dot, dotdotdot5.y + 88)
@@ -2347,7 +2273,6 @@ def Skip_Next(account, prod_direction_left):
                 pag.click(changed_dot, dotdotdot5.y + 88)
             else:
                 pag.click(dotdotdot5.x, dotdotdot5.y + 88)
-                # print('dotdotdot5.y+88 = ', dotdotdot5.y+88)
             time.sleep(0.3)
     return
 
@@ -2355,20 +2280,6 @@ def Skip_Next(account, prod_direction_left):
 # 단순 오른쪽으로 돌리는 함수..
 def Skip_Right(account):
     cond_network = pag.locateCenterOnScreen('cond_network.png', confidence=0.96, region=(440 + (account // 2) * 960, 363 + (account % 2) * 540, 43, 29))
-    # if prod_direction_left:    # 이레가 수정햇서
-    #     pag.click(484,280+account*540)
-    #     time.sleep(0.5)
-    #     prod_warehousefull = pag.locateCenterOnScreen('prod_warehousefull.PNG', confidence=0.95,
-    #                                                   region=(339 + (account//2)*960, 253 + (account%2) * 540, 175, 87))
-    #     time.sleep(1)
-    #     if (prod_warehousefull):  # 이레가 추가 ㅠ.ㅠ
-    #         print('욕심을 버리시오 중생이여..오른쪽')
-    #         pag.click(455 + (account//2)*960, 379 + (account%2) * 540) #확인버튼클릭
-    #         time.sleep(0.5)
-    #         pag.click(random.randint(462 - 5, 462 + 5), random.randint(377 - 5, 377 + 5) + (account%2) * 540)
-    #         # pag.click(484 + (account//2)*960, 280 + (account%2) * 540)   # 오른쪽으로 옮겨가요
-    #         time.sleep(0.5)
-
     if (cond_network):
         pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(377 - 5, 377 + 5) + (account % 2) * 540)
         time.sleep(0.3)
@@ -2383,54 +2294,58 @@ def Skip_Right(account):
             time.sleep(0.5)
     # 220201 흠.. 대충 범위 내 점점점의 점 하나를 찾아 클릭하는 것..
     # 클릭 괜찮은 x좌표 223~427, 클릭 안되는 y좌표 777~862(237~322)
-    dotdotdot_1 = pag.locateCenterOnScreen('dotdotdot_1.png', confidence=0.87, region=(223 + (account // 2) * 960, 190 + (account % 2) * 540, 205, 132))  # 화살표 피한 센터 위치
-    dotdotdot_1_1 = pag.locateCenterOnScreen('dotdotdot_1.png', confidence=0.87, region=(150 + (account // 2) * 960, 323 + (account % 2) * 540, 370, 110))  # 화살표 아래 넓은 위치
-    dotdotdot_2 = pag.locateCenterOnScreen('dotdotdot_2.png', confidence=0.9, region=(223 + (account // 2) * 960, 190 + (account % 2) * 540, 205, 132))  # 화살표 피한 센터 위치
-    dotdotdot_2_1 = pag.locateCenterOnScreen('dotdotdot_2.png', confidence=0.9, region=(150 + (account // 2) * 960, 323 + (account % 2) * 540, 370, 110))  # 화살표 아래 넓은 위치
-    dotdotdot_3 = pag.locateCenterOnScreen('dotdotdot_3.png', confidence=0.87, region=(223 + (account // 2) * 960, 190 + (account % 2) * 540, 205, 132))  # 화살표 피한 센터 위치
-    dotdotdot_3_1 = pag.locateCenterOnScreen('dotdotdot_3.png', confidence=0.87, region=(150 + (account // 2) * 960, 323 + (account % 2) * 540, 370, 110))  # 화살표 아래 넓은 위치
+    dotdotdot4 = pag.locateCenterOnScreen('dotdotdot4.png', confidence=0.814, region=(150 + (account // 2) * 960, 200 + (account % 2) * 540, 360, 160))
+    dotdotdot5 = pag.locateCenterOnScreen('dotdotdot5.png', confidence=0.814, region=(150 + (account // 2) * 960, 200 + (account % 2) * 540, 360, 160))
 
-    if (dotdotdot_1):
-        print('dotdotdot_1 = ', dotdotdot_1)
-        pag.click(dotdotdot_1)
+    if (dotdotdot4):
+        # print('dotdotdot4:', dotdotdot4)
+        if (dotdotdot4.y+88 >= 468 + (account % 2) * 540):
+            dotdotdot4.y = dotdotdot4.y - (dotdotdot4.y + 88 - 468)
+            pag.click(dotdotdot4.x, dotdotdot4.y)
+        elif (dotdotdot4.x >= 415+(account//2)*960):
+            changed_dot = dotdotdot4.x + (424+(account//2)*960 - dotdotdot4.x)
+            pag.click(changed_dot, dotdotdot4.y+88)
+        elif (dotdotdot4.x <= 232 + (account // 2) * 960):
+            changed_dot = dotdotdot4.x + (227+(account//2)*960 - dotdotdot4.x)
+            pag.click(changed_dot, dotdotdot4.y + 88)
+        else:
+            pag.click(dotdotdot4.x, dotdotdot4.y+88)
         time.sleep(0.3)
-    if (dotdotdot_1_1):
-        print('dotdotdot_1_1 = ', dotdotdot_1_1)
-        pag.click(dotdotdot_1_1)
-        time.sleep(0.3)
-    if (dotdotdot_2):
-        print('dotdotdot_2 = ', dotdotdot_2)
-        pag.click(dotdotdot_2)
-        time.sleep(0.3)
-    if (dotdotdot_2_1):
-        print('dotdotdot_2_1 = ', dotdotdot_2_1)
-        pag.click(dotdotdot_2_1)
-        time.sleep(0.3)
-    if (dotdotdot_3):
-        print('dotdotdot_3 = ', dotdotdot_3)
-        pag.click(dotdotdot_3)
-        time.sleep(0.3)
-    if (dotdotdot_3_1):
-        print('dotdotdot_3_1 = ', dotdotdot_3_1)
-        pag.click(dotdotdot_3_1)
-        time.sleep(0.3)
+        if (dotdotdot5):
+            if (dotdotdot5.y + 88 >= 468 + (account % 2) * 540):
+                dotdotdot5.y = dotdotdot5.y - (dotdotdot5.y + 88 - 468)
+                pag.click(dotdotdot5.x, dotdotdot5.y)
+            elif (dotdotdot5.x >= 415 + (account // 2) * 960):
+                changed_dot = dotdotdot5.x + (424 + (account // 2) * 960 - dotdotdot5.x)
+                pag.click(changed_dot, dotdotdot5.y + 88)
+            elif (dotdotdot5.x <= 232 + (account // 2) * 960):
+                changed_dot = dotdotdot5.x + (227 + (account // 2) * 960 - dotdotdot5.x)
+                pag.click(changed_dot, dotdotdot5.y + 88)
+            else:
+                pag.click(dotdotdot5.x, dotdotdot5.y + 88)
+            time.sleep(0.3)
     return
 
 
 def Wood_to_Cotton_Quick(account, Max_number, Making_Level, prod_direction_left):  # Min 넘버 미만일 때 1렙, Min-Max사이일 땐 2렙
-    prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.945, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
-    if not (prod_refresh):
-        # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
-        pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(336, 398) + (account % 2) * 540)
-        time.sleep(0.5)
+    # prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.945, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
+    # if not (prod_refresh):
+    #     # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
+    #     pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(336, 398) + (account % 2) * 540)
+    #     time.sleep(0.5)
     # 클릭했는데도 리스트가 가득 차있다? 어찔까... 그냥 넘어가면 최고렙을 계속 찍을..지도?
-    prod_full_list3 = pag.locateCenterOnScreen('prod_full_list3.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    prod_full_list4 = pag.locateCenterOnScreen('prod_full_list4.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    prod_full_list5 = pag.locateCenterOnScreen('prod_full_list5.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    prod_full_list6 = pag.locateCenterOnScreen('prod_full_list6.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    prod_full_list7 = pag.locateCenterOnScreen('prod_full_list7.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+    # prod_full_list3 = pag.locateCenterOnScreen('prod_full_list3.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+    # prod_full_list4 = pag.locateCenterOnScreen('prod_full_list4.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+    # prod_full_list5 = pag.locateCenterOnScreen('prod_full_list5.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+    # prod_full_list6 = pag.locateCenterOnScreen('prod_full_list6.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+    # prod_full_list7 = pag.locateCenterOnScreen('prod_full_list7.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+    # prod_full_list8 = pag.locateCenterOnScreen('prod_full_list8.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+    z0 = pag.locateCenterOnScreen('z0.png', confidence=0.95, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
     # 3~7렙 Full list인 경우 다음 건물로 넘어감. 하지만 고렙 생산..중이면 그거 취소 못하고 저렙 생산이 안될텐데...
-    if (prod_full_list3) or (prod_full_list4) or (prod_full_list5) or (prod_full_list6) or (prod_full_list7):
+    # if (prod_full_list3) or (prod_full_list4) or (prod_full_list5) or (prod_full_list6) or (prod_full_list7):
+
+    # if (prod_full_list3) or (prod_full_list4) or (prod_full_list5) or (prod_full_list6) or (prod_full_list7) or (prod_full_list8):
+    if z0:
         print('리스트 full!3')
         prod_warehousefull = pag.locateCenterOnScreen('prod_warehousefull.PNG', confidence=0.95, region=(339 + (account // 2) * 960, 253 + (account % 2) * 540, 175, 87))
         time.sleep(1)
@@ -3775,7 +3690,7 @@ def Train_time(account, line):
         if keyboard.is_pressed('end'):
             break
         if not (train_arrive_time):
-            time.sleep(5)
+            time.sleep(3)
             print('if not 조건')
             train_arrived = pag.locateCenterOnScreen('Cond_train_arrived.png', confidence=0.95, region=(492 + (account // 2) * 960, 118 + (account % 2) * 540 + (line - 1) * 149, 333, 111))
             if (train_arrived):
@@ -5859,7 +5774,7 @@ def Angmu_check(x1, account):
     if (list_num_1):
         for p in list_num_1:
             list_real_num.append((p[0], 1))
-        print('append 후 list_1', list_num_1)
+        # print('append 후 list_1', list_num_1)
     if (list_num_2):
         for p in list_num_2:
             list_real_num.append((p[0], 2))
@@ -7029,28 +6944,31 @@ def three_prod_action(account, check_list_img1, check_list_img2, check_list_img3
         pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(377 - 5, 377 + 5) + (account % 2) * 540)
         time.sleep(0.3)
 
-    prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.955, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
-    if not (prod_refresh):
-        # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
-        pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(336, 398) + (account % 2) * 540)
-        time.sleep(0.3)
+    # prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.955, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
+    # if not (prod_refresh):
+    #     # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
+    #     pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(336, 398) + (account % 2) * 540)
+    #     time.sleep(0.3)
 
     # cond_2nd_clear = pag.locateCenterOnScreen('cond_2nd_clear.png', confidence=0.96, region=(75 - 10 + (account//2)*960, 200 - 10 + (account%2) * 540, 20, 20))
     # cond_2nd_clear1 = pag.locateCenterOnScreen('cond_2nd_clear1.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + (account % 2) * 540, 20, 20))
-    cond_3rd_clear1 = pag.locateCenterOnScreen('cond_3rd_clear1.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + 70+(account % 2) * 540, 20, 20))
-    cond_3rd_clear2 = pag.locateCenterOnScreen('cond_3rd_clear2.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + 70 + (account % 2) * 540, 20, 20))
-    if (cond_3rd_clear1) or (cond_3rd_clear2):
-    # if not (cond_3rd_clear1):
-        Skip_Next(account, prod_direction_left)
-        return True
+    # cond_3rd_clear1 = pag.locateCenterOnScreen('cond_3rd_clear1.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + 70+(account % 2) * 540, 20, 20))
+    # cond_3rd_clear2 = pag.locateCenterOnScreen('cond_3rd_clear2.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + 70 + (account % 2) * 540, 20, 20))
+    # if (cond_3rd_clear1) or (cond_3rd_clear2):
+    # # if not (cond_3rd_clear1):
+    #     Skip_Next(account, prod_direction_left)
+    #     return True
 
-    # 풀리스트인 경우 넘어감
-    prod_full_list3 = pag.locateCenterOnScreen('prod_full_list3.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    prod_full_list4 = pag.locateCenterOnScreen('prod_full_list4.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    prod_full_list5 = pag.locateCenterOnScreen('prod_full_list5.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    prod_full_list6 = pag.locateCenterOnScreen('prod_full_list6.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    prod_full_list7 = pag.locateCenterOnScreen('prod_full_list7.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    if (prod_full_list3) or (prod_full_list4) or (prod_full_list5) or (prod_full_list6) or (prod_full_list7):
+    # # 풀리스트인 경우 넘어감
+    # prod_full_list3 = pag.locateCenterOnScreen('prod_full_list3.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+    # prod_full_list4 = pag.locateCenterOnScreen('prod_full_list4.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+    # prod_full_list5 = pag.locateCenterOnScreen('prod_full_list5.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+    # prod_full_list6 = pag.locateCenterOnScreen('prod_full_list6.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+    # prod_full_list7 = pag.locateCenterOnScreen('prod_full_list7.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+    # prod_full_list8 = pag.locateCenterOnScreen('prod_full_list8.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+    z0 = pag.locateCenterOnScreen('z0.png', confidence=0.95, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    if z0:
+        # if (prod_full_list3) or (prod_full_list4) or (prod_full_list5) or (prod_full_list6) or (prod_full_list7) or (prod_full_list8):
         print('리스트 full!4')
         Skip_Next(account, prod_direction_left)
         return True
@@ -7129,13 +7047,16 @@ def three_prod_action(account, check_list_img1, check_list_img2, check_list_img3
             pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(377 - 5, 377 + 5) + (account % 2) * 540)
             time.sleep(0.3)
 
-        # 풀리스트인 경우 넘어감
-        prod_full_list3 = pag.locateCenterOnScreen('prod_full_list3.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-        prod_full_list4 = pag.locateCenterOnScreen('prod_full_list4.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-        prod_full_list5 = pag.locateCenterOnScreen('prod_full_list5.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-        prod_full_list6 = pag.locateCenterOnScreen('prod_full_list6.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-        prod_full_list7 = pag.locateCenterOnScreen('prod_full_list7.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-        if (prod_full_list3) or (prod_full_list4) or (prod_full_list5) or (prod_full_list6) or (prod_full_list7):
+        # # 풀리스트인 경우 넘어감
+        # prod_full_list3 = pag.locateCenterOnScreen('prod_full_list3.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+        # prod_full_list4 = pag.locateCenterOnScreen('prod_full_list4.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+        # prod_full_list5 = pag.locateCenterOnScreen('prod_full_list5.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+        # prod_full_list6 = pag.locateCenterOnScreen('prod_full_list6.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+        # prod_full_list7 = pag.locateCenterOnScreen('prod_full_list7.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+        # prod_full_list8 = pag.locateCenterOnScreen('prod_full_list8.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+        z0 = pag.locateCenterOnScreen('z0.png', confidence=0.95, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        if z0:
+        # if (prod_full_list3) or (prod_full_list4) or (prod_full_list5) or (prod_full_list6) or (prod_full_list7) or (prod_full_list8):
             print('리스트 full!5')
             prod_warehousefull = pag.locateCenterOnScreen('prod_warehousefull.PNG', confidence=0.95, region=(339 + (account // 2) * 960, 253 + (account % 2) * 540, 175, 87))
             time.sleep(1)
@@ -8531,7 +8452,7 @@ def Power_check(x1, x2):
     if (list_num_1):
         for p in list_num_1:
             list_real_num.append((p[0], 1))
-        print('append 후 list_1', list_num_1)
+        # print('append 후 list_1', list_num_1)
     if (list_num_2):
         for p in list_num_2:
             list_real_num.append((p[0], 2))
@@ -8577,7 +8498,7 @@ def Power_check(x1, x2):
     #                 del_list.append(list_real_num[i])
     # list_real_num = [x for x in list_real_num if x not in del_list]
 
-    print('set 이전', list_real_num)
+    # print('set 이전', list_real_num)
 
     # list_real_num1 = set(list_real_num)
 
@@ -8635,6 +8556,7 @@ def Arena_action(account, set_max_power):
                 # 전투 아이콘 별로 1~4 상대 탐색
                 if keyboard.is_pressed('end'):
                     return
+
                 cond_adv_arena_fight_icon = pag.locateAllOnScreen('cond_adv_arena_fight_icon.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
                 for p in cond_adv_arena_fight_icon:
                     cond_adv_arena_robby_ticket0 = pag.locateCenterOnScreen('cond_adv_arena_robby_ticket0.png', confidence=0.9, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 아레나 티켓 0
@@ -8650,51 +8572,36 @@ def Arena_action(account, set_max_power):
                     else:
                         ctr = pag.center(p)
                         if (ctr):
-                            print(ctr)
+                            # print(ctr)
                             checked_num = Power_check(ctr[0] - 223, ctr[1] - 31)
                             if checked_num > set_max_power:
                                 print('넌 봐준다..')
                             else:
-                                print('뽜이트!')
+                                print('뽜이트!1')
                                 kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
                                 if (kkd_start_ire):  # 바탕화면으로 나가서 쿠킹덤 아이콘이 보이나!?
                                     print('게임 튕겼어요!')
                                     Check_Initiating(account)
                                     continue
-                                # 여기부터 추가함 - 2022.07.14.
-                                # 전투 종료 후 나가기 버튼 보임!
-                                cond_end_fight3 = pag.locateCenterOnScreen('Cond_wanted_go_out.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 나가기 버튼
-                                if (cond_end_fight3):
-                                    pag.click(cond_end_fight3)
-                                    time.sleep(0.5)
-                                # 전투 중! 킹덤 아레나 글씨 보임 - 클릭 후 나가기 버튼도 확인하고 클릭!
-                                cond_adv_arena_end_fight = pag.locateCenterOnScreen('cond_adv_arena_end_fight.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
-                                if (cond_adv_arena_end_fight):
-                                    pag.click(cond_adv_arena_end_fight)
-                                    time.sleep(0.5)
-                                    cond_end_fight3 = pag.locateCenterOnScreen('Cond_wanted_go_out.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 나가기 버튼
-                                    if (cond_end_fight3):
-                                        pag.click(cond_end_fight3)
-                                        time.sleep(0.5)
-
-                                cond_adv_arena_robby = pag.locateCenterOnScreen('cond_adv_arena_robby.png', confidence=0.98, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 아레나 로비
-                                # 로비로 잘 돌아옴
-                                if (cond_adv_arena_robby):
-                                    print('로비로 잘 돌아옴')
-                                    bFight_started = False
-                                    break
-                                    # 여기까지 추가함 - 2022.07.14
                                 time.sleep(1)
                                 start_check_time1 = time.time()
+                                print('start_check_time1', math.trunc(start_check_time1))
                                 while True:
                                     if keyboard.is_pressed('end'):
                                         return
+
                                     now_check_time1 = time.time()
+                                    print('while True',math.trunc(start_check_time1), math.trunc(now_check_time1))
                                     if now_check_time1 - start_check_time1 > 300:
-                                        print('어... 300초 동안 확인 못함')
+                                        print('어... 300초 동안 확인 못함', math.trunc(start_check_time1-now_check_time1))
                                         End_kkd(account)
                                         Kingdom_ready(account, 'kkd_out')  # 재부팅
                                         return
+                                    kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+                                    if (kkd_start_ire):  # 바탕화면으로 나가서 쿠킹덤 아이콘이 보이나!?
+                                        print('게임 튕겼어요!')
+                                        Check_Initiating(account)
+                                        continue
                                     # 전투시작 아이콘 없으면 전투(로비에서) 클릭
                                     if not bFight_started:  # 전투 시작 안했으면 전투 시작 클릭
                                         cond_start_fight = pag.locateCenterOnScreen('Cond_wanted_start_fignt.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
@@ -8731,6 +8638,7 @@ def Arena_action(account, set_max_power):
                                             break
                                         # 전투 중 1초 주기
                                         time.sleep(1)
+                                    time.sleep(6)
                 cond_adv_arena_robby_ticket0 = pag.locateCenterOnScreen('cond_adv_arena_robby_ticket0.png', confidence=0.9, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 아레나 티켓 0
                 if (cond_adv_arena_robby_ticket0):
                     print('티켓 떨어짐!')
@@ -8771,11 +8679,42 @@ def Arena_action(account, set_max_power):
                                 Kingdom_ready(account, 'kkd_out')
                                 return
                         else:
-                            print('뽜이트!')
+                            print('뽜이트!2')
+                            kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+                            if (kkd_start_ire):  # 바탕화면으로 나가서 쿠킹덤 아이콘이 보이나!?
+                                print('게임 튕겼어요!')
+                                Check_Initiating(account)
+                                continue
                             time.sleep(1)
+                            start_check_time2 = time.time()
+                            print('start_check_time2', math.trunc(start_check_time2))
                             while True:
                                 if keyboard.is_pressed('end'):
                                     break
+                                kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+                                if (kkd_start_ire):  # 바탕화면으로 나가서 쿠킹덤 아이콘이 보이나!?
+                                    print('게임 튕겼어요!')
+                                    Check_Initiating(account)
+                                    continue
+                                now_check_time2 = time.time()
+                                print('while True',math.trunc(start_check_time2), math.trunc(now_check_time2))
+                                if now_check_time2 - start_check_time2 > 300:
+                                    print('어... 300초 동안 확인 못함', math.trunc(start_check_time2-now_check_time2))
+                                    End_kkd(account)
+                                    Kingdom_ready(account, 'kkd_out')  # 재부팅
+                                    return
+                                # 나가기 버튼 보이면 클릭! ----- 2022.07.17. 추가함
+                                cond_end_fight3 = pag.locateCenterOnScreen('Cond_wanted_go_out.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 나가기 버튼
+                                if (cond_end_fight3):
+                                    pag.click(cond_end_fight3)
+                                    time.sleep(0.5)
+                                    cond_adv_arena_robby = pag.locateCenterOnScreen('cond_adv_arena_robby.png', confidence=0.98, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 아레나 로비
+                                    # 로비로 잘 돌아옴
+                                    if (cond_adv_arena_robby):
+                                        print('로비로 잘 돌아옴')
+                                        bFight_started = False
+                                        break
+                                #  ----- 2022.07.17. 추가함 끝
                                 # 전투시작 아이콘 없으면 전투(로비에서) 클릭
                                 if not bFight_started:  # 전투 시작 안했으면 전투 시작 클릭
                                     cond_start_fight = pag.locateCenterOnScreen('Cond_wanted_start_fignt.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
@@ -14079,4 +14018,5 @@ else:
     sys.exit()
 
 end = time.time()
-print('총 매크로 동작 시간은 =', int(end - macro_start), '현재시간:', datetime.now().strftime('%H:%M:%S'))
+# print('총 매크로 동작 시간은 =', int(end - macro_start), '현재시간:', datetime.now().strftime('%H:%M:%S'))
+print('총 매크로 동작 시간은 =', math.trunc(end - macro_start), '현재시간:', datetime.now().strftime('%H:%M:%S'))
