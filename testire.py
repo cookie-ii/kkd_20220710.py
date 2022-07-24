@@ -129,8 +129,8 @@ bMacroTime = True  # 매크로 도는 중?
 bProdHigh = False  # 동일 건물 2개인 경우 2번째 건물에서 높은 생산품 우선 생산
 bSecond = False  # 두 번째 건물 작업이냐?
 
-bAcc_A_First = False  # 계정 먼저 시작 순서(True일 때 A부터, 아니면 B부터)
-bAcc_C_First = True     # C계정 먼저 시작해요!
+bAcc_A_First = True  # 계정 먼저 시작 순서(True일 때 A부터, 아니면 B부터)
+bAcc_C_First = False     # C계정 먼저 시작해요!
 
 bFirstCookhouA = False  # 첫 쿠하(클릭)
 bFirstCookhouB = False  # 첫 쿠하(클릭)
@@ -1198,7 +1198,7 @@ def Heart_sojin(account, WhatToDo):
         # if (cond_end_fight_t) and (pix_status2 == pix_status_fight_comp):  # 전투 종료하면 클릭 후 조건 죽이고
         if (pix_status2 == pix_status_fight_comp):  # 전투 종료하면 클릭 후 조건 죽이고
             print('전투 종료1 조건!')
-            time.sleep(1.5)
+            # time.sleep(1.5)
             pag.click((540 + (account // 2) * 960, 510 + (account % 2) * 540))
             # bWanted_fight_ing = False
             bStep2_Adv = True
@@ -1207,7 +1207,7 @@ def Heart_sojin(account, WhatToDo):
 
         if (pix_status != pix_status_out) and (pix_status2 == pix_status_fight_comp1):  # 전투 종료하면 클릭 후 조건 죽이고
             print('전투 종료2 조건!')
-            time.sleep(1.5)
+            # time.sleep(1.5)
             pag.click((540 + (account // 2) * 960, 510 + (account % 2) * 540))
             # bWanted_fight_ing = False
             bStep2_Adv = True
@@ -1772,11 +1772,12 @@ def Check_Initiating(account):
                 pag.click(kkd_down)
                 bTouchto = True
             if (not (kkd_touch) and not (kkd_down)) and bTouchto:
+                time.sleep(3)
                 print('[부팅중] Touch to Start 터치 완료!', '현재시간:', datetime.now().strftime('%H:%M:%S'))
                 break
         if bTouchto:
             print('부팅 실행 했습니다.')
-            time.sleep(15)
+            time.sleep(17)
             return
     else:
         print('튕긴건 아니네요')
@@ -3435,6 +3436,7 @@ def Sowon_jjokji_action(jjokji_numb, account, jjokji_limit):
         sowon_jjokji_start = time.time()
         # 소원나무 들어가기
         while True:
+            time.sleep(1.5)
             sowon_jjokji_now = time.time()
             if sowon_jjokji_now - sowon_jjokji_start > 30:
                 End_kkd(account)
@@ -3486,9 +3488,9 @@ def Sowon_jjokji_action(jjokji_numb, account, jjokji_limit):
                         if (pix_status == pix_status_in) or (pix_status == pix_status_in_dark):
                             Kingdom_ready(account, 'kkd_out')
                         else:
-                            time.sleep(1)
+                            time.sleep(2)
                             pag.click(random.randint(142, 142 + 26) + (account // 2) * 960, random.randint(489, 489 + 26) + (account % 2) * 540)
-                            time.sleep(1)
+                            time.sleep(2)
 
         wait_jjokji1 = True
         wait_jjokji2 = True
@@ -3959,6 +3961,7 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
             pix_status_in = (194, 143, 10)  # 생산건물 내
             pix_status_in_dark = (97, 72, 5)  # 건물 안이긴 한데 창이 떠있음
             pix_status_in_magic_dark = (109, 81, 9) # 마법공방이고 생산품 보상이 떠있음
+            pix_status_arena_lobby = (197, 196, 194) # 아레나 로비화면!
             # pix_status_out = (0, 181,   255)    # 바탕화면(왕국), 트로피컬도 동일
             pix_status_out = (11, 194, 250)  # 바탕화면(왕국), 트로피컬도 동일  ㅁㅁㅁ수정
             # pix_status_out_window = (0, 64, 91)   # 창이 떠서 어두워짐
@@ -4013,7 +4016,7 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
             cond_meatjelly = pag.locateCenterOnScreen('cond_meatjelly.png', confidence=0.8, region=(310 + (account // 2) * 960, 35 + (account % 2) * 540, 555, 50))  # 고기젤리 위치
             in_pos = pag.locateCenterOnScreen('bInPosition.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 건물 안
             cond_adv_mode_select = pag.locateCenterOnScreen('cond_adv_mode_select.png', confidence=0.85, region=(12 + (account // 2) * 960, 38 + (account % 2) * 540, 37, 36))  # Play버튼 누른 후 모험하기 창
-            cond_kkd_arena = pag.locateCenterOnScreen('cond_kkd_arena.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 킹덤아레나
+            cond_adv_arena_robby = pag.locateCenterOnScreen('cond_adv_arena_robby.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 킹덤아레나
             cond_reward = pag.locateCenterOnScreen('cond_reward.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 미션 보상받기
             mark_x_mission = pag.locateCenterOnScreen('mark_x_mission.png', confidence=0.8, region=(778 + (account // 2) * 960, 124 + (account % 2) * 540, 50, 50))  # 미션 취소
             cond_error_page = pag.locateCenterOnScreen('cond_error_page.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 검은 바탕... 렉 등에 의한 오류?
@@ -4023,6 +4026,8 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
             kkd_ad2 = pag.locateCenterOnScreen('cond_error_ad2.png', confidence=0.95, region=(1, 1, 960 * 2, 540 * 2))
             kkd_ad3 = pag.locateCenterOnScreen('cond_error_ad3.png', grayscale=True, confidence=0.8, region=(1, 1, 960 * 2, 540 * 2))
             kkd_winupdate = pag.locateCenterOnScreen('cond_error_winupdate.png', confidence=0.95, region=(1, 1, 960 * 2, 540 * 2))
+            cond_kkd_arena = pag.locateCenterOnScreen('cond_kkd_arena.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+            cond_kkd_arena_continue = pag.locateCenterOnScreen('cond_kkd_arena_continue.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 전투 재개(겜 튕겼다 들어와서 아레나 전투!)
             print('[Kingdom_ready] 현재 픽셀값 : ', pix_status, '실행 %s초 지났습니다.' % int(now_time - start_time), account, '계정, 현재시간:', datetime.now().strftime('%H:%M:%S'))
             # print('[Kingdom_ready] 실행 %s초 지났습니다.' % int(now_time - start_time), '현재시간:', datetime.now().strftime('%H:%M:%S'))
             if now_time - start_time >= 300:
@@ -4090,23 +4095,25 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
 
             if (pix_status_boldline1 == pix_status_boldline_yes) and (pix_status_boldline2 == pix_status_boldline_yes): # 테두리가 두꺼워졌다면!
                 print('테두리가 두꺼워졋서!!!', '계정:', account)
-                pag.click(871+(account//2)*960, 18+(account%2)*540)                 # 전체화면으로 바꿔!
-                time.sleep(1.5)
-                pag.click(1833, 17)          # 다시 원래 크기로 돌려놓고
-                time.sleep(1.5)
-                pag.hotkey('alt', 'up')      # 크기, 위치 맞춰놓자!
-                time.sleep(1.5)
-                pag.click(942+(account//2)*960, 522+(account%2)*540)     # 켜진 창 다 띄워서?
-                time.sleep(1.5)
-                pag.click(680+(account//2)*960, 82+(account%2)*540)     # 모두 지우기(큰글씨)
-                time.sleep(1.5)
-                pag.click(577+(account//2)*960, 62+(account%2)*540)     # 모두 지우기(작은글씨)
-                time.sleep(1.5)
-                pag.hotkey('alt', 'up')  # 크기, 위치 맞춰놓자!
+                End_kkd_line(account)
+                # pag.click(871+(account//2)*960, 18+(account%2)*540)                 # 전체화면으로 바꿔!
+                # time.sleep(1.5)
+                # pag.click(1833, 17)          # 다시 원래 크기로 돌려놓고
+                # time.sleep(1.5)
+                # pag.hotkey('alt', 'up')      # 크기, 위치 맞춰놓자!
+                # time.sleep(1.5)
+                # pag.click(942+(account//2)*960, 522+(account%2)*540)     # 켜진 창 다 띄워서?
+                # time.sleep(1.5)
+                # pag.click(680+(account//2)*960, 82+(account%2)*540)     # 모두 지우기(큰글씨)
+                # time.sleep(1.5)
+                # pag.click(577+(account//2)*960, 62+(account%2)*540)     # 모두 지우기(작은글씨)
+                # time.sleep(1.5)
+                # pag.hotkey('alt', 'up')  # 크기, 위치 맞춰놓자!
                 time.sleep(2)
 
             if (kkd_start_ire): # 바탕화면으로 나가서 쿠킹덤 아이콘이 보이나!?
                 Check_Initiating(account)
+                Kingdom_ready(account, 'kkd_out')  # 재부팅
 
             if (cond_gold):
                 # 혹시 또 1픽셀씩 오갈 수 있..으니?
@@ -4128,6 +4135,11 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
             if (mark_x_mission):
                 pag.click(mark_x_mission)
                 time.sleep(1)
+
+            if (cond_kkd_arena_continue):  # 아레나 돌리다가 튕겨서 에러났어요, 전투재개!
+                pag.click(cond_kkd_arena_continue)
+                time.sleep(80)
+                return True
 
             # 상하단 픽셀 위치 모두 (0, 0, 0)이고 esc 누른 경우
             if pix_status == (0, 0, 0) and pix_status == (0, 0, 0) and (cond_error_page):
@@ -4159,6 +4171,11 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
                     time.sleep(0.1)
                     pag.hotkey('esc')
                     time.sleep(0.3)
+            elif whereto == 'kkd_arena':
+                Kingdom_ready(account, 'kkd_out')
+                time.sleep(1)
+                Arena_Event(account)
+                return True
 
             elif pix_status == pix_status_in_dark:  # 건물 안에서 창이 떠있으면 esc
                 print('건물 내부 : 창은 닫자.')
@@ -4302,6 +4319,13 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
                 pag.hotkey('esc')
                 time.sleep(1)
 
+            elif pix_status == pix_status_arena_lobby:
+                print('아레나 로비 들어왔습니다!')
+                pag.click(284 + (account // 2) * 960, 15 + (account % 2) * 540)
+                time.sleep(0.3)
+                pag.hotkey('esc')
+                time.sleep(1)
+
             elif (cond_kkd_train):
                 if (whereto == 'train_in'):
                     print('곰젤리 열차입니다!')
@@ -4332,6 +4356,7 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
                     time.sleep(0.3)
                     pag.hotkey('esc')
                     time.sleep(1)
+            # elif pix_status == pix_status_arena_lobby:
 
             elif (cond_kkd_sangjum):
                 if (whereto == 'sangjum_in'):
@@ -4458,21 +4483,31 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
                 # 여기를 수정할거야 이레
                 if not (pix_status2 == 'wanted_end'):
                     print('그 모든 게 아니라면....', '현재시간:', datetime.now().strftime('%H:%M:%S'))
-                    time.sleep(2)
+                    time.sleep(1)
                     if error_position == 0:
+                        pag.hotkey('alt', 'up')  # 창 정렬하고
+                        time.sleep(2)
                         pag.click(175 + (account // 2) * 960, 17 + (account % 2) * 540)    # 우선 해당 창 클릭하고 esc부터 갈겨보자!
                         time.sleep(2)
                         pag.hotkey('esc')
                         time.sleep(2)
-                        # pag.hotkey('alt', 'up')
-                        # time.sleep(2)
                     if error_position == 1:
+                        pag.hotkey('alt', 'up')  # 창 정렬하고
+                        time.sleep(2)
+                        time.sleep(2)
+                        pag.click(175 + (account // 2) * 960, 17 + (account % 2) * 540)  # 우선 해당 창 클릭하고 esc부터 갈겨보자!
+                        time.sleep(2)
                         pag.click(740 + (account // 2) * 960, 310 + (account % 2) * 540)   # 혹시 '쿠킹덤이 중지되었습니다' 떳나?
                         time.sleep(2)
                         pag.hotkey('esc')
                         time.sleep(2)
                         # pag.hotkey('alt', 'up')
                     if error_position == 2:
+                        pag.hotkey('alt', 'up')  # 창 정렬하고
+                        time.sleep(2)
+                        pag.click(175 + (account // 2) * 960, 17 + (account % 2) * 540)  # 우선 해당 창 클릭하고 esc부터 갈겨보자!
+                        time.sleep(2)
+                        time.sleep(2)
                         # pag.click(284 + (account//2)*960, 45 + (account%2) * 540)
                         time.sleep(3)
                         pag.hotkey('esc')
@@ -4480,12 +4515,17 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
                         pag.hotkey('esc')
                         time.sleep(3)
                     if error_position == 3:
+                        time.sleep(2)
+                        pag.click(175 + (account // 2) * 960, 17 + (account % 2) * 540)  # 우선 해당 창 클릭하고 esc부터 갈겨보자!
+                        time.sleep(2)
                         pag.click(605 + (account // 2) * 960, 55 + (account % 2) * 540)
                         time.sleep(5)
                     if error_position == 6:
                         pag.click(284 + (account // 2) * 960, 45 + (account % 2) * 540)
                         time.sleep(2)
                         pag.hotkey('alt', 'up')
+                        time.sleep(2)
+                        End_kkd(account)  # 우선 모든 창 꺼보고
                         time.sleep(2)
                         Kingdom_ready(account, 'kkd_out')  # 바탕화면으로 튕겼는지, 아니면 뭔지 확인
                         time.sleep(2)
@@ -4494,6 +4534,9 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
                     #     Kingdom_ready(account, 'kkd_out')   # 바탕화면으로 튕겼는지, 아니면 뭔지 확인
                     #     time.sleep(20)
                     if error_position > 6:
+                        time.sleep(2)
+                        pag.click(175 + (account // 2) * 960, 17 + (account % 2) * 540)  # 우선 해당 창 클릭하고 esc부터 갈겨보자!
+                        time.sleep(2)
                         pag.click(944 + (account // 2) * 960, 520 + (account % 2) * 540)
                         time.sleep(7)
                         pag.click(687 + (account // 2) * 960, 84 + (account % 2) * 540)
@@ -4510,10 +4553,12 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
     except:
         print('에러가 났어요! Kingdom_ready')
         send_telegram_message('Kingdom_ready에서 에러가 났어요!')
+        End_kkd(account)
+        time.sleep(3)
         Kingdom_ready(account, 'kkd_out')  # 재부팅
 
-# 테두리 사라져서 한참 반복하는 경우 재부팅
-def End_kkd(account):
+# 테두리 사라져서 한참 반복하는 경우
+def End_kkd_line(account):
     pag.click(284 + (account // 2) * 960, 15 + (account % 2) * 540)
     time.sleep(0.3)
     pag.click(940 + (account // 2) * 960, 520 + (account % 2) * 540)
@@ -4522,6 +4567,36 @@ def End_kkd(account):
     time.sleep(5)
     return
 
+# 왠지 모르게 오류가 났다! 재부팅시켜!
+def End_kkd(account):
+    pag.hotkey('alt', 'up')
+    time.sleep(3)
+    pag.click(2 + (account // 2) * 960, 15 + (account % 2) * 540)  # 메뉴바 한번 클릭해주고
+    pag.hotkey('pgup')   # 실행중인 모든 창 띄우기
+    time.sleep(5)
+    while True:
+        if keyboard.is_pressed('end'):
+            return False
+        init_kkm_recent = pag.locateCenterOnScreen('init_kkm_recent.PNG', confidence=0.9, grayscale=True, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+        if (init_kkm_recent):
+            pag.click(init_kkm_recent)
+            pag.hotkey('esc')
+            return True
+        cond_error_ad2 = pag.locateCenterOnScreen('cond_error_ad2.PNG', confidence=0.9, grayscale=True, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+        if (cond_error_ad2):
+            pag.click(cond_error_ad2)
+        cond_error1 = pag.locateCenterOnScreen('err_x1.PNG', confidence=0.9, grayscale = True, region = (2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+        if (cond_error1):
+            pag.click(cond_error1)
+        cond_error2 = pag.locateCenterOnScreen('err_x1.PNG', confidence=0.9, grayscale=True, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+        if (cond_error2):
+            pag.click(cond_error2)
+        delete_all_1 = pag.locateCenterOnScreen('delete_all_1.PNG', confidence=0.9, grayscale=True, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+        if (delete_all_1):
+            pag.click(delete_all_1)
+        delete_all_2 = pag.locateCenterOnScreen('delete_all_2.PNG', confidence=0.9, grayscale=True, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+        if (delete_all_2):
+            pag.click(delete_all_2)
 
 # 220201 모험하기 때 속도 x1.5 체크하기
 def Adv_SpeedChk(account):
@@ -4720,7 +4795,7 @@ def Tropical_Fight(account):
                 pag.click((540 + (account // 2) * 960, 510 + (account % 2) * 540))
                 bFighting = False
 
-                time.sleep(2)
+                time.sleep(1)
 
             if bFighting and (pix_status != pix_status_out) and (pix_status2 == pix_status_fight_comp1):  # 전투 종료하면 클릭 후 조건 죽이고
                 print('전투 종료2 조건!')
@@ -4729,7 +4804,7 @@ def Tropical_Fight(account):
                 pag.click((540 + (account // 2) * 960, 510 + (account % 2) * 540))
                 bFighting = False
 
-                time.sleep(2)
+                time.sleep(1)
 
             # 빨리감기와 전투 버튼이 같이 있으면
             if not bFighting and (cond_quick) and (Cond_tropical_fight):
@@ -8307,7 +8382,8 @@ def Arena_Event(account):
             now_time = time.time()
             if now_time - start_time > 900:
                 End_kkd(account)  # 쿠킹덤 종료. 15분 안엔 끝나겠지.
-                Kingdom_ready(account, 'kkd_out')  # 재부팅
+                Check_Initiating(account)
+                Kingdom_ready(account, 'kkd_arena')  # 재부팅, 아레나로!
                 return False
             screen = ImageGrab.grab()
             pix_status = screen.getpixel((605 + (account // 2) * 960, 55 + (account % 2) * 540))  # 상단골드
@@ -8497,7 +8573,7 @@ def Arena_action(account, set_max_power):
         while not bAllIsWell:
             pix_tier_up1 = (20, 19, 18)  # 다이아 2티어
             pix_tier_up2 = (5, 4, 2)  # 마스터 5티어
-            pag.click(381  + (account // 2) * 960, 115 + (account % 2) * 540)
+            pag.click(381  + (account // 2) * 960, 115 + (account % 2) * 540) # 대전하기 버튼 눌러놓기!
             cond_adv_arena_robby = pag.locateCenterOnScreen('cond_adv_arena_robby.png', confidence=0.98, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 아레나 티켓 0
             if not (cond_adv_arena_robby):
                 print('cond_adv_arena_robby', cond_adv_arena_robby)
@@ -8578,8 +8654,9 @@ def Arena_action(account, set_max_power):
                                 if (kkd_start_ire):  # 바탕화면으로 나가서 쿠킹덤 아이콘이 보이나!?
                                     print('게임 튕겼어요!')
                                     Check_Initiating(account)
+                                    Kingdom_ready(account, 'kkd_arena')
                                     continue
-                                time.sleep(1)
+                                time.sleep(2)
                                 start_check_time1 = time.time()
                                 print('start_check_time1', math.trunc(start_check_time1))
                                 while True:
@@ -8590,13 +8667,15 @@ def Arena_action(account, set_max_power):
                                     # print('while True',math.trunc(start_check_time1), math.trunc(now_check_time1))
                                     if now_check_time1 - start_check_time1 > 300:
                                         print('어... 300초 동안 확인 못함', math.trunc(start_check_time1-now_check_time1))
+                                        send_telegram_message('Arena_action 300초간 멈춤!')
                                         End_kkd(account)
-                                        Kingdom_ready(account, 'kkd_out')  # 재부팅
+                                        Kingdom_ready(account, 'kkd_arena')
                                         return
                                     kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
                                     if (kkd_start_ire):  # 바탕화면으로 나가서 쿠킹덤 아이콘이 보이나!?
                                         print('게임 튕겼어요!')
                                         Check_Initiating(account)
+                                        Kingdom_ready(account, 'kkd_arena')
                                         continue
                                     # 전투시작 아이콘 없으면 전투(로비에서) 클릭
                                     if not bFight_started:  # 전투 시작 안했으면 전투 시작 클릭
@@ -8605,6 +8684,7 @@ def Arena_action(account, set_max_power):
                                             pag.click(ctr)
                                         else:  # 전투시작 아이콘 있으면
                                             pag.click(cond_start_fight)
+                                            bFight_started = True
                                         time.sleep(1)
 
                                         # 로딩 창 떴다? 그럼 들어간거.
@@ -8680,8 +8760,9 @@ def Arena_action(account, set_max_power):
                             if (kkd_start_ire):  # 바탕화면으로 나가서 쿠킹덤 아이콘이 보이나!?
                                 print('게임 튕겼어요!')
                                 Check_Initiating(account)
+                                Kingdom_ready(account, 'kkd_arena')
                                 continue
-                            time.sleep(1)
+                            time.sleep(2)
                             start_check_time2 = time.time()
                             print('start_check_time2', math.trunc(start_check_time2))
                             while True:
@@ -8691,11 +8772,12 @@ def Arena_action(account, set_max_power):
                                 if (kkd_start_ire):  # 바탕화면으로 나가서 쿠킹덤 아이콘이 보이나!?
                                     print('게임 튕겼어요!')
                                     Check_Initiating(account)
+                                    Kingdom_ready(account, 'kkd_arena')
                                     continue
                                 now_check_time2 = time.time()
                                 print('while True',math.trunc(start_check_time2), math.trunc(now_check_time2))
-                                if now_check_time2 - start_check_time2 > 300:
-                                    print('어... 300초 동안 확인 못함', math.trunc(start_check_time2-now_check_time2))
+                                if math.trunc(now_check_time2 - start_check_time2) > 300:
+                                    print('어... 300초 동안 확인 못함', '현재시간:', datetime.now().strftime('%H:%M:%S'))
                                     End_kkd(account)
                                     Kingdom_ready(account, 'kkd_out')  # 재부팅
                                     return
@@ -8718,6 +8800,7 @@ def Arena_action(account, set_max_power):
                                         pag.click(cond_adv_arena_fight_icon)
                                     else:  # 전투시작 아이콘 있으면
                                         pag.click(cond_start_fight)
+                                        bFight_started = True
                                     time.sleep(1)
                                     # 로딩 창 떴다? 그럼 들어간거.
                                     cond_adv_arena_fight_entered = pag.locateCenterOnScreen('Cond_wanted_start_fignt.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
@@ -8786,7 +8869,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
 
             while True:
                 print('계정 스위칭...', '현재시간:', datetime.now().strftime('%H:%M:%S'))
-                send_telegram_message('계정 전환!')
+                # send_telegram_message('계정 전환!')
                 if keyboard.is_pressed('END'):
                     break
                 if number_of_accounts == 3:
@@ -9027,6 +9110,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                 time.sleep(0.3)
 
             if (account) == 0:
+                send_telegram_message('A계정 돌립니다')
                 # print('A 계정 돕니다.')
                 bTropical = bTropicalAction_A  # 트로피칼 돌릴래
                 bResearch_auto = bResearch_auto_A  # 연구소 자동 돌릴래
@@ -9143,6 +9227,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                 cookie_set_time = cookie_set_time_A  # 쿠하 클릭 주기
                 set_max_power = set_max_power_A  # 아레나 상대 전투력 커트라인
             if (account) == 1:
+                send_telegram_message('B계정 돌립니다')
                 # print('B 계정 돕니다.')
                 bTropical = bTropicalAction_B  # 트로피칼 돌릴래
                 bResearch_auto = bResearch_auto_B  # 연구소 자동 돌릴래
@@ -9259,6 +9344,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                 cookie_set_time = cookie_set_time_B  # 쿠하 클릭 주기
                 set_max_power = set_max_power_B  # 아레나 상대 전투력 커트라인
             if (account) == 2:
+                send_telegram_message('C계정 돌립니다')
                 # print('C 계정 돕니다.')
                 bTropical = bTropicalAction_C  # 트로피칼 돌릴래
                 bResearch_auto = bResearch_auto_C  # 연구소 자동 돌릴래
@@ -9749,42 +9835,42 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                 Skip_Next(account, prod_direction_left)
                             # 작업 순방향 끝
                         
-                        elif pix_prod == pix_magic:
-                            pix_error_count = 0
-                            print('magic!')
-                            # 작업 순방향 시작
-                            if not (magic_lev1 == 0) and not bmagiccompleted:
-                                if not prod_action('magic_lev1.png', 'magic_stby_lv1.png', account, magic_lev1):
-                                    if (magic_lev2 == 0):
-                                        bmagiccompleted = True
-                                    if not (magic_lev2 == 0) and not bmagiccompleted:
-                                        if not prod_action('magic_lev2.png', 'magic_stby_lv2.png', account, magic_lev2):
-                                            if (magic_lev3 == 0):
-                                                bmagiccompleted = True
-                                            if not (magic_lev3 == 0) and not bmagiccompleted:
-                                                if not prod_action('magic_lev3.png', 'magic_stby_lv3.png', account, magic_lev3):
-                                                    if (magic_lev4 == 0):
-                                                        bmagiccompleted = True
-                                                    if not (magic_lev4 == 0) and not bmagiccompleted:
-                                                        Updown(account, 'up')
-                                                        if not prod_action('magic_lev4.png', 'magic_stby_lv4.png', account, magic_lev4):
-                                                            bmagiccompleted = True
-                                                        Skip_Next(account, prod_direction_left)
-                                                    else:
-                                                        Skip_Next(account, prod_direction_left)
-                                                else:
-                                                    Skip_Next(account, prod_direction_left)
-                                            else:
-                                                Skip_Next(account, prod_direction_left)
-                                        else:
-                                            Skip_Next(account, prod_direction_left)
-                                    else:
-                                        Skip_Next(account, prod_direction_left)
-                                else:
-                                    Skip_Next(account, prod_direction_left)
-                            else:
-                                Skip_Next(account, prod_direction_left)
-                            # 작업 순방향 끝
+                        # elif pix_prod == pix_magic:
+                        #     pix_error_count = 0
+                        #     print('magic!')
+                        #     # 작업 순방향 시작
+                        #     if not (magic_lev1 == 0) and not bmagiccompleted:
+                        #         if not prod_action('magic_lev1.png', 'magic_stby_lv1.png', account, magic_lev1):
+                        #             if (magic_lev2 == 0):
+                        #                 bmagiccompleted = True
+                        #             if not (magic_lev2 == 0) and not bmagiccompleted:
+                        #                 if not prod_action('magic_lev2.png', 'magic_stby_lv2.png', account, magic_lev2):
+                        #                     if (magic_lev3 == 0):
+                        #                         bmagiccompleted = True
+                        #                     if not (magic_lev3 == 0) and not bmagiccompleted:
+                        #                         if not prod_action('magic_lev3.png', 'magic_stby_lv3.png', account, magic_lev3):
+                        #                             if (magic_lev4 == 0):
+                        #                                 bmagiccompleted = True
+                        #                             if not (magic_lev4 == 0) and not bmagiccompleted:
+                        #                                 Updown(account, 'up')
+                        #                                 if not prod_action('magic_lev4.png', 'magic_stby_lv4.png', account, magic_lev4):
+                        #                                     bmagiccompleted = True
+                        #                                 Skip_Next(account, prod_direction_left)
+                        #                             else:
+                        #                                 Skip_Next(account, prod_direction_left)
+                        #                         else:
+                        #                             Skip_Next(account, prod_direction_left)
+                        #                     else:
+                        #                         Skip_Next(account, prod_direction_left)
+                        #                 else:
+                        #                     Skip_Next(account, prod_direction_left)
+                        #             else:
+                        #                 Skip_Next(account, prod_direction_left)
+                        #         else:
+                        #             Skip_Next(account, prod_direction_left)
+                        #     else:
+                        #         Skip_Next(account, prod_direction_left)
+                        #     # 작업 순방향 끝
 
                         elif pix_prod == pix_bread:
                             pix_error_count = 0
@@ -9848,11 +9934,11 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                             prod_direction_left = False
                             Skip_Next(account, prod_direction_left)
 
-                        # elif pix_prod == pix_magic:
-                        #     pix_error_count = 0
-                        #     print('magic!')
-                        #     prod_direction_left = False
-                        #     Skip_Next(account, prod_direction_left)
+                        elif pix_prod == pix_magic:      # 마법 건물이면 prod_direction_left 오른쪽으로 돌려욧!
+                            pix_error_count = 0
+                            print('magic!')
+                            prod_direction_left = False
+                            Skip_Next(account, prod_direction_left)
 
                         elif (kkd_start):
                             print('[생산중] 계정 튕김! 쿠킹덤을 실행합니다!')
@@ -9887,7 +9973,133 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                             else:
                                 print('건물 안에서... 이게 아니라면... 우선 좌클릭')
                                 Skip_Next(account, prod_direction_left)
+
+                    # 수동 매크로 동작 - 건물에 들어간 후 수동 매크로 돌려야 하는 거면 Enter_building(account) 넣어줄 것.
+                    print('숏텀 - 수동 매크로 실행할까 말까')
+                    if wood_bef_action > wood_manual_macro or not wood_bef_action:
+                        # print('나무 부족?', wood_bef_action)
+                        wood_macro_action = False
+                    else:
+                        print('숏텀 - 나무 부족!')
+                        wood_macro_action = True
+
+                    if jelbean_bef_action > jelbean_manual_macro or not jelbean_bef_action:
+                        # print('숏텀 - 젤리빈 부족?', jelbean_bef_action)
+                        jelbean_macro_action = False
+                    else:
+                        print('숏텀 - 젤리빈 부족!')
+                        jelbean_macro_action = True
+
+                    if sugar_bef_action > sugar_manual_macro or not sugar_bef_action:
+                        # print('숏텀 - 설탕 부족?', sugar_bef_action)
+                        sugar_macro_action = False
+                    else:
+                        print('숏텀 - 설탕 부족!')
+                        sugar_macro_action = True
+
+                    if wood_macro_action and not jelbean_macro_action and not sugar_macro_action:  # 1,2
+                        # 나무건물 들어감
+                        Enter_Building(account)
+                        print('숏텀 - 1,2 매크로 돌려요')
+                        if account == 0:
+                            macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(960 + 406, 540 + 115 + 48 * 6, 104, 60))
+                            pag.click(macro_play)
+                        if account == 1:
+                            macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1156 + 406, 540 + 115 + 48 * 6, 104, 60))
+                            pag.click(macro_play)
+                        if account == 2:
+                            macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1398 + 406, 540 + 115 + 48 * 6, 104, 60))
+                            pag.click(macro_play)
+
+                    elif not wood_macro_action and jelbean_macro_action and not sugar_macro_action:  # 3, 4
+                        # 나무건물 들어감
+                        Enter_Building(account)
+                        print('숏텀 - 3,4 매크로 돌려요')
+                        if account == 0:
+                            macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(960 + 406, 540 + 115 + 48 * 5, 104, 60))
+                            pag.click(macro_play)
+                        if account == 1:
+                            macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1156 + 406, 540 + 115 + 48 * 5, 104, 60))
+                            pag.click(macro_play)
+                        if account == 2:
+                            macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1398 + 406, 540 + 115 + 48 * 5, 104, 60))
+                            pag.click(macro_play)
+
+                    elif not wood_macro_action and not jelbean_macro_action and sugar_macro_action:  # 5, 6
+                        # 나무건물 들어감
+                        Enter_Building(account)
+                        print('숏텀 - 5, 6 매크로 돌려요')
+                        if account == 0:
+                            macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(960 + 406, 540 + 115 + 48 * 4, 104, 60))
+                            pag.click(macro_play)
+                        if account == 1:
+                            macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1156 + 406, 540 + 115 + 48 * 4, 104, 60))
+                            pag.click(macro_play)
+                        if account == 2:
+                            macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1398 + 406, 540 + 115 + 48 * 4, 104, 60))
+                            pag.click(macro_play)
+
+                    elif wood_macro_action and jelbean_macro_action and not sugar_macro_action:  # 1, 2, 3, 4
+                        # 나무건물 들어감
+                        Enter_Building(account)
+                        print('숏텀 - 1, 2, 3, 4 매크로 돌려요')
+                        if account == 0:
+                            macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(960 + 406, 540 + 115 + 48 * 3, 104, 60))
+                            pag.click(macro_play)
+                        if account == 1:
+                            macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1156 + 406, 540 + 115 + 48 * 3, 104, 60))
+                            pag.click(macro_play)
+                        if account == 2:
+                            macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1398 + 406, 540 + 115 + 48 * 3, 104, 60))
+                            pag.click(macro_play)
+
+                    elif wood_macro_action and not jelbean_macro_action and sugar_macro_action:  # 1, 2, 5, 6
+                        # 나무건물 들어감
+                        Enter_Building(account)
+                        print('숏텀 - 1, 2, 5, 6 매크로 돌려요')
+                        if account == 0:
+                            macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(960 + 406, 540 + 115 + 48 * 2, 104, 60))
+                            pag.click(macro_play)
+                        if account == 1:
+                            macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1156 + 406, 540 + 115 + 48 * 2, 104, 60))
+                            pag.click(macro_play)
+                        if account == 2:
+                            macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1398 + 406, 540 + 115 + 48 * 2, 104, 60))
+                            pag.click(macro_play)
+
+                    elif not wood_macro_action and jelbean_macro_action and sugar_macro_action:  # 3, 4, 5, 6
+                        # 나무건물 들어감
+                        Enter_Building(account)
+                        print('숏텀 - 3, 4, 5, 6 매크로 돌려요')
+                        if account == 0:
+                            macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(960 + 406, 540 + 115 + 48 * 1, 104, 60))
+                            pag.click(macro_play)
+                        if account == 1:
+                            macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1156 + 406, 540 + 115 + 48 * 1, 104, 60))
+                            pag.click(macro_play)
+                        if account == 2:
+                            macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1398 + 406, 540 + 115 + 48 * 1, 104, 60))
+                            pag.click(macro_play)
+
+                    elif wood_macro_action and jelbean_macro_action and sugar_macro_action:  # 1, 2, 3, 4, 5, 6
+                        # 나무건물 들어감
+                        Enter_Building(account)
+                        print('숏텀 - 1, 2, 3, 4, 5, 6 매크로 돌려요')
+                        if account == 0:
+                            macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(960 + 406, 540 + 115 + 48 * 0, 104, 60))
+                            pag.click(macro_play)
+                        if account == 1:
+                            macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1156 + 406, 540 + 115 + 48 * 0, 104, 60))
+                            pag.click(macro_play)
+                        if account == 2:
+                            macro_play = pag.locateCenterOnScreen('macro_play.png', confidence=0.9, region=(1398 + 406, 540 + 115 + 48 * 0, 104, 60))
+                            pag.click(macro_play)
+
+                    elif not wood_macro_action and not jelbean_macro_action and not sugar_macro_action:  # 아무것도 안돌려!
+                        print('숏텀 - 수동매크로 - 돌릴 게 없네요')
+
                     print('다음 계정을 실행합니다.')
+                    # break
 
 
                 elif bAccount_A_Completed and ((account) == 0):
@@ -10020,46 +10232,45 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                             # 211206 추가 - 하트 남은 수량 확인해서... 마지막으로 돈 곳을 다시 돌기.(위치 클릭)
                             # 220203 추가 - 하트 클릭했을 때 밑에 시간 뜨면 조건확인, 안뜨면 바로 소진
                             Kingdom_ready(account, 'kkd_out')
-                            pag.screenshot('heart_full_check.png', region=(380 + (account // 2) * 960, 65 + (account % 2) * 540, 51, 14))
-                            pag.click(357 + (account // 2) * 960, 55 + (account % 2) * 540)
-                            time.sleep(1)
-                            diff_check = pag.locateCenterOnScreen('heart_full_check.png', confidence=0.95, grayscale=True, region=(380 + (account // 2) * 960, 65 + (account % 2) * 540, 51, 14))
-                            if (diff_check):
-                                print('하트 수량 Full입니다!')
-                                pag.click(396 + (account // 2) * 960, 386 + (account % 2) * 540)
+                            # pag.screenshot('heart_full_check.png', region=(380 + (account // 2) * 960, 65 + (account % 2) * 540, 51, 14))
+                            # pag.click(357 + (account // 2) * 960, 55 + (account % 2) * 540)
+                            # time.sleep(1)
+                            # diff_check = pag.locateCenterOnScreen('heart_full_check.png', confidence=0.95, grayscale=True, region=(380 + (account // 2) * 960, 65 + (account % 2) * 540, 51, 14))
+                            # if (diff_check):
+                            #     print('하트 수량 Full입니다!')
+                            #     pag.click(396 + (account // 2) * 960, 386 + (account % 2) * 540)
+                            #     time.sleep(1)
+                            #     print('하트 소진모드 들어감다1')  # 마지막 들어간 곳이 센터정렬 되어서 그곳을 계속 돈다... 즉, 어둠모드는 아직 안됨 ㅠㅠ
+                            #     time.sleep(1)
+                            #     # Heart_sojin(account, '8-29')  # 8-29라 쓰지만 의미 읍따는 ㅠㅠ
+                            #     Heart_sojin(account, '8-23')  # 8-29라 쓰지만 의미 읍따는 ㅠㅠ
+                            # else:
+                            #     print('하트 수량 Full이 아닙니다.')
+                            #     pag.click(396 + (account // 2) * 960, 386 + (account % 2) * 540)
+                            #     time.sleep(1)
+                            while True:
+                                cond_kkd_out = pag.locateCenterOnScreen('cond_kkd_out.png', confidence=0.85, region=(825 + (account // 2) * 960, 490 + (account % 2) * 540, 45, 40))  # 쿠키왕국
+                                cond_adv_mode_select = pag.locateCenterOnScreen('cond_adv_mode_select.png', confidence=0.85, region=(12 + (account // 2) * 960, 38 + (account % 2) * 540, 37, 36))  # Play버튼 누른 후 모험하기 창
+                                if (cond_adv_mode_select):  # 플레이 버튼 눌렀음
+                                    print('모험하기!')
+                                    break
+                                if (cond_kkd_out):
+                                    Kingdom_ready(account, 'kkd_out')  # 창 떠있는 경우 삭제용
+                                    print('하트소진모드 Play 버튼 클릭~!')
+                                    pag.click(random.randint(730, 785) + (account // 2) * 960, random.randint(470 + (account % 2) * 540, 525 + (account % 2) * 540))
+                                    time.sleep(1)
+                            if Heart_new_numb(account) > heart_set_num:
                                 time.sleep(1)
-                                print('하트 소진모드 들어감다1')  # 마지막 들어간 곳이 센터정렬 되어서 그곳을 계속 돈다... 즉, 어둠모드는 아직 안됨 ㅠㅠ
+                                print('하트 소진모드 들어감다2')  # 마지막 들어간 곳이 센터정렬 되어서 그곳을 계속 돈다... 즉, 어둠모드는 아직 안됨 ㅠㅠ
                                 time.sleep(1)
-                                # Heart_sojin(account, '8-29')  # 8-29라 쓰지만 의미 읍따는 ㅠㅠ
                                 Heart_sojin(account, '8-23')  # 8-29라 쓰지만 의미 읍따는 ㅠㅠ
-                            else:
-                                print('하트 수량 Full이 아닙니다.')
-                                pag.click(396 + (account // 2) * 960, 386 + (account % 2) * 540)
-                                time.sleep(1)
-                                while True:
-                                    cond_kkd_out = pag.locateCenterOnScreen('cond_kkd_out.png', confidence=0.85, region=(825 + (account // 2) * 960, 490 + (account % 2) * 540, 45, 40))  # 쿠키왕국
-                                    cond_adv_mode_select = pag.locateCenterOnScreen('cond_adv_mode_select.png', confidence=0.85, region=(12 + (account // 2) * 960, 38 + (account % 2) * 540, 37, 36))  # Play버튼 누른 후 모험하기 창
-                                    if (cond_adv_mode_select):  # 플레이 버튼 눌렀음
-                                        print('모험하기!')
-                                        break
-                                    if (cond_kkd_out):
-                                        Kingdom_ready(account, 'kkd_out')  # 창 떠있는 경우 삭제용
-                                        print('하트소진모드 Play 버튼 클릭~!')
-                                        pag.click(random.randint(730, 785) + (account // 2) * 960, random.randint(470 + (account % 2) * 540, 525 + (account % 2) * 540))
-                                        time.sleep(1)
-                                if Heart_new_numb(account) > heart_set_num:
-                                    time.sleep(1)
-                                    print('하트 소진모드 들어감다2')  # 마지막 들어간 곳이 센터정렬 되어서 그곳을 계속 돈다... 즉, 어둠모드는 아직 안됨 ㅠㅠ
-                                    time.sleep(1)
-                                    # Heart_sojin(account, '8-29')  # 8-29라 쓰지만 의미 읍따는 ㅠㅠ
-                                    Heart_sojin(account, '8-23')  # 8-29라 쓰지만 의미 읍따는 ㅠㅠ
-                                else:                      # 하트소진 안해도 되네?
-                                    pag.click(2 + (account // 2) * 960, 2 + (account % 2) * 540)
-                                    # pag.keyDown('esc')
-                                    # time.sleep(0.1)
-                                    # pag.keyUp('esc')
-                                    # time.sleep(2)
-                                    Kingdom_ready(account, 'kkd_out')
+                            else:                      # 하트소진 안해도 되네?
+                                pag.click(2 + (account // 2) * 960, 2 + (account % 2) * 540)
+                                pag.keyDown('esc')
+                                time.sleep(0.1)
+                                pag.keyUp('esc')
+                                time.sleep(2)
+                                Kingdom_ready(account, 'kkd_out')
 
                             # 앵무 교역소 확인 & 기차 보내기   이레가 추가..  자주자주 돌립시다다
                             print('앵무교역소 있어?')
@@ -11287,175 +11498,337 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                     # 작업 역방향 끝
 
                         elif pix_prod == pix_flower:
+
                             pix_error_count = 0
+
                             print('flower!')
+
                             if not bProdHigh or flower_num == 1:
+
                                 bSecond = False
+
                                 # 작업 순방향 시작
+
                                 if not (flower_lev1 == 0) and not bflowercompleted:
+
                                     if not prod_action('flower_lev1.png', 'flower_stby_lv1.png', account, flower_lev1):
+
                                         if (flower_lev2 == 0):
                                             bflowercompleted = True
+
                                             Skip_Next(account, prod_direction_left)
+
                                         if not (flower_lev2 == 0) and not bflowercompleted:
+
                                             if not prod_action('flower_lev2.png', 'flower_stby_lv2.png', account, flower_lev2):
+
                                                 if (flower_lev3 == 0):
                                                     bflowercompleted = True
+
                                                     Skip_Next(account, prod_direction_left)
+
                                                 if not (flower_lev3 == 0) and not bflowercompleted:
+
                                                     if not prod_action('flower_lev3.png', 'flower_stby_lv3.png', account, flower_lev3):
+
                                                         if (flower_lev4 == 0):
                                                             bflowercompleted = True
+
                                                             Skip_Next(account, prod_direction_left)
+
                                                         if not (flower_lev4 == 0) and not bflowercompleted:
+
                                                             Updown(account, 'up')
+
                                                             if not prod_action('flower_lev4.png', 'flower_stby_lv4.png', account, flower_lev4):
+
                                                                 if (flower_lev5 == 0):
                                                                     bflowercompleted = True
+
                                                                     Skip_Next(account, prod_direction_left)
+
                                                                 if not (flower_lev5 == 0) and not bflowercompleted:
+
                                                                     Updown(account, 'up')
+
                                                                     if not prod_action('flower_lev5.png', 'flower_stby_lv5.png', account, flower_lev5):
+
                                                                         if (flower_lev6 == 0):
                                                                             bflowercompleted = True
+
                                                                             Skip_Next(account, prod_direction_left)
+
                                                                         if not (flower_lev6 == 0) and not bflowercompleted:
+
                                                                             Updown(account, 'up')
+
                                                                             if not prod_action('flower_lev6.png', 'flower_stby_lv6.png', account, flower_lev6):
                                                                                 bflowercompleted = True
+
                                                                             Skip_Next(account, prod_direction_left)
+
                                                                         else:
+
                                                                             Skip_Next(account, prod_direction_left)
+
                                                                     else:
+
                                                                         Skip_Next(account, prod_direction_left)
+
                                                                 else:
+
                                                                     Skip_Next(account, prod_direction_left)
+
                                                             else:
+
                                                                 Skip_Next(account, prod_direction_left)
+
                                                         else:
+
                                                             Skip_Next(account, prod_direction_left)
+
                                                     else:
+
                                                         Skip_Next(account, prod_direction_left)
+
                                                 else:
+
                                                     Skip_Next(account, prod_direction_left)
+
                                             else:
+
                                                 Skip_Next(account, prod_direction_left)
+
                                         else:
+
                                             Skip_Next(account, prod_direction_left)
+
                                     else:
+
                                         Skip_Next(account, prod_direction_left)
+
                                 else:
+
                                     Skip_Next(account, prod_direction_left)
+
                                 # 작업 순방향 끝
+
                             while True:
+
                                 if keyboard.is_pressed('end'):
                                     break
+
                                 if not bProdHigh or flower_num == 1:
                                     break
+
                                 if bProdHigh and not bSecond and flower_num == 2:  # 첫 번째 건물 작업
+
                                     # 작업 순방향 시작
+
                                     if not (flower_lev1 == 0):
+
                                         if not prod_action('flower_lev1.png', 'flower_stby_lv1.png', account, flower_lev1):
+
                                             if not (flower_lev2 == 0):
+
                                                 if not prod_action('flower_lev2.png', 'flower_stby_lv2.png', account, flower_lev2):
+
                                                     if not (flower_lev3 == 0):
+
                                                         if not prod_action('flower_lev3.png', 'flower_stby_lv3.png', account, flower_lev3):
+
                                                             if not (flower_lev4 == 0):
+
                                                                 Updown(account, 'up')
+
                                                                 if not prod_action('flower_lev4.png', 'flower_stby_lv4.png', account, flower_lev4):
+
                                                                     if not (flower_lev5 == 0):
+
                                                                         Updown(account, 'up')
+
                                                                         if not prod_action('flower_lev5.png', 'flower_stby_lv5.png', account, flower_lev5):
+
                                                                             if not (flower_lev6 == 0):
                                                                                 Updown(account, 'up')
+
                                                                                 prod_action('flower_lev6.png', 'flower_stby_lv6.png', account, flower_lev6)
+
                                                                                 Skip_Next(account, prod_direction_left)
+
                                                                             bSecond = True
+
                                                                             break
+
                                                                         else:
+
                                                                             Skip_Next(account, prod_direction_left)
+
                                                                             bSecond = True
+
                                                                             break
+
                                                                     else:
+
                                                                         Skip_Next(account, prod_direction_left)
+
                                                                         bSecond = True
+
                                                                         break
+
                                                                 else:
+
                                                                     Skip_Next(account, prod_direction_left)
+
                                                                     bSecond = True
+
                                                                     break
+
                                                             else:
+
                                                                 Skip_Next(account, prod_direction_left)
+
                                                                 bSecond = True
+
                                                                 break
+
                                                         else:
+
                                                             Skip_Next(account, prod_direction_left)
+
                                                             bSecond = True
+
                                                             break
+
                                                     else:
+
                                                         Skip_Next(account, prod_direction_left)
+
                                                         bSecond = True
+
                                                         break
+
                                                 else:
+
                                                     Skip_Next(account, prod_direction_left)
+
                                                     bSecond = True
+
                                                     break
+
                                             else:
+
                                                 Skip_Next(account, prod_direction_left)
+
                                                 bSecond = True
+
                                                 break
+
                                         else:
+
                                             Skip_Next(account, prod_direction_left)
+
                                             bSecond = True
+
                                             break
+
                                     else:
+
                                         Skip_Next(account, prod_direction_left)
+
                                         bSecond = True
+
                                         break
+
                                     # 작업 순방향 끝
+
                                 if bProdHigh and bSecond and flower_num == 2:  # 두 번째 건물 작업
+
                                     # 작업 역방향 시작
+
                                     if (flower_lev6 == 0):
+
                                         if (flower_lev5 == 0):
+
                                             if (flower_lev4 == 0):
+
                                                 if (flower_lev3 == 0):
+
                                                     if (flower_lev2 == 0):
+
                                                         prod_action('flower_lev1.png', 'flower_stby_lv1.png', account, flower_lev1)
+
                                                         Skip_Next(account, prod_direction_left)
+
                                                         bSecond = False
+
                                                         break
+
                                                     else:
+
                                                         prod_action('flower_lev2.png', 'flower_stby_lv2.png', account, flower_lev2)
+
                                                         Skip_Next(account, prod_direction_left)
+
                                                         bSecond = False
+
                                                         break
+
                                                 else:
+
                                                     prod_action('flower_lev3.png', 'flower_stby_lv3.png', account, flower_lev3)
+
                                                     Skip_Next(account, prod_direction_left)
+
                                                     bSecond = False
+
                                                     break
+
                                             else:
+
                                                 Updown(account, 'up')
+
                                                 prod_action('flower_lev4.png', 'flower_stby_lv4.png', account, flower_lev4)
+
                                                 Skip_Next(account, prod_direction_left)
+
                                                 bSecond = False
+
                                                 break
+
                                         else:
+
                                             Updown(account, 'up')
+
                                             Updown(account, 'up')
+
                                             prod_action('flower_lev5.png', 'flower_stby_lv5.png', account, flower_lev5)
+
                                             Skip_Next(account, prod_direction_left)
+
                                             bSecond = False
+
                                             break
+
                                     else:
+
                                         Updown(account, 'up')
+
                                         Updown(account, 'up')
+
                                         Updown(account, 'up')
+
                                         prod_action('flower_lev6.png', 'flower_stby_lv6.png', account, flower_lev6)
+
                                         Skip_Next(account, prod_direction_left)
+
                                         bSecond = False
+
                                         break
+
                                 # 작업 역방향 끝
+
+
 
                         elif pix_prod == pix_milky:
                             pix_error_count = 0
@@ -11757,7 +12130,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         if pix_prod == pix_wood:
                             pix_error_count = 0
                             print('wood!')
-                            Wood_to_Cotton_Quick(account, wood_max, quick_production, prod_direction_left)
+                            wood_bef_action = Wood_to_Cotton_Quick(account, wood_max, quick_production, prod_direction_left)
 
                             if prod_direction_left:
                                 cycle_check = cycle_check + 1
@@ -11765,12 +12138,12 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         elif pix_prod == pix_jelbean:
                             pix_error_count = 0
                             print('jelbean!')
-                            Wood_to_Cotton_Quick(account, jelbean_max, quick_production, prod_direction_left)
+                            jelbean_bef_action = Wood_to_Cotton_Quick(account, jelbean_max, quick_production, prod_direction_left)
 
                         elif pix_prod == pix_sugar:
                             pix_error_count = 0
                             print('sugar!')
-                            Wood_to_Cotton_Quick(account, sugar_max, quick_production, prod_direction_left)
+                            sugar_bef_action = Wood_to_Cotton_Quick(account, sugar_max, quick_production, prod_direction_left)
 
                         elif pix_prod == pix_biscuit:
                             pix_error_count = 0
@@ -12985,170 +13358,326 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                 # 작업 역방향 끝
 
 
+
                         elif pix_prod == pix_jampy:
+
                             pix_error_count = 0
+
                             print('jampy!')
+
                             if not bProdHigh or jampy_num == 1:
+
                                 bSecond = False
+
                                 # 작업 순방향 시작
+
                                 if not (jampy_lev1 == 0) and not bjampycompleted:
+
                                     if not prod_action('jampy_lev1.png', 'jampy_stby_lv1.png', account, jampy_lev1):
+
                                         if (jampy_lev2 == 0):
                                             bjampycompleted = True
+
                                         if not (jampy_lev2 == 0) and not bjampycompleted:
+
                                             if not prod_action('jampy_lev2.png', 'jampy_stby_lv2.png', account, jampy_lev2):
+
                                                 if (jampy_lev3 == 0):
                                                     bjampycompleted = True
+
                                                 if not (jampy_lev3 == 0) and not bjampycompleted:
+
                                                     if not prod_action('jampy_lev3.png', 'jampy_stby_lv3.png', account, jampy_lev3):
+
                                                         if (jampy_lev4 == 0):
                                                             bjampycompleted = True
+
                                                         if not (jampy_lev4 == 0) and not bjampycompleted:
+
                                                             Updown(account, 'up')
+
                                                             if not prod_action('jampy_lev4.png', 'jampy_stby_lv4.png', account, jampy_lev4):
+
                                                                 if (jampy_lev5 == 0):
                                                                     bjampycompleted = True
+
                                                                 if not (jampy_lev5 == 0) and not bjampycompleted:
+
                                                                     Updown(account, 'up')
+
                                                                     if not prod_action('jampy_lev5.png', 'jampy_stby_lv5.png', account, jampy_lev5):
+
                                                                         if (jampy_lev6 == 0):
                                                                             bjampycompleted = True
+
                                                                         if not (jampy_lev6 == 0) and not bjampycompleted:
+
                                                                             Updown(account, 'up')
+
                                                                             if not prod_action('jampy_lev6.png', 'jampy_stby_lv6.png', account, jampy_lev6):
                                                                                 bjampycompleted = True
+
                                                                             Skip_Next(account, prod_direction_left)
+
                                                                         else:
+
                                                                             Skip_Next(account, prod_direction_left)
+
                                                                     else:
+
                                                                         Skip_Next(account, prod_direction_left)
+
                                                                 else:
+
                                                                     Skip_Next(account, prod_direction_left)
+
                                                             else:
+
                                                                 Skip_Next(account, prod_direction_left)
+
                                                         else:
+
                                                             Skip_Next(account, prod_direction_left)
+
                                                     else:
+
                                                         Skip_Next(account, prod_direction_left)
+
                                                 else:
+
                                                     Skip_Next(account, prod_direction_left)
+
                                             else:
+
                                                 Skip_Next(account, prod_direction_left)
+
                                         else:
+
                                             Skip_Next(account, prod_direction_left)
+
                                     else:
+
                                         Skip_Next(account, prod_direction_left)
+
                                 else:
+
                                     Skip_Next(account, prod_direction_left)
+
                                 # 작업 순방향 끝
+
                             while True:
+
                                 if keyboard.is_pressed('end'):
                                     break
+
                                 if not bProdHigh or jampy_num == 1:
                                     break
+
                                 if bProdHigh and not bSecond and jampy_num == 2:  # 첫 번째 건물 작업
+
                                     # 작업 순방향 시작
+
                                     if not (jampy_lev1 == 0):
+
                                         if not prod_action('jampy_lev1.png', 'jampy_stby_lv1.png', account, jampy_lev1):
+
                                             if not (jampy_lev2 == 0):
+
                                                 if not prod_action('jampy_lev2.png', 'jampy_stby_lv2.png', account, jampy_lev2):
+
                                                     if not (jampy_lev3 == 0):
+
                                                         if not prod_action('jampy_lev3.png', 'jampy_stby_lv3.png', account, jampy_lev3):
+
                                                             if not (jampy_lev4 == 0):
+
                                                                 Updown(account, 'up')
+
                                                                 if not prod_action('jampy_lev4.png', 'jampy_stby_lv4.png', account, jampy_lev4):
+
                                                                     if not (jampy_lev5 == 0):
+
                                                                         Updown(account, 'up')
+
                                                                         if not prod_action('jampy_lev5.png', 'jampy_stby_lv5.png', account, jampy_lev5):
+
                                                                             if not (jampy_lev6 == 0):
                                                                                 Updown(account, 'up')
+
                                                                                 prod_action('jampy_lev6.png', 'jampy_stby_lv6.png', account, jampy_lev6)
+
                                                                                 Skip_Next(account, prod_direction_left)
+
                                                                             bSecond = True
+
                                                                             break
+
                                                                         else:
+
                                                                             Skip_Next(account, prod_direction_left)
+
                                                                             bSecond = True
+
                                                                             break
+
                                                                     else:
+
                                                                         Skip_Next(account, prod_direction_left)
+
                                                                         bSecond = True
+
                                                                         break
+
                                                                 else:
+
                                                                     Skip_Next(account, prod_direction_left)
+
                                                                     bSecond = True
+
                                                                     break
+
                                                             else:
+
                                                                 Skip_Next(account, prod_direction_left)
+
                                                                 bSecond = True
+
                                                                 break
+
                                                         else:
+
                                                             Skip_Next(account, prod_direction_left)
+
                                                             bSecond = True
+
                                                             break
+
                                                     else:
+
                                                         Skip_Next(account, prod_direction_left)
+
                                                         bSecond = True
+
                                                         break
+
                                                 else:
+
                                                     Skip_Next(account, prod_direction_left)
+
                                                     bSecond = True
+
                                                     break
+
                                             else:
+
                                                 Skip_Next(account, prod_direction_left)
+
                                                 bSecond = True
+
                                                 break
+
                                         else:
+
                                             Skip_Next(account, prod_direction_left)
+
                                             bSecond = True
+
                                             break
+
                                     else:
+
                                         Skip_Next(account, prod_direction_left)
+
                                         bSecond = True
+
                                         break
+
                                     # 작업 순방향 끝
+
                                 if bProdHigh and bSecond and jampy_num == 2:  # 두 번째 건물 작업
+
                                     # 작업 역방향 시작
+
                                     if (jampy_lev6 == 0):
+
                                         if (jampy_lev5 == 0):
+
                                             if (jampy_lev4 == 0):
+
                                                 if (jampy_lev3 == 0):
+
                                                     if (jampy_lev2 == 0):
+
                                                         prod_action('jampy_lev1.png', 'jampy_stby_lv1.png', account, jampy_lev1)
+
                                                         Skip_Next(account, prod_direction_left)
+
                                                         bSecond = False
+
                                                         break
+
                                                     else:
+
                                                         prod_action('jampy_lev2.png', 'jampy_stby_lv2.png', account, jampy_lev2)
+
                                                         Skip_Next(account, prod_direction_left)
+
                                                         bSecond = False
+
                                                         break
+
                                                 else:
+
                                                     prod_action('jampy_lev3.png', 'jampy_stby_lv3.png', account, jampy_lev3)
+
                                                     Skip_Next(account, prod_direction_left)
+
                                                     bSecond = False
+
                                                     break
+
                                             else:
+
                                                 Updown(account, 'up')
+
                                                 prod_action('jampy_lev4.png', 'jampy_stby_lv4.png', account, jampy_lev4)
+
                                                 Skip_Next(account, prod_direction_left)
+
                                                 bSecond = False
+
                                                 break
+
                                         else:
+
                                             Updown(account, 'up')
+
                                             Updown(account, 'up')
+
                                             prod_action('jampy_lev5.png', 'jampy_stby_lv5.png', account, jampy_lev5)
+
                                             Skip_Next(account, prod_direction_left)
+
                                             bSecond = False
+
                                             break
+
                                     else:
+
                                         Updown(account, 'up')
+
                                         Updown(account, 'up')
+
                                         Updown(account, 'up')
+
                                         prod_action('jampy_lev6.png', 'jampy_stby_lv6.png', account, jampy_lev6)
+
                                         Skip_Next(account, prod_direction_left)
+
                                         bSecond = False
+
                                         break
+
                                 # 작업 역방향 끝
 
 
