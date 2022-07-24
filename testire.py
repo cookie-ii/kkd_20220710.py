@@ -294,7 +294,7 @@ jewel_lev3_A = 25  # 로얄 곰젤리 크라운
 magic_num_A = 1    # 마법공방
 magic_lev1_A = 20    # 고농축 에스프레소
 magic_lev2_A = 20    # 울퉁불퉁 뿔고구마
-magic_lev3_A = 100    # 향기로운 포도주스
+magic_lev3_A = 190    # 향기로운 포도주스
 magic_lev4_A = 0    # 빨리감기 태엽장치
 magic_lev5_A = 0    # 수수께끼의 파우더 주머니
 magic_lev6_A = 0    # 수수께끼의 빛나는 파우더 주머니
@@ -421,7 +421,7 @@ jewel_lev3_B = 100  # 로얄 곰젤리 크라운
 magic_num_B = 1    # 마법공방
 magic_lev1_B = 20    # 고농축 에스프레소
 magic_lev2_B = 20    # 울퉁불퉁 뿔고구마
-magic_lev3_B = 100    # 향기로운 포도주스
+magic_lev3_B = 190    # 향기로운 포도주스
 magic_lev4_B = 0    # 빨리감기 태엽장치
 magic_lev5_B = 0    # 수수께끼의 파우더 주머니
 magic_lev6_B = 0    # 수수께끼의 빛나는 파우더 주머니
@@ -546,7 +546,7 @@ jewel_lev3_C = 110  # 로얄 곰젤리 크라운
 magic_num_C = 1    # 마법공방
 magic_lev1_C = 20    # 고농축 에스프레소
 magic_lev2_C = 20    # 울퉁불퉁 뿔고구마
-magic_lev3_C = 100    # 향기로운 포도주스
+magic_lev3_C = 190    # 향기로운 포도주스
 magic_lev4_C = 0    # 빨리감기 태엽장치
 magic_lev5_C = 0    # 수수께끼의 파우더 주머니
 magic_lev6_C = 0    # 수수께끼의 빛나는 파우더 주머니
@@ -8652,7 +8652,7 @@ def Arena_action(account, set_max_power):
                                 print('뽜이트!1')
                                 kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
                                 if (kkd_start_ire):  # 바탕화면으로 나가서 쿠킹덤 아이콘이 보이나!?
-                                    print('게임 튕겼어요!')
+                                    print('게임 튕겼어요!1')
                                     Check_Initiating(account)
                                     Kingdom_ready(account, 'kkd_arena')
                                     continue
@@ -8666,14 +8666,14 @@ def Arena_action(account, set_max_power):
                                     now_check_time1 = time.time()
                                     # print('while True',math.trunc(start_check_time1), math.trunc(now_check_time1))
                                     if now_check_time1 - start_check_time1 > 300:
-                                        print('어... 300초 동안 확인 못함', math.trunc(start_check_time1-now_check_time1))
-                                        send_telegram_message('Arena_action 300초간 멈춤!')
+                                        print('어... 300초 동안 확인 못함1', math.trunc(start_check_time1-now_check_time1))
+                                        send_telegram_message('Arena_action 300초간 멈춤!1')
                                         End_kkd(account)
                                         Kingdom_ready(account, 'kkd_arena')
                                         return
                                     kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
                                     if (kkd_start_ire):  # 바탕화면으로 나가서 쿠킹덤 아이콘이 보이나!?
-                                        print('게임 튕겼어요!')
+                                        print('게임 튕겼어요!11')
                                         Check_Initiating(account)
                                         Kingdom_ready(account, 'kkd_arena')
                                         continue
@@ -8758,7 +8758,7 @@ def Arena_action(account, set_max_power):
                             print('뽜이트!2')
                             kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
                             if (kkd_start_ire):  # 바탕화면으로 나가서 쿠킹덤 아이콘이 보이나!?
-                                print('게임 튕겼어요!')
+                                print('게임 튕겼어요!2')
                                 Check_Initiating(account)
                                 Kingdom_ready(account, 'kkd_arena')
                                 continue
@@ -8770,16 +8770,17 @@ def Arena_action(account, set_max_power):
                                     break
                                 kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
                                 if (kkd_start_ire):  # 바탕화면으로 나가서 쿠킹덤 아이콘이 보이나!?
-                                    print('게임 튕겼어요!')
+                                    print('게임 튕겼어요!22')
                                     Check_Initiating(account)
                                     Kingdom_ready(account, 'kkd_arena')
                                     continue
                                 now_check_time2 = time.time()
                                 print('while True',math.trunc(start_check_time2), math.trunc(now_check_time2))
                                 if math.trunc(now_check_time2 - start_check_time2) > 300:
-                                    print('어... 300초 동안 확인 못함', '현재시간:', datetime.now().strftime('%H:%M:%S'))
+                                    print('어... 300초 동안 확인 못함2', '현재시간:', datetime.now().strftime('%H:%M:%S'))
+                                    send_telegram_message('Arena_action 300초간 멈춤!2')
                                     End_kkd(account)
-                                    Kingdom_ready(account, 'kkd_out')  # 재부팅
+                                    Kingdom_ready(account, 'kkd_arena')
                                     return
                                 # 나가기 버튼 보이면 클릭! ----- 2022.07.17. 추가함
                                 cond_end_fight3 = pag.locateCenterOnScreen('Cond_wanted_go_out.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 나가기 버튼
@@ -8869,7 +8870,6 @@ if number_of_accounts == 2 or number_of_accounts == 3:
 
             while True:
                 print('계정 스위칭...', '현재시간:', datetime.now().strftime('%H:%M:%S'))
-                # send_telegram_message('계정 전환!')
                 if keyboard.is_pressed('END'):
                     break
                 if number_of_accounts == 3:
