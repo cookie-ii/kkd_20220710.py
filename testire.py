@@ -159,9 +159,9 @@ jjokji_cotton_A = False  # 솜사탕 아낌모드
 jjokji_cotton_B = False  # 솜사탕 아낌모드
 jjokji_cotton_C = False  # 솜사탕 아낌모드
 
-set_max_power_A = 600000    # 아레나 상대 전투력 Max
-set_max_power_B = 600000    # 아레나 상대 전투력 Max
-set_max_power_C = 600000    # 아레나 상대 전투력 Max
+set_max_power_A = 700000    # 아레나 상대 전투력 Max
+set_max_power_B = 750000    # 아레나 상대 전투력 Max
+set_max_power_C = 750000    # 아레나 상대 전투력 Max
 
 fountain_set_time_A = 3000  # 분수 클릭 주기
 cookie_set_time_A = 3000  # 쿠키하우스 클릭 주기
@@ -3443,7 +3443,14 @@ def Sowon_jjokji_action(jjokji_numb, account, jjokji_limit):
                 # Check_Initiating(account)
                 # time.sleep(13)
                 Kingdom_ready(account, 'kkd_out')
+
                 sowon_jjokji_start = time.time()
+            kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+            if (kkd_start_ire):  # 바탕화면으로 나가서 쿠킹덤 아이콘이 보이나!?
+                print('게임 튕겼어요!1')
+                Check_Initiating(account)
+                Kingdom_ready(account, 'kkd_out')
+                continue
 
             cond_network = pag.locateCenterOnScreen('cond_network.png', confidence=0.96, region=(440 + (account // 2) * 960, 363 + (account % 2) * 540, 43, 29))
             if (cond_network):
@@ -3507,6 +3514,13 @@ def Sowon_jjokji_action(jjokji_numb, account, jjokji_limit):
         sowon_jjokji_start = time.time()
         # 소원나무 쪽지 작업 시작
         while True:
+            kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+            if (kkd_start_ire):  # 바탕화면으로 나가서 쿠킹덤 아이콘이 보이나!?
+                print('게임 튕겼어요!1')
+                Check_Initiating(account)
+                Kingdom_ready(account, 'kkd_out')
+                continue
+
             sowon_jjokji_now = time.time()
             if sowon_jjokji_now - sowon_jjokji_start > 300:
                 End_kkd(account)
@@ -3703,7 +3717,12 @@ def Train_time(account, line):
         if (cond_network):
             pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(377 - 5, 377 + 5) + (account % 2) * 540)
             time.sleep(0.3)
-
+        kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+        if (kkd_start_ire):  # 바탕화면으로 나가서 쿠킹덤 아이콘이 보이나!?
+            print('게임 튕겼어요!1')
+            Check_Initiating(account)
+            Kingdom_ready(account, 'kkd_out')
+            continue
         now_time = time.time()
         if now_time - start_time > 30:
             print('동작 최대시간 초과 입니다.')
@@ -3877,6 +3896,12 @@ def Ballon_send(account):
                 time.sleep(0.3)
             if keyboard.is_pressed('end'):
                 break
+            kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+            if (kkd_start_ire):  # 바탕화면으로 나가서 쿠킹덤 아이콘이 보이나!?
+                print('게임 튕겼어요!1')
+                Check_Initiating(account)
+                Kingdom_ready(account, 'kkd_out')
+                continue
             screen = ImageGrab.grab()
             pix_status = screen.getpixel((605 + (account // 2) * 960, 55 + (account % 2) * 540))  # 상단골드
             pix_status2 = screen.getpixel((540 + (account // 2) * 960, 510 + (account % 2) * 540))  # 마침표
@@ -4171,6 +4196,7 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
                     time.sleep(0.1)
                     pag.hotkey('esc')
                     time.sleep(0.3)
+
             elif whereto == 'kkd_arena':
                 Kingdom_ready(account, 'kkd_out')
                 time.sleep(1)
@@ -6567,6 +6593,26 @@ def Kpass_reward(account):
             if (cond_network):
                 pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(377 - 5, 377 + 5) + (account % 2) * 540)
                 time.sleep(0.3)
+            new_season_start = pag.locateCenterOnScreen('new_season_start.png', confidence=0.96, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+            if (new_season_start):
+                pag.click(new_season_start)
+                time.sleep(1)
+            kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+            if (kkd_start_ire):  # 바탕화면으로 나가서 쿠킹덤 아이콘이 보이나!?
+                print('게임 튕겼어요!1')
+                Check_Initiating(account)
+                Kingdom_ready(account, 'kkd_out')
+                continue
+            screen = ImageGrab.grab()
+            pix_pass_reward = screen.getpixel((901 + (account // 2) * 960, 138 + (account % 2) * 540))  # 패스 보상
+            # pix_pass_reward_exist = (254, 0, 0)
+            pix_pass_reward_exist = (255, 0, 0)
+            if pix_pass_reward == pix_pass_reward_exist:
+                pag.click(870 + (account // 2) * 960, 155 + (account % 2) * 540)
+                time.sleep(1)
+            else:
+                print('킹덤패스 보상 없음!')
+                return
 
             if keyboard.is_pressed('end'):
                 print('end 누름')
@@ -8639,6 +8685,10 @@ def Arena_action(account, set_max_power):
                         pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
                         time.sleep(13)
                         Kingdom_ready(account, 'kkd_out')
+                        time.sleep(2)
+                        pag.hotkey('-')
+                        time.sleep(3)
+                        pag.hotkey('-')
                         bAllIsWell = True
                         return
                     else:
@@ -8723,6 +8773,10 @@ def Arena_action(account, set_max_power):
                     pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
                     time.sleep(13)
                     Kingdom_ready(account, 'kkd_out')
+                    time.sleep(2)
+                    pag.hotkey('-')
+                    time.sleep(3)
+                    pag.hotkey('-')
                     return
                 else:
                     # 1~4번 상대 탐색 완료했으면 내려서
@@ -8753,6 +8807,10 @@ def Arena_action(account, set_max_power):
                                 pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
                                 time.sleep(13)
                                 Kingdom_ready(account, 'kkd_out')
+                                time.sleep(2)
+                                pag.hotkey('-')
+                                time.sleep(3)
+                                pag.hotkey('-')
                                 return
                         else:
                             print('뽜이트!2')
@@ -8845,6 +8903,10 @@ def Arena_action(account, set_max_power):
                             pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
                             time.sleep(13)
                             Kingdom_ready(account, 'kkd_out')
+                            time.sleep(2)
+                            pag.hotkey('-')
+                            time.sleep(3)
+                            pag.hotkey('-')
                             bAllIsWell = True
                             return
     except:
