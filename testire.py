@@ -129,8 +129,8 @@ bMacroTime = True  # 매크로 도는 중?
 bProdHigh = False  # 동일 건물 2개인 경우 2번째 건물에서 높은 생산품 우선 생산
 bSecond = False  # 두 번째 건물 작업이냐?
 
-bAcc_A_First = True  # 계정 먼저 시작 순서(True일 때 A부터, 아니면 B부터)
-bAcc_C_First = False     # C계정 먼저 시작해요!
+bAcc_A_First = False  # 계정 먼저 시작 순서(True일 때 A부터, 아니면 B부터)
+bAcc_C_First = True     # C계정 먼저 시작해요!
 
 bFirstCookhouA = False  # 첫 쿠하(클릭)
 bFirstCookhouB = False  # 첫 쿠하(클릭)
@@ -235,12 +235,12 @@ bread_num_A = 2  # 빵집 건물 수
 bread_lev1_A = 110  # 든든한 호밀빵
 bread_lev2_A = 90  # 달콤쫀득 잼파이
 bread_lev3_A = 90  # 은행 포카치아
-bread_lev4_A = 50  # 슈가코팅 도넛
+bread_lev4_A = 90  # 슈가코팅 도넛
 bread_lev5_A = 100  # 폭신 카스테라
 bread_lev6_A = 0  # 골드리치 크로와상
 
 jampy_num_A = 2  # 잼파이 건물 수
-jampy_lev1_A = 0  # 따끈따끈 젤리스튜
+jampy_lev1_A = 120  # 따끈따끈 젤리스튜
 jampy_lev2_A = 120  # 곰젤리 버거
 jampy_lev3_A = 120  # 캔디크림 파스타
 jampy_lev4_A = 150  # 폭신폭신 오므라이스
@@ -254,7 +254,7 @@ doye_lev3_A = 170  # 반짝이는 색동구슬
 doye_lev4_A = 170  # 무지갯빛 디저트 보울
 
 flower_num_A = 2  # 꽃가게 건물 수
-flower_lev1_A = 290  # 캔디꽃
+flower_lev1_A = 260  # 캔디꽃
 flower_lev2_A = 230  # 행복한 꽃화분
 flower_lev3_A = 160  # 캔디꽃다발
 flower_lev4_A = 180  # 롤리팝 꽃바구니
@@ -340,10 +340,10 @@ smith_num_B = 1  # 대장간 건물 수
 smith_lev1_B = 250  # 도끼
 smith_lev2_B = 250  # 곡괭이
 smith_lev3_B = 250  # 톱
-smith_lev4_B = 290  # 삽
-smith_lev5_B = 300  # 말뚝
-smith_lev6_B = 300  # 집게
-smith_lev7_B = 300  # 망치
+smith_lev4_B = 250  # 삽
+smith_lev5_B = 200  # 말뚝
+smith_lev6_B = 200  # 집게
+smith_lev7_B = 200  # 망치
 
 jelly_num_B = 2  # 젤리쨈 건물 수
 jelly_lev1_B = 250  # 젤리빈 잼
@@ -369,9 +369,9 @@ bread_lev6_B = 0  # 골드리치 크로와상
 jampy_num_B = 2  # 잼파이 건물 수
 jampy_lev1_B = 180  # 따끈따끈 젤리스튜
 jampy_lev2_B = 100  # 곰젤리 버거
-jampy_lev3_B = 40  # 캔디크림 파스타
-jampy_lev4_B = 40  # 폭신폭신 오므라이스
-jampy_lev5_B = 70  # 콤비네이션 피자젤리
+jampy_lev3_B = 60  # 캔디크림 파스타
+jampy_lev4_B = 60  # 폭신폭신 오므라이스
+jampy_lev5_B = 100  # 콤비네이션 피자젤리
 jampy_lev6_B = 0  # 고급스러운 젤리빈 정식
 
 doye_num_B = 2  # 토닥토닥 도예공방 건물 수
@@ -381,11 +381,11 @@ doye_lev3_B = 250  # 반짝이는 색동구슬
 doye_lev4_B = 250  # 무지갯빛 디저트 보울
 
 flower_num_B = 2  # 꽃가게 건물 수
-flower_lev1_B = 70  # 캔디꽃
-flower_lev2_B =900  # 행복한 꽃화분
+flower_lev1_B = 80  # 캔디꽃
+flower_lev2_B = 80  # 행복한 꽃화분
 flower_lev3_B = 60  # 캔디꽃다발
 flower_lev4_B = 55  # 롤리팝 꽃바구니
-flower_lev5_B = 25  # 유리꽃 부케
+flower_lev5_B = 55  # 유리꽃 부케
 flower_lev6_B = 72  # 찬란한 요거트 화환
 
 milky_num_B = 2  # 우유 가공소 건물 수
@@ -394,9 +394,9 @@ milky_lev2_B = 160  # 버터
 milky_lev3_B = 160  # 수제 치즈
 
 latte_num_B = 2  # 라떼 건물 수
-latte_lev1_B = 200  # 젤리빈 라떼
-latte_lev2_B = 200  # 몽글몽글 버블티
-latte_lev3_B = 200  # 스윗베리 에이드
+latte_lev1_B = 150  # 젤리빈 라떼
+latte_lev2_B = 150  # 몽글몽글 버블티
+latte_lev3_B = 150  # 스윗베리 에이드
 
 dolls_num_B = 2  # 러블리 인형공방 건물 수
 dolls_lev1_B = 140  # 구름사탕 쿠션
@@ -446,19 +446,19 @@ sugar_max_C = 2200
 sugar_prod_C = 2
 
 biscuit_min_C = -1
-biscuit_max_C = 3000
+biscuit_max_C = 2200
 biscuit_prod_C = 2
 
 berry_min_C = -1
-berry_max_C = 3000
+berry_max_C = 2500
 berry_prod_C = 2
 
 milk_min_C = -1
-milk_max_C = 3000
+milk_max_C = 2500
 milk_prod_C = 1
 
 cotton_min_C = -1
-cotton_max_C = 3000
+cotton_max_C = 2500
 cotton_prod_C = 1
 
 smith_num_C = 2  # 대장간 건물 수
@@ -466,15 +466,15 @@ smith_lev1_C = 250  # 도끼
 smith_lev2_C = 250  # 곡괭이
 smith_lev3_C = 250  # 톱
 smith_lev4_C = 250  # 삽
-smith_lev5_C = 250  # 말뚝
-smith_lev6_C = 250  # 집게
-smith_lev7_C = 250  # 망치
+smith_lev5_C = 200  # 말뚝
+smith_lev6_C = 200  # 집게
+smith_lev7_C = 200  # 망치
 
 jelly_num_C = 2  # 젤리쨈 건물 수
 jelly_lev1_C = 250  # 젤리빈
 jelly_lev2_C = 250  # 스윗젤리 잼
 jelly_lev3_C = 250  # 달고나 잼
-jelly_lev4_C = 350  # 석류 잼
+jelly_lev4_C = 250  # 석류 잼
 jelly_lev5_C = 0  # 톡톡베리 잼
 
 rollc_num_C = 2  # 롤케이크 건물 수
@@ -488,7 +488,7 @@ bread_lev1_C = 250  # 든든한 호밀빵
 bread_lev2_C = 250  # 달콤쫀득 잼파이
 bread_lev3_C = 250  # 은행 포카치아
 bread_lev4_C = 250  # 슈가코팅 도넛
-bread_lev5_C = 350  # 폭신 카스테라
+bread_lev5_C = 250  # 폭신 카스테라
 bread_lev6_C = 0  # 골드리치 크로와상
 
 jampy_num_C = 2  # 잼파이 건물 수
@@ -514,9 +514,9 @@ flower_lev5_C = 40  # 유리꽃 부케
 flower_lev6_C = 100  # 찬란한 요거트 화환
 
 milky_num_C = 2  # 우유 가공소 건물 수
-milky_lev1_C = 100  # 크림
-milky_lev2_C = 100  # 버터
-milky_lev3_C = 100  # 수제 치즈
+milky_lev1_C = 90  # 크림
+milky_lev2_C = 90  # 버터
+milky_lev3_C = 90  # 수제 치즈
 
 latte_num_C = 2  # 라떼 건물 수
 latte_lev1_C = 70  # 젤리빈 라떼
@@ -524,14 +524,14 @@ latte_lev2_C = 70  # 몽글몽글 버블티
 latte_lev3_C = 70  # 스윗베리 에이드
 
 dolls_num_C = 2  # 러블리 인형공방 건물 수
-dolls_lev1_C = 150  # 구름사탕 쿠션
-dolls_lev2_C = 150  # 곰젤리 솜인형
-dolls_lev3_C = 150  # 용과 드래곤 솜인형
+dolls_lev1_C = 120  # 구름사탕 쿠션
+dolls_lev2_C = 120  # 곰젤리 솜인형
+dolls_lev3_C = 120  # 용과 드래곤 솜인형
 
 beer_num_C = 2  # 오크통 쉼터 건물 수
-beer_lev1_C = 160  # 크림 루트비어
-beer_lev2_C = 160  # 레드베리 주스
-beer_lev3_C = 160  # 빈티지 와일드 보틀
+beer_lev1_C = 140  # 크림 루트비어
+beer_lev2_C = 140  # 레드베리 주스
+beer_lev3_C = 140  # 빈티지 와일드 보틀
 
 muffin_num_C = 2  # 퐁 드 파티세리 건물 수
 muffin_lev1_C = 110  # 으스스 머핀
@@ -621,6 +621,7 @@ def del_duplication(dif, list_origin):
     list_origin = [x for x in list_origin if x not in del_list]
     list_origin.sort()
     return list_origin
+
 
 def prod_check(image, account):
     error_count = 0
@@ -1041,6 +1042,7 @@ def Heart_new_numb(account):
     print('현재 재고는 =', its_number)
     return its_number
 
+
 def Heart_sojin(account, WhatToDo):
     error_count = 0
     bNormalMode = True  # 일반모드 해야할 때 True
@@ -1441,7 +1443,7 @@ def Heart_sojin(account, WhatToDo):
                     return True
 
 
-# 건물 안, 생산품으로 건물 확인? 재고+대기제품으로 확인?
+# 건물 안, 생산품으로 건물 확인? 재고+대기제품으로 확인? ======================= 안쓰는 것 같은데
 bJewel = False
 bMuffin = False
 bBeer = False
@@ -1490,15 +1492,21 @@ def prod_action(image, list_image, account, check_num):
         time.sleep(7)
         Kingdom_ready(account, 'kkd_out')  # 재부팅
 
-    prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.945, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
-    if not (prod_refresh) or 140<= (prod_refresh.y) <= 140+175:
-        ShowTime = True
-    else:
-        return False
+    # prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.945, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
+    # if not (prod_refresh) or 140<= (prod_refresh.y) <= 140+175:
+    #     ShowTime = True
+    # else:
+    #     return False
         # # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
         # pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(190, 410) + (account % 2) * 540)
-        time.sleep(0.3)
-
+        # time.sleep(0.3)
+    z0 = pag.locateCenterOnScreen('z0.png', confidence=0.94, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z1 = pag.locateCenterOnScreen('z1.png', confidence=0.94, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    if z0 or z1:
+        # 3~7렙 Full list인 경우 다음 건물로 넘어감. 하지만 고렙 생산..중이면 그거 취소 못하고 저렙 생산이 안될텐데...
+        return False
+    else:
+        ShowTime = True
     # cond_2nd_clear = pag.locateCenterOnScreen('cond_2nd_clear.png', confidence=0.96, region=(75 - 10 + (account//2)*960, 200 - 10 + (account%2) * 540, 20, 20))
     # cond_2nd_clear1 = pag.locateCenterOnScreen('cond_2nd_clear1.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + (account % 2) * 540, 20, 20))
     # cond_3rd_clear1 = pag.locateCenterOnScreen('cond_3rd_clear1.png', confidence=0.94, region=(75 - 10 +(account // 2) * 960, 200 - 10 +  70+(account % 2) * 540, 20, 20))  # 세번째 3번째 칸 비었으면 생산시작!
@@ -1508,7 +1516,7 @@ def prod_action(image, list_image, account, check_num):
     # else:
     #     return True
 
-    print('Prod_action함수!', image, list_image, account, check_num)
+    # print('Prod_action함수!', image, list_image, account, check_num)
 
     while ShowTime:
         cond_network = pag.locateCenterOnScreen('cond_network.png', confidence=0.96, region=(440 + (account // 2) * 960, 363 + (account % 2) * 540, 43, 29))
@@ -1544,8 +1552,8 @@ def prod_action(image, list_image, account, check_num):
         # prod_full_list6 = pag.locateCenterOnScreen('prod_full_list6.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
         # prod_full_list7 = pag.locateCenterOnScreen('prod_full_list7.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
         # prod_full_list8 = pag.locateCenterOnScreen('prod_full_list8.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-        z0 = pag.locateCenterOnScreen('z0.png', confidence=0.95, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        z1 = pag.locateCenterOnScreen('z1.png', confidence=0.95, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        z0 = pag.locateCenterOnScreen('z0.png', confidence=0.94, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        z1 = pag.locateCenterOnScreen('z1.png', confidence=0.94, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
         if z0 or z1:
         # 3~7렙 Full list인 경우 다음 건물로 넘어감. 하지만 고렙 생산..중이면 그거 취소 못하고 저렙 생산이 안될텐데...
             print('리스트 full!1')
@@ -1609,11 +1617,11 @@ def prod_action(image, list_image, account, check_num):
                     print('생산품 클릭!')
                     pag.moveTo(ctr[0] + 235, ctr[1] + 48)
                     # pag.moveTo(ctr[0] + 177, ctr[1] + 48)
-                    # time.sleep(0.2)
+                    time.sleep(0.2)
                     pag.mouseDown()
                     time.sleep(0.3)
                     pag.mouseUp()
-                    time.sleep(0.5)
+                    time.sleep(0.7)
 
                     lack_of_material = pag.locateCenterOnScreen('lack_material.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
                     if (lack_of_material):
@@ -1754,6 +1762,7 @@ def Check_Initiating(account):
                 break
             kkd_touch = pag.locateCenterOnScreen('init_touch.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
             kkd_down = pag.locateCenterOnScreen('init_Touch1.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+            kkd_Touch11 = pag.locateCenterOnScreen('init_Touch11.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
             while True:
                 play_halted = pag.locateCenterOnScreen('cond_g_play.png', region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
                 if (play_halted):
@@ -1766,12 +1775,17 @@ def Check_Initiating(account):
                 print('[부팅중] Touch to Start 터치!', '현재시간:', datetime.now().strftime('%H:%M:%S'))
                 pag.click(random.randint(410, 410 + 101) + (account // 2) * 960, random.randint(380, 380 + 23) + (account % 2) * 540)
                 bTouchto = True
+            if (kkd_Touch11):
+                time.sleep(3)
+                print('[부팅중] Touch to Start 터치!', '현재시간:', datetime.now().strftime('%H:%M:%S'))
+                pag.click(random.randint(410, 410 + 101) + (account // 2) * 960, random.randint(380, 380 + 23) + (account % 2) * 540)
+                bTouchto = True
             if (kkd_down):
                 time.sleep(3)
                 print('[부팅중] 다운로드 터치!')
                 pag.click(kkd_down)
                 bTouchto = True
-            if (not (kkd_touch) and not (kkd_down)) and bTouchto:
+            if (not kkd_Touch11 and not (kkd_touch) and not (kkd_down)) and bTouchto:
                 time.sleep(3)
                 print('[부팅중] Touch to Start 터치 완료!', '현재시간:', datetime.now().strftime('%H:%M:%S'))
                 break
@@ -2245,6 +2259,7 @@ def Wood_to_Cotton(account, Min_number, Max_number, Making_Level, prod_direction
             time.sleep(0.5)
         return bujockhaeyo
 
+
 def Skip_Next(account, prod_direction_left):
     if prod_direction_left:  # 이레가 수정햇서
         pag.click(164 + (account // 2) * 960, 280 + (account % 2) * 540)
@@ -2569,6 +2584,7 @@ def Updown(account, updown):
         send_telegram_message('Updown에서 에러가 났어요!')
         Kingdom_ready(account, 'kkd_out')  # 재부팅
 
+
 def find_train_num(image, account, list_output, line):
     prod_num = pag.locateAllOnScreen(image, confidence=0.83, grayscale=True, region=(375 + (account // 2) * 960, 150 + (account % 2) * 540 + (line - 1) * 149, 135, 24))
     num_list = list(prod_num)
@@ -2587,6 +2603,7 @@ def find_sowon_num(image, account, list_output, x1, x2):
             ctr = pag.center(p)
             list_output.append(ctr)
     return
+
 
 def Sowon_numb(account):
     slash_found = False
@@ -2705,7 +2722,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
 
         print('[Sowon_Prod_Check - ', pix_status, ']')
         pix_upper_void = (46, 30, 50)  # 이미지 확인공간 대기상태(아무 생산품도 클릭 안함)
-        easy_prod = 0.7  # 1시간 이내 제품
+        easy_prod = 0.8  # 1시간 이내 제품
         normal_prod = 0.9  # 1~2시간 제품
         hard_prod = 0.95  # 2시간 초과
 
@@ -3439,18 +3456,22 @@ def Sowon_jjokji_action(jjokji_numb, account, jjokji_limit):
             time.sleep(1.5)
             sowon_jjokji_now = time.time()
             if sowon_jjokji_now - sowon_jjokji_start > 30:
+                print('소원쪽지 오래걸리네? 30초이상')
                 End_kkd(account)
-                # Check_Initiating(account)
-                # time.sleep(13)
+                Check_Initiating(account)
+                for i in range(0,13,1):
+                    time.sleep(1)
+                    print('i:', i)
                 Kingdom_ready(account, 'kkd_out')
+                break
 
                 sowon_jjokji_start = time.time()
             kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
             if (kkd_start_ire):  # 바탕화면으로 나가서 쿠킹덤 아이콘이 보이나!?
-                print('게임 튕겼어요!1')
+                print('게임 튕겼어요!')
                 Check_Initiating(account)
                 Kingdom_ready(account, 'kkd_out')
-                continue
+                break
 
             cond_network = pag.locateCenterOnScreen('cond_network.png', confidence=0.96, region=(440 + (account // 2) * 960, 363 + (account % 2) * 540, 43, 29))
             if (cond_network):
@@ -3484,6 +3505,12 @@ def Sowon_jjokji_action(jjokji_numb, account, jjokji_limit):
                     time.sleep(2)
                     print('왕국활동 눌러!')
                     time.sleep(2)
+                    kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+                    if (kkd_start_ire):  # 바탕화면으로 나가서 쿠킹덤 아이콘이 보이나!?
+                        print('게임 튕겼어요!')
+                        Check_Initiating(account)
+                        Kingdom_ready(account, 'kkd_out')
+                        continue
                     error_count_num = error_count_num + 1
                     if (error_count_num == 3):
                         Kingdom_ready(account, 'kkd_out')
@@ -4585,22 +4612,46 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
 
 # 테두리 사라져서 한참 반복하는 경우
 def End_kkd_line(account):
-    pag.click(284 + (account // 2) * 960, 15 + (account % 2) * 540)
-    time.sleep(0.3)
-    pag.click(940 + (account // 2) * 960, 520 + (account % 2) * 540)
-    time.sleep(3)
-    pag.click(677 + (account // 2) * 960, 137 + (account % 2) * 540)
-    time.sleep(5)
+    pag.click(871+(account//2)*960, 18+(account%2)*540)                 # 전체화면으로 바꿔!
+    time.sleep(1.5)
+    pag.click(1833, 17)          # 다시 원래 크기로 돌려놓고
+    time.sleep(1.5)
+    pag.hotkey('alt', 'up')      # 크기, 위치 맞춰놓자!
+    time.sleep(1.5)
+    pag.click(942+(account//2)*960, 522+(account%2)*540)     # 켜진 창 다 띄워서?
+    time.sleep(1.5)
+    pag.click(680+(account//2)*960, 82+(account%2)*540)     # 모두 지우기(큰글씨)
+    time.sleep(1.5)
+    pag.click(577+(account//2)*960, 62+(account%2)*540)     # 모두 지우기(작은글씨)
+    time.sleep(1.5)
+    pag.hotkey('alt', 'up')  # 크기, 위치 맞춰놓자!
+    # pag.click(284 + (account // 2) * 960, 15 + (account % 2) * 540)
+    # time.sleep(0.3)
+    # pag.click(940 + (account // 2) * 960, 520 + (account % 2) * 540)
+    # time.sleep(3)
+    # pag.click(677 + (account // 2) * 960, 137 + (account % 2) * 540)
+    # time.sleep(5)
     return
 
 # 왠지 모르게 오류가 났다! 재부팅시켜!
 def End_kkd(account):
+    pag.click(2 + (account // 2) * 960, 15 + (account % 2) * 540)  # 메뉴바 한번 클릭해주고
+    time.sleep(1)
     pag.hotkey('alt', 'up')
     time.sleep(3)
     pag.click(2 + (account // 2) * 960, 15 + (account % 2) * 540)  # 메뉴바 한번 클릭해주고
     pag.hotkey('pgup')   # 실행중인 모든 창 띄우기
     time.sleep(5)
+    start_time_end_kkd = time.time()
     while True:
+        now_time_end_kkd = time.time()
+        if(now_time_end_kkd - start_time_end_kkd >= 30):
+            print('end_kkd 너무 오래 걸리는걸?')
+            pag.click(2 + (account // 2) * 960, 15 + (account % 2) * 540)  # 메뉴바 한번 클릭해주고
+            pag.hotkey('home')  # 홈으로 가욧
+            time.sleep(6)
+            return True
+        print('End_kkd의 while true 들어왔다!')
         if keyboard.is_pressed('end'):
             return False
         init_kkm_recent = pag.locateCenterOnScreen('init_kkm_recent.PNG', confidence=0.9, grayscale=True, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
@@ -6603,16 +6654,6 @@ def Kpass_reward(account):
                 Check_Initiating(account)
                 Kingdom_ready(account, 'kkd_out')
                 continue
-            screen = ImageGrab.grab()
-            pix_pass_reward = screen.getpixel((901 + (account // 2) * 960, 138 + (account % 2) * 540))  # 패스 보상
-            # pix_pass_reward_exist = (254, 0, 0)
-            pix_pass_reward_exist = (255, 0, 0)
-            if pix_pass_reward == pix_pass_reward_exist:
-                pag.click(870 + (account // 2) * 960, 155 + (account % 2) * 540)
-                time.sleep(1)
-            else:
-                print('킹덤패스 보상 없음!')
-                return
 
             if keyboard.is_pressed('end'):
                 print('end 누름')
@@ -6881,7 +6922,7 @@ def numb_new_recog(prod_pin, line, account):
                                                                 its_number = its_number + 9
                                                             else:
                                                                 print('일의 자리 숫자 확인 에러!!')
-        # print('현재 재고는 =', its_number)
+        print('현재 재고는 =', its_number)
         return its_number
     if pos_numb == 3:
         # print('세 자릿 수 범위 확인', prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), pos_numb * 5 * 2, 14)
@@ -7079,8 +7120,8 @@ def three_prod_action(account, check_list_img1, check_list_img2, check_list_img3
         time.sleep(0.3)
 
     # # 풀리스트인 경우 넘어감
-    z0 = pag.locateCenterOnScreen('z0.png', confidence=0.95, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z1 = pag.locateCenterOnScreen('z1.png', confidence=0.95, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z0 = pag.locateCenterOnScreen('z0.png', confidence=0.94, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z1 = pag.locateCenterOnScreen('z1.png', confidence=0.94, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
     if z0 or z1:
         # if (prod_full_list3) or (prod_full_list4) or (prod_full_list5) or (prod_full_list6) or (prod_full_list7) or (prod_full_list8):
         print('리스트 full!4')
@@ -7162,8 +7203,8 @@ def three_prod_action(account, check_list_img1, check_list_img2, check_list_img3
             time.sleep(0.3)
 
         # # 풀리스트인 경우 넘어감
-        z0 = pag.locateCenterOnScreen('z0.png', confidence=0.95, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        z1 = pag.locateCenterOnScreen('z1.png', confidence=0.95, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        z0 = pag.locateCenterOnScreen('z0.png', confidence=0.94, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        z1 = pag.locateCenterOnScreen('z1.png', confidence=0.94, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
         if z0 or z1:
             print('리스트 full!5')
             Skip_Next(account, prod_direction_left)
@@ -7274,648 +7315,6 @@ def three_prod_action(account, check_list_img1, check_list_img2, check_list_img3
                     line3_clicked = 999  # 나락으로 보내버력!
                 else:
                     line3_clicked = line3_clicked + 1
-
-
-# def numb_new_recog(prod_pin, line):
-#     its_number = 0
-#     how_many_nums = 0
-#     pos_numb = 0  # 0인 경우는 걍 0.. 1의자리 1, 십의자리2, 그외 3.. 만개 이상 재고는 없겠지
-#     num_list = list()
-#     # print('라인 %s번 진행합니다!' % (line))
-#     screen = ImageGrab.grab()
-#     # 3렙 건물인 경우 무조건 prod_pin = (612,95)
-#     # print('?', prod_pin[0]+19,prod_pin[1]+81+153*(line-1))
-#     pix_jaritsu1_1 = screen.getpixel((prod_pin[0] + 19 , prod_pin[1] + 81 + 153 * (line - 1)))  # 상
-#     # print('pix_자릿수1_1:', pix_jaritsu1_1)
-#     pix_jaritsu1_2 = screen.getpixel((prod_pin[0] + 19 , prod_pin[1] + 87 + 153 * (line - 1)))  # 하
-#     # print('pix_자릿수1_2:', pix_jaritsu1_2)
-#     if ((pix_jaritsu1_1) == (255, 255, 255)) and ((pix_jaritsu1_2) == (255, 255, 255)):
-#         pix_zero_1 = screen.getpixel((prod_pin[0] + 24 , prod_pin[1] + 82 + 153 * (line - 1)))  # 상
-#         # print('pix_zero_1:', pix_zero_1)
-#         pix_zero_2 = screen.getpixel((prod_pin[0] + 24 , prod_pin[1] + 85 + 153 * (line - 1)))  # 하
-#         # print('pix_zero_2:', pix_zero_2)
-#         # print('pos_numb', pos_numb)
-#         for p in pix_zero_1:
-#             if p < 252:
-#                 pos_numb = 1
-#         for p in pix_zero_2:
-#             if p < 252:
-#                 pos_numb = 1
-#         if pos_numb == 0:
-#             # print('이 숫자는 0 입니다!')
-#             its_number = 0
-#             return 0
-#         # if pos_numb == 1:
-#         # print('이 숫자는 한 자릿 수 입니다!')
-#     else:
-#         pix_jaritsu2_1 = screen.getpixel((prod_pin[0] + 14 , prod_pin[1] + 81 + 153 * (line - 1)))  # 상
-#         # print('pix_자릿수2_1:', pix_jaritsu2_1)
-#         pix_jaritsu2_2 = screen.getpixel((prod_pin[0] + 14 , prod_pin[1] + 81 + 153 * (line - 1)))  # 하
-#         # print('pix_자릿수2_2:', pix_jaritsu2_2)
-#         if ((pix_jaritsu2_1) == (255, 255, 255)) and ((pix_jaritsu2_2) == (255, 255, 255)):
-#             # print('이 숫자는 두 자릿 수 입니다!')
-#             pos_numb = 2
-#         else:
-#             # print('이 숫자는 세 자릿 수 입니다!')
-#             pos_numb = 3
-#     # print('자릿수 다시 확인', pos_numb)
-#     if pos_numb == 1:
-#         # print('한 자릿 수 범위 확인1',prod_pin[0]+24-pos_numb*5,prod_pin[1]+85-7+153*(line-1),pos_numb*5*2,14)
-#         num_1 = pag.locateCenterOnScreen('prod_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), pos_numb * 5 * 2, 14))
-#         if (num_1):
-#             return 1
-#         num_1_1 = pag.locateCenterOnScreen('prod_1_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), pos_numb * 5 * 2, 14))
-#         if (num_1_1):
-#             return 1
-#         num_2 = pag.locateCenterOnScreen('prod_2.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), pos_numb * 5 * 2, 14))
-#         if (num_2):
-#             return 2
-#         num_3 = pag.locateCenterOnScreen('prod_3.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), pos_numb * 5 * 2, 14))
-#         if (num_3):
-#             return 3
-#         num_3_1 = pag.locateCenterOnScreen('prod_3_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), pos_numb * 5 * 2, 14))
-#         if (num_3_1):
-#             return 3
-#         num_4 = pag.locateCenterOnScreen('prod_4.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), pos_numb * 5 * 2, 14))
-#         if (num_4):
-#             return 4
-#         num_4_2 = pag.locateCenterOnScreen('prod_4_2.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), pos_numb * 5 * 2, 14))
-#         if (num_4_2):
-#             return 4
-#         num_5 = pag.locateCenterOnScreen('prod_5.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), pos_numb * 5 * 2, 14))
-#         if (num_5):
-#             return 5
-#         num_6 = pag.locateCenterOnScreen('prod_6.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), pos_numb * 5 * 2, 14))
-#         if (num_6):
-#             return 6
-#         num_7 = pag.locateCenterOnScreen('prod_7.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), pos_numb * 5 * 2, 14))
-#         if (num_7):
-#             return 7
-#         num_8 = pag.locateCenterOnScreen('prod_8.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), pos_numb * 5 * 2, 14))
-#         if (num_8):
-#             return 8
-#         num_8_1 = pag.locateCenterOnScreen('prod_8_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), pos_numb * 5 * 2, 14))
-#         if (num_8_1):
-#             return 8
-#         num_9 = pag.locateCenterOnScreen('prod_9.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), pos_numb * 5 * 2, 14))
-#         if (num_9):
-#             return 9
-#         num_9_1 = pag.locateCenterOnScreen('prod_9_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), pos_numb * 5 * 2, 14))
-#         if (num_9_1):
-#             return 9
-#         return 0
-#
-#     if pos_numb == 2:
-#         # print('두 자릿 수 범위 확인2', prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14)
-#         # 10의자리 숫자 걍검색
-#         num_1 = pag.locateCenterOnScreen('prod_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 11, 14))
-#         if (num_1):
-#             its_number = its_number + 10
-#         else:
-#             num_1_1 = pag.locateCenterOnScreen('prod_1_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 11, 14))
-#             if (num_1_1):
-#                 its_number = its_number + 10
-#             else:
-#                 num_2 = pag.locateCenterOnScreen('prod_2.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 11, 14))
-#                 if (num_2):
-#                     its_number = its_number + 20
-#                 else:
-#                     num_3 = pag.locateCenterOnScreen('prod_3.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 11, 14))
-#                     if (num_3):
-#                         its_number = its_number + 30
-#                     else:
-#                         num_3_1 = pag.locateCenterOnScreen('prod_3_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 11, 14))
-#                         if (num_3_1):
-#                             its_number = its_number + 30
-#                         else:
-#                             num_4 = pag.locateCenterOnScreen('prod_4.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 11, 14))
-#                             if (num_4):
-#                                 its_number = its_number + 40
-#                             else:
-#                                 num_4_2 = pag.locateCenterOnScreen('prod_4_2.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 11, 14))
-#                                 if (num_4_2):
-#                                     its_number = its_number + 40
-#                                 else:
-#                                     num_5 = pag.locateCenterOnScreen('prod_5.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 11, 14))
-#                                     if (num_5):
-#                                         its_number = its_number + 50
-#                                     else:
-#                                         num_6 = pag.locateCenterOnScreen('prod_6.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 11, 14))
-#                                         if (num_6):
-#                                             its_number = its_number + 60
-#                                         else:
-#                                             num_7 = pag.locateCenterOnScreen('prod_7.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 11, 14))
-#                                             if (num_7):
-#                                                 its_number = its_number + 70
-#                                             else:
-#                                                 num_8 = pag.locateCenterOnScreen('prod_8.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 11, 14))
-#                                                 if (num_8):
-#                                                     its_number = its_number + 80
-#                                                 else:
-#                                                     num_8_1 = pag.locateCenterOnScreen('prod_8_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 11, 14))
-#                                                     if (num_8_1):
-#                                                         its_number = its_number + 80
-#                                                     else:
-#                                                         num_9 = pag.locateCenterOnScreen('prod_9.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 11, 14))
-#                                                         if (num_9):
-#                                                             its_number = its_number + 90
-#                                                         else:
-#                                                             num_9_1 = pag.locateCenterOnScreen('prod_9_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 11, 14))
-#                                                             if (num_9_1):
-#                                                                 its_number = its_number + 90
-#                                                             else:
-#                                                                 print('십의 자리 숫자 확인 에러!!')
-#         # 1의자리 숫자 걍검색
-#         num_1 = pag.locateCenterOnScreen('prod_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#         if (num_1):
-#             its_number = its_number + 1
-#         else:
-#             num_1_1 = pag.locateCenterOnScreen('prod_1_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#             if (num_1_1):
-#                 its_number = its_number + 1
-#             else:
-#                 num_2 = pag.locateCenterOnScreen('prod_2.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                 if (num_2):
-#                     its_number = its_number + 2
-#                 else:
-#                     num_3 = pag.locateCenterOnScreen('prod_3.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                     if (num_3):
-#                         its_number = its_number + 3
-#                     else:
-#                         num_3_1 = pag.locateCenterOnScreen('prod_3_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                         if (num_3_1):
-#                             its_number = its_number + 3
-#                         else:
-#                             num_4 = pag.locateCenterOnScreen('prod_4.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                             if (num_4):
-#                                 its_number = its_number + 4
-#                             else:
-#                                 num_4_2 = pag.locateCenterOnScreen('prod_4_2.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                 if (num_4_2):
-#                                     its_number = its_number + 4
-#                                 else:
-#                                     num_5 = pag.locateCenterOnScreen('prod_5.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                     if (num_5):
-#                                         its_number = its_number + 5
-#                                     else:
-#                                         num_6 = pag.locateCenterOnScreen('prod_6.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                         if (num_6):
-#                                             its_number = its_number + 6
-#                                         else:
-#                                             num_7 = pag.locateCenterOnScreen('prod_7.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                             if (num_7):
-#                                                 its_number = its_number + 7
-#                                             else:
-#                                                 num_8 = pag.locateCenterOnScreen('prod_8.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                                 if (num_8):
-#                                                     its_number = its_number + 8
-#                                                 else:
-#                                                     num_8_1 = pag.locateCenterOnScreen('prod_8_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                                     if (num_8_1):
-#                                                         its_number = its_number + 8
-#                                                     else:
-#                                                         num_9 = pag.locateCenterOnScreen('prod_9.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                                         if (num_9):
-#                                                             its_number = its_number + 9
-#                                                         else:
-#                                                             num_9_1 = pag.locateCenterOnScreen('prod_9_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                                             if (num_9_1):
-#                                                                 its_number = its_number + 9
-#                                                             else:
-#                                                                 print('일의 자리 숫자 확인 에러!!')
-#         # print('현재 재고는 =', its_number)
-#         return its_number
-#     if pos_numb == 3:
-#         # print('세 자릿 수 범위 확인', prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), pos_numb * 5 * 2, 14)
-#         # 100의 자리
-#         num_1 = pag.locateCenterOnScreen('prod_1.png', confidence=0.8, region=(622 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#         if (num_1):
-#             its_number = its_number + 100
-#         else:
-#             num_1_1 = pag.locateCenterOnScreen('prod_1_1.png', confidence=0.8, region=(622 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#             if (num_1_1):
-#                 its_number = its_number + 100
-#             else:
-#                 num_2 = pag.locateCenterOnScreen('prod_2.png', confidence=0.8, region=(622 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                 if (num_2):
-#                     its_number = its_number + 200
-#                 else:
-#                     num_3 = pag.locateCenterOnScreen('prod_3.png', confidence=0.8, region=(622 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                     if (num_3):
-#                         its_number = its_number + 300
-#                     else:
-#                         num_3_1 = pag.locateCenterOnScreen('prod_3_1.png', confidence=0.8, region=(622 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                         if (num_3_1):
-#                             its_number = its_number + 300
-#                         else:
-#                             num_4 = pag.locateCenterOnScreen('prod_4.png', confidence=0.8, region=(622 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                             if (num_4):
-#                                 its_number = its_number + 400
-#                             else:
-#                                 num_4_2 = pag.locateCenterOnScreen('prod_4_2.png', confidence=0.8, region=(622 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                 if (num_4_2):
-#                                     its_number = its_number + 400
-#                                 else:
-#                                     num_5 = pag.locateCenterOnScreen('prod_5.png', confidence=0.8, region=(622 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                     if (num_5):
-#                                         its_number = its_number + 500
-#                                     else:
-#                                         num_6 = pag.locateCenterOnScreen('prod_6.png', confidence=0.8, region=(622 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                         if (num_6):
-#                                             its_number = its_number + 600
-#                                         else:
-#                                             num_7 = pag.locateCenterOnScreen('prod_7.png', confidence=0.8, region=(622 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                             if (num_7):
-#                                                 its_number = its_number + 700
-#                                             else:
-#                                                 num_8 = pag.locateCenterOnScreen('prod_8.png', confidence=0.8, region=(622 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                                 if (num_8):
-#                                                     its_number = its_number + 800
-#                                                 else:
-#                                                     num_8_1 = pag.locateCenterOnScreen('prod_8_1.png', confidence=0.8, region=(622 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                                     if (num_8_1):
-#                                                         its_number = its_number + 800
-#                                                     else:
-#                                                         num_9 = pag.locateCenterOnScreen('prod_9.png', confidence=0.8, region=(622 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                                         if (num_9):
-#                                                             its_number = its_number + 900
-#                                                         else:
-#                                                             num_9_1 = pag.locateCenterOnScreen('prod_9_1.png', confidence=0.8, region=(622 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                                             if (num_9_1):
-#                                                                 its_number = its_number + 900
-#                                                             else:
-#                                                                 print('백의 자리 숫자 확인 에러!!')
-#         # 10의 자리 숫자 걍검색
-#         num_1 = pag.locateCenterOnScreen('prod_1.png', confidence=0.8, region=(631 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#         if (num_1):
-#             its_number = its_number + 10
-#         else:
-#             num_1_1 = pag.locateCenterOnScreen('prod_1_1.png', confidence=0.8, region=(631 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#             if (num_1_1):
-#                 its_number = its_number + 10
-#             else:
-#                 num_2 = pag.locateCenterOnScreen('prod_2.png', confidence=0.8, region=(631 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                 if (num_2):
-#                     its_number = its_number + 20
-#                 else:
-#                     num_3 = pag.locateCenterOnScreen('prod_3.png', confidence=0.8, region=(631 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                     if (num_3):
-#                         its_number = its_number + 30
-#                     else:
-#                         num_3_1 = pag.locateCenterOnScreen('prod_3_1.png', confidence=0.8, region=(631 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                         if (num_3_1):
-#                             its_number = its_number + 30
-#                         else:
-#                             num_4 = pag.locateCenterOnScreen('prod_4.png', confidence=0.8, region=(631 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                             if (num_4):
-#                                 its_number = its_number + 40
-#                             else:
-#                                 num_4_2 = pag.locateCenterOnScreen('prod_4_2.png', confidence=0.8, region=(631 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                 if (num_4_2):
-#                                     its_number = its_number + 40
-#                                 else:
-#                                     num_5 = pag.locateCenterOnScreen('prod_5.png', confidence=0.8, region=(631 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                     if (num_5):
-#                                         its_number = its_number + 50
-#                                     else:
-#                                         num_6 = pag.locateCenterOnScreen('prod_6.png', confidence=0.8, region=(631 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                         if (num_6):
-#                                             its_number = its_number + 60
-#                                         else:
-#                                             num_7 = pag.locateCenterOnScreen('prod_7.png', confidence=0.8, region=(631 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                             if (num_7):
-#                                                 its_number = its_number + 70
-#                                             else:
-#                                                 num_8 = pag.locateCenterOnScreen('prod_8.png', confidence=0.8, region=(631 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                                 if (num_8):
-#                                                     its_number = its_number + 80
-#                                                 else:
-#                                                     num_8_1 = pag.locateCenterOnScreen('prod_8_1.png', confidence=0.8, region=(631 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                                     if (num_8_1):
-#                                                         its_number = its_number + 80
-#                                                     else:
-#                                                         num_9 = pag.locateCenterOnScreen('prod_9.png', confidence=0.8, region=(631 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                                         if (num_9):
-#                                                             its_number = its_number + 90
-#                                                         else:
-#                                                             num_9_1 = pag.locateCenterOnScreen('prod_9_1.png', confidence=0.8, region=(631 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                                             if (num_9_1):
-#                                                                 its_number = its_number + 90
-#                                                             else:
-#                                                                 num_0 = pag.locateCenterOnScreen('prod_0.png', confidence=0.8, region=(631 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                                                 if (num_0):
-#                                                                     print('십의 자리 0!!')
-#                                                                 else:
-#                                                                     print('10의 자리 못읽음..')
-#         # 1의 자리 숫자 걍검색
-#         num_1 = pag.locateCenterOnScreen('prod_1.png', confidence=0.8, region=(640 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#         if (num_1):
-#             its_number = its_number + 1
-#         else:
-#             num_1_1 = pag.locateCenterOnScreen('prod_1_1.png', confidence=0.8, region=(640 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#             if (num_1_1):
-#                 its_number = its_number + 1
-#             else:
-#                 num_2 = pag.locateCenterOnScreen('prod_2.png', confidence=0.8, region=(640 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                 if (num_2):
-#                     its_number = its_number + 2
-#                 else:
-#                     num_3 = pag.locateCenterOnScreen('prod_3.png', confidence=0.8, region=(640 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                     if (num_3):
-#                         its_number = its_number + 3
-#                     else:
-#                         num_3_1 = pag.locateCenterOnScreen('prod_3_1.png', confidence=0.8, region=(640 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                         if (num_3_1):
-#                             its_number = its_number + 3
-#                         else:
-#                             num_4 = pag.locateCenterOnScreen('prod_4.png', confidence=0.8, region=(640 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                             if (num_4):
-#                                 its_number = its_number + 4
-#                             else:
-#                                 num_4_2 = pag.locateCenterOnScreen('prod_4_2.png', confidence=0.8, region=(640 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                 if (num_4_2):
-#                                     its_number = its_number + 4
-#                                 else:
-#                                     num_5 = pag.locateCenterOnScreen('prod_5.png', confidence=0.8, region=(640 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                     if (num_5):
-#                                         its_number = its_number + 5
-#                                     else:
-#                                         num_6 = pag.locateCenterOnScreen('prod_6.png', confidence=0.8, region=(640 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                         if (num_6):
-#                                             its_number = its_number + 6
-#                                         else:
-#                                             num_7 = pag.locateCenterOnScreen('prod_7.png', confidence=0.8, region=(640 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                             if (num_7):
-#                                                 its_number = its_number + 7
-#                                             else:
-#                                                 num_8 = pag.locateCenterOnScreen('prod_8.png', confidence=0.8, region=(640 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                                 if (num_8):
-#                                                     its_number = its_number + 8
-#                                                 else:
-#                                                     num_8_1 = pag.locateCenterOnScreen('prod_8_1.png', confidence=0.8, region=(640 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                                     if (num_8_1):
-#                                                         its_number = its_number + 8
-#                                                     else:
-#                                                         num_9 = pag.locateCenterOnScreen('prod_9.png', confidence=0.8, region=(640 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                                         if (num_9):
-#                                                             its_number = its_number + 9
-#                                                         else:
-#                                                             num_9_1 = pag.locateCenterOnScreen('prod_9_1.png', confidence=0.8, region=(640 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                                             if (num_9_1):
-#                                                                 its_number = its_number + 9
-#                                                             else:
-#                                                                 num_0 = pag.locateCenterOnScreen('prod_0.png', confidence=0.8, region=(640 , prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
-#                                                                 if (num_0):
-#                                                                     print('1의 자리 0!!')
-#                                                                 else:
-#                                                                     print('1의 자리 못읽음..')
-#         print('현재 재고는 =', its_number)
-#         return its_number
-
-# def three_prod_action(account, check_list_img1, check_list_img2, check_list_img3, check_num1, check_num2, check_num3, prod_direction_left):
-#     start_time = time.time()
-#
-#     cond_network = pag.locateCenterOnScreen('cond_network.png', confidence=0.96, region=(440 + (account // 2) * 960, 363 + (account % 2) * 540, 43, 29))
-#     if (cond_network):
-#         pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(377 - 5, 377 + 5) + (account % 2) * 540)
-#         time.sleep(0.3)
-#
-#     prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.955, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
-#     if not (prod_refresh):
-#         # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
-#         pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(336, 398) + (account % 2) * 540)
-#         time.sleep(0.5)
-#
-#     # cond_2nd_clear = pag.locateCenterOnScreen('cond_2nd_clear.png', confidence=0.96, region=(75 - 10 + (account//2)*960, 200 - 10 + (account%2) * 540, 20, 20))
-#     # cond_2nd_clear1 = pag.locateCenterOnScreen('cond_2nd_clear1.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + (account % 2) * 540, 20, 20))
-#     cond_3rd_clear1 = pag.locateCenterOnScreen('cond_3rd_clear1.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + 70+(account % 2) * 540, 20, 20))
-# cond_3rd_clear2 = pag.locateCenterOnScreen('cond_3rd_clear2.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + 70 + (account % 2) * 540, 20, 20))
-#         if (cond_3rd_clear1) or (cond_3rd_clear2):
-#     if not (cond_3rd_clear1):
-#         Skip_Next(account, prod_direction_left)
-#         return True
-#
-#     # 풀리스트인 경우 넘어감
-#     prod_full_list3 = pag.locateCenterOnScreen('prod_full_list3.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-#     prod_full_list4 = pag.locateCenterOnScreen('prod_full_list4.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-#     prod_full_list5 = pag.locateCenterOnScreen('prod_full_list5.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-#     prod_full_list6 = pag.locateCenterOnScreen('prod_full_list6.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-#     prod_full_list7 = pag.locateCenterOnScreen('prod_full_list7.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-#     if (prod_full_list3) or (prod_full_list4) or (prod_full_list5) or (prod_full_list6) or (prod_full_list7):
-#         print('리스트 full!4')
-#         # prod_warehousefull = pag.locateCenterOnScreen('prod_warehousefull.PNG', confidence=0.95, region=(339 + (account // 2) * 960, 253 + (account % 2) * 540, 175, 87))
-#         # time.sleep(1)
-#         # if (prod_warehousefull):  # 이레가 추가 ㅠ.ㅠ
-#         #     print('욕심을 버리시오 중생이여..')
-#         #     pag.click(455 + (account // 2) * 960, 379 + (account % 2) * 540)
-#         #     time.sleep(0.3)
-#         #     pag.click(164 + (account // 2) * 960, 280 + (account % 2) * 540)
-#         #     time.sleep(0.3)
-#         # else:
-#         #     Skip_Next(account, prod_direction_left)
-#         return True
-#
-#     # 3렙건물이니 고정
-#     prod_pin = (612+(account//2)*960, 95 + (account % 2) * 540)
-#     # prod_pin = (612 + (account // 2) * 960, 95 + (account % 2) * 540)             # 이렇게 안고쳐도 되나?
-#     # print('prod_pin:', prod_pin)
-#     target_numb1 = check_num1 - numb_new_recog(prod_pin, 1)
-#     # print('1st ok')
-#     print('1st ok', target_numb1)
-#     # print('prod_pin:', prod_pin)
-#     target_numb2 = check_num2 - numb_new_recog(prod_pin, 2)
-#     # print('2nd ok')
-#     print('2nd ok', target_numb2)
-#     # print('prod_pin:', prod_pin)
-#     target_numb3 = check_num3 - numb_new_recog(prod_pin, 3)
-#     print('3rd ok', target_numb3)
-#     # print('3rd ok')
-#     # 기타 조건 초기화
-#     line1_clicked = 0
-#     line2_clicked = 0
-#     line3_clicked = 0
-#     prod_line1_completed = False
-#     prod_line2_completed = False
-#     prod_line3_completed = False
-#     list_numbb1 = 0
-#     list_numbb2 = 0
-#     list_numbb3 = 0
-#
-#     # 리스트를 한번만 읽자!
-#     if check_num1 != 0:  # 목표값이 있고(열었고)
-#         if target_numb1 > 0:  # 목표 수량보다 부족한 경우
-#             list_numb1 = pag.locateAllOnScreen(check_list_img1, confidence=0.95, region=(42 + (account // 2) * 960, 169 + (account % 2) * 540, 66, 318))
-#             list_numb1 = list(list_numb1)
-#             if len(list_numb1) > 0:
-#                 list_numbb1 = len(list_numb1)  # 현재 리스트에 몇 개 있냐
-#             else:
-#                 list_numbb1 = 0
-#     else:
-#         prod_line1_completed = True
-#         compare_numb1 = -1
-#         list_numbb1 = 0
-#
-#     if check_num2 != 0:  # 목표값이 있고(열었고)
-#         if target_numb2 > 0:  # 목표 수량보다 부족한 경우
-#             list_numb2 = pag.locateAllOnScreen(check_list_img2, confidence=0.95, region=(42 + (account // 2) * 960, 169 + (account % 2) * 540, 66, 318))
-#             list_numb2 = list(list_numb2)
-#             if len(list_numb2) > 0:
-#                 list_numbb2 = len(list_numb2)  # 현재 리스트에 몇 개 있냐
-#             else:
-#                 list_numbb2 = 0
-#     else:
-#         prod_line2_completed = True
-#         compare_numb2 = -1
-#         list_numbb2 = 0
-#
-#     if check_num3 != 0:  # 목표값이 있고(열었고)
-#         if target_numb3 > 0:  # 목표 수량보다 부족한 경우
-#             list_numb3 = pag.locateAllOnScreen(check_list_img3, confidence=0.95, region=(42 + (account // 2) * 960, 169 + (account % 2) * 540, 66, 318))
-#             list_numb3 = list(list_numb3)
-#             if len(list_numb3) > 0:
-#                 list_numbb3 = len(list_numb3)  # 현재 리스트에 몇 개 있냐
-#             else:
-#                 list_numbb3 = 0
-#     else:
-#         prod_line3_completed = True
-#         compare_numb3 = -1
-#         list_numbb3 = 0
-#
-#     # print('현재 리스트에는 = 1:%s, 2:%s, 3:%s개 있습니다.' % (list_numbb1, list_numbb2, list_numbb3))
-#     print('현재 리스트에는 = 1:%s, 2:%s, 3:%s개 있습니다.' % (target_numb1, target_numb2, target_numb3))
-#     while True:      # 여기가 클릭하는 동네인가봐
-#         now_time = time.time()
-#         cond_network = pag.locateCenterOnScreen('cond_network.png', confidence=0.96, region=(440 + (account // 2) * 960, 363 + (account % 2) * 540, 43, 29))
-#         if (cond_network):
-#             pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(377 - 5, 377 + 5) + (account % 2) * 540)
-#             time.sleep(0.3)
-#
-#         # 풀리스트인 경우 넘어감
-#         prod_full_list3 = pag.locateCenterOnScreen('prod_full_list3.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-#         prod_full_list4 = pag.locateCenterOnScreen('prod_full_list4.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-#         prod_full_list5 = pag.locateCenterOnScreen('prod_full_list5.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-#         prod_full_list6 = pag.locateCenterOnScreen('prod_full_list6.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-#         prod_full_list7 = pag.locateCenterOnScreen('prod_full_list7.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-#         if (prod_full_list3) or (prod_full_list4) or (prod_full_list5) or (prod_full_list6) or (prod_full_list7):
-#             print('리스트 full!5')
-#             # prod_warehousefull = pag.locateCenterOnScreen('prod_warehousefull.PNG', confidence=0.95, region=(339 + (account // 2) * 960, 253 + (account % 2) * 540, 175, 87))
-#             # time.sleep(1)
-#             # if (prod_warehousefull):  # 이레가 추가 ㅠ.ㅠ
-#             #     print('욕심을 버리시오 중생이여..')
-#             #     pag.click(455 + (account // 2) * 960, 379 + (account % 2) * 540)
-#             #     time.sleep(0.3)
-#             #     pag.click(164 + (account // 2) * 960, 280 + (account % 2) * 540)
-#             #     time.sleep(0.3)
-#             # else:
-#             #     Skip_Next(account, prod_direction_left)
-#             return True
-#         # 동작시간 확인
-#         if now_time - start_time > 30:
-#             print('동작 최대시간 초과 입니다.')
-#             Skip_Next(account, prod_direction_left)
-#             return False
-#
-#         # 강제종료
-#         if keyboard.is_pressed('end'):
-#             return False
-#
-#         # 조건 확인
-#         play_halted = pag.locateCenterOnScreen('cond_g_play.png', region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
-#
-#         # 구글 플레이 종료 뭐시기
-#         if (play_halted):
-#             pag.click(play_halted)
-#
-#         # 리스트 수량 파악
-#         if (target_numb1 - list_numbb1 - line1_clicked) > 0:  # 부족분-리스트 > 0 이면 더 만들어야지
-#             # print('target_numb1 - list_numbb1 - line1_clicked:', target_numb1 - list_numbb1 - line1_clicked)
-#             compare_numb1 = (target_numb1 - list_numbb1 - line1_clicked) / check_num1  # 비율(1을 안넘음)
-#             # print('compare_numb1:', compare_numb1)
-#         else:
-#             compare_numb1 = -1
-#             prod_line1_completed = True
-#
-#         if (target_numb2 - list_numbb2 - line2_clicked) > 0:  # 부족분-리스트 > 0 이면 더 만들어야지
-#             # print('target_numb2 - list_numbb2 - line2_clicked:', target_numb2 - list_numbb2 - line2_clicked)
-#             compare_numb2 = (target_numb2 - list_numbb2 - line2_clicked) / check_num2  # 비율(1을 안넘음)
-#             # print('compare_numb2:', compare_numb1)
-#         else:
-#             compare_numb2 = -1
-#             prod_line2_completed = True
-#
-#         if (target_numb3 - list_numbb3 - line3_clicked) > 0:  # 부족분-리스트 > 0 이면 더 만들어야지
-#             # print('target_numb3 - list_numbb3 - line3_clicked:', target_numb3 - list_numbb3 - line3_clicked)
-#             compare_numb3 = (target_numb3 - list_numbb3 - line3_clicked) / check_num3  # 비율(1을 안넘음)
-#             # print('compare_numb3:', compare_numb1)
-#         else:
-#             compare_numb3 = -1
-#             prod_line3_completed = True
-#
-#         if (prod_line1_completed and prod_line2_completed and prod_line3_completed):
-#             Skip_Next(account, prod_direction_left)
-#             return False
-#         else:
-#             max_numb = max(compare_numb1, compare_numb2, compare_numb3)
-#             if max_numb == compare_numb1 and not prod_line1_completed:
-#                 pag.click(random.randint(745, 745 + 10) + (account // 2) * 960, random.randint(190, 190 + 15) + (account % 2) * 540)
-#                 lack_of_material = pag.locateCenterOnScreen('lack_material.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
-#                 not_opened = pag.locateCenterOnScreen('Cond_not_opened.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
-#                 if (lack_of_material):  # 어디 라인 재료가 부족한 지 모르겠네.. 1렙거 부족하면 다 생산 못하겠는데
-#                     print('재료가 부족해요')
-#                     pag.click(284 + (account // 2) * 960, 15 + (account % 2) * 540)
-#                     time.sleep(0.1)
-#                     pag.hotkey('esc')
-#                     time.sleep(0.5)
-#                     line1_clicked = 999  # 나락으로 보내버력!
-#                 elif (not_opened):  # 안 연거
-#                     print('열지 않은 제품이라서 넘어가겠어요~!')
-#                     pag.click(284 + (account // 2) * 960, 15 + (account % 2) * 540)
-#                     time.sleep(0.1)
-#                     pag.hotkey('esc')
-#                     time.sleep(0.5)
-#                     line1_clicked = 999  # 나락으로 보내버력!
-#                 else:
-#                     line1_clicked = line1_clicked + 1
-#             if max_numb == compare_numb2 and not prod_line2_completed:
-#                 pag.click(random.randint(745, 745 + 10) + (account // 2) * 960, random.randint(190, 190 + 15) + 153 + (account % 2) * 540)
-#                 lack_of_material = pag.locateCenterOnScreen('lack_material.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
-#                 not_opened = pag.locateCenterOnScreen('Cond_not_opened.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
-#                 if (lack_of_material):  # 어디 라인 재료가 부족한 지 모르겠네.. 1렙거 부족하면 다 생산 못하겠는데
-#                     print('재료가 부족해요')
-#                     pag.click(284 + (account // 2) * 960, 15 + (account % 2) * 540)
-#                     time.sleep(0.1)
-#                     pag.hotkey('esc')
-#                     time.sleep(0.5)
-#                     line2_clicked = 999  # 나락으로 보내버력!
-#                 elif (not_opened):  # 안 연거
-#                     print('열지 않은 제품이라서 넘어가겠어요~!')
-#                     pag.click(284 + (account // 2) * 960, 15 + (account % 2) * 540)
-#                     time.sleep(0.1)
-#                     pag.hotkey('esc')
-#                     time.sleep(0.5)
-#                     line2_clicked = 999  # 나락으로 보내버력!
-#                 else:
-#                     line2_clicked = line2_clicked + 1
-#             if max_numb == compare_numb3 and not prod_line3_completed:
-#                 pag.click(random.randint(745, 745 + 10) + (account // 2) * 960, random.randint(190, 190 + 15) + 153 * 2 + (account % 2) * 540)
-#                 lack_of_material = pag.locateCenterOnScreen('lack_material.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
-#                 not_opened = pag.locateCenterOnScreen('Cond_not_opened.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
-#                 if (lack_of_material):  # 어디 라인 재료가 부족한 지 모르겠네.. 1렙거 부족하면 다 생산 못하겠는데
-#                     print('재료가 부족해요')
-#                     pag.click(284 + (account // 2) * 960, 15 + (account % 2) * 540)
-#                     time.sleep(0.1)
-#                     pag.hotkey('esc')
-#                     time.sleep(0.5)
-#                     line3_clicked = 999  # 나락으로 보내버력!
-#                 elif (not_opened):  # 안 연거
-#                     print('열지 않은 제품이라서 넘어가겠어요~!')
-#                     pag.click(284 + (account // 2) * 960, 15 + (account % 2) * 540)
-#                     time.sleep(0.1)
-#                     pag.hotkey('esc')
-#                     time.sleep(0.5)
-#                     line3_clicked = 999  # 나락으로 보내버력!
-#                 else:
-#                     line3_clicked = line3_clicked + 1
 
 
 def find_image_in(account, where_to):
@@ -8705,14 +8104,13 @@ def Arena_action(account, set_max_power):
                                     print('게임 튕겼어요!1')
                                     Check_Initiating(account)
                                     Kingdom_ready(account, 'kkd_arena')
-                                    continue
+                                    break # continue에서 바꿔봄 - 7/27
                                 time.sleep(2)
                                 start_check_time1 = time.time()
                                 print('start_check_time1', math.trunc(start_check_time1))
                                 while True:
                                     if keyboard.is_pressed('end'):
                                         return
-
                                     now_check_time1 = time.time()
                                     # print('while True',math.trunc(start_check_time1), math.trunc(now_check_time1))
                                     if now_check_time1 - start_check_time1 > 300:
@@ -8720,13 +8118,13 @@ def Arena_action(account, set_max_power):
                                         send_telegram_message('Arena_action 300초간 멈춤!1')
                                         End_kkd(account)
                                         Kingdom_ready(account, 'kkd_arena')
-                                        return
+                                        break # continue에서 바꿔봄 - 7/27
                                     kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
                                     if (kkd_start_ire):  # 바탕화면으로 나가서 쿠킹덤 아이콘이 보이나!?
                                         print('게임 튕겼어요!11')
                                         Check_Initiating(account)
                                         Kingdom_ready(account, 'kkd_arena')
-                                        continue
+                                        break # continue에서 바꿔봄 - 7/27
                                     # 전투시작 아이콘 없으면 전투(로비에서) 클릭
                                     if not bFight_started:  # 전투 시작 안했으면 전투 시작 클릭
                                         cond_start_fight = pag.locateCenterOnScreen('Cond_wanted_start_fignt.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
@@ -8819,7 +8217,7 @@ def Arena_action(account, set_max_power):
                                 print('게임 튕겼어요!2')
                                 Check_Initiating(account)
                                 Kingdom_ready(account, 'kkd_arena')
-                                continue
+                                break # continue에서 바꿔봄 - 7/27
                             time.sleep(2)
                             start_check_time2 = time.time()
                             print('start_check_time2', math.trunc(start_check_time2))
@@ -8831,7 +8229,7 @@ def Arena_action(account, set_max_power):
                                     print('게임 튕겼어요!22')
                                     Check_Initiating(account)
                                     Kingdom_ready(account, 'kkd_arena')
-                                    continue
+                                    break # continue에서 바꿔봄 - 7/27
                                 now_check_time2 = time.time()
                                 print('while True',math.trunc(start_check_time2), math.trunc(now_check_time2))
                                 if math.trunc(now_check_time2 - start_check_time2) > 300:
@@ -9896,6 +9294,152 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                             else:
                                 Skip_Next(account, prod_direction_left)
                             # 작업 순방향 끝
+                        elif pix_prod == pix_smith:
+                            pix_error_count = 0
+                            print('smith!')
+                            # 작업 순방향 시작
+                            if not (smith_lev1 == 0) and not bsmithcompleted:
+                                if not prod_action('smith_lev1.png', 'smith_stby_lv1.png', account, smith_lev1):
+                                    if (smith_lev2 == 0):
+                                        bsmithcompleted = True
+                                    if not (smith_lev2 == 0) and not bsmithcompleted:
+                                        if not prod_action('smith_lev2.png', 'smith_stby_lv2.png', account, smith_lev2):
+                                            if (smith_lev3 == 0):
+                                                bsmithcompleted = True
+                                            if not (smith_lev3 == 0) and not bsmithcompleted:
+                                                if not prod_action('smith_lev3.png', 'smith_stby_lv3.png', account, smith_lev3):
+                                                    if (smith_lev4 == 0):
+                                                        bsmithcompleted = True
+                                                    if not (smith_lev4 == 0) and not bsmithcompleted:
+                                                        Updown(account, 'up')
+                                                        if not prod_action('smith_lev4.png', 'smith_stby_lv4.png', account, smith_lev4):
+                                                            if (smith_lev5 == 0):
+                                                                bsmithcompleted = True
+                                                            if not (smith_lev5 == 0) and not bsmithcompleted:
+                                                                Updown(account, 'up')
+                                                                if not prod_action('smith_lev5.png', 'smith_stby_lv5.png', account, smith_lev5):
+                                                                    if (smith_lev6 == 0):
+                                                                        bsmithcompleted = True
+                                                                    if not (smith_lev6 == 0) and not bsmithcompleted:
+                                                                        Updown(account, 'up')
+                                                                        if not prod_action('smith_lev6.png', 'smith_stby_lv6.png', account, smith_lev6):
+                                                                            if (smith_lev7 == 0):
+                                                                                bsmithcompleted = True
+                                                                            if not (smith_lev7 == 0) and not bsmithcompleted:
+                                                                                Updown(account, 'up')
+                                                                                if not prod_action('smith_lev7.png', 'smith_stby_lv7.png', account, smith_lev7):
+                                                                                    bsmithcompleted = True
+                                                                                Skip_Next(account, prod_direction_left)
+                                                                            else:
+                                                                                Skip_Next(account, prod_direction_left)
+                                                                        else:
+                                                                            Skip_Next(account, prod_direction_left)
+                                                                    else:
+                                                                        Skip_Next(account, prod_direction_left)
+                                                                else:
+                                                                    Skip_Next(account, prod_direction_left)
+                                                            else:
+                                                                Skip_Next(account, prod_direction_left)
+                                                        else:
+                                                            Skip_Next(account, prod_direction_left)
+                                                    else:
+                                                        Skip_Next(account, prod_direction_left)
+                                                else:
+                                                    Skip_Next(account, prod_direction_left)
+                                            else:
+                                                Skip_Next(account, prod_direction_left)
+                                        else:
+                                            Skip_Next(account, prod_direction_left)
+                                    else:
+                                        Skip_Next(account, prod_direction_left)
+                                else:
+                                    Skip_Next(account, prod_direction_left)
+                            else:
+                                Skip_Next(account, prod_direction_left)
+                            # 작업 순방향 끝
+
+                        elif pix_prod == pix_jelly:
+                            pix_error_count = 0
+                            print('jelly!')
+                            # 작업 순방향 시작
+                            if not (jelly_lev1 == 0) and not bjellycompleted:
+                                if not prod_action('jelly_lev1.png', 'jelly_stby_lv1.png', account, jelly_lev1):
+                                    if (jelly_lev2 == 0):
+                                        bjellycompleted = True
+                                    if not (jelly_lev2 == 0) and not bjellycompleted:
+                                        if not prod_action('jelly_lev2.png', 'jelly_stby_lv2.png', account, jelly_lev2):
+                                            if (jelly_lev3 == 0):
+                                                bjellycompleted = True
+                                            if not (jelly_lev3 == 0) and not bjellycompleted:
+                                                if not prod_action('jelly_lev3.png', 'jelly_stby_lv3.png', account, jelly_lev3):
+                                                    if (jelly_lev4 == 0):
+                                                        bjellycompleted = True
+                                                    if not (jelly_lev4 == 0) and not bjellycompleted:
+                                                        Updown(account, 'up')
+                                                        if not prod_action('jelly_lev4.png', 'jelly_stby_lv4.png', account, jelly_lev4):
+                                                            if (jelly_lev5 == 0):
+                                                                bjellycompleted = True
+                                                            if not (jelly_lev5 == 0) and not bjellycompleted:
+                                                                Updown(account, 'up')
+                                                                if not prod_action('jelly_lev5.png', 'jelly_stby_lv5.png', account, jelly_lev5):
+                                                                    bjellycompleted = True
+                                                                Skip_Next(account, prod_direction_left)
+                                                            else:
+                                                                Skip_Next(account, prod_direction_left)
+                                                        else:
+                                                            Skip_Next(account, prod_direction_left)
+                                                    else:
+                                                        Skip_Next(account, prod_direction_left)
+                                                else:
+                                                    Skip_Next(account, prod_direction_left)
+                                            else:
+                                                Skip_Next(account, prod_direction_left)
+                                        else:
+                                            Skip_Next(account, prod_direction_left)
+                                    else:
+                                        Skip_Next(account, prod_direction_left)
+                                else:
+                                    Skip_Next(account, prod_direction_left)
+                            else:
+                                Skip_Next(account, prod_direction_left)
+                            # 작업 순방향 끝
+
+                        elif pix_prod == pix_rollc:
+                            pix_error_count = 0
+                            print('rollc!')
+                            # 작업 순방향 시작
+                            if not (rollc_lev1 == 0) and not brollccompleted:
+                                if not prod_action('rollc_lev1.png', 'rollc_stby_lv1.png', account, rollc_lev1):
+                                    if (rollc_lev2 == 0):
+                                        brollccompleted = True
+                                    if not (rollc_lev2 == 0) and not brollccompleted:
+                                        if not prod_action('rollc_lev2.png', 'rollc_stby_lv2.png', account, rollc_lev2):
+                                            if (rollc_lev3 == 0):
+                                                brollccompleted = True
+                                            if not (rollc_lev3 == 0) and not brollccompleted:
+                                                if not prod_action('rollc_lev3.png', 'rollc_stby_lv3.png', account, rollc_lev3):
+                                                    if (rollc_lev4 == 0):
+                                                        brollccompleted = True
+                                                    if not (rollc_lev4 == 0) and not brollccompleted:
+                                                        Updown(account, 'up')
+                                                        if not prod_action('rollc_lev4.png', 'rollc_stby_lv4.png', account, rollc_lev4):
+                                                            brollccompleted = True
+                                                        Skip_Next(account, prod_direction_left)
+                                                    else:
+                                                        Skip_Next(account, prod_direction_left)
+                                                else:
+                                                    Skip_Next(account, prod_direction_left)
+                                            else:
+                                                Skip_Next(account, prod_direction_left)
+                                        else:
+                                            Skip_Next(account, prod_direction_left)
+                                    else:
+                                        Skip_Next(account, prod_direction_left)
+                                else:
+                                    Skip_Next(account, prod_direction_left)
+                            else:
+                                Skip_Next(account, prod_direction_left)
+                            # 작업 순방향 끝
                         
                         # elif pix_prod == pix_magic:
                         #     pix_error_count = 0
@@ -10371,7 +9915,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                             if (cond_bbopkki):
                                 pag.click(532 + (account // 2) * 960, 504 + (account % 2) * 540)
                                 time.sleep(1)
-                                cond_bbopkki2 = pag.locateCenterOnScreen('cond_bbopkki2.png', confidence=0.85, region=(60 + (account // 2) * 960, 315 + (account % 2) * 540, 22, 22))
+                                cond_bbopkki2 = pag.locateCenterOnScreen('cond_bbopkki2.png', confidence=0.85, region=(60 + (account // 2) * 960, 315+ 75 + (account % 2) * 540, 22, 22))
                                 if (cond_bbopkki2):
                                     pag.click(46 + (account // 2) * 960, 357 + (account % 2) * 540)
                                     time.sleep(0.5)
@@ -11270,7 +10814,6 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                         break
                                 # 작업 역방향 끝
 
-
                         elif pix_prod == pix_jampy:
                             pix_error_count = 0
                             print('jampy!')
@@ -11350,8 +10893,12 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                                                                 Updown(account, 'up')
                                                                                 prod_action('jampy_lev6.png', 'jampy_stby_lv6.png', account, jampy_lev6)
                                                                                 Skip_Next(account, prod_direction_left)
-                                                                            bSecond = True
-                                                                            break
+                                                                                bSecond = True
+                                                                                break
+                                                                            else:
+                                                                                Skip_Next(account, prod_direction_left)
+                                                                                bSecond = True
+                                                                                break
                                                                         else:
                                                                             Skip_Next(account, prod_direction_left)
                                                                             bSecond = True
@@ -11559,338 +11106,177 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                         break
                                     # 작업 역방향 끝
 
+
                         elif pix_prod == pix_flower:
-
                             pix_error_count = 0
-
                             print('flower!')
-
                             if not bProdHigh or flower_num == 1:
-
                                 bSecond = False
-
                                 # 작업 순방향 시작
-
                                 if not (flower_lev1 == 0) and not bflowercompleted:
-
                                     if not prod_action('flower_lev1.png', 'flower_stby_lv1.png', account, flower_lev1):
-
                                         if (flower_lev2 == 0):
                                             bflowercompleted = True
-
                                             Skip_Next(account, prod_direction_left)
-
                                         if not (flower_lev2 == 0) and not bflowercompleted:
-
                                             if not prod_action('flower_lev2.png', 'flower_stby_lv2.png', account, flower_lev2):
-
                                                 if (flower_lev3 == 0):
                                                     bflowercompleted = True
-
                                                     Skip_Next(account, prod_direction_left)
-
                                                 if not (flower_lev3 == 0) and not bflowercompleted:
-
                                                     if not prod_action('flower_lev3.png', 'flower_stby_lv3.png', account, flower_lev3):
-
                                                         if (flower_lev4 == 0):
                                                             bflowercompleted = True
-
                                                             Skip_Next(account, prod_direction_left)
-
                                                         if not (flower_lev4 == 0) and not bflowercompleted:
-
                                                             Updown(account, 'up')
-
                                                             if not prod_action('flower_lev4.png', 'flower_stby_lv4.png', account, flower_lev4):
-
                                                                 if (flower_lev5 == 0):
                                                                     bflowercompleted = True
-
                                                                     Skip_Next(account, prod_direction_left)
-
                                                                 if not (flower_lev5 == 0) and not bflowercompleted:
-
                                                                     Updown(account, 'up')
-
                                                                     if not prod_action('flower_lev5.png', 'flower_stby_lv5.png', account, flower_lev5):
-
                                                                         if (flower_lev6 == 0):
                                                                             bflowercompleted = True
-
                                                                             Skip_Next(account, prod_direction_left)
-
                                                                         if not (flower_lev6 == 0) and not bflowercompleted:
-
                                                                             Updown(account, 'up')
-
                                                                             if not prod_action('flower_lev6.png', 'flower_stby_lv6.png', account, flower_lev6):
                                                                                 bflowercompleted = True
-
                                                                             Skip_Next(account, prod_direction_left)
-
                                                                         else:
-
                                                                             Skip_Next(account, prod_direction_left)
-
                                                                     else:
-
                                                                         Skip_Next(account, prod_direction_left)
-
                                                                 else:
-
                                                                     Skip_Next(account, prod_direction_left)
-
                                                             else:
-
                                                                 Skip_Next(account, prod_direction_left)
-
                                                         else:
-
                                                             Skip_Next(account, prod_direction_left)
-
                                                     else:
-
                                                         Skip_Next(account, prod_direction_left)
-
                                                 else:
-
                                                     Skip_Next(account, prod_direction_left)
-
                                             else:
-
                                                 Skip_Next(account, prod_direction_left)
-
                                         else:
-
                                             Skip_Next(account, prod_direction_left)
-
                                     else:
-
                                         Skip_Next(account, prod_direction_left)
-
                                 else:
-
                                     Skip_Next(account, prod_direction_left)
-
                                 # 작업 순방향 끝
-
                             while True:
-
                                 if keyboard.is_pressed('end'):
                                     break
-
                                 if not bProdHigh or flower_num == 1:
                                     break
-
                                 if bProdHigh and not bSecond and flower_num == 2:  # 첫 번째 건물 작업
-
                                     # 작업 순방향 시작
-
                                     if not (flower_lev1 == 0):
-
                                         if not prod_action('flower_lev1.png', 'flower_stby_lv1.png', account, flower_lev1):
-
                                             if not (flower_lev2 == 0):
-
                                                 if not prod_action('flower_lev2.png', 'flower_stby_lv2.png', account, flower_lev2):
-
                                                     if not (flower_lev3 == 0):
-
                                                         if not prod_action('flower_lev3.png', 'flower_stby_lv3.png', account, flower_lev3):
-
                                                             if not (flower_lev4 == 0):
-
                                                                 Updown(account, 'up')
-
                                                                 if not prod_action('flower_lev4.png', 'flower_stby_lv4.png', account, flower_lev4):
-
                                                                     if not (flower_lev5 == 0):
-
                                                                         Updown(account, 'up')
-
                                                                         if not prod_action('flower_lev5.png', 'flower_stby_lv5.png', account, flower_lev5):
-
                                                                             if not (flower_lev6 == 0):
                                                                                 Updown(account, 'up')
-
                                                                                 prod_action('flower_lev6.png', 'flower_stby_lv6.png', account, flower_lev6)
-
                                                                                 Skip_Next(account, prod_direction_left)
-
                                                                             bSecond = True
-
                                                                             break
-
                                                                         else:
-
                                                                             Skip_Next(account, prod_direction_left)
-
                                                                             bSecond = True
-
                                                                             break
-
                                                                     else:
-
                                                                         Skip_Next(account, prod_direction_left)
-
                                                                         bSecond = True
-
                                                                         break
-
                                                                 else:
-
                                                                     Skip_Next(account, prod_direction_left)
-
                                                                     bSecond = True
-
                                                                     break
-
                                                             else:
-
                                                                 Skip_Next(account, prod_direction_left)
-
                                                                 bSecond = True
-
                                                                 break
-
                                                         else:
-
                                                             Skip_Next(account, prod_direction_left)
-
                                                             bSecond = True
-
                                                             break
-
                                                     else:
-
                                                         Skip_Next(account, prod_direction_left)
-
                                                         bSecond = True
-
                                                         break
-
                                                 else:
-
                                                     Skip_Next(account, prod_direction_left)
-
                                                     bSecond = True
-
                                                     break
-
                                             else:
-
                                                 Skip_Next(account, prod_direction_left)
-
                                                 bSecond = True
-
                                                 break
-
                                         else:
-
                                             Skip_Next(account, prod_direction_left)
-
                                             bSecond = True
-
                                             break
-
                                     else:
-
                                         Skip_Next(account, prod_direction_left)
-
                                         bSecond = True
-
                                         break
-
                                     # 작업 순방향 끝
-
                                 if bProdHigh and bSecond and flower_num == 2:  # 두 번째 건물 작업
-
                                     # 작업 역방향 시작
-
                                     if (flower_lev6 == 0):
-
                                         if (flower_lev5 == 0):
-
                                             if (flower_lev4 == 0):
-
                                                 if (flower_lev3 == 0):
-
                                                     if (flower_lev2 == 0):
-
                                                         prod_action('flower_lev1.png', 'flower_stby_lv1.png', account, flower_lev1)
-
                                                         Skip_Next(account, prod_direction_left)
-
                                                         bSecond = False
-
                                                         break
-
                                                     else:
-
                                                         prod_action('flower_lev2.png', 'flower_stby_lv2.png', account, flower_lev2)
-
                                                         Skip_Next(account, prod_direction_left)
-
                                                         bSecond = False
-
                                                         break
-
                                                 else:
-
                                                     prod_action('flower_lev3.png', 'flower_stby_lv3.png', account, flower_lev3)
-
                                                     Skip_Next(account, prod_direction_left)
-
                                                     bSecond = False
-
                                                     break
-
                                             else:
-
                                                 Updown(account, 'up')
-
                                                 prod_action('flower_lev4.png', 'flower_stby_lv4.png', account, flower_lev4)
-
                                                 Skip_Next(account, prod_direction_left)
-
                                                 bSecond = False
-
                                                 break
-
                                         else:
-
                                             Updown(account, 'up')
-
                                             Updown(account, 'up')
-
                                             prod_action('flower_lev5.png', 'flower_stby_lv5.png', account, flower_lev5)
-
                                             Skip_Next(account, prod_direction_left)
-
                                             bSecond = False
-
                                             break
-
                                     else:
-
                                         Updown(account, 'up')
-
                                         Updown(account, 'up')
-
                                         Updown(account, 'up')
-
                                         prod_action('flower_lev6.png', 'flower_stby_lv6.png', account, flower_lev6)
-
                                         Skip_Next(account, prod_direction_left)
-
                                         bSecond = False
-
                                         break
-
                                 # 작업 역방향 끝
-
-
 
                         elif pix_prod == pix_milky:
                             pix_error_count = 0
@@ -11902,7 +11288,6 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                             else:
                                 Skip_Next(account, prod_direction_left)
 
-
                         elif pix_prod == pix_latte:
                             pix_error_count = 0
                             print('latte!')
@@ -11912,7 +11297,6 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                     blattecompleted = True
                             else:
                                 Skip_Next(account, prod_direction_left)
-
 
                         elif pix_prod == pix_dolls:
                             pix_error_count = 0
@@ -11924,7 +11308,6 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                             else:
                                 Skip_Next(account, prod_direction_left)
 
-
                         elif pix_prod == pix_beer:
                             pix_error_count = 0
                             print('beer!')
@@ -11935,7 +11318,6 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                             else:
                                 Skip_Next(account, prod_direction_left)
 
-
                         elif pix_prod == pix_muffin:
                             pix_error_count = 0
                             print('muffin!')
@@ -11945,7 +11327,6 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                     bmuffincompleted = True
                             else:
                                 Skip_Next(account, prod_direction_left)
-
 
                         elif pix_prod == pix_jewel:
                             pix_error_count = 0
@@ -12382,7 +11763,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
 
                         elif pix_prod == pix_jampy:
                             pix_error_count = 0
-                            print('jampy!')
+                            print('jampy!5')
                             prod_direction_left = True
                             Skip_Next(account, prod_direction_left)
 
@@ -13425,7 +12806,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
 
                             pix_error_count = 0
 
-                            print('jampy!')
+                            print('jampy!6')
 
                             if not bProdHigh or jampy_num == 1:
 
