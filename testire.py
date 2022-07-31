@@ -50,8 +50,8 @@ jelbean_bef_action = 0
 sugar_bef_action = 0
 
 # 이 설정 수량보다 적을 경우 수동 매크로 돌림
-wood_manual_macro = 2000
-jelbean_manual_macro = 2000
+wood_manual_macro = 1800
+jelbean_manual_macro = 1900
 sugar_manual_macro = 2000
 
 # 수동 매크로 돌릴 조건
@@ -129,8 +129,8 @@ bMacroTime = True  # 매크로 도는 중?
 bProdHigh = False  # 동일 건물 2개인 경우 2번째 건물에서 높은 생산품 우선 생산
 bSecond = False  # 두 번째 건물 작업이냐?
 
-bAcc_A_First = False  # 계정 먼저 시작 순서(True일 때 A부터, 아니면 B부터)
-bAcc_C_First = True     # C계정 먼저 시작해요!
+bAcc_A_First = True  # 계정 먼저 시작 순서(True일 때 A부터, 아니면 B부터)
+bAcc_C_First = False     # C계정 먼저 시작해요!
 
 bFirstCookhouA = False  # 첫 쿠하(클릭)
 bFirstCookhouB = False  # 첫 쿠하(클릭)
@@ -292,8 +292,8 @@ jewel_lev2_A = 25  # 루비베리 브로치
 jewel_lev3_A = 25  # 로얄 곰젤리 크라운
 
 magic_num_A = 1    # 마법공방
-magic_lev1_A = 20    # 고농축 에스프레소
-magic_lev2_A = 20    # 울퉁불퉁 뿔고구마
+magic_lev1_A = 60    # 고농축 에스프레소
+magic_lev2_A = 60    # 울퉁불퉁 뿔고구마
 magic_lev3_A = 190    # 향기로운 포도주스
 magic_lev4_A = 0    # 빨리감기 태엽장치
 magic_lev5_A = 0    # 수수께끼의 파우더 주머니
@@ -305,6 +305,12 @@ magic_lev10_A = 0    # 마력의 설탕결정
 magic_lev11_A = 0    # 토핑 조각
 magic_lev12_A = 0    # 찬란한 빛조각
 
+icecream_num_A = 1  # 아이스크림 트럭 건물 수
+icecream_lev1_A = 30  # 낮의 별가루 스프링클 아이스크림
+icecream_lev2_A = 30  # 밤의 별가루 스프링클 아이스크림
+icecream_lev3_A = 30  # 꿈꾸는 성의 아이스크림 바닐라 샌드
+icecream_lev4_A = 30  # 꿈꾸는 성의 아이스크림 초코 샌드
+icecream_lev5_A = 0  # 밀키웨이 아이스바
 
 # 마늘맛바게뜨---------------------------------------------
 
@@ -431,6 +437,16 @@ magic_lev9_B = 0    # 신속의 설탕결정
 magic_lev10_B = 0    # 마력의 설탕결정
 magic_lev11_B = 0    # 토핑 조각
 magic_lev12_B = 0    # 찬란한 빛조각
+
+
+icecream_num_B = 1  # 아이스크림 트럭 건물 수
+icecream_lev1_B = 30  # 낮의 별가루 스프링클 아이스크림
+icecream_lev2_B = 30  # 밤의 별가루 스프링클 아이스크림
+icecream_lev3_B = 30  # 꿈꾸는 성의 아이스크림 바닐라 샌드
+icecream_lev4_B = 30  # 꿈꾸는 성의 아이스크림 초코 샌드
+icecream_lev5_B = 0  # 밀키웨이 아이스바
+
+
 # ---------------------------------------------------------------------
 
 wood_min_C = 1800
@@ -556,6 +572,14 @@ magic_lev9_C = 0    # 신속의 설탕결정
 magic_lev10_C = 0    # 마력의 설탕결정
 magic_lev11_C = 0    # 토핑 조각
 magic_lev12_C = 0    # 찬란한 빛조각
+
+
+icecream_num_C = 1  # 아이스크림 트럭 건물 수
+icecream_lev1_C = 30  # 낮의 별가루 스프링클 아이스크림
+icecream_lev2_C = 30  # 밤의 별가루 스프링클 아이스크림
+icecream_lev3_C = 30  # 꿈꾸는 성의 아이스크림 바닐라 샌드
+icecream_lev4_C = 30  # 꿈꾸는 성의 아이스크림 초코 샌드
+icecream_lev5_C = 0  # 밀키웨이 아이스바
 
 
 def macro_production(account):
@@ -1110,30 +1134,58 @@ def Heart_sojin(account, WhatToDo):
         screen = ImageGrab.grab()
         pix_status = screen.getpixel((605 + (account // 2) * 960, 55 + (account % 2) * 540))  # 상단골드
         pix_status2 = screen.getpixel((540 + (account // 2) * 960, 510 + (account % 2) * 540))  # 마침표
-        pix_status_in = (194, 144, 10)  # 생산건물 내
-        pix_status_in_dark = (97, 72, 5)  # 건물 안이긴 한데 창이 떠있음
-        pix_status_out = (0, 181, 255)  # 바탕화면(왕국), 트로피컬도 동일
-        pix_status_out_window = (0, 64, 91)  # 창이 떠서 어두워짐
-        pix_status_out_esc = (0, 90, 127)  # 왕국.. ESC나 트로피컬 썬배드로 어두워진..
-        pix_status_sowon = (239, 171, 2)  # 소원나무, 곰젤리열차, 상점 동일
+
+        pix_status_in = (227, 163, 2)  # 생산건물 내 07.31. 수정
+        pix_status_in_dark = (114, 81, 1)  # 건물 안이긴 한데 창이 떠있음
+        pix_status_in_magic_dark = (110, 81, 9)  # 건물 안이긴 한데 창이 떠있음
+        pix_status_out = (11, 194, 252)  # 바탕화면(왕국), 트로피컬도 동일
+        pix_status_out_window = (6, 95, 125)  # 창이 떠서 어두워짐
+        pix_status_out_esc = (6, 97, 126)  # 왕국.. ESC나 트로피컬 썬배드로 어두워진..
+        pix_status_sowon = (255, 206, 1)  # 소원나무, 곰젤리열차, 상점 동일
         pix_status_ballon = (29, 36, 46)  # 열기구 날아다니는 중
         pix_status_bal_lobby = (170, 126, 1)  # 열기구 로비
         pix_status_bal_window = (127, 95, 4)  # 열기구 창 떠서 어두워짐
-        pix_status_adv = (0, 181, 255)  # 모험하기
-        pix_status_kdpass = (42, 27, 19)  # 킹덤패스
+        pix_status_adv = (11, 194, 252)  # 모험하기
+        pix_status_kdpass = (253, 253, 253)  # 킹덤패스
         pix_status_warehouse = (55, 64, 105)  # 창고 뜸
         pix_status_mail = (60, 70, 105)  # 우편함
         pix_lackof1 = (243, 233, 223)  # 베이지색
-        pix_status_not_prod = (0, 124, 176)  # 건물 클릭했지만 생산 건물은 아님
-        pix_status_cookiehouse = (0, 129, 182)  # 엥 이게 다 달라?
-        pix_status_lotto = (255, 189, 8)  # 뽑기, 해변교역소
+        pix_status_not_prod = (8, 134, 174)  # 건물 클릭했지만 생산 건물은 아님
+        pix_status_cookiehouse = (8, 138, 179)  # 엥 이게 다 달라?
+        pix_status_lotto = (255, 206, 1)  # 뽑기, 해변교역소
         pix_status_mycookie = (0, 0, 0)  # 내 쿠키...으... 움직이면 틀어질텐데
         pix_status_fountain = (84, 93, 134)  # 분수..
         pix_stats_kkd_start = (11, 10, 42)  # 바탕화면 나갔네
-        pix_status_trade = (255, 216, 2)  # 해상무역센터 로비
+        pix_status_trade = (255, 206, 2)  # 해상무역센터 로비
         pix_status_wanted = (29, 10, 12)  # 오늘의 현상수배 선택하는 곳
         pix_status_fight_comp = (168, 167, 167)  # 모험 전투 후
         pix_status_fight_comp1 = (121, 98, 74)  # 모험 전투 후1
+        #
+        # # pix_status_in = (194, 144, 10)  # 생산건물 내
+        # pix_status_in = (227, 163, 2)  # 아이스크림 생산건물 내
+        # pix_status_in_dark = (97, 72, 5)  # 건물 안이긴 한데 창이 떠있음
+        # pix_status_out = (0, 181, 255)  # 바탕화면(왕국), 트로피컬도 동일
+        # pix_status_out_window = (0, 64, 91)  # 창이 떠서 어두워짐
+        # pix_status_out_esc = (0, 90, 127)  # 왕국.. ESC나 트로피컬 썬배드로 어두워진..
+        # pix_status_sowon = (239, 171, 2)  # 소원나무, 곰젤리열차, 상점 동일
+        # pix_status_ballon = (29, 36, 46)  # 열기구 날아다니는 중
+        # pix_status_bal_lobby = (170, 126, 1)  # 열기구 로비
+        # pix_status_bal_window = (127, 95, 4)  # 열기구 창 떠서 어두워짐
+        # pix_status_adv = (0, 181, 255)  # 모험하기
+        # pix_status_kdpass = (42, 27, 19)  # 킹덤패스
+        # pix_status_warehouse = (55, 64, 105)  # 창고 뜸
+        # pix_status_mail = (60, 70, 105)  # 우편함
+        # pix_lackof1 = (243, 233, 223)  # 베이지색
+        # pix_status_not_prod = (0, 124, 176)  # 건물 클릭했지만 생산 건물은 아님
+        # pix_status_cookiehouse = (0, 129, 182)  # 엥 이게 다 달라?
+        # pix_status_lotto = (255, 189, 8)  # 뽑기, 해변교역소
+        # pix_status_mycookie = (0, 0, 0)  # 내 쿠키...으... 움직이면 틀어질텐데
+        # pix_status_fountain = (84, 93, 134)  # 분수..
+        # pix_stats_kkd_start = (11, 10, 42)  # 바탕화면 나갔네
+        # pix_status_trade = (255, 216, 2)  # 해상무역센터 로비
+        # pix_status_wanted = (29, 10, 12)  # 오늘의 현상수배 선택하는 곳
+        # pix_status_fight_comp = (168, 167, 167)  # 모험 전투 후
+        # pix_status_fight_comp1 = (121, 98, 74)  # 모험 전투 후1
 
         # cond_adv_dark_mode = pag.locateCenterOnScreen('cond_adv_dark_mode.png', confidence=0.9, region=(200,60+account*540,30,17))  # 어둠모드 입니까?
         cond_adv_mode_select = pag.locateCenterOnScreen('cond_adv_mode_select.png', confidence=0.85, region=(12 + (account // 2) * 960, 38 + (account % 2) * 540, 37, 36))  # Play버튼 누른 후 모험하기 창
@@ -1504,7 +1556,9 @@ def prod_action(image, list_image, account, check_num):
     z1 = pag.locateCenterOnScreen('z1.png', confidence=0.94, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
     if z0 or z1:
         # 3~7렙 Full list인 경우 다음 건물로 넘어감. 하지만 고렙 생산..중이면 그거 취소 못하고 저렙 생산이 안될텐데...
-        return False
+        print('리스트 full!')
+        Skip_Next(account, prod_direction_left)
+        return True
     else:
         ShowTime = True
     # cond_2nd_clear = pag.locateCenterOnScreen('cond_2nd_clear.png', confidence=0.96, region=(75 - 10 + (account//2)*960, 200 - 10 + (account%2) * 540, 20, 20))
@@ -1540,18 +1594,7 @@ def prod_action(image, list_image, account, check_num):
             Kingdom_ready(account, 'kkd_out')  # 재부팅
 
         now_time = time.time()
-        # prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.945, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
-        # if not (prod_refresh):
-        #     # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
-        #     pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(190, 410) + (account % 2) * 540)
-        #     time.sleep(0.3)
-        # 클릭했는데도 리스트가 가득 차있다? 어찔까... 그냥 넘어가면 최고렙을 계속 찍을..지도?
-        # prod_full_list3 = pag.locateCenterOnScreen('prod_full_list3.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-        # prod_full_list4 = pag.locateCenterOnScreen('prod_full_list4.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-        # prod_full_list5 = pag.locateCenterOnScreen('prod_full_list5.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-        # prod_full_list6 = pag.locateCenterOnScreen('prod_full_list6.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-        # prod_full_list7 = pag.locateCenterOnScreen('prod_full_list7.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-        # prod_full_list8 = pag.locateCenterOnScreen('prod_full_list8.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
+
         z0 = pag.locateCenterOnScreen('z0.png', confidence=0.94, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
         z1 = pag.locateCenterOnScreen('z1.png', confidence=0.94, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
         if z0 or z1:
@@ -1812,30 +1855,58 @@ def Today_wanted(account, WhatToDo):
         screen = ImageGrab.grab()
         pix_status = screen.getpixel((605 + (account // 2) * 960, 55 + (account % 2) * 540))  # 상단골드
         pix_status2 = screen.getpixel((540 + (account // 2) * 960, 510 + (account % 2) * 540))  # 마침표
-        pix_status_in = (194, 143, 10)  # 생산건물 내
-        pix_status_in_dark = (97, 71, 5)  # 건물 안이긴 한데 창이 떠있음
-        pix_status_out = (0, 181, 255)  # 바탕화면(왕국), 트로피컬도 동일
-        pix_status_out_window = (0, 64, 91)  # 창이 떠서 어두워짐
-        pix_status_out_esc = (0, 90, 127)  # 왕국.. ESC나 트로피컬 썬배드로 어두워진..
-        pix_status_sowon = (239, 171, 2)  # 소원나무, 곰젤리열차, 상점, 쿠하까지 동일
-        pix_status_ballon = (64, 55, 45)  # 열기구 날아다니는 중
+
+        pix_status_in = (227, 163, 2)  # 생산건물 내 07.31. 수정
+        pix_status_in_dark = (114, 81, 1)  # 건물 안이긴 한데 창이 떠있음
+        pix_status_in_magic_dark = (110, 81, 9)  # 건물 안이긴 한데 창이 떠있음
+        pix_status_out = (11, 194, 252)  # 바탕화면(왕국), 트로피컬도 동일
+        pix_status_out_window = (6, 95, 125)  # 창이 떠서 어두워짐
+        pix_status_out_esc = (6, 97, 126)  # 왕국.. ESC나 트로피컬 썬배드로 어두워진..
+        pix_status_sowon = (255, 206, 1)  # 소원나무, 곰젤리열차, 상점 동일
+        pix_status_ballon = (29, 36, 46)  # 열기구 날아다니는 중
         pix_status_bal_lobby = (170, 126, 1)  # 열기구 로비
         pix_status_bal_window = (127, 95, 4)  # 열기구 창 떠서 어두워짐
-        pix_status_adv = (0, 181, 255)  # 모험하기
-        pix_status_kdpass = (42, 27, 19)  # 킹덤패스
+        pix_status_adv = (11, 194, 252)  # 모험하기
+        pix_status_kdpass = (253, 253, 253)  # 킹덤패스
         pix_status_warehouse = (55, 64, 105)  # 창고 뜸
         pix_status_mail = (60, 70, 105)  # 우편함
         pix_lackof1 = (243, 233, 223)  # 베이지색
-        pix_status_not_prod = (0, 124, 176)  # 건물 클릭했지만 생산 건물은 아님
-        pix_status_cookiehouse = (0, 129, 182)  # 엥 이게 다 달라?
-        pix_status_lotto = (255, 189, 8)  # 뽑기, 해변교역소
-        pix_status_mycookie = (110, 18, 33)  # 내 쿠키...으... 움직이면 틀어질텐데
+        pix_status_not_prod = (8, 134, 174)  # 건물 클릭했지만 생산 건물은 아님
+        pix_status_cookiehouse = (8, 138, 179)  # 엥 이게 다 달라?
+        pix_status_lotto = (255, 206, 1)  # 뽑기, 해변교역소
+        pix_status_mycookie = (0, 0, 0)  # 내 쿠키...으... 움직이면 틀어질텐데
         pix_status_fountain = (84, 93, 134)  # 분수..
-        pix_stats_kkd_start = (11, 10, 44)  # 바탕화면 나갔네
-        pix_status_trade = (255, 215, 3)  # 해상무역센터 로비
+        pix_stats_kkd_start = (11, 10, 42)  # 바탕화면 나갔네
+        pix_status_trade = (255, 206, 2)  # 해상무역센터 로비
         pix_status_wanted = (29, 10, 12)  # 오늘의 현상수배 선택하는 곳
         pix_status_fight_comp = (168, 167, 167)  # 모험 전투 후
-        pix_status_fight_comp1 = (78, 25, 21)  # 모험 전투 후1
+        pix_status_fight_comp1 = (121, 98, 74)  # 모험 전투 후1
+
+        # # pix_status_in = (194, 143, 10)  # 생산건물 내
+        # pix_status_in = (227, 163, 2) # 생산건물 내 07.31. 수정
+        # pix_status_in_dark = (97, 71, 5)  # 건물 안이긴 한데 창이 떠있음
+        # pix_status_out = (0, 181, 255)  # 바탕화면(왕국), 트로피컬도 동일
+        # pix_status_out_window = (0, 64, 91)  # 창이 떠서 어두워짐
+        # pix_status_out_esc = (0, 90, 127)  # 왕국.. ESC나 트로피컬 썬배드로 어두워진..
+        # pix_status_sowon = (239, 171, 2)  # 소원나무, 곰젤리열차, 상점, 쿠하까지 동일
+        # pix_status_ballon = (64, 55, 45)  # 열기구 날아다니는 중
+        # pix_status_bal_lobby = (170, 126, 1)  # 열기구 로비
+        # pix_status_bal_window = (127, 95, 4)  # 열기구 창 떠서 어두워짐
+        # pix_status_adv = (0, 181, 255)  # 모험하기
+        # pix_status_kdpass = (42, 27, 19)  # 킹덤패스
+        # pix_status_warehouse = (55, 64, 105)  # 창고 뜸
+        # pix_status_mail = (60, 70, 105)  # 우편함
+        # pix_lackof1 = (243, 233, 223)  # 베이지색
+        # pix_status_not_prod = (0, 124, 176)  # 건물 클릭했지만 생산 건물은 아님
+        # pix_status_cookiehouse = (0, 129, 182)  # 엥 이게 다 달라?
+        # pix_status_lotto = (255, 189, 8)  # 뽑기, 해변교역소
+        # pix_status_mycookie = (110, 18, 33)  # 내 쿠키...으... 움직이면 틀어질텐데
+        # pix_status_fountain = (84, 93, 134)  # 분수..
+        # pix_stats_kkd_start = (11, 10, 44)  # 바탕화면 나갔네
+        # pix_status_trade = (255, 215, 3)  # 해상무역센터 로비
+        # pix_status_wanted = (29, 10, 12)  # 오늘의 현상수배 선택하는 곳
+        # pix_status_fight_comp = (168, 167, 167)  # 모험 전투 후
+        # pix_status_fight_comp1 = (78, 25, 21)  # 모험 전투 후1
 
         # if not bWanted_fight_started:   # 전투시작 후에는 cond_end_fight1,2,3 조건만 볼거니깐...
         cond_ready_fight = pag.locateCenterOnScreen('Cond_wanted_ready_fignt.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 전투준비 버튼
@@ -3455,17 +3526,13 @@ def Sowon_jjokji_action(jjokji_numb, account, jjokji_limit):
         while True:
             time.sleep(1.5)
             sowon_jjokji_now = time.time()
-            if sowon_jjokji_now - sowon_jjokji_start > 30:
-                print('소원쪽지 오래걸리네? 30초이상')
+            if sowon_jjokji_now - sowon_jjokji_start > 60:
+                print('소원쪽지 오래걸리네? 60초 이상')
                 End_kkd(account)
                 Check_Initiating(account)
-                for i in range(0,13,1):
-                    time.sleep(1)
-                    print('i:', i)
                 Kingdom_ready(account, 'kkd_out')
                 break
 
-                sowon_jjokji_start = time.time()
             kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
             if (kkd_start_ire):  # 바탕화면으로 나가서 쿠킹덤 아이콘이 보이나!?
                 print('게임 튕겼어요!')
@@ -3517,7 +3584,8 @@ def Sowon_jjokji_action(jjokji_numb, account, jjokji_limit):
                     else:
                         screen = ImageGrab.grab()
                         pix_status = screen.getpixel((605 + (account // 2) * 960, 55 + (account % 2) * 540))  # 상단골드
-                        pix_status_in = (194, 143, 10)  # 생산건물 내
+                        # pix_status_in = (194, 143, 10)  # 생산건물 내
+                        pix_status_in = (227, 163, 2)  # 생산건물 내 07.31. 수정
                         pix_status_in_dark = (97, 72, 5)  # 건물 안이긴 한데 창이 떠있음
                         if (pix_status == pix_status_in) or (pix_status == pix_status_in_dark):
                             Kingdom_ready(account, 'kkd_out')
@@ -3614,7 +3682,52 @@ def Sowon_jjokji_action(jjokji_numb, account, jjokji_limit):
                 time.sleep(2)
             else:
                 print('뭐지!!!!!!!!!!!!!')
-                pag.click(85 + (account // 2) * 960, 321 + (account % 2) * 540)
+                Kingdom_ready(account, 'kkd_out')
+                # pag.click(85 + (account // 2) * 960, 321 + (account % 2) * 540)
+                act_popup_mark_x = pag.locateCenterOnScreen('act_popup_mark_x.png', confidence=0.9, region=(142 + (account // 2) * 960, 500 + (account % 2) * 540, 26, 26))  # 왕국활동 팝업?
+                if (act_popup_mark_x):
+                    print('팝업!!')
+                    # act_sowon = pag.locateCenterOnScreen('act_sowon.png', confidence=0.9, region=(130 + (account // 2) * 960, 420 + (account % 2) * 540, 50, 50))  # 왕국활동 팝업?
+                    act_sowon = pag.locateCenterOnScreen('act_sowon.png', confidence=0.9, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 왕국활동 팝업?
+
+                    if (act_sowon):
+                        print('소원나무 들어간닷!')
+                        pag.click(act_sowon)
+                        time.sleep(2)
+                    else:
+                        print('왕국 활동 - 소원나무 아이콘 어딨대요?')
+                        Kingdom_ready(account, 'kkd_out')
+                else:
+                    cond_kkd_sowon = pag.locateCenterOnScreen('cond_kkd_sowon.png', confidence=0.85, region=(430 + (account // 2) * 960, 45 + (account % 2) * 540, 31, 35))  # 소원나무
+                    if (cond_kkd_sowon):
+                        print('소원나무 들어왔슴돠! 나감돠!')
+                        break
+                    else:
+                        Kingdom_ready(account, 'kkd_out')
+                        time.sleep(2)
+                        print('왕국활동 눌러!')
+                        time.sleep(2)
+                        kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+                        if (kkd_start_ire):  # 바탕화면으로 나가서 쿠킹덤 아이콘이 보이나!?
+                            print('게임 튕겼어요!')
+                            Check_Initiating(account)
+                            Kingdom_ready(account, 'kkd_out')
+                            continue
+                        error_count_num = error_count_num + 1
+                        if (error_count_num == 3):
+                            Kingdom_ready(account, 'kkd_out')
+                        else:
+                            screen = ImageGrab.grab()
+                            pix_status = screen.getpixel((605 + (account // 2) * 960, 55 + (account % 2) * 540))  # 상단골드
+                            # pix_status_in = (194, 143, 10)  # 생산건물 내
+                            pix_status_in = (227, 163, 2)  # 생산건물 내 07.31. 수정
+                            pix_status_in_dark = (97, 72, 5)  # 건물 안이긴 한데 창이 떠있음
+                            if (pix_status == pix_status_in) or (pix_status == pix_status_in_dark):
+                                Kingdom_ready(account, 'kkd_out')
+                            else:
+                                time.sleep(2)
+                                pag.click(random.randint(142, 142 + 26) + (account // 2) * 960, random.randint(489, 489 + 26) + (account % 2) * 540)
+                                time.sleep(2)
                 time.sleep(1)
 
             # 실질적으로 쪽지 보내기
@@ -4010,43 +4123,74 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
             pix_status_boldline1 =screen.getpixel((10 + (account // 2) * 960, 40 + (account % 2) * 540))  # 테두리가 두꺼워졌어요!1
             pix_status_boldline2 = screen.getpixel((10 + (account // 2) * 960, 538 + (account % 2) * 540))  # 테두리가 두꺼워졌어요!2
             pix_status_boldline_yes = (13, 16, 48)
-            pix_status_in = (194, 143, 10)  # 생산건물 내
-            pix_status_in_dark = (97, 72, 5)  # 건물 안이긴 한데 창이 떠있음
-            pix_status_in_magic_dark = (109, 81, 9) # 마법공방이고 생산품 보상이 떠있음
-            pix_status_arena_lobby = (197, 196, 194) # 아레나 로비화면!
-            # pix_status_out = (0, 181,   255)    # 바탕화면(왕국), 트로피컬도 동일
-            pix_status_out = (11, 194, 250)  # 바탕화면(왕국), 트로피컬도 동일  ㅁㅁㅁ수정
-            # pix_status_out_window = (0, 64, 91)   # 창이 떠서 어두워짐
+
+            pix_status_in = (227, 163, 2)  # 생산건물 내 07.31. 수정
+            pix_status_in_dark = (114,81,1)  # 건물 안이긴 한데 창이 떠있음
+            pix_status_in_magic_dark = (110, 81, 9)  # 건물 안이긴 한데 창이 떠있음
+            pix_status_out = (11, 194, 252)  # 바탕화면(왕국), 트로피컬도 동일
             pix_status_out_window = (6, 95, 125)  # 창이 떠서 어두워짐
-            # pix_status_out_esc = (0, 90, 127)   # 왕국.. ESC나 트로피컬 썬배드로 어두워진..
-            # pix_status_out_esc = (6, 97, 124)  # 왕국.. ESC나 트로피컬 썬배드로 어두워진..ㅁㅁㅁ수정
-            pix_status_out_esc = (6, 97, 126)
-            # pix_status_sowon = (239, 171, 2)  # 소원나무, 곰젤리열차, 상점 동일
-            pix_status_sowon = (255, 208, 3)  # 소원나무, 곰젤리열차, 상점 동일 헷갈려 ㅁㅁㅁ수정
+            pix_status_out_esc = (6, 97, 126)  # 왕국.. ESC나 트로피컬 썬배드로 어두워진..
+            pix_status_sowon = (255, 206, 1)  # 소원나무, 곰젤리열차, 상점 동일
             pix_status_ballon = (29, 36, 46)  # 열기구 날아다니는 중
-            # pix_status_bal_lobby = (170, 126, 1)  # 열기구 로비
-            pix_status_bal_lobby = (175, 131, 0)  # 열기구 로비
+            pix_status_bal_lobby = (170, 126, 1)  # 열기구 로비
             pix_status_bal_window = (127, 95, 4)  # 열기구 창 떠서 어두워짐
-            pix_status_adv = (14, 167, 251)  # 모험하기
-            pix_status_kdpass = (42, 27, 19)  # 킹덤패스
+            # pix_status_adv = (11, 194, 252)  # 모험하기
+            pix_status_kdpass = (253, 253, 253)  # 킹덤패스
             pix_status_warehouse = (55, 64, 105)  # 창고 뜸
             pix_status_mail = (60, 70, 105)  # 우편함
             pix_lackof1 = (243, 233, 223)  # 베이지색
-            # pix_status_not_prod = (0, 124, 176) # 건물 클릭했지만 생산 건물은 아님
-            pix_status_not_prod = (8, 133, 172)  # 건물 클릭했지만 생산 건물은 아님
-            # pix_status_cookiehouse = (0, 129, 182)  # 엥 이게 다 달라?
-            pix_status_cookiehouse = (84, 93, 134)  # 엥 이게 다 달라?
-            # pix_status_lotto = (255, 189, 8)    # 뽑기, 해변교역소
-            pix_status_lotto = (255, 208, 2)  # 뽑기, 해변교역소
+            pix_status_not_prod = (8, 134, 174)  # 건물 클릭했지만 생산 건물은 아님
+            pix_status_cookiehouse = (8, 138, 179)  # 엥 이게 다 달라?
+            pix_status_lotto = (255, 206, 1)  # 뽑기, 해변교역소
             pix_status_mycookie = (0, 0, 0)  # 내 쿠키...으... 움직이면 틀어질텐데
             pix_status_fountain = (84, 93, 134)  # 분수..
-            # pix_stats_kkd_start = (11, 10, 42)  # 바탕화면 나갔네
             pix_stats_kkd_start = (11, 10, 42)  # 바탕화면 나갔네
-            pix_status_trade = (255, 216, 2)  # 해상무역센터 로비
+            pix_status_trade = (255, 206, 2)  # 해상무역센터 로비
             pix_status_wanted = (29, 10, 12)  # 오늘의 현상수배 선택하는 곳
             pix_status_fight_comp = (168, 167, 167)  # 모험 전투 후
+            pix_status_fight_comp1 = (121, 98, 74)  # 모험 전투 후1
             pix_status_temple = (177, 123, 153) # 찬란한 영웅들의 신전 대기화면, 석상화면 같음
             pix_status_temple_dark = (88, 61, 76) # 찬란한 영웅들의 신전 화면 어두워졌을 때(슬롯 확장 잘못누름)
+            pix_status_arena_lobby = (197, 196, 194)  # 아레나 로비화면!
+            
+            # # pix_status_in = (194, 143, 10)  # 생산건물 내
+            # pix_status_in = (227, 163, 2)  # 생산건물 내 07.31. 수정
+            # pix_status_in_dark = (97, 72, 5)  # 건물 안이긴 한데 창이 떠있음
+            # pix_status_in_magic_dark = (109, 81, 9) # 마법공방이고 생산품 보상이 떠있음
+            # pix_status_arena_lobby = (197, 196, 194) # 아레나 로비화면!
+            # # pix_status_out = (0, 181,   255)    # 바탕화면(왕국), 트로피컬도 동일
+            # pix_status_out = (11, 194, 250)  # 바탕화면(왕국), 트로피컬도 동일  ㅁㅁㅁ수정
+            # # pix_status_out_window = (0, 64, 91)   # 창이 떠서 어두워짐
+            # pix_status_out_window = (6, 95, 125)  # 창이 떠서 어두워짐
+            # # pix_status_out_esc = (0, 90, 127)   # 왕국.. ESC나 트로피컬 썬배드로 어두워진..
+            # # pix_status_out_esc = (6, 97, 124)  # 왕국.. ESC나 트로피컬 썬배드로 어두워진..ㅁㅁㅁ수정
+            # pix_status_out_esc = (6, 97, 126)   # 왕국.. ESC나 트로피컬 썬배드로 어두워진..
+            # # pix_status_sowon = (239, 171, 2)  # 소원나무, 곰젤리열차, 상점 동일
+            # pix_status_sowon = (255, 208, 3)  # 소원나무, 곰젤리열차, 상점 동일 헷갈려 ㅁㅁㅁ수정
+            # pix_status_ballon = (29, 36, 46)  # 열기구 날아다니는 중
+            # # pix_status_bal_lobby = (170, 126, 1)  # 열기구 로비
+            # pix_status_bal_lobby = (175, 131, 0)  # 열기구 로비
+            # pix_status_bal_window = (127, 95, 4)  # 열기구 창 떠서 어두워짐
+            # pix_status_adv = (14, 167, 251)  # 모험하기
+            # pix_status_kdpass = (42, 27, 19)  # 킹덤패스
+            # pix_status_warehouse = (55, 64, 105)  # 창고 뜸
+            # pix_status_mail = (60, 70, 105)  # 우편함
+            # pix_lackof1 = (243, 233, 223)  # 베이지색
+            # # pix_status_not_prod = (0, 124, 176) # 건물 클릭했지만 생산 건물은 아님
+            # pix_status_not_prod = (8, 133, 172)  # 건물 클릭했지만 생산 건물은 아님
+            # # pix_status_cookiehouse = (0, 129, 182)  # 엥 이게 다 달라?
+            # pix_status_cookiehouse = (84, 93, 134)  # 엥 이게 다 달라?
+            # # pix_status_lotto = (255, 189, 8)    # 뽑기, 해변교역소
+            # pix_status_lotto = (255, 208, 2)  # 뽑기, 해변교역소
+            # pix_status_mycookie = (0, 0, 0)  # 내 쿠키...으... 움직이면 틀어질텐데
+            # pix_status_fountain = (84, 93, 134)  # 분수..
+            # # pix_stats_kkd_start = (11, 10, 42)  # 바탕화면 나갔네
+            # pix_stats_kkd_start = (11, 10, 42)  # 바탕화면 나갔네
+            # pix_status_trade = (255, 216, 2)  # 해상무역센터 로비
+            # pix_status_wanted = (29, 10, 12)  # 오늘의 현상수배 선택하는 곳
+            # pix_status_fight_comp = (168, 167, 167)  # 모험 전투 후
+            # pix_status_temple = (177, 123, 153) # 찬란한 영웅들의 신전 대기화면, 석상화면 같음
+            # pix_status_temple_dark = (88, 61, 76) # 찬란한 영웅들의 신전 화면 어두워졌을 때(슬롯 확장 잘못누름)
 
             pix_status_scr1 = screen.getpixel((65 + (account // 2) * 960, 505 + (account % 2) * 540))  # = 왼쪽아래 건설하기 아이콘쪽
             pix_status1_tropical = (255, 98, 170)  # 트로피칼이다
@@ -4295,18 +4439,18 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
                     pag.hotkey('esc')
                     time.sleep(0.3)
 
-            elif pix_status == pix_status_adv:  # 모험하기
-                if (pix_status == whereto) or (whereto == 'mohum'):
-                    print('모험하기?')
-                    return True
-                else:
-                    if whereto == 'mohum':
-                        return False
-                    print('모험은 아...직?')
-                    pag.click(284 + (account // 2) * 960, 15 + (account % 2) * 540)
-                    time.sleep(0.3)
-                    pag.hotkey('esc')
-                    time.sleep(0.3)
+            # elif pix_status == pix_status_adv:  # 모험하기
+            #     if (pix_status == whereto) or (whereto == 'mohum'):
+            #         print('모험하기?')
+            #         return True
+            #     else:
+            #         if whereto == 'mohum':
+            #             return False
+            #         print('모험은 아...직?')
+            #         pag.click(284 + (account // 2) * 960, 15 + (account % 2) * 540)
+            #         time.sleep(0.3)
+            #         pag.hotkey('esc')
+            #         time.sleep(0.3)
 
             elif pix_status == pix_status_wanted:  # 현상수배 하기
                 if (pix_status == whereto) or (whereto == 'wanted'):
@@ -4646,12 +4790,12 @@ def End_kkd(account):
     while True:
         now_time_end_kkd = time.time()
         if(now_time_end_kkd - start_time_end_kkd >= 30):
-            print('end_kkd 너무 오래 걸리는걸?')
+            print('end_kkd 너무 오래 걸리는걸? 30초 이상')
             pag.click(2 + (account // 2) * 960, 15 + (account % 2) * 540)  # 메뉴바 한번 클릭해주고
             pag.hotkey('home')  # 홈으로 가욧
             time.sleep(6)
             return True
-        print('End_kkd의 while true 들어왔다!')
+        # print('End_kkd의 while true 들어왔다!')
         if keyboard.is_pressed('end'):
             return False
         init_kkm_recent = pag.locateCenterOnScreen('init_kkm_recent.PNG', confidence=0.9, grayscale=True, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
@@ -4829,31 +4973,59 @@ def Tropical_Fight(account):
             pix_status = screen.getpixel((605 + (account // 2) * 960, 55 + (account % 2) * 540))  # 상단골드
             pix_status_scr = screen.getpixel((910 + (account // 2) * 960, 55 + (account % 2) * 540))  # = 미세 오른쪽
             pix_status2 = screen.getpixel((540 + (account // 2) * 960, 510 + (account % 2) * 540))  # 마침표
-            pix_status_in = (194, 143, 10)  # 생산건물 내
-            pix_status_in_dark = (97, 72, 5)  # 건물 안이긴 한데 창이 떠있음
-            pix_status_out = (0, 181, 255)  # 바탕화면(왕국), 트로피컬도 동일
-            # pix_status_out_window = (0, 64, 91)   # 창이 떠서 어두워짐
+
+            pix_status_in = (227, 163, 2)  # 생산건물 내 07.31. 수정
+            pix_status_in_dark = (114,81,1)  # 건물 안이긴 한데 창이 떠있음
+            pix_status_in_magic_dark = (110, 81, 9)  # 건물 안이긴 한데 창이 떠있음
+            pix_status_out = (11, 194, 252)  # 바탕화면(왕국), 트로피컬도 동일
             pix_status_out_window = (6, 95, 125)  # 창이 떠서 어두워짐
-            pix_status_out_esc = (0, 90, 127)  # 왕국.. ESC나 트로피컬 썬배드로 어두워진..
-            pix_status_sowon = (239, 171, 2)  # 소원나무, 곰젤리열차, 상점 동일
+            pix_status_out_esc = (6, 97, 126)  # 왕국.. ESC나 트로피컬 썬배드로 어두워진..
+            pix_status_sowon = (255, 206, 1)  # 소원나무, 곰젤리열차, 상점 동일
             pix_status_ballon = (29, 36, 46)  # 열기구 날아다니는 중
             pix_status_bal_lobby = (170, 126, 1)  # 열기구 로비
             pix_status_bal_window = (127, 95, 4)  # 열기구 창 떠서 어두워짐
-            pix_status_adv = (14, 167, 251)  # 모험하기
-            pix_status_kdpass = (42, 27, 19)  # 킹덤패스
+            pix_status_adv = (11, 194, 252)  # 모험하기
+            pix_status_kdpass = (253, 253, 253)  # 킹덤패스
             pix_status_warehouse = (55, 64, 105)  # 창고 뜸
             pix_status_mail = (60, 70, 105)  # 우편함
             pix_lackof1 = (243, 233, 223)  # 베이지색
-            pix_status_not_prod = (0, 124, 176)  # 건물 클릭했지만 생산 건물은 아님
-            pix_status_cookiehouse = (0, 129, 182)  # 엥 이게 다 달라?
-            pix_status_lotto = (255, 189, 8)  # 뽑기, 해변교역소
+            pix_status_not_prod = (8, 134, 174)  # 건물 클릭했지만 생산 건물은 아님
+            pix_status_cookiehouse = (8, 138, 179)  # 엥 이게 다 달라?
+            pix_status_lotto = (255, 206, 1)  # 뽑기, 해변교역소
             pix_status_mycookie = (0, 0, 0)  # 내 쿠키...으... 움직이면 틀어질텐데
             pix_status_fountain = (84, 93, 134)  # 분수..
             pix_stats_kkd_start = (11, 10, 42)  # 바탕화면 나갔네
-            pix_status_trade = (255, 216, 2)  # 해상무역센터 로비
+            pix_status_trade = (255, 206, 2)  # 해상무역센터 로비
             pix_status_wanted = (29, 10, 12)  # 오늘의 현상수배 선택하는 곳
             pix_status_fight_comp = (168, 167, 167)  # 모험 전투 후
             pix_status_fight_comp1 = (121, 98, 74)  # 모험 전투 후1
+            #
+            # # pix_status_in = (194, 143, 10)  # 생산건물 내
+            # pix_status_in = (227, 163, 2)  # 생산건물 내 07.31. 수정
+            # pix_status_in_dark = (97, 72, 5)  # 건물 안이긴 한데 창이 떠있음
+            # pix_status_out = (0, 181, 255)  # 바탕화면(왕국), 트로피컬도 동일
+            # # pix_status_out_window = (0, 64, 91)   # 창이 떠서 어두워짐
+            # pix_status_out_window = (6, 95, 125)  # 창이 떠서 어두워짐
+            # pix_status_out_esc = (0, 90, 127)  # 왕국.. ESC나 트로피컬 썬배드로 어두워진..
+            # pix_status_sowon = (239, 171, 2)  # 소원나무, 곰젤리열차, 상점 동일
+            # pix_status_ballon = (29, 36, 46)  # 열기구 날아다니는 중
+            # pix_status_bal_lobby = (170, 126, 1)  # 열기구 로비
+            # pix_status_bal_window = (127, 95, 4)  # 열기구 창 떠서 어두워짐
+            # pix_status_adv = (14, 167, 251)  # 모험하기
+            # pix_status_kdpass = (42, 27, 19)  # 킹덤패스
+            # pix_status_warehouse = (55, 64, 105)  # 창고 뜸
+            # pix_status_mail = (60, 70, 105)  # 우편함
+            # pix_lackof1 = (243, 233, 223)  # 베이지색
+            # pix_status_not_prod = (0, 124, 176)  # 건물 클릭했지만 생산 건물은 아님
+            # pix_status_cookiehouse = (0, 129, 182)  # 엥 이게 다 달라?
+            # pix_status_lotto = (255, 189, 8)  # 뽑기, 해변교역소
+            # pix_status_mycookie = (0, 0, 0)  # 내 쿠키...으... 움직이면 틀어질텐데
+            # pix_status_fountain = (84, 93, 134)  # 분수..
+            # pix_stats_kkd_start = (11, 10, 42)  # 바탕화면 나갔네
+            # pix_status_trade = (255, 216, 2)  # 해상무역센터 로비
+            # pix_status_wanted = (29, 10, 12)  # 오늘의 현상수배 선택하는 곳
+            # pix_status_fight_comp = (168, 167, 167)  # 모험 전투 후
+            # pix_status_fight_comp1 = (121, 98, 74)  # 모험 전투 후1
 
             cond_kkd_tro = pag.locateCenterOnScreen('cond_kkd_tro.png', confidence=0.85, region=(18 + (account // 2) * 960, 448 + (account % 2) * 540, 45, 40))  # 트로피칼(좌하단 파라솔 꽃)
             Cond_tropical_knife = pag.locateCenterOnScreen('Cond_tropical_knife.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 트로피칼 재점령당한 칼모양
@@ -8369,13 +8541,10 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         man_macro_chk_time = time.time()
                         man_macroB = pag.locateCenterOnScreen('cond_manual_macro.png', confidence=0.85, region=(635 + (account // 2) * 960, 5 + (account % 2) * 540, 22, 22))
                         if (man_macroB):
-                            if macro_start - man_macro_chk_time > man_mac_time:
-                                print('수동 매크로 동작 시간 초과하여 자동 매크로로 넘어갑니다.')
-                                pag.click(man_macroB)
-                                time.sleep(1)
-                            else:
-                                print('B 계정 시작해야 하는데.. 매크로 돌고 있어 계속 A 돌립니다.')
-                                break
+                            print('자동 매크로로 넘어갑니다.')
+                            pag.click(man_macroB)
+                            time.sleep(1)
+
                         print('B 계정 시작합니다.', '현재시간:', datetime.now().strftime('%H:%M:%S'))
                         bAccountA = False
                         bAccountB = True
@@ -8388,13 +8557,10 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         man_macro_chk_time = time.time()
                         man_macroA = pag.locateCenterOnScreen('cond_manual_macro.png', confidence=0.85, region=(635 + (account // 2) * 960, 5 + (account % 2) * 540, 22, 22))
                         if (man_macroA):
-                            if macro_start - man_macro_chk_time > man_mac_time:
-                                print('수동 매크로 동작 시간 초과하여 자동 매크로로 넘어갑니다.')
-                                pag.click(man_macroA)
-                                time.sleep(1)
-                            else:
-                                print('A 계정 시작해야 하는데.. 매크로 돌고 있어 계속 B 돌립니다.')
-                                break
+                            print('자동 매크로로 넘어갑니다.')
+                            pag.click(man_macroA)
+                            time.sleep(1)
+
                         print('C 계정 시작합니다.', '현재시간:', datetime.now().strftime('%H:%M:%S'))
                         bAccountA = False
                         bAccountB = False
@@ -8407,13 +8573,10 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         man_macro_chk_time = time.time()
                         man_macroC = pag.locateCenterOnScreen('cond_manual_macro.png', confidence=0.85, region=(635 + (account // 2) * 960, 5 + (account % 2) * 540, 22, 22))
                         if (man_macroC):
-                            if macro_start - man_macro_chk_time > man_mac_time:
-                                print('수동 매크로 동작 시간 초과하여 자동 매크로로 넘어갑니다.')
-                                pag.click(man_macroC)
-                                time.sleep(1)
-                            else:
-                                print('C 계정 시작해야 하는데.. 매크로 돌고 있어 계속 B 돌립니다.')
-                                break
+                            print('자동 매크로로 넘어갑니다.')
+                            pag.click(man_macroC)
+                            time.sleep(1)
+
                         print('A 계정 시작합니다.', '현재시간:', datetime.now().strftime('%H:%M:%S'))
                         bAccountA = True
                         bAccountB = False
@@ -8518,6 +8681,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                 bmuffincompleted = False
                 bjewelcompleted = False
                 bmagiccompleted = False
+                bicecreamcompleted = False
                 if not bFirstCookhouA:
                     cookie_time_A = time.time()
                 if not bFirstFountainA:
@@ -8554,6 +8718,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                 bmuffincompleted = False
                 bjewelcompleted = False
                 bmagiccompleted = False
+                bicecreamcompleted = False
                 if not bFirstCookhouA:
                     cookie_time_A = time.time()
                 if not bFirstFountainA:
@@ -8668,6 +8833,13 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                 magic_lev5 = magic_lev5_A  # 수수께끼의 파우더 주머니
                 magic_lev6 = magic_lev6_A  # 수수께끼의 빛나는 파우더 주머니
                 magic_lev7 = magic_lev7_A  # 수수께끼의 신비한 파우더 주머니
+
+                icecream_lev1 = icecream_lev1_A
+                icecream_lev2 = icecream_lev2_A
+                icecream_lev3 = icecream_lev3_A
+                icecream_lev4 = icecream_lev4_A
+                icecream_lev5 = icecream_lev5_A
+                icecream_num = icecream_num_A
 
                 smith_num = smith_num_A  # 대장간 건물 수
                 jelly_num = jelly_num_A  # 젤리쨈 건물 수
@@ -8785,6 +8957,12 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                 magic_lev5 = magic_lev5_B  # 수수께끼의 파우더 주머니
                 magic_lev6 = magic_lev6_B  # 수수께끼의 빛나는 파우더 주머니
                 magic_lev7 = magic_lev7_B  # 수수께끼의 신비한 파우더 주머니
+                icecream_lev1 = icecream_lev1_B
+                icecream_lev2 = icecream_lev2_B
+                icecream_lev3 = icecream_lev3_B
+                icecream_lev4 = icecream_lev4_B
+                icecream_lev5 = icecream_lev5_B
+                icecream_num = icecream_num_B
 
                 smith_num = smith_num_B  # 대장간 건물 수
                 jelly_num = jelly_num_B  # 젤리쨈 건물 수
@@ -8902,6 +9080,13 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                 magic_lev5 = magic_lev5_C  # 수수께끼의 파우더 주머니
                 magic_lev6 = magic_lev6_C  # 수수께끼의 빛나는 파우더 주머니
                 magic_lev7 = magic_lev7_C  # 수수께끼의 신비한 파우더 주머니
+
+                icecream_lev1 = icecream_lev1_C
+                icecream_lev2 = icecream_lev2_C
+                icecream_lev3 = icecream_lev3_C
+                icecream_lev4 = icecream_lev4_C
+                icecream_lev5 = icecream_lev5_C
+                icecream_num = icecream_num_C
 
                 smith_num = smith_num_C  # 대장간 건물 수
                 jelly_num = jelly_num_C  # 젤리쨈 건물 수
@@ -9097,6 +9282,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         pix_muffin = (191, 91, 59)  # 머핀 - muffin
                         pix_jewel = (135, 90, 50)  # 글레이즈드링 - jewel
                         pix_magic = (93, 55, 48)  # 마법공방 - magic
+                        pix_icecream = (254, 253, 229)  # 디즈니 아이스크림 트럭
 
                         screen = ImageGrab.grab()
                         pix_prod = screen.getpixel((610 + (account // 2) * 960, 140 + (account % 2) * 540))
@@ -9294,189 +9480,6 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                             else:
                                 Skip_Next(account, prod_direction_left)
                             # 작업 순방향 끝
-                        elif pix_prod == pix_smith:
-                            pix_error_count = 0
-                            print('smith!')
-                            # 작업 순방향 시작
-                            if not (smith_lev1 == 0) and not bsmithcompleted:
-                                if not prod_action('smith_lev1.png', 'smith_stby_lv1.png', account, smith_lev1):
-                                    if (smith_lev2 == 0):
-                                        bsmithcompleted = True
-                                    if not (smith_lev2 == 0) and not bsmithcompleted:
-                                        if not prod_action('smith_lev2.png', 'smith_stby_lv2.png', account, smith_lev2):
-                                            if (smith_lev3 == 0):
-                                                bsmithcompleted = True
-                                            if not (smith_lev3 == 0) and not bsmithcompleted:
-                                                if not prod_action('smith_lev3.png', 'smith_stby_lv3.png', account, smith_lev3):
-                                                    if (smith_lev4 == 0):
-                                                        bsmithcompleted = True
-                                                    if not (smith_lev4 == 0) and not bsmithcompleted:
-                                                        Updown(account, 'up')
-                                                        if not prod_action('smith_lev4.png', 'smith_stby_lv4.png', account, smith_lev4):
-                                                            if (smith_lev5 == 0):
-                                                                bsmithcompleted = True
-                                                            if not (smith_lev5 == 0) and not bsmithcompleted:
-                                                                Updown(account, 'up')
-                                                                if not prod_action('smith_lev5.png', 'smith_stby_lv5.png', account, smith_lev5):
-                                                                    if (smith_lev6 == 0):
-                                                                        bsmithcompleted = True
-                                                                    if not (smith_lev6 == 0) and not bsmithcompleted:
-                                                                        Updown(account, 'up')
-                                                                        if not prod_action('smith_lev6.png', 'smith_stby_lv6.png', account, smith_lev6):
-                                                                            if (smith_lev7 == 0):
-                                                                                bsmithcompleted = True
-                                                                            if not (smith_lev7 == 0) and not bsmithcompleted:
-                                                                                Updown(account, 'up')
-                                                                                if not prod_action('smith_lev7.png', 'smith_stby_lv7.png', account, smith_lev7):
-                                                                                    bsmithcompleted = True
-                                                                                Skip_Next(account, prod_direction_left)
-                                                                            else:
-                                                                                Skip_Next(account, prod_direction_left)
-                                                                        else:
-                                                                            Skip_Next(account, prod_direction_left)
-                                                                    else:
-                                                                        Skip_Next(account, prod_direction_left)
-                                                                else:
-                                                                    Skip_Next(account, prod_direction_left)
-                                                            else:
-                                                                Skip_Next(account, prod_direction_left)
-                                                        else:
-                                                            Skip_Next(account, prod_direction_left)
-                                                    else:
-                                                        Skip_Next(account, prod_direction_left)
-                                                else:
-                                                    Skip_Next(account, prod_direction_left)
-                                            else:
-                                                Skip_Next(account, prod_direction_left)
-                                        else:
-                                            Skip_Next(account, prod_direction_left)
-                                    else:
-                                        Skip_Next(account, prod_direction_left)
-                                else:
-                                    Skip_Next(account, prod_direction_left)
-                            else:
-                                Skip_Next(account, prod_direction_left)
-                            # 작업 순방향 끝
-
-                        elif pix_prod == pix_jelly:
-                            pix_error_count = 0
-                            print('jelly!')
-                            # 작업 순방향 시작
-                            if not (jelly_lev1 == 0) and not bjellycompleted:
-                                if not prod_action('jelly_lev1.png', 'jelly_stby_lv1.png', account, jelly_lev1):
-                                    if (jelly_lev2 == 0):
-                                        bjellycompleted = True
-                                    if not (jelly_lev2 == 0) and not bjellycompleted:
-                                        if not prod_action('jelly_lev2.png', 'jelly_stby_lv2.png', account, jelly_lev2):
-                                            if (jelly_lev3 == 0):
-                                                bjellycompleted = True
-                                            if not (jelly_lev3 == 0) and not bjellycompleted:
-                                                if not prod_action('jelly_lev3.png', 'jelly_stby_lv3.png', account, jelly_lev3):
-                                                    if (jelly_lev4 == 0):
-                                                        bjellycompleted = True
-                                                    if not (jelly_lev4 == 0) and not bjellycompleted:
-                                                        Updown(account, 'up')
-                                                        if not prod_action('jelly_lev4.png', 'jelly_stby_lv4.png', account, jelly_lev4):
-                                                            if (jelly_lev5 == 0):
-                                                                bjellycompleted = True
-                                                            if not (jelly_lev5 == 0) and not bjellycompleted:
-                                                                Updown(account, 'up')
-                                                                if not prod_action('jelly_lev5.png', 'jelly_stby_lv5.png', account, jelly_lev5):
-                                                                    bjellycompleted = True
-                                                                Skip_Next(account, prod_direction_left)
-                                                            else:
-                                                                Skip_Next(account, prod_direction_left)
-                                                        else:
-                                                            Skip_Next(account, prod_direction_left)
-                                                    else:
-                                                        Skip_Next(account, prod_direction_left)
-                                                else:
-                                                    Skip_Next(account, prod_direction_left)
-                                            else:
-                                                Skip_Next(account, prod_direction_left)
-                                        else:
-                                            Skip_Next(account, prod_direction_left)
-                                    else:
-                                        Skip_Next(account, prod_direction_left)
-                                else:
-                                    Skip_Next(account, prod_direction_left)
-                            else:
-                                Skip_Next(account, prod_direction_left)
-                            # 작업 순방향 끝
-
-                        elif pix_prod == pix_rollc:
-                            pix_error_count = 0
-                            print('rollc!')
-                            # 작업 순방향 시작
-                            if not (rollc_lev1 == 0) and not brollccompleted:
-                                if not prod_action('rollc_lev1.png', 'rollc_stby_lv1.png', account, rollc_lev1):
-                                    if (rollc_lev2 == 0):
-                                        brollccompleted = True
-                                    if not (rollc_lev2 == 0) and not brollccompleted:
-                                        if not prod_action('rollc_lev2.png', 'rollc_stby_lv2.png', account, rollc_lev2):
-                                            if (rollc_lev3 == 0):
-                                                brollccompleted = True
-                                            if not (rollc_lev3 == 0) and not brollccompleted:
-                                                if not prod_action('rollc_lev3.png', 'rollc_stby_lv3.png', account, rollc_lev3):
-                                                    if (rollc_lev4 == 0):
-                                                        brollccompleted = True
-                                                    if not (rollc_lev4 == 0) and not brollccompleted:
-                                                        Updown(account, 'up')
-                                                        if not prod_action('rollc_lev4.png', 'rollc_stby_lv4.png', account, rollc_lev4):
-                                                            brollccompleted = True
-                                                        Skip_Next(account, prod_direction_left)
-                                                    else:
-                                                        Skip_Next(account, prod_direction_left)
-                                                else:
-                                                    Skip_Next(account, prod_direction_left)
-                                            else:
-                                                Skip_Next(account, prod_direction_left)
-                                        else:
-                                            Skip_Next(account, prod_direction_left)
-                                    else:
-                                        Skip_Next(account, prod_direction_left)
-                                else:
-                                    Skip_Next(account, prod_direction_left)
-                            else:
-                                Skip_Next(account, prod_direction_left)
-                            # 작업 순방향 끝
-                        
-                        # elif pix_prod == pix_magic:
-                        #     pix_error_count = 0
-                        #     print('magic!')
-                        #     # 작업 순방향 시작
-                        #     if not (magic_lev1 == 0) and not bmagiccompleted:
-                        #         if not prod_action('magic_lev1.png', 'magic_stby_lv1.png', account, magic_lev1):
-                        #             if (magic_lev2 == 0):
-                        #                 bmagiccompleted = True
-                        #             if not (magic_lev2 == 0) and not bmagiccompleted:
-                        #                 if not prod_action('magic_lev2.png', 'magic_stby_lv2.png', account, magic_lev2):
-                        #                     if (magic_lev3 == 0):
-                        #                         bmagiccompleted = True
-                        #                     if not (magic_lev3 == 0) and not bmagiccompleted:
-                        #                         if not prod_action('magic_lev3.png', 'magic_stby_lv3.png', account, magic_lev3):
-                        #                             if (magic_lev4 == 0):
-                        #                                 bmagiccompleted = True
-                        #                             if not (magic_lev4 == 0) and not bmagiccompleted:
-                        #                                 Updown(account, 'up')
-                        #                                 if not prod_action('magic_lev4.png', 'magic_stby_lv4.png', account, magic_lev4):
-                        #                                     bmagiccompleted = True
-                        #                                 Skip_Next(account, prod_direction_left)
-                        #                             else:
-                        #                                 Skip_Next(account, prod_direction_left)
-                        #                         else:
-                        #                             Skip_Next(account, prod_direction_left)
-                        #                     else:
-                        #                         Skip_Next(account, prod_direction_left)
-                        #                 else:
-                        #                     Skip_Next(account, prod_direction_left)
-                        #             else:
-                        #                 Skip_Next(account, prod_direction_left)
-                        #         else:
-                        #             Skip_Next(account, prod_direction_left)
-                        #     else:
-                        #         Skip_Next(account, prod_direction_left)
-                        #     # 작업 순방향 끝
 
                         elif pix_prod == pix_bread:
                             pix_error_count = 0
@@ -9543,6 +9546,12 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         elif pix_prod == pix_magic:      # 마법 건물이면 prod_direction_left 오른쪽으로 돌려욧!
                             pix_error_count = 0
                             print('magic!')
+                            prod_direction_left = False
+                            Skip_Next(account, prod_direction_left)
+                            
+                        elif pix_prod == pix_icecream:      # 마법 건물이면 prod_direction_left 오른쪽으로 돌려욧!
+                            pix_error_count = 0
+                            print('icecream!')
                             prod_direction_left = False
                             Skip_Next(account, prod_direction_left)
 
@@ -9854,7 +9863,13 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                             #     print('하트 수량 Full이 아닙니다.')
                             #     pag.click(396 + (account // 2) * 960, 386 + (account % 2) * 540)
                             #     time.sleep(1)
+                            heart_sojin_start = time.time()
                             while True:
+                                heart_sojin_now = time.time()
+                                if heart_sojin_now - heart_sojin_start > 120:
+                                    End_kkd(account)  # 쿠킹덤 종료. 플레이 버튼 누르는거 2분 안엔 끝나겠지?
+                                    Kingdom_ready(account, 'kkd_out')  # 재부팅
+                                    break
                                 cond_kkd_out = pag.locateCenterOnScreen('cond_kkd_out.png', confidence=0.85, region=(825 + (account // 2) * 960, 490 + (account % 2) * 540, 45, 40))  # 쿠키왕국
                                 cond_adv_mode_select = pag.locateCenterOnScreen('cond_adv_mode_select.png', confidence=0.85, region=(12 + (account // 2) * 960, 38 + (account % 2) * 540, 37, 36))  # Play버튼 누른 후 모험하기 창
                                 if (cond_adv_mode_select):  # 플레이 버튼 눌렀음
@@ -9917,9 +9932,15 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                 time.sleep(1)
                                 cond_bbopkki2 = pag.locateCenterOnScreen('cond_bbopkki2.png', confidence=0.85, region=(60 + (account // 2) * 960, 315+ 75 + (account % 2) * 540, 22, 22))
                                 if (cond_bbopkki2):
-                                    pag.click(46 + (account // 2) * 960, 357 + (account % 2) * 540)
+                                    pag.click(46 + (account // 2) * 960, 357 + 75 + (account % 2) * 540)
                                     time.sleep(0.5)
+                                    bbopkki_start_time = time.time()
                                     while True:
+                                        bbopkki_now_time = time.time()
+                                        if bbopkki_now_time - bbopkki_start_time > 120:
+                                            End_kkd(account)  # 쿠킹덤 종료. 뽑기2분 안엔 끝나겠지?
+                                            Kingdom_ready(account, 'kkd_out')  # 재부팅
+                                            break
                                         cond_bbopkki3 = pag.locateCenterOnScreen('cond_bbopkki3.png', confidence=0.85, region=(743 + (account // 2) * 960, 458 + (account % 2) * 540, 152, 53))
                                         if (cond_bbopkki3):
                                             pag.click(cond_bbopkki3)
@@ -10102,7 +10123,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         pix_arrow2 = (251, 248, 246)  # 밑바닥칸
                         pix_lackof1 = (243, 233, 223)  # 베이지색
 
-                        pix_wood = (119, 59, 38)  # 나무
+                        pix_wood = (119, 59, 38)  # 나무         # pix_prod 픽셀 확인!
                         pix_jelbean = (0, 239, 238)  # 젤리빈
                         pix_sugar = (255, 255, 255)  # 설탕
                         pix_biscuit = (204, 133, 61)  # 비스킷
@@ -10123,7 +10144,9 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         pix_muffin = (191, 91, 59)  # 머핀 - muffin
                         pix_jewel = (135, 90, 50)  # 글레이즈드링 - jewel
                         pix_magic = (93, 55, 48)  # 마법공방 - magic
-                        pix_status_in = (194, 144, 10)  # 생산건물 내
+                        pix_icecream = (254, 253, 229) # 디즈니 아이스크림 트럭
+                        # pix_status_in = (194, 144, 10)  # 생산건물 내
+                        pix_status_in = (227, 163, 2)  # 아이스크림 생산건물 내
 
                         if keyboard.is_pressed('space'):
                             break
@@ -10382,7 +10405,6 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                         break
                                     # 작업 역방향 끝
 
-
                         elif pix_prod == pix_jelly:
                             pix_error_count = 0
                             print('jelly!')
@@ -10523,8 +10545,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                         bSecond = False
                                         break
                                     # 작업 역방향 끝
-
-
+                                    
                         elif pix_prod == pix_rollc:
                             pix_error_count = 0
                             print('rollc!')
@@ -10642,7 +10663,6 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                         bSecond = False
                                         break
                                     # 작업 역방향 끝
-
 
                         elif pix_prod == pix_bread:
                             pix_error_count = 0
@@ -10984,7 +11004,6 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                         break
                                 # 작업 역방향 끝
 
-
                         elif pix_prod == pix_doye:
                             pix_error_count = 0
                             print('doye!')
@@ -11105,7 +11124,6 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                         bSecond = False
                                         break
                                     # 작업 역방향 끝
-
 
                         elif pix_prod == pix_flower:
                             pix_error_count = 0
@@ -11348,6 +11366,147 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                             else:
                                 Skip_Next(account, prod_direction_left)
 
+                        elif pix_prod == pix_icecream:
+                            pix_error_count = 0
+                            print('icecream!')
+                            if not bProdHigh or icecream_num == 1:
+                                bSecond = False
+                                # 작업 순방향 시작
+                                if not (icecream_lev1 == 0) and not bicecreamcompleted:
+                                    if not prod_action('icecream_lev1.png', 'icecream_stby_lv1.png', account, icecream_lev1):
+                                        if (icecream_lev2 == 0):
+                                            bicecreamcompleted = True
+                                        if not (icecream_lev2 == 0) and not bicecreamcompleted:
+                                            if not prod_action('icecream_lev2.png', 'icecream_stby_lv2.png', account, icecream_lev2):
+                                                if (icecream_lev3 == 0):
+                                                    bicecreamcompleted = True
+                                                if not (icecream_lev3 == 0) and not bicecreamcompleted:
+                                                    if not prod_action('icecream_lev3.png', 'icecream_stby_lv3.png', account, icecream_lev3):
+                                                        if (icecream_lev4 == 0):
+                                                            bicecreamcompleted = True
+                                                        if not (icecream_lev4 == 0) and not bicecreamcompleted:
+                                                            Updown(account, 'up')
+                                                            if not prod_action('icecream_lev4.png', 'icecream_stby_lv4.png', account, icecream_lev4):
+                                                                if (icecream_lev5 == 0):
+                                                                    bicecreamcompleted = True
+                                                                if not (icecream_lev5 == 0) and not bicecreamcompleted:
+                                                                    Updown(account, 'up')
+                                                                    if not prod_action('icecream_lev5.png', 'icecream_stby_lv5.png', account, icecream_lev5):
+                                                                        bicecreamcompleted = True
+                                                                    Skip_Next(account, prod_direction_left)
+                                                                else:
+                                                                    Skip_Next(account, prod_direction_left)
+                                                            else:
+                                                                Skip_Next(account, prod_direction_left)
+                                                        else:
+                                                            Skip_Next(account, prod_direction_left)
+                                                    else:
+                                                        Skip_Next(account, prod_direction_left)
+                                                else:
+                                                    Skip_Next(account, prod_direction_left)
+                                            else:
+                                                Skip_Next(account, prod_direction_left)
+                                        else:
+                                            Skip_Next(account, prod_direction_left)
+                                    else:
+                                        Skip_Next(account, prod_direction_left)
+                                else:
+                                    Skip_Next(account, prod_direction_left)
+                                # 작업 순방향 끝
+                            while True:
+                                if keyboard.is_pressed('end'):
+                                    break
+                                if not bProdHigh or icecream_num == 1:
+                                    break
+                                if bProdHigh and not bSecond and icecream_num == 2:  # 첫 번째 건물 작업
+                                    # 작업 순방향 시작
+                                    if not (icecream_lev1 == 0):
+                                        if not prod_action('icecream_lev1.png', 'icecream_stby_lv1.png', account, icecream_lev1):
+                                            if not (icecream_lev2 == 0):
+                                                if not prod_action('icecream_lev2.png', 'icecream_stby_lv2.png', account, icecream_lev2):
+                                                    if not (icecream_lev3 == 0):
+                                                        if not prod_action('icecream_lev3.png', 'icecream_stby_lv3.png', account, icecream_lev3):
+                                                            if not (icecream_lev4 == 0):
+                                                                Updown(account, 'up')
+                                                                if not prod_action('icecream_lev4.png', 'icecream_stby_lv4.png', account, icecream_lev4):
+                                                                    if not (icecream_lev5 == 0):
+                                                                        Updown(account, 'up')
+                                                                        prod_action('icecream_lev5.png', 'icecream_stby_lv5.png', account, icecream_lev5)
+                                                                        Skip_Next(account, prod_direction_left)
+                                                                        bSecond = True
+                                                                        break
+                                                                    else:
+                                                                        Skip_Next(account, prod_direction_left)
+                                                                        bSecond = True
+                                                                        break
+                                                                else:
+                                                                    Skip_Next(account, prod_direction_left)
+                                                                    bSecond = True
+                                                                    break
+                                                            else:
+                                                                Skip_Next(account, prod_direction_left)
+                                                                bSecond = True
+                                                                break
+                                                        else:
+                                                            Skip_Next(account, prod_direction_left)
+                                                            bSecond = True
+                                                            break
+                                                    else:
+                                                        Skip_Next(account, prod_direction_left)
+                                                        bSecond = True
+                                                        break
+                                                else:
+                                                    Skip_Next(account, prod_direction_left)
+                                                    bSecond = True
+                                                    break
+                                            else:
+                                                Skip_Next(account, prod_direction_left)
+                                                bSecond = True
+                                                break
+                                        else:
+                                            Skip_Next(account, prod_direction_left)
+                                            bSecond = True
+                                            break
+                                    else:
+                                        Skip_Next(account, prod_direction_left)
+                                        bSecond = True
+                                        break
+                                    # 작업 순방향 끝
+                                if bProdHigh and bSecond and icecream_num == 2:  # 두 번째 건물 작업
+                                    # 작업 역방향 시작
+                                    if (icecream_lev5 == 0):
+                                        if (icecream_lev4 == 0):
+                                            if (icecream_lev3 == 0):
+                                                if (icecream_lev2 == 0):
+                                                    prod_action('icecream_lev1.png', 'icecream_stby_lv1.png', account, icecream_lev1)
+                                                    Skip_Next(account, prod_direction_left)
+                                                    bSecond = False
+                                                    break
+                                                else:
+                                                    prod_action('icecream_lev2.png', 'icecream_stby_lv2.png', account, icecream_lev2)
+                                                    Skip_Next(account, prod_direction_left)
+                                                    bSecond = False
+                                                    break
+                                            else:
+                                                prod_action('icecream_lev3.png', 'icecream_stby_lv3.png', account, icecream_lev3)
+                                                Skip_Next(account, prod_direction_left)
+                                                bSecond = False
+                                                break
+                                        else:
+                                            Updown(account, 'up')
+                                            prod_action('icecream_lev4.png', 'icecream_stby_lv4.png', account, icecream_lev4)
+                                            Skip_Next(account, prod_direction_left)
+                                            bSecond = False
+                                            break
+                                    else:
+                                        Updown(account, 'up')
+                                        Updown(account, 'up')
+                                        prod_action('icecream_lev5.png', 'icecream_stby_lv5.png', account, icecream_lev5)
+                                        Skip_Next(account, prod_direction_left)
+                                        bSecond = False
+                                        break
+                                    # 작업 역방향 끝
+
                         elif (kkd_start):
                             print('[생산중] 계정 튕김! 쿠킹덤을 실행합니다!')
                             # 실행 체크
@@ -11557,6 +11716,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         pix_muffin = (191, 91, 59)  # 머핀 - muffin
                         pix_jewel = (135, 90, 50)  # 글레이즈드링 - jewel
                         pix_magic = (93, 55, 48)  # 마법공방 - magic
+                        pix_icecream = (254, 253, 229)  # 디즈니 아이스크림 트럭
 
                         screen = ImageGrab.grab()
                         pix_prod = screen.getpixel((610 + (account // 2) * 960, 140 + (account % 2) * 540))
@@ -11820,6 +11980,12 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         elif pix_prod == pix_magic:
                             pix_error_count = 0
                             print('magic!')
+                            prod_direction_left = False
+                            Skip_Next(account, prod_direction_left)
+
+                        elif pix_prod == pix_icecream:
+                            pix_error_count = 0
+                            print('icecream!')
                             prod_direction_left = False
                             Skip_Next(account, prod_direction_left)
 
@@ -12115,8 +12281,10 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         pix_muffin = (191, 91, 59)  # 머핀 - muffin
                         pix_jewel = (135, 90, 50)  # 글레이즈드링 - jewel
                         pix_magic = (93, 55, 48)  # 마법공방 - magic
+                        pix_icecream = (254, 253, 229)  # 디즈니 아이스크림 트럭
 
-                        pix_status_in = (194, 144, 10)  # 생산건물 내
+                        # pix_status_in = (194, 144, 10)  # 생산건물 내
+                        pix_status_in = (227, 163, 2)  # 아이스크림 생산건물 내
 
                         if keyboard.is_pressed('space'):
                             break
@@ -12799,6 +12967,147 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                         bSecond = False
                                         break
                                 # 작업 역방향 끝
+
+                        elif pix_prod == pix_icecream:
+                            pix_error_count = 0
+                            print('icecream!')
+                            if not bProdHigh or icecream_num == 1:
+                                bSecond = False
+                                # 작업 순방향 시작
+                                if not (icecream_lev1 == 0) and not bicecreamcompleted:
+                                    if not prod_action('icecream_lev1.png', 'icecream_stby_lv1.png', account, icecream_lev1):
+                                        if (icecream_lev2 == 0):
+                                            bicecreamcompleted = True
+                                        if not (icecream_lev2 == 0) and not bicecreamcompleted:
+                                            if not prod_action('icecream_lev2.png', 'icecream_stby_lv2.png', account, icecream_lev2):
+                                                if (icecream_lev3 == 0):
+                                                    bicecreamcompleted = True
+                                                if not (icecream_lev3 == 0) and not bicecreamcompleted:
+                                                    if not prod_action('icecream_lev3.png', 'icecream_stby_lv3.png', account, icecream_lev3):
+                                                        if (icecream_lev4 == 0):
+                                                            bicecreamcompleted = True
+                                                        if not (icecream_lev4 == 0) and not bicecreamcompleted:
+                                                            Updown(account, 'up')
+                                                            if not prod_action('icecream_lev4.png', 'icecream_stby_lv4.png', account, icecream_lev4):
+                                                                if (icecream_lev5 == 0):
+                                                                    bicecreamcompleted = True
+                                                                if not (icecream_lev5 == 0) and not bicecreamcompleted:
+                                                                    Updown(account, 'up')
+                                                                    if not prod_action('icecream_lev5.png', 'icecream_stby_lv5.png', account, icecream_lev5):
+                                                                        bicecreamcompleted = True
+                                                                    Skip_Next(account, prod_direction_left)
+                                                                else:
+                                                                    Skip_Next(account, prod_direction_left)
+                                                            else:
+                                                                Skip_Next(account, prod_direction_left)
+                                                        else:
+                                                            Skip_Next(account, prod_direction_left)
+                                                    else:
+                                                        Skip_Next(account, prod_direction_left)
+                                                else:
+                                                    Skip_Next(account, prod_direction_left)
+                                            else:
+                                                Skip_Next(account, prod_direction_left)
+                                        else:
+                                            Skip_Next(account, prod_direction_left)
+                                    else:
+                                        Skip_Next(account, prod_direction_left)
+                                else:
+                                    Skip_Next(account, prod_direction_left)
+                                # 작업 순방향 끝
+                            while True:
+                                if keyboard.is_pressed('end'):
+                                    break
+                                if not bProdHigh or icecream_num == 1:
+                                    break
+                                if bProdHigh and not bSecond and icecream_num == 2:  # 첫 번째 건물 작업
+                                    # 작업 순방향 시작
+                                    if not (icecream_lev1 == 0):
+                                        if not prod_action('icecream_lev1.png', 'icecream_stby_lv1.png', account, icecream_lev1):
+                                            if not (icecream_lev2 == 0):
+                                                if not prod_action('icecream_lev2.png', 'icecream_stby_lv2.png', account, icecream_lev2):
+                                                    if not (icecream_lev3 == 0):
+                                                        if not prod_action('icecream_lev3.png', 'icecream_stby_lv3.png', account, icecream_lev3):
+                                                            if not (icecream_lev4 == 0):
+                                                                Updown(account, 'up')
+                                                                if not prod_action('icecream_lev4.png', 'icecream_stby_lv4.png', account, icecream_lev4):
+                                                                    if not (icecream_lev5 == 0):
+                                                                        Updown(account, 'up')
+                                                                        prod_action('icecream_lev5.png', 'icecream_stby_lv5.png', account, icecream_lev5)
+                                                                        Skip_Next(account, prod_direction_left)
+                                                                        bSecond = True
+                                                                        break
+                                                                    else:
+                                                                        Skip_Next(account, prod_direction_left)
+                                                                        bSecond = True
+                                                                        break
+                                                                else:
+                                                                    Skip_Next(account, prod_direction_left)
+                                                                    bSecond = True
+                                                                    break
+                                                            else:
+                                                                Skip_Next(account, prod_direction_left)
+                                                                bSecond = True
+                                                                break
+                                                        else:
+                                                            Skip_Next(account, prod_direction_left)
+                                                            bSecond = True
+                                                            break
+                                                    else:
+                                                        Skip_Next(account, prod_direction_left)
+                                                        bSecond = True
+                                                        break
+                                                else:
+                                                    Skip_Next(account, prod_direction_left)
+                                                    bSecond = True
+                                                    break
+                                            else:
+                                                Skip_Next(account, prod_direction_left)
+                                                bSecond = True
+                                                break
+                                        else:
+                                            Skip_Next(account, prod_direction_left)
+                                            bSecond = True
+                                            break
+                                    else:
+                                        Skip_Next(account, prod_direction_left)
+                                        bSecond = True
+                                        break
+                                    # 작업 순방향 끝
+                                if bProdHigh and bSecond and icecream_num == 2:  # 두 번째 건물 작업
+                                    # 작업 역방향 시작
+                                    if (icecream_lev5 == 0):
+                                        if (icecream_lev4 == 0):
+                                            if (icecream_lev3 == 0):
+                                                if (icecream_lev2 == 0):
+                                                    prod_action('icecream_lev1.png', 'icecream_stby_lv1.png', account, icecream_lev1)
+                                                    Skip_Next(account, prod_direction_left)
+                                                    bSecond = False
+                                                    break
+                                                else:
+                                                    prod_action('icecream_lev2.png', 'icecream_stby_lv2.png', account, icecream_lev2)
+                                                    Skip_Next(account, prod_direction_left)
+                                                    bSecond = False
+                                                    break
+                                            else:
+                                                prod_action('icecream_lev3.png', 'icecream_stby_lv3.png', account, icecream_lev3)
+                                                Skip_Next(account, prod_direction_left)
+                                                bSecond = False
+                                                break
+                                        else:
+                                            Updown(account, 'up')
+                                            prod_action('icecream_lev4.png', 'icecream_stby_lv4.png', account, icecream_lev4)
+                                            Skip_Next(account, prod_direction_left)
+                                            bSecond = False
+                                            break
+                                    else:
+                                        Updown(account, 'up')
+                                        Updown(account, 'up')
+                                        prod_action('icecream_lev5.png', 'icecream_stby_lv5.png', account, icecream_lev5)
+                                        Skip_Next(account, prod_direction_left)
+                                        bSecond = False
+                                        break
+                                    # 작업 역방향 끝
 
 
 
@@ -13685,7 +13994,22 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         elif pix_prod == pix_magic:
                             pix_error_count = 0
                             print('magic!')
-                            Skip_Next(account, prod_direction_left)
+                            if not bmagiccompleted:
+                                # print('생산 확인...')
+                                if not three_prod_action(account, 'magic_stby_lv1.png', 'magic_stby_lv2.png', 'magic_stby_lv3.png', magic_lev1, magic_lev2, magic_lev3, prod_direction_left):
+                                    bmagiccompleted = True
+                            else:
+                                Skip_Next(account, prod_direction_left)
+                        
+                        elif pix_prod == pix_icecream:
+                            pix_error_count = 0
+                            print('icecream!')
+                            if not bicecreamcompleted:
+                                # print('생산 확인...')
+                                if not three_prod_action(account, 'icecream_stby_lv1.png', 'icecream_stby_lv2.png', 'icecream_stby_lv3.png', icecream_lev1, icecream_lev2, icecream_lev3, prod_direction_left):
+                                    bicecreamcompleted = True
+                            else:
+                                Skip_Next(account, prod_direction_left)
 
                         elif (kkd_start):
                             print('[생산중] 계정 튕김! 쿠킹덤을 실행합니다!')
