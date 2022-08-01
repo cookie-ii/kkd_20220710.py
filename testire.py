@@ -158,6 +158,12 @@ jjokji_milk_C = False  # 우유 아낌모드
 jjokji_cotton_A = False  # 솜사탕 아낌모드
 jjokji_cotton_B = False  # 솜사탕 아낌모드
 jjokji_cotton_C = False  # 솜사탕 아낌모드
+trade_legend_A = False     # 오색 조개 갤러리 전설 조각석 살까?
+trade_legend_B = False     # 오색 조개 갤러리 전설 조각석 살까?
+trade_legend_C = False     # 오색 조개 갤러리 전설 조각석 살까?
+trade_hero_A = False       # 오색 조개 갤러리 영웅 조각석 살까?
+trade_hero_B = False       # 오색 조개 갤러리 영웅 조각석 살까?
+trade_hero_C = False       # 오색 조개 갤러리 영웅 조각석 살까?
 
 set_max_power_A = 700000    # 아레나 상대 전투력 Max
 set_max_power_B = 750000    # 아레나 상대 전투력 Max
@@ -5767,7 +5773,7 @@ def Angmu_Enter(account, whereto):
             cond_trade_angmu = pag.locateCenterOnScreen('cond_trade_angmu.png', confidence=0.85, region=(150 + (account // 2) * 960, 320 + (account % 2) * 540, 30, 30))  # 해상무역센터 앵무 교역소 이벤트
             cond_trade_refresh = pag.locateCenterOnScreen('cond_trade_refresh.png', confidence=0.85, region=(733 + (account // 2) * 960, 500 + (account % 2) * 540, 34, 18))  # 해상무역센터 앵무 교역소 새로고침
             cond_trade_angmu_confirm = pag.locateCenterOnScreen('cond_trade_angmu_confirm.png', confidence=0.85, region=(420 + (account // 2) * 960, 80 + (account % 2) * 540, 58, 33))  # 해상무역센터 앵무 교역소 위치 확인
-            cond_trade_angmu_yoomul = pag.locateCenterOnScreen('cond_trade_angmu_confirm.png', confidence=0.85, region=(420 + (account // 2) * 960, 80 + (account % 2) * 540, 58, 33))  # 오색조개갤러리 유물!
+            # cond_trade_angmu_yoomul = pag.locateCenterOnScreen('cond_trade_angmu.png', confidence=0.85, region=(420 + (account // 2) * 960, 80 + (account % 2) * 540, 58, 33))  # 오색조개갤러리 유물!
             # cond_trade_angmu_yoomul = pag.locateCenterOnScreen('cond_trade_angmu_confirm.png', confidence=0.85, region=(420 + (account // 2) * 960, 80 + (account % 2) * 540, 58, 33))  # 오색조개갤러리 유물!
             if not bStep2_Angmu and (cond_trade_event):
                 print('cond_trade_event', cond_trade_event)
@@ -5779,34 +5785,108 @@ def Angmu_Enter(account, whereto):
                     time.sleep(2)
                 else:
                     print('앵무 교역소 아닌 이벤트 입니다!')
-                    pag.click(57 + (account // 2) * 960, 356 + (account % 2) * 540)   # 오색 조개 갤러리 들어가!
-                    time.sleep(1)
-                    pag.click(172 + (account // 2) * 960, 281 + (account % 2) * 540)   # 등급 높은 애 영혼석 1개 클릭!
-                    time.sleep(1)
-                    pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
-                    time.sleep(2)
+                    # pag.click(57 + (account // 2) * 960, 356 + (account % 2) * 540)   # 오색 조개 갤러리 들어가!
+                    # time.sleep(1)
+                    # pag.click(172 + (account // 2) * 960, 281 + (account % 2) * 540)   # 등급 높은 애 영혼석 1개 클릭!
+                    # time.sleep(1)
+                    # pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
+                    # time.sleep(2)
 
-                    pag.click(561 + (account // 2) * 960, 403 + (account % 2) * 540)  # 유물 자리 클릭!
-                    time.sleep(1)
-                    pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
-                    time.sleep(4)
+                    # pag.click(561 + (account // 2) * 960, 403 + (account % 2) * 540)  # 유물 자리 클릭!
+                    # time.sleep(1)
+                    # pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
+                    # time.sleep(4)
 
-                    pag.click(289 + (account // 2) * 960, 54 + (account % 2) * 540)  # 허공 한 번 클릭
-                    time.sleep(2)
+                    # pag.click(289 + (account // 2) * 960, 54 + (account % 2) * 540)  # 허공 한 번 클릭
+                    # time.sleep(2)
 
-                    pag.click(561 + (account // 2) * 960, 403 + (account % 2) * 540)  # 유물 자리 클릭!
-                    time.sleep(1)
-                    pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
-                    time.sleep(2)
+                    # pag.click(561 + (account // 2) * 960, 403 + (account % 2) * 540)  # 유물 자리 클릭!
+                    # time.sleep(1)
+                    # pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
+                    # time.sleep(2)
 
-                    pag.click(284 + (account // 2) * 960, 15 + (account % 2) * 540)   # 녹스 메뉴바 클릭!
-                    time.sleep(1)
-                    pag.hotkey('esc')
-                    time.sleep(1)
-                    pag.hotkey('esc')
-                    time.sleep(6)
-                    Kingdom_ready(account, 'kkd_out')
-                    return False
+                    # pag.click(284 + (account // 2) * 960, 15 + (account % 2) * 540)   # 녹스 메뉴바 클릭!
+                    # time.sleep(1)
+                    # pag.hotkey('esc')
+                    # time.sleep(1)
+                    # pag.hotkey('esc')
+                    # time.sleep(6)
+                    # Kingdom_ready(account, 'kkd_out')
+                    # return False
+                    cond_trade_angmu_yoomul = pag.locateCenterOnScreen('cond_trade_angmu.png', confidence=0.85, region=(70 + (account // 2) * 960, 325 + (account % 2) * 540, 20, 20))  # 오색 조개 갤러리 이벤트 있음!
+                    if cond_trade_angmu_yoomul:
+                        pag.click(57 + (account // 2) * 960, 356 + (account % 2) * 540)   # 오색 조개 갤러리 들어가!
+                        while True:
+                            if keyboard.is_pressed('end'):
+                                print('end 누름')
+                                break
+                            cond_trade_gallary = pag.locateCenterOnScreen('cond_trade_gallary.png', confidence=0.85, region=(60 + (account // 2) * 960, 40 + (account % 2) * 540, 50, 30))  # 오색 조개 갤러리 들어옴!
+                            if (cond_trade_gallary):    # 갤러리 들어와 있는 상태에서
+                                trade_error_count = 0
+                                # cond_trade_gallary_guip = pag.locateCenterOnScreen('cond_trade_gallary_guip.png', confidence=0.85, region=(103 + (account // 2) * 960, 454 + (account % 2) * 540, 50, 50))  # 펄 마크! (전설 영혼석 자리 - 바요,서리)
+                                mark_x = pag.locateCenterOnScreen('mark_x.png', confidence=0.85, region=(619 + (account // 2) * 960, 144 + (account % 2) * 540, 30, 30))  # 뭔가 창이 떠있으?
+                                if mark_x:
+                                    # 뭔지 모르지만 떠있으니 사고 본다
+                                    pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
+                                    time.sleep(1)
+                                
+                                cond_trade_pearl1 = pag.locateCenterOnScreen('cond_trade_pearl.png', confidence=0.85, region=(103 + (account // 2) * 960, 454 + (account % 2) * 540, 50, 50))  # 펄 마크! (전설 영혼석 자리 - 바요,서리)
+                                if cond_trade_pearl1:
+                                    pag.click(172 + (account // 2) * 960, 281 + (account % 2) * 540)   # 전설 영혼석 클릭!
+                                    time.sleep(1)
+                                    pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
+                                    time.sleep(2)
+                                
+                                if trade_legend:
+                                    cond_trade_pearl2 = pag.locateCenterOnScreen('cond_trade_pearl.png', confidence=0.85, region=(320 + (account // 2) * 960, 281 + (account % 2) * 540, 50, 50))  # 펄 마크! (전설 영혼 조각 자리)
+                                    if cond_trade_pearl2:
+                                        pag.click(386 + (account // 2) * 960, 222 + (account % 2) * 540)   # 전설 영혼 조각 클릭!
+                                        time.sleep(1)
+                                        pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
+                                        time.sleep(2)
+                                else:
+                                    cond_trade_pearl2 = False
+                                
+                                if trade_hero:
+                                    cond_trade_pearl3 = pag.locateCenterOnScreen('cond_trade_pearl.png', confidence=0.85, region=(320 + (account // 2) * 960, 455 + (account % 2) * 540, 50, 50))  # 펄 마크! (에픽 영혼 조각 자리)
+                                    if cond_trade_pearl3:
+                                        pag.click(388 + (account // 2) * 960, 400 + (account % 2) * 540)   # 에픽 영혼 조각 클릭!
+                                        time.sleep(1)
+                                        pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
+                                        time.sleep(2)
+                                else:
+                                    cond_trade_pearl3 = False
+                                
+                                cond_trade_pearl4 = pag.locateCenterOnScreen('cond_trade_pearl.png', confidence=0.85, region=(496 + (account // 2) * 960, 455 + (account % 2) * 540, 50, 50))  # 펄 마크! (길드 유물 자리)
+                                if cond_trade_pearl4:
+                                    pag.click(561 + (account // 2) * 960, 403 + (account % 2) * 540)  # 유물 자리 클릭!
+                                    time.sleep(1)
+                                    pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
+                                    time.sleep(4)
+                                    pag.click(289 + (account // 2) * 960, 54 + (account % 2) * 540)  # 허공 한 번 클릭
+                                    time.sleep(2)
+                                
+                                if not ((cond_trade_pearl1) or (cond_trade_pearl2) or (cond_trade_pearl3) or (cond_trade_pearl4)):
+                                    print('모든 구매를 마칩니다.')
+                                    pag.click(892 + (account // 2) * 960,54 + (account % 2) * 540)
+                                    time.sleep(2)
+                                    pag.click(892 + (account // 2) * 960,54 + (account % 2) * 540)
+                                    time.sleep(4)
+                                    Kingdom_ready(account, 'kkd_out')
+                                    return False
+                            else:
+                                pag.click(289 + (account // 2) * 960, 54 + (account % 2) * 540)  # 허공 한 번 클릭
+                                trade_error_count = trade_error_count + 1
+                                time.sleep(1)
+                                if trade_error_count > 10:
+                                    print('머선129')
+                                    Kingdom_ready(account, 'kkd_out')
+                                    return False
+                            time.sleep(0.5)
+                    else:
+                        print('무엇때문에 들어왔을까')
+                        Kingdom_ready(account, 'kkd_out')
+                        return False
 
             if bStep2_Angmu and (cond_trade_refresh):  # 앵무 교역소, 무료 새로고침인 경우
                 print('cond_trade_refresh', cond_trade_refresh)
@@ -8745,6 +8825,8 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                 jjokji_berry = jjokji_berry_A  # 젤리베리 아낌모드
                 jjokji_milk = jjokji_milk_A  # 우유 아낌모드
                 jjokji_cotton = jjokji_cotton_A  # 솜사탕 아낌모드
+                trade_legend = trade_legend_A       # 오색조개 전설 조각
+                trade_hero = trade_hero_A           # 오색조개 영웅 조각
                 bTropical_Confirmed = bTropical_Confirmed_A  # 트로피칼 실행했나
 
                 # 기본 생산품
@@ -8869,6 +8951,8 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                 jjokji_berry = jjokji_berry_B  # 젤리베리 아낌모드
                 jjokji_milk = jjokji_milk_B  # 우유 아낌모드
                 jjokji_cotton = jjokji_cotton_B  # 솜사탕 아낌모드
+                trade_legend = trade_legend_B       # 오색조개 전설 조각
+                trade_hero = trade_hero_B           # 오색조개 영웅 조각
                 bTropical_Confirmed = bTropical_Confirmed_B  # 트로피칼 실행했나
 
                 # 기본 생산품
@@ -8992,6 +9076,8 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                 jjokji_berry = jjokji_berry_C  # 젤리베리 아낌모드
                 jjokji_milk = jjokji_milk_C  # 우유 아낌모드
                 jjokji_cotton = jjokji_cotton_C  # 솜사탕 아낌모드
+                trade_legend = trade_legend_C       # 오색조개 전설 조각
+                trade_hero = trade_hero_C           # 오색조개 영웅 조각
                 bTropical_Confirmed = bTropical_Confirmed_C  # 트로피칼 실행했나
 
                 # 기본 생산품
