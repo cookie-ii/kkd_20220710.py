@@ -5850,7 +5850,7 @@ def Angmu_Enter(account, whereto):
                                     pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
                                     time.sleep(2)
                                     # 만약 조개가 부족하면 ㅠ.ㅠ
-                                    cond_trade_not_enough = pag.locateCenterOnScreen('cond_trade_not_enough', confidence=0.85, region=(378 + (account // 2) * 960, 213 + (account % 2) * 960, 173, 35))
+                                    cond_trade_not_enough = pag.locateCenterOnScreen('cond_trade_not_enough.PNG', confidence=0.85, region=(378 + (account // 2) * 960, 213 + (account % 2) * 960, 173, 35))
                                     if (cond_trade_not_enough):
                                         pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 확인 클릭!
                                         time.sleep(1)
@@ -5867,7 +5867,7 @@ def Angmu_Enter(account, whereto):
                                         pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
                                         time.sleep(2)
                                         # 만약 조개가 부족하면 ㅠ.ㅠ
-                                        cond_trade_not_enough = pag.locateCenterOnScreen('cond_trade_not_enough', confidence=0.85, region=(378 + (account // 2) * 960, 213 + (account % 2) * 960, 173, 35))
+                                        cond_trade_not_enough = pag.locateCenterOnScreen('cond_trade_not_enough.PNG', confidence=0.85, region=(378 + (account // 2) * 960, 213 + (account % 2) * 960, 173, 35))
                                         if (cond_trade_not_enough):
                                             pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 확인 클릭!
                                             time.sleep(1)
@@ -5888,7 +5888,7 @@ def Angmu_Enter(account, whereto):
                                         pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
                                         time.sleep(2)
                                         # 만약 조개가 부족하면 ㅠ.ㅠ
-                                        cond_trade_not_enough = pag.locateCenterOnScreen('cond_trade_not_enough', confidence=0.85, region=(378 + (account // 2) * 960, 213 + (account % 2) * 960, 173, 35))
+                                        cond_trade_not_enough = pag.locateCenterOnScreen('cond_trade_not_enough.PNG', confidence=0.85, region=(378 + (account // 2) * 960, 213 + (account % 2) * 960, 173, 35))
                                         if (cond_trade_not_enough):
                                             pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 확인 클릭!
                                             time.sleep(1)
@@ -5910,7 +5910,7 @@ def Angmu_Enter(account, whereto):
                                     pag.click(289 + (account // 2) * 960, 54 + (account % 2) * 540)  # 허공 한 번 클릭
                                     time.sleep(2)
                                     # 만약 조개가 부족하면 ㅠ.ㅠ
-                                    cond_trade_not_enough = pag.locateCenterOnScreen('cond_trade_not_enough', confidence=0.85, region=(378 + (account // 2) * 960, 213 + (account % 2) * 960, 173, 35))
+                                    cond_trade_not_enough = pag.locateCenterOnScreen('cond_trade_not_enough.PNG', confidence=0.85, region=(378 + (account // 2) * 960, 213 + (account % 2) * 960, 173, 35))
                                     if (cond_trade_not_enough):
                                         pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 확인 클릭!
                                         time.sleep(1)
