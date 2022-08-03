@@ -129,8 +129,8 @@ bMacroTime = True  # 매크로 도는 중?
 bProdHigh = False  # 동일 건물 2개인 경우 2번째 건물에서 높은 생산품 우선 생산
 bSecond = False  # 두 번째 건물 작업이냐?
 
-bAcc_A_First = True  # 계정 먼저 시작 순서(True일 때 A부터, 아니면 B부터)
-bAcc_C_First = False     # C계정 먼저 시작해요!
+bAcc_A_First = False  # 계정 먼저 시작 순서(True일 때 A부터, 아니면 B부터)
+bAcc_C_First = True     # C계정 먼저 시작해요!
 
 bFirstCookhouA = False  # 첫 쿠하(클릭)
 bFirstCookhouB = False  # 첫 쿠하(클릭)
@@ -301,7 +301,7 @@ magic_num_A = 1    # 마법공방
 magic_lev1_A = 60    # 고농축 에스프레소
 magic_lev2_A = 60    # 울퉁불퉁 뿔고구마
 magic_lev3_A = 190    # 향기로운 포도주스
-magic_lev4_A = 0    # 빨리감기 태엽장치
+magic_lev4_A = 200    # 빨리감기 태엽장치
 magic_lev5_A = 0    # 수수께끼의 파우더 주머니
 magic_lev6_A = 0    # 수수께끼의 빛나는 파우더 주머니
 magic_lev7_A = 0    # 수수께끼의 신비한 파우더 주머니
@@ -582,8 +582,8 @@ magic_lev12_C = 0    # 찬란한 빛조각
 
 icecream_num_C = 2  # 아이스크림 트럭 건물 수
 icecream_lev1_C = 30  # 낮의 별가루 스프링클 아이스크림
-icecream_lev2_C = 30  # 밤의 별가루 스프링클 아이스크림
-icecream_lev3_C = 30  # 꿈꾸는 성의 아이스크림 바닐라 샌드
+icecream_lev2_C = 40  # 밤의 별가루 스프링클 아이스크림
+icecream_lev3_C = 40  # 꿈꾸는 성의 아이스크림 바닐라 샌드
 icecream_lev4_C = 30  # 꿈꾸는 성의 아이스크림 초코 샌드
 icecream_lev5_C = 30  # 밀키웨이 아이스바
 
@@ -1558,8 +1558,8 @@ def prod_action(image, list_image, account, check_num):
         # # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
         # pag.click(x=random.randint(223, 428) + (account // 2) * 960, y=random.randint(190, 410) + (account % 2) * 540)
         # time.sleep(0.3)
-    z0 = pag.locateCenterOnScreen('z0.png', confidence=0.94, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z1 = pag.locateCenterOnScreen('z1.png', confidence=0.94, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z0 = pag.locateCenterOnScreen('z0.png', confidence=0.96, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z1 = pag.locateCenterOnScreen('z1.png', confidence=0.96, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
     if z0 or z1:
         # 3~7렙 Full list인 경우 다음 건물로 넘어감. 하지만 고렙 생산..중이면 그거 취소 못하고 저렙 생산이 안될텐데...
         print('리스트 full!')
@@ -5756,9 +5756,9 @@ def Angmu_Enter(account, whereto):
             if (cond_network):
                 pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(377 - 5, 377 + 5) + (account % 2) * 540)
                 time.sleep(0.3)
-
             activity_now_time = time.time()
             if activity_now_time - activity_monitor_time > 60:
+                print('들어가는데 시간이 너무 오래 걸리는데? 60초이상')
                 return False
             if keyboard.is_pressed('end'):
                 print('end 누름')
@@ -5816,56 +5816,110 @@ def Angmu_Enter(account, whereto):
                     cond_trade_angmu_yoomul = pag.locateCenterOnScreen('cond_trade_angmu.png', confidence=0.85, region=(70 + (account // 2) * 960, 325 + (account % 2) * 540, 20, 20))  # 오색 조개 갤러리 이벤트 있음!
                     if cond_trade_angmu_yoomul:
                         pag.click(57 + (account // 2) * 960, 356 + (account % 2) * 540)   # 오색 조개 갤러리 들어가!
+                        print('오색 조개 갤러리 들어간다!')
+                        trade_error_count = 0
                         while True:
                             if keyboard.is_pressed('end'):
                                 print('end 누름')
                                 break
-                            cond_trade_gallary = pag.locateCenterOnScreen('cond_trade_gallary.png', confidence=0.85, region=(60 + (account // 2) * 960, 40 + (account % 2) * 540, 50, 30))  # 오색 조개 갤러리 들어옴!
+                            print('오색 조개 갤러리 들어왔습니다.')
+                            time.sleep(1)
+                            cond_trade_gallary = pag.locateCenterOnScreen('cond_trade_gallary.png', confidence=0.9, region=(10 + (account // 2) * 960, 40 + (account % 2) * 540, 150, 50))  # 오색 조개 갤러리 들어옴!
                             if (cond_trade_gallary):    # 갤러리 들어와 있는 상태에서
-                                trade_error_count = 0
+                                print('오색 조개 갤러리 글자 보임')
+
                                 # cond_trade_gallary_guip = pag.locateCenterOnScreen('cond_trade_gallary_guip.png', confidence=0.85, region=(103 + (account // 2) * 960, 454 + (account % 2) * 540, 50, 50))  # 펄 마크! (전설 영혼석 자리 - 바요,서리)
                                 mark_x = pag.locateCenterOnScreen('mark_x.png', confidence=0.85, region=(619 + (account // 2) * 960, 144 + (account % 2) * 540, 30, 30))  # 뭔가 창이 떠있으?
                                 if mark_x:
                                     # 뭔지 모르지만 떠있으니 사고 본다
                                     pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
                                     time.sleep(1)
-                                
+                                    # 만약 조개가 부족하면 ㅠ.ㅠ
+                                    cond_trade_not_enough = pag.locateCenterOnScreen('cond_trade_not_enough.PNG', confidence=0.85, region =(378 + (account // 2) * 960, 213 + (account % 2) * 960, 173, 35))
+                                    if (cond_trade_not_enough):
+                                        pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)   # 확인 클릭!
+                                        time.sleep(1)
+                                        pag.click(635 + (account // 2) * 960, 159 + (account % 2) * 540)  # x 클릭!
+                                        time.sleep(1)
+
                                 cond_trade_pearl1 = pag.locateCenterOnScreen('cond_trade_pearl.png', confidence=0.85, region=(103 + (account // 2) * 960, 454 + (account % 2) * 540, 50, 50))  # 펄 마크! (전설 영혼석 자리 - 바요,서리)
                                 if cond_trade_pearl1:
+                                    print('전설 영혼석 구매')
                                     pag.click(172 + (account // 2) * 960, 281 + (account % 2) * 540)   # 전설 영혼석 클릭!
                                     time.sleep(1)
                                     pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
                                     time.sleep(2)
-                                
+                                    # 만약 조개가 부족하면 ㅠ.ㅠ
+                                    cond_trade_not_enough = pag.locateCenterOnScreen('cond_trade_not_enough', confidence=0.85, region=(378 + (account // 2) * 960, 213 + (account % 2) * 960, 173, 35))
+                                    if (cond_trade_not_enough):
+                                        pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 확인 클릭!
+                                        time.sleep(1)
+                                        pag.click(635 + (account // 2) * 960, 159 + (account % 2) * 540)  # x 클릭!
+                                        time.sleep(1)
+                                    cond_trade_pearl1 = False
+
                                 if trade_legend:
                                     cond_trade_pearl2 = pag.locateCenterOnScreen('cond_trade_pearl.png', confidence=0.85, region=(320 + (account // 2) * 960, 281 + (account % 2) * 540, 50, 50))  # 펄 마크! (전설 영혼 조각 자리)
                                     if cond_trade_pearl2:
+                                        print('1번자리 구매')
                                         pag.click(386 + (account // 2) * 960, 222 + (account % 2) * 540)   # 전설 영혼 조각 클릭!
                                         time.sleep(1)
                                         pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
                                         time.sleep(2)
-                                else:
-                                    cond_trade_pearl2 = False
-                                
+                                        # 만약 조개가 부족하면 ㅠ.ㅠ
+                                        cond_trade_not_enough = pag.locateCenterOnScreen('cond_trade_not_enough', confidence=0.85, region=(378 + (account // 2) * 960, 213 + (account % 2) * 960, 173, 35))
+                                        if (cond_trade_not_enough):
+                                            pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 확인 클릭!
+                                            time.sleep(1)
+                                            pag.click(635 + (account // 2) * 960, 159 + (account % 2) * 540)  # x 클릭!
+                                            time.sleep(1)
+                                            cond_trade_pearl2 = False
+                                    elif not cond_trade_pearl2:
+                                        cond_trade_pearl2 = False
+                                # else:
+                                #     cond_trade_pearl2 = False
+
                                 if trade_hero:
                                     cond_trade_pearl3 = pag.locateCenterOnScreen('cond_trade_pearl.png', confidence=0.85, region=(320 + (account // 2) * 960, 455 + (account % 2) * 540, 50, 50))  # 펄 마크! (에픽 영혼 조각 자리)
                                     if cond_trade_pearl3:
+                                        print('2번자리 구매')
                                         pag.click(388 + (account // 2) * 960, 400 + (account % 2) * 540)   # 에픽 영혼 조각 클릭!
                                         time.sleep(1)
                                         pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
                                         time.sleep(2)
-                                else:
-                                    cond_trade_pearl3 = False
-                                
+                                        # 만약 조개가 부족하면 ㅠ.ㅠ
+                                        cond_trade_not_enough = pag.locateCenterOnScreen('cond_trade_not_enough', confidence=0.85, region=(378 + (account // 2) * 960, 213 + (account % 2) * 960, 173, 35))
+                                        if (cond_trade_not_enough):
+                                            pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 확인 클릭!
+                                            time.sleep(1)
+                                            pag.click(635 + (account // 2) * 960, 159 + (account % 2) * 540)  # x 클릭!
+                                            time.sleep(1)
+                                            cond_trade_pearl3 = False
+                                    elif not cond_trade_pearl3:
+                                        cond_trade_pearl3 = False
+                                # else:
+                                #     cond_trade_pearl3 = False
+
                                 cond_trade_pearl4 = pag.locateCenterOnScreen('cond_trade_pearl.png', confidence=0.85, region=(496 + (account // 2) * 960, 455 + (account % 2) * 540, 50, 50))  # 펄 마크! (길드 유물 자리)
                                 if cond_trade_pearl4:
+                                    print('4번자리 구매')
                                     pag.click(561 + (account // 2) * 960, 403 + (account % 2) * 540)  # 유물 자리 클릭!
                                     time.sleep(1)
                                     pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
                                     time.sleep(4)
                                     pag.click(289 + (account // 2) * 960, 54 + (account % 2) * 540)  # 허공 한 번 클릭
                                     time.sleep(2)
-                                
+                                    # 만약 조개가 부족하면 ㅠ.ㅠ
+                                    cond_trade_not_enough = pag.locateCenterOnScreen('cond_trade_not_enough', confidence=0.85, region=(378 + (account // 2) * 960, 213 + (account % 2) * 960, 173, 35))
+                                    if (cond_trade_not_enough):
+                                        pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 확인 클릭!
+                                        time.sleep(1)
+                                        pag.click(635 + (account // 2) * 960, 159 + (account % 2) * 540)  # x 클릭!
+                                        time.sleep(1)
+                                        cond_trade_pearl4 = False
+                                elif not cond_trade_pearl4:
+                                    cond_trade_pearl4 = False
+
                                 if not ((cond_trade_pearl1) or (cond_trade_pearl2) or (cond_trade_pearl3) or (cond_trade_pearl4)):
                                     print('모든 구매를 마칩니다.')
                                     pag.click(892 + (account // 2) * 960,54 + (account % 2) * 540)
@@ -5879,7 +5933,7 @@ def Angmu_Enter(account, whereto):
                                 trade_error_count = trade_error_count + 1
                                 time.sleep(1)
                                 if trade_error_count > 10:
-                                    print('머선129')
+                                    print('머선129, 오색갤러리 글자 안보임')
                                     Kingdom_ready(account, 'kkd_out')
                                     return False
                             time.sleep(0.5)
@@ -9634,7 +9688,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                             print('magic!')
                             prod_direction_left = False
                             Skip_Next(account, prod_direction_left)
-                            
+
                         elif pix_prod == pix_icecream:      # 마법 건물이면 prod_direction_left 오른쪽으로 돌려욧!
                             pix_error_count = 0
                             print('icecream!')
@@ -10108,6 +10162,8 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                     pix_purple = (113, 88, 146)  # _2, _3 보라색
                                     pix_not_refresh = (255, 233, 191)  # _1 열려있음(밝음)
 
+                                    time.sleep(1)
+
                                     screen = ImageGrab.grab()
                                     # 상단
                                     pix_1_1 = screen.getpixel((330 + (account // 2) * 960, 225 + (account % 2) * 540))
@@ -10144,44 +10200,50 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                     if pix_1_3 == pix_can_give:  # 건넬 수 있으면 건넴
                                         pag.click(390 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
                                         iHowMany = iHowMany + 1
-                                        time.sleep(1.5)
+                                        time.sleep(1)
                                     elif pix_1_3 == pix_cannot_give:  # 건넬 수 없으면 새로고침
                                         pag.click(280 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
-                                        time.sleep(1.5)
+                                        time.sleep(1)
                                     else:  # 둘 다 아니면 상단 체크
                                         if pix_1_1 == pix_refresh:
                                             print('1번 새로고침중...')
                                             bLineEnd_1 = True
+                                            time.sleep(1)
                                         else:
                                             pag.click(330 + (account // 2) * 960, 225 + (account % 2) * 540)  # 정확해야 해서 랜덤함수 뺌..
+                                            time.sleep(1)
 
                                     if pix_2_3 == pix_can_give:  # 건넬 수 있으면 건넴
                                         pag.click(390 + 228 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
                                         iHowMany = iHowMany + 1
-                                        time.sleep(1.5)
+                                        time.sleep(1)
                                     elif pix_2_3 == pix_cannot_give:  # 건넬 수 없으면 새로고침
                                         pag.click(280 + 228 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
-                                        time.sleep(1.5)
+                                        time.sleep(1)
                                     else:  # 둘 다 아니면 상단 체크
                                         if pix_2_1 == pix_refresh:
                                             print('2번 새로고침중...')
                                             bLineEnd_2 = True
+                                            time.sleep(1)
                                         else:
                                             pag.click(330 + 228 + (account // 2) * 960, 225 + (account % 2) * 540)  # 정확해야 해서 랜덤함수 뺌..
+                                            time.sleep(1)
 
                                     if pix_3_3 == pix_can_give:  # 건넬 수 있으면 건넴
                                         pag.click(390 + 228 * 2 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
                                         iHowMany = iHowMany + 1
-                                        time.sleep(1.5)
+                                        time.sleep(1)
                                     elif pix_3_3 == pix_cannot_give:  # 건넬 수 없으면 새로고침
                                         pag.click(280 + 228 * 2 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
-                                        time.sleep(1.5)
+                                        time.sleep(1)
                                     else:  # 둘 다 아니면 상단 체크
                                         if pix_3_1 == pix_refresh:
                                             print('3번 새로고침중...')
                                             bLineEnd_3 = True
+                                            time.sleep(1)
                                         else:
                                             pag.click(330 + 228 * 2 + (account // 2) * 960, 225 + (account % 2) * 540)  # 정확해야 해서 랜덤함수 뺌..
+                                            time.sleep(1)
                                     if iHowMany >= 20:
                                         print('%s번 돌렸다!' % (iHowMany))
                                         pag.click(892 + (account // 2) * 960, 54 + (account % 2) * 540)
@@ -10321,7 +10383,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                             elif not wood_macro_action and not jelbean_macro_action and not sugar_macro_action:   # 아무것도 안돌려!
                                 print('수동매크로 - 돌릴 게 없네요')
 
-                            
+
                             break
 
                         in_pos = pag.locateCenterOnScreen('bInPosition.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
@@ -10763,7 +10825,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                         bSecond = False
                                         break
                                     # 작업 역방향 끝
-                                    
+
                         elif pix_prod == pix_rollc:
                             pix_error_count = 0
                             print('rollc!')
@@ -14229,7 +14291,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                     bmagiccompleted = True
                             else:
                                 Skip_Next(account, prod_direction_left)
-                        
+
                         elif pix_prod == pix_icecream:
                             pix_error_count = 0
                             print('icecream!')
