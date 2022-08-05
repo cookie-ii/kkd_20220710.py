@@ -6412,14 +6412,12 @@ def Angmu_Aft_Refresh(account):
             pag.mouseUp()
             time.sleep(0.5)
 
-            # ++ 작업 후 >= 3으로변경
-            if Scroll_count >= 4:
+            # 6번 스크롤 하면 끗
+            if Scroll_count >= 6:
                 print('완료')
-                pag.click(284 + (account // 2) * 960, 15 + (account % 2) * 540)
-                time.sleep(0.1)
-                pag.hotkey('esc')
+                pag.click(892 + (account // 2) * 960,54 + (account % 2) * 540)
                 time.sleep(2)
-                pag.hotkey('esc')
+                pag.click(892 + (account // 2) * 960,54 + (account % 2) * 540)
                 time.sleep(6)
                 return
 
