@@ -5856,7 +5856,7 @@ def Angmu_Enter(account, whereto):
                                         time.sleep(1)
                                         pag.click(635 + (account // 2) * 960, 159 + (account % 2) * 540)  # x 클릭!
                                         time.sleep(1)
-                                    cond_trade_pearl1 = False
+                                        cond_trade_pearl1 = False
 
                                 if trade_legend:
                                     cond_trade_pearl2 = pag.locateCenterOnScreen('cond_trade_pearl.png', confidence=0.85, region=(320 + (account // 2) * 960, 281 + (account % 2) * 540, 50, 50))  # 펄 마크! (전설 영혼 조각 자리)
@@ -6391,198 +6391,16 @@ def Angmu_Aft_Refresh(account):
                 # Angmu_Action('trade_tro_1', trade_tro_1)
                 # Angmu_Action('trade_tro_2', trade_tro_2)
 
-            # if 2 >= Scroll_count >= 1:
-            #     print('스크롤 ==', Scroll_count)
-            #     trade_baseline = pag.locateAllOnScreen('trade_baseline.png', confidence=0.9, region=(2 + (account // 2) * 960, 325 + (account % 2) * 540, 750, 26)) # 0.943하면 잘 못읽나?
-            #     trade_baseline_list = list(trade_baseline)
-            #     if len(trade_baseline_list) != 0:
-            #         for p in trade_baseline_list:
-            #             ctr = pag.center(p)
-            #             # 범위 내 조건 확인
-                        
-            #             else:
-            #                 print('여긴 어디 나는 누구?')
-
-            if 5 > Scroll_count >= 1:
-                print('스크롤 ==', Scroll_count)
-                trade_baseline = pag.locateAllOnScreen('trade_baseline.png', confidence=0.943, region=(2 + (account // 2) * 960, 325 + (account % 2) * 540, 750, 26))
+            if 6 > Scroll_count >= 2:
+                trade_baseline = pag.locateAllOnScreen('trade_baseline.png', confidence=0.943, region=(2 + (account // 2) * 960,325 + (account % 2) * 540,750,26))
                 trade_baseline_list = list(trade_baseline)
-                print('trade_baseline_list:', trade_baseline_list)
                 if len(trade_baseline_list) != 0:
                     for p in trade_baseline_list:
                         ctr = pag.center(p)
-                        # print('생산품까지 확인')
-                        print('생산품까지 확인, ctr:', ctr)
-                        if (account) == 0:
-                            # if Angmu_Action('trade_cotton.png', ctr, account):
-                            #     print('솜 판별 완료', ctr)
-                            # elif Angmu_Action('trade_berry.png', ctr, account):
-                            #     print('베리 판별 완료', ctr)
-                            # elif Angmu_Action('trade_biscuit.png', ctr, account):
-                            #     print('판별 완료',ctr)
-                            if Angmu_Action('crystal_pure.png', ctr, account):
-                                print('판별 완료',ctr)
-                            elif Angmu_Action('crystal_magic.png', ctr, account):
-                                print('판별 완료',ctr)
-                            elif Angmu_Action('crystal_power.png', ctr, account):
-                                print('판별 완료',ctr)
-                            elif Angmu_Action('crystal_quick.png', ctr, account):
-                                print('판별 완료',ctr)
-                            elif Angmu_Action('trade_assist_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_assist_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_bomb_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_bomb_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_fist_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_fist_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_recovery_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_recovery_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_shield_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_shield_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_shooting_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_shooting_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_staff_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_staff_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_sword_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_sword_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_milk.png', ctr, account):
-                                print('우유 판별 완료',ctr)
-                            elif Angmu_Action('trade_star.png', ctr, account):
-                                print('별조각 판별 완료', ctr)
-                            else:
-                                print('여긴 어디 나는 누구 계정0')
-                        if (account) == 1:
-                            # if Angmu_Action('trade_berry.png', ctr, account):
-                            #     print('베리 판별 완료', ctr)
-                            if Angmu_Action('crystal_pure.png', ctr, account):
-                                print('판별 완료',ctr)
-                            elif Angmu_Action('crystal_magic.png', ctr, account):
-                                print('판별 완료',ctr)
-                            elif Angmu_Action('crystal_power.png', ctr, account):
-                                print('판별 완료',ctr)
-                            elif Angmu_Action('crystal_quick.png', ctr, account):
-                                print('판별 완료',ctr)
-                            elif Angmu_Action('trade_assist_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_assist_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_bomb_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_bomb_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_fist_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_fist_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_recovery_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_recovery_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_shield_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_shield_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_shooting_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_shooting_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_staff_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_staff_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_sword_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_sword_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_cotton.png', ctr, account):
-                                print('솜 판별 완료',ctr)
-                            # elif Angmu_Action('trade_biscuit.png', ctr, account):
-                            #     print('판별 완료',ctr)
-                            # elif Angmu_Action('trade_milk.png', ctr, account):
-                            #     print('판별 완료',ctr)
-                            elif Angmu_Action('trade_star.png', ctr, account):
-                                print('별조각 판별 완료', ctr)
-                            else:
-                                print('여긴 어디 나는 누구 계정1')
-                        if (account) == 2:
-                            # if Angmu_Action('trade_berry.png', ctr, account):
-                            #     print('베리 판별 완료', ctr)
-                            if Angmu_Action('crystal_pure.png', ctr, account):
-                                print('판별 완료',ctr)
-                            elif Angmu_Action('crystal_magic.png', ctr, account):
-                                print('판별 완료',ctr)
-                            elif Angmu_Action('crystal_power.png', ctr, account):
-                                print('판별 완료',ctr)
-                            elif Angmu_Action('crystal_quick.png', ctr, account):
-                                print('판별 완료',ctr)
-                            elif Angmu_Action('trade_assist_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_assist_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_bomb_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_bomb_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_fist_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_fist_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_recovery_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_recovery_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_shield_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_shield_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_shooting_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_shooting_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_staff_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_staff_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_sword_lv1.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_sword_lv2.png', ctr, account):
-                                print('판별 완료', ctr)
-                            elif Angmu_Action('trade_cotton.png', ctr, account):
-                                print('솜 판별 완료',ctr)
-                            # elif Angmu_Action('trade_biscuit.png', ctr, account):
-                            #     print('판별 완료',ctr)
-                            # elif Angmu_Action('trade_milk.png', ctr, account):
-                            #     print('판별 완료',ctr)
-                            elif Angmu_Action('trade_star.png', ctr, account):
-                                print('별조각 판별 완료', ctr)
-                            else:
-                                print('여긴 어디 나는 누구 계정2')
+                        print('ctr',ctr)
+                        pag.moveTo(ctr)
+                        Angmu_Action_condition(ctr,account)
 
-            # if Scroll_count >= 2:
-            #     print('아이고 힘들다 2~')
-            #     trade_assist_lv3 = pag.locateCenterOnScreen('trade_assist_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
-            #     trade_bomb_lv3 = pag.locateCenterOnScreen('trade_bomb_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
-            #     trade_fist_lv3 = pag.locateCenterOnScreen('trade_fist_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
-            #     trade_recovery_lv3 = pag.locateCenterOnScreen('trade_recovery_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
-            #     trade_shield_lv3 = pag.locateCenterOnScreen('trade_shield_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
-            #     trade_shooting_lv3 = pag.locateCenterOnScreen('trade_shooting_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
-            #     trade_staff_lv3 = pag.locateCenterOnScreen('trade_staff_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
-            #     trade_sword_lv3 = pag.locateCenterOnScreen('trade_sword_lv3.png', confidence=0.85, region=(2,350+account*540,917,40))
 
             # 드래그드래그
             print('드래그')
@@ -8618,8 +8436,333 @@ def Arena_action(account, set_max_power):
         send_telegram_message('arena_action에서 에러가 났어요!')
         Kingdom_ready(account, 'kkd_out')  # 재부팅
 
-# 새 함수 추가가 필요할 경우 이 위에다 추가(++)
+def find_num_trade_in(image, trade_howmuch, trade_region_restrict, list_output):
+    # 보유량: 이미지 바로 오른쪽 픽셀부터... 최대 56?x18 범위
+    prod_num = pag.locateAllOnScreen(image, confidence=0.92, region=(trade_howmuch.x+22,trade_howmuch.y-9,trade_region_restrict,18))
+    num_list = list(prod_num)
+    if len(num_list) != 0:
+        for p in num_list:
+            ctr = pag.center(p)
+            list_output.append(ctr)
+    # print(image,list_output)
+    return
 
+
+def Trade_how_much(account):
+    trade_howmuch = pag.locateCenterOnScreen('trade_howmuch.png', grayscale=True, confidence=0.89, region=(2 + (account // 2) * 960,32 + (account % 2) * 540,917,505))
+    if (trade_howmuch):
+        # '개'가 있으면 그 부분까지만 읽음..
+        trade_howmuch_end = pag.locateCenterOnScreen('trade_howmuch_end.png', confidence=0.8, region=(trade_howmuch.x+22,trade_howmuch.y-9,62,18))
+        if (trade_howmuch_end):
+            print('trade_howmuch_end',trade_howmuch_end)
+            trade_region_restrict = (trade_howmuch_end.x - 6) - (trade_howmuch.x + 22)
+        else:
+            print('trade_howmuch_end 없음')
+            trade_region_restrict = 52
+        print('trade_region_restrict',trade_region_restrict)
+        
+        its_number = 0  # 숫자 초기화(없는 경우 그대로 유지되겠지?)
+        list_real_num = list()  # 실제값 계산을 위한 리스트 생성
+        list_num_0 = list()
+        list_num_1 = list()
+        list_num_2 = list()
+        list_num_3 = list()
+        list_num_4 = list()
+        list_num_5 = list()
+        list_num_6 = list()
+        list_num_7 = list()
+        list_num_8 = list()
+        list_num_9 = list()
+        # 으아아아아 숫자 가져와아아아아
+        find_num_trade_in('up_tr_0.png', trade_howmuch, trade_region_restrict, list_num_0)
+        find_num_trade_in('up_tr_0_1.png', trade_howmuch, trade_region_restrict, list_num_0)
+        find_num_trade_in('up_tr_1.png', trade_howmuch, trade_region_restrict, list_num_1)
+        find_num_trade_in('up_tr_2.png', trade_howmuch, trade_region_restrict, list_num_2)
+        find_num_trade_in('up_tr_2_1.png', trade_howmuch, trade_region_restrict, list_num_2)
+        find_num_trade_in('up_tr_3.png', trade_howmuch, trade_region_restrict, list_num_3)
+        find_num_trade_in('up_tr_4.png', trade_howmuch, trade_region_restrict, list_num_4)
+        find_num_trade_in('up_tr_4_1.png', trade_howmuch, trade_region_restrict, list_num_4)
+        find_num_trade_in('up_tr_5.png', trade_howmuch, trade_region_restrict, list_num_5)
+        find_num_trade_in('up_tr_6.png', trade_howmuch, trade_region_restrict, list_num_6)
+        find_num_trade_in('up_tr_6_1.png', trade_howmuch, trade_region_restrict, list_num_6)
+        find_num_trade_in('up_tr_7.png', trade_howmuch, trade_region_restrict, list_num_7)
+        find_num_trade_in('up_tr_7_1.png', trade_howmuch, trade_region_restrict, list_num_7)
+        find_num_trade_in('up_tr_8.png', trade_howmuch, trade_region_restrict, list_num_8)
+        find_num_trade_in('up_tr_8_1.png', trade_howmuch, trade_region_restrict, list_num_8)
+        find_num_trade_in('up_tr_9.png', trade_howmuch, trade_region_restrict, list_num_9)
+        find_num_trade_in('up_tr_9_1.png', trade_howmuch, trade_region_restrict, list_num_9)
+
+        list_num_0 = del_duplication(2, list_num_0)
+        list_num_1 = del_duplication(2, list_num_1)
+        list_num_2 = del_duplication(2, list_num_2)
+        list_num_3 = del_duplication(2, list_num_3)
+        list_num_4 = del_duplication(2, list_num_4)
+        list_num_5 = del_duplication(2, list_num_5)
+        list_num_6 = del_duplication(2, list_num_6)
+        list_num_7 = del_duplication(2, list_num_7)
+        list_num_8 = del_duplication(2, list_num_8)
+        list_num_9 = del_duplication(2, list_num_9)
+        if (list_num_0): # Y좌표에 따른 숫자 배치. X좌표에 따라 배치돼야 하므로 X좌표는 살리고 Y좌표는 숫자 계산을 위해 리스트 값으로 대체
+            for p in list_num_0:
+                list_real_num.append((p[0],0))
+
+        if (list_num_1):
+            for p in list_num_1:
+                list_real_num.append((p[0],1))
+            print('append 후 list_1', list_num_1)
+        if (list_num_2):
+            for p in list_num_2:
+                list_real_num.append((p[0],2))
+
+        if (list_num_3):
+            for p in list_num_3:
+                list_real_num.append((p[0],3))
+
+        if (list_num_4):
+            for p in list_num_4:
+                list_real_num.append((p[0],4))
+
+        if (list_num_5):
+            for p in list_num_5:
+                list_real_num.append((p[0],5))
+
+        if (list_num_6):
+            for p in list_num_6:
+                list_real_num.append((p[0],6))
+
+        if (list_num_7):
+            for p in list_num_7:
+                list_real_num.append((p[0],7))
+
+        if (list_num_8):
+            for p in list_num_8:
+                list_real_num.append((p[0],8))
+
+        if (list_num_9):
+            for p in list_num_9:
+                list_real_num.append((p[0],9))
+
+        # 지겨운 실제값 리스트를 받았으니
+        list_real_num.sort()    # 추려서
+        
+        # print('sort 이후',list_real_num)
+
+        # del_list = list()
+        # if len(list_real_num) > 1: # 중복 확인. 0,1,2,3,4 이런식이면 0과 1~4, 1과 2~4, 3과 4 이런식으로 중복 비교
+        #     for i in range(len(list_real_num)-1):
+        #         for j in range(len(list_real_num)-1-i):
+        #             if abs(int(list_real_num[i][0])-int(list_real_num[i+1+j][0])) < 2 and abs(int(list_real_num[i][1])-int(list_real_num[i+1+j][1])) < 2:
+        #                 del_list.append(list_real_num[i])
+        # list_real_num = [x for x in list_real_num if x not in del_list]
+        
+
+        print('set 이전',list_real_num)
+        
+        # list_real_num1 = set(list_real_num)
+        
+        # print('set 이후',list_real_num1)
+        
+        for i in range(len(list_real_num)): # 실제 int값으로 변환
+            its_number = its_number + list_real_num[i][1]*10**(len(list_real_num)-i-1)
+
+        print('현재 재고는 =', its_number)
+        return its_number
+        # for i in range(10):
+        #     trade_t1 = 'up_tr_'
+        #     trade_i = str(i)
+        #     trade_t2 = '.png'
+        #     num_now = pag.locateAllOnScreen(trade_t1+trade_i+trade_t2, grayscale=True, confidence=0.92, region=(trade_howmuch.x+22,trade_howmuch.y-9,trade_region_restrict,18))
+        #     list_num = list(num_now)
+        #     if len(list_num) > 0:
+        #         for p in list_num:
+        #             ctr = pag.center(p)
+        #             print('ctr of num %s : %s'%(i, ctr))
+        #             pag.moveTo(ctr)
+    else:
+        print('보유량: 글씨를 찾지 못했어요!')
+        # 걍 사고봐 : 0, 그럼 안사 : 9999
+        return 9999
+
+def Angmu_Action_condition(ctr, account):
+    ext_t = '.png'
+    bBuy_Must = False   # 꼭 사(별의 조각, 각종 수정, 1렙 스킬 파우더, 솜)
+    bBuy_Mid = False    # 재고 봐서 사(기존 동일 : 2렙 스킬 파우더 - 325 이상만)
+    bBuy_Mid_1 = False  # 재고 봐서 사(재고 비교해서 적은놈이면 삼 : 베리,비스킷,우유)
+    bBuy_No = False     # 안 살거
+    # 살지말지 고민좀 해보고(다 캡처 못한 영혼석, 사탕, 3렙 스킬 파우더)
+    # 3. 3렙 파우더, 시계의 경우 줄 것의 재고 비율이...... 몇 프로로 해야 하나
+    # 1. 1렙 파우더, 조각들, 솜은 무조건 구매함(못사면 말고)
+    trade_must_buy = ('crystal_pure', 'crystal_magic', 'crystal_power', 'crystal_quick', 'trade_star',
+                      'trade_assist_lv1', 'trade_bomb_lv1', 'trade_fist_lv1', 'trade_recovery_lv1', 'trade_shield_lv1',
+                      'trade_shooting_lv1', 'trade_staff_lv1', 'trade_sword_lv1',
+                      'trade_cotton')
+    for t in trade_must_buy:
+        item_check = pag.locateCenterOnScreen(t+ext_t, confidence=0.82, region=(ctr[0]+35,345 + (account % 2) * 540,60,50))
+        if (item_check):
+            print('꼭 살것!')
+            new_ctr = item_check    # 살거 위치 확인(현재 ctr은 상자 왼쪽 상단 baseline)
+            bBuy_Must = True    # 꼭 사야해!
+            break
+    if bBuy_Must:
+        pag.click(new_ctr)
+        time.sleep(1)
+        pag.click(460 + random.randint(-40,40) + (account // 2) * 960,385 + random.randint(-15,15) + (account % 2) * 540)
+        time.sleep(2)
+        trade_not_enough = pag.locateCenterOnScreen('trade_not_enough.png', confidence=0.85, region=(472 + (account // 2) * 960,221 + (account % 2) * 540,25,17))
+        if (trade_not_enough):
+            print('앗 부족..')
+            pag.click(629 + random.randint(0,13) + (account // 2) * 960,153 + random.randint(0,13) + (account % 2) * 540,2,0.3)
+        return True
+    
+    # 2. 2렙 파우더의 경우 줄 것 재고 325개 이상은 구매함(나무,젤빈,각설,1렙 스킬파우더 상관없음)
+    trade_mid_buy = ('trade_assist_lv2', 'trade_bomb_lv2', 'trade_fist_lv2', 'trade_recovery_lv2', 'trade_shield_lv2',
+                     'trade_shooting_lv2', 'trade_staff_lv2', 'trade_sword_lv2')
+    for t in trade_mid_buy:
+        item_check = pag.locateCenterOnScreen(t+ext_t, confidence=0.82, region=(ctr[0]+35,345 + (account % 2) * 540,60,50))
+        if (item_check):
+            print('Mid 조건!')
+            new_ctr = item_check    # 살거 위치 확인(현재 ctr은 상자 왼쪽 상단 baseline)
+            bBuy_Mid = True     # 재고 봐서 사야해!
+            break
+    if bBuy_Mid:
+        if Angmu_check(ctr[0]+9,account) > 324:
+            print('어머 이건 사야해!')
+            pag.click(new_ctr)
+            time.sleep(1)
+            pag.click(random.randint(420,500) + (account // 2) * 960,random.randint(370,400) + (account % 2) * 540)
+            time.sleep(2)
+            trade_not_enough = pag.locateCenterOnScreen('trade_not_enough.png', confidence=0.85, region=(472 + (account // 2) * 960,221 + (account % 2) * 540,25,17))
+            if (trade_not_enough):
+                print('앗 부족..')
+                pag.click(random.randint(629,629+13) + (account // 2) * 960,random.randint(153,153+13) + (account % 2) * 540,2,0.3)
+            return True
+        else:
+            print('325개 안되어 취소!')
+            return True
+    # 3. 물물교환 할거(베리, 비스킷, 우유)
+    trade_mid_buy_1 = ('trade_berry', 'trade_biscuit', 'trade_milk')
+    for t in trade_mid_buy_1:
+        item_check = pag.locateCenterOnScreen(t+ext_t, confidence=0.82, region=(ctr[0]+35,345 + (account % 2) * 540,60,50))
+        if (item_check):
+            print('Mid_1 조건!')
+            new_ctr = item_check    # 살거 위치 확인(현재 ctr은 상자 왼쪽 상단 baseline)
+            bBuy_Mid_1 = True     # 재고 봐서 사야해!
+            break
+    if bBuy_Mid_1:
+        print('어머 이건 봐야 해!')
+        # 줄게 뭐니?
+        bJeryo = False
+        trade_jeryo = ('trade_small_wood', 'trade_small_jelbean', 'trade_small_sugar')  # 이거 아니면 동급 재료(베리 비스킷 우유)
+        for t in trade_jeryo:
+            whatisthis = pag.locateCenterOnScreen(t+ext_t, confidence=0.85, region=(ctr.x,430 + (account % 2) * 540,40,46))
+            if (whatisthis):
+                print(t)
+                bJeryo = True
+                break
+        if bJeryo:  # 기본재료면 걍 넘겨보리기
+            print('오 기본재료로 중간재료 개이득!')
+            pag.click(new_ctr)
+            time.sleep(1)
+            pag.click(random.randint(420,500) + (account // 2) * 960,random.randint(370,400) + (account % 2) * 540)
+            time.sleep(2)
+            trade_not_enough = pag.locateCenterOnScreen('trade_not_enough.png', confidence=0.85, region=(472,221 + (account % 2) * 540,25,17))
+            if (trade_not_enough):
+                print('앗 부족..')
+                pag.click(random.randint(629,629+13) + (account // 2) * 960,random.randint(153,153+13) + (account % 2) * 540,2,0.3)
+            return True
+        else:
+            # 동급재료면 줄거 재고 파악
+            iTrade_to_give = Angmu_check(ctr[0]+9,account)
+            # 읽었으면 들어가서
+            if iTrade_to_give > 0:
+                pag.click(new_ctr)
+                time.sleep(1)
+                # 받을 거 수량 파악
+                iTrade_to_receive = Trade_how_much(account)
+                # 줄 것 재고가 받을 것 재고보다 많으면
+                if iTrade_to_give > iTrade_to_receive:
+                    print('오 이거 바꾸자!')
+                    pag.click(random.randint(420,500) + (account // 2) * 960,random.randint(370,400) + (account % 2) * 540)
+                    time.sleep(2)
+                    trade_not_enough = pag.locateCenterOnScreen('trade_not_enough.png', confidence=0.85, region=(472 + (account // 2) * 960,221 + (account % 2) * 540,25,17))
+                    if (trade_not_enough):
+                        print('앗 부족..')
+                        pag.click(random.randint(629,629+13) + (account // 2) * 960,random.randint(153,153+13) + (account % 2) * 540,2,0.3)
+                        time.sleep(0.5)
+                    return True
+                else:
+                    # 받을 게 줄 것보다 재고 많은 경우 걍 빠져나옴
+                    print('안바꿈!')
+                    pag.click(random.randint(629,629+13) + (account // 2) * 960,random.randint(153,153+13) + (account % 2) * 540,2,0.3)
+                    time.sleep(0.5)
+                    return True
+            else:
+                print('왜 못읽지?')
+                return True
+    
+    # 4. 안 살거(나무 젤리빈 각설)
+    trade_not_buy = ('trade_wood', 'trade_jelbean', 'trade_sugar')
+    for t in trade_not_buy:
+        item_check = pag.locateCenterOnScreen(t+ext_t, confidence=0.82, region=(ctr[0]+35,345 + (account % 2) * 540,60,50))
+        if (item_check):
+            print('기본재룐 안사요!')
+            return True
+    
+    print('조건 네 개 아니면.. 3렙 파우더, 영혼석, 사탕 또는 시계 중 하나겠네')
+    print('현재 재고는 %s개 입니다.'%(Angmu_check(ctr[0]+9,account)))
+    #     print(item_check)
+    #     # 지불할 것이 기본 재료인 경우
+    #     trade_3easy = ('trade_small_wood', 'trade_small_jelbean', 'trade_small_sugar')
+    #     for t in trade_3easy:
+    #         whatisthis = pag.locateCenterOnScreen(t+ext_t, confidence=0.85, region=(ctr.x,430 + (account % 2) * 540,40,46))
+    #         if (whatisthis):
+    #             print(t)
+    #             bItem_easy = True
+    #             break
+        
+    #     trade_3mid = ('trade_small_biscuit',
+    #          'trade_small_berry',
+    #          'trade_small_milk')
+    #     for t in trade_3mid:
+    #         whatisthis = pag.locateCenterOnScreen(t+ext_t, confidence=0.85, region=(ctr.x,430 + (account % 2) * 540,40,46))
+    #         if (whatisthis):
+    #             print(t)
+    #             bItem_mid = True
+    #             break
+        
+    #     # 쉬운 거 살때(나무 젤빈 각설)
+    #     if bItem_easy:
+    #         print('어머 이건 사야해!')
+    #         pag.click(item_check)
+    #         time.sleep(1)
+    #         pag.click(460 + random.randint(-40,40),385 + random.randint(-15,15) + (account % 2) * 540)
+    #         time.sleep(2)
+    #         trade_not_enough = pag.locateCenterOnScreen('trade_not_enough.png', confidence=0.85, region=(472,221 + (account % 2) * 540,25,17))
+    #         if (trade_not_enough):
+    #             print('앗 부족..')
+    #             pag.click(629 + random.randint(0,13),153 + random.randint(0,13) + (account % 2) * 540,2,0.3)
+    #         return True
+    #     else:
+    #         print('사지 않고 넘어갑니다!')
+        
+    #     # 아 고민좀 해보고 싶을 때(비스, 베리, 밀크).. 솜은 주기 싫엉
+    #     if bItem_mid:
+    #         print('어머 이건 사야해!')
+    #         pag.click(item_check)
+    #         time.sleep(1)
+    #         pag.click(460 + random.randint(-40,40),385 + random.randint(-15,15) + (account % 2) * 540)
+    #         time.sleep(2)
+    #         trade_not_enough = pag.locateCenterOnScreen('trade_not_enough.png', confidence=0.85, region=(472,221 + (account % 2) * 540,25,17))
+    #         if (trade_not_enough):
+    #             print('앗 부족..')
+    #             pag.click(629 + random.randint(0,13),153 + random.randint(0,13) + (account % 2) * 540,2,0.3)
+    #         return True
+    #     else:
+    #         print('사지 않고 넘어갑니다!')
+    #         return True
+    # else:
+    #     print('이미지 못읽어?')
+    #     return False
 
 # 새 함수 추가가 필요할 경우 이 위에다 추가(++)
 
