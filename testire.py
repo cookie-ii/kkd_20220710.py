@@ -8259,12 +8259,17 @@ def Arena_action(account, set_max_power):
                                         time.sleep(1)
 
                                         # 로딩 창 떴다? 그럼 들어간거.
-                                        cond_adv_arena_fight_entered = pag.locateCenterOnScreen('Cond_wanted_start_fignt.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+                                        cond_adv_arena_fight_entered = pag.locateCenterOnScreen('cond_adv_arena_fight_entered.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
                                         if (cond_adv_arena_fight_entered):
-                                            print('전투 진입!')
-                                            pag.click(827 + (account // 2) * 960, 491 + (account % 2) * 540)
+                                            print('전투 진입해뜸!')
+                                            # pag.click(827 + (account // 2) * 960, 491 + (account % 2) * 540) # ?
                                             bFight_started = True
 
+                                        # 가끔(?) VS 인식 못하고 넘어가나? 트로피 보이면 전투 시작이라 판단(쩝..)
+                                        cond_adv_arena_end_fight = pag.locateCenterOnScreen('cond_adv_arena_end_fight.png', confidence=0.8, region = (2+(account//2)*960, 32+(account%2)*540, 917, 505))
+                                        if (cond_adv_arena_end_fight):
+                                            bFight_started = True
+                                            
                                         # 전투 전 0.5초 주기
                                         time.sleep(0.5)
                                     else:  # 전투에 들어갔다면 트로피 모양 보일 때까지 대기
