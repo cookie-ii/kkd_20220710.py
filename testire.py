@@ -6391,35 +6391,24 @@ def Angmu_Aft_Refresh(account):
                 # Angmu_Action('trade_tro_1', trade_tro_1)
                 # Angmu_Action('trade_tro_2', trade_tro_2)
 
-            if 6 > Scroll_count >= 2:
-                trade_baseline = pag.locateAllOnScreen('trade_baseline.png', confidence=0.943, region=(2 + (account // 2) * 960,325 + (account % 2) * 540,750,26))
-                trade_baseline_list = list(trade_baseline)
-                if len(trade_baseline_list) != 0:
-                    for p in trade_baseline_list:
-                        ctr = pag.center(p)
-                        print('ctr',ctr)
-                        pag.moveTo(ctr)
-                        Angmu_Action_condition(ctr,account)
-
-
-            # 드래그드래그
-            print('드래그')
-            pag.moveTo(random.randint(786, 820) + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540))
-            pag.mouseDown()
-            time.sleep(0.5)
-            pag.moveTo(random.randint(786, 820) - 150 * 2.5 + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540), 5)  # 153인데 20 더 여유줌
-            time.sleep(0.5)
-            pag.mouseUp()
-            time.sleep(0.5)
-
-            # 6번 스크롤 하면 끗
-            if Scroll_count >= 6:
+            # 드래그는 음 조건 봐서 하 이거 맘에 안드는데 바꾸기 기찬...
+            if Scroll_count >= 5:
                 print('완료')
                 pag.click(892 + (account // 2) * 960,54 + (account % 2) * 540)
                 time.sleep(2)
                 pag.click(892 + (account // 2) * 960,54 + (account % 2) * 540)
                 time.sleep(6)
                 return
+            else:
+                # 드래그드래그
+                print('드래그')
+                pag.moveTo(random.randint(786, 820) + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540))
+                pag.mouseDown()
+                time.sleep(0.5)
+                pag.moveTo(random.randint(786, 820) - 150 * 2.5 + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540), 5)  # 153인데 20 더 여유줌
+                time.sleep(0.5)
+                pag.mouseUp()
+                time.sleep(0.5)
 
             start_lineup = time.time()
             while True:
@@ -6448,7 +6437,7 @@ def Angmu_Aft_Refresh(account):
                     return
 
 
-                trade_baseline_gray = pag.locateCenterOnScreen('trade_baseline_gray.png', confidence=0.9, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+                trade_baseline_gray = pag.locateCenterOnScreen('trade_baseline_gray.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
                 if (trade_baseline_gray):
                     if (92 + (account // 2) * 960 >= trade_baseline_gray[0] > 70 + (account // 2) * 960) or (92 + 157 + (account // 2) * 960 >= trade_baseline_gray[0] > 70 + 157 + (account // 2) * 960):
                         Scroll_count = Scroll_count + 1
@@ -6459,14 +6448,14 @@ def Angmu_Aft_Refresh(account):
                         time.sleep(0.5)
                         pag.moveTo(790 + 50 + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540), 2)  # 한 번 움직여보고
                         time.sleep(0.5)
-                        trade_baseline_gray_new = pag.locateCenterOnScreen('trade_baseline_gray.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+                        trade_baseline_gray_new = pag.locateCenterOnScreen('trade_baseline_gray.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
                         if (trade_baseline_gray_new):
                             pag.moveTo(790+(account//2)*960*2 + 50 - trade_baseline_gray_new[0] + 73, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540), 3)  # 153인데 20 더 여유줌
                         time.sleep(0.5)
                         pag.mouseUp()
                         time.sleep(0.5)
 
-                trade_baseline = pag.locateCenterOnScreen('trade_baseline.png', confidence=0.9, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+                trade_baseline = pag.locateCenterOnScreen('trade_baseline.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
                 if (trade_baseline):
                     print(92 + 157 + (account // 2) * 960, '>=', trade_baseline[0], '>', 70 + 157 + (account // 2) * 960)
                     if (92 + (account // 2) * 960 >= trade_baseline[0] > 70 + (account // 2) * 960) or (92 + 157 + (account // 2) * 960 >= trade_baseline[0] > 70 + 157 + (account // 2) * 960):
@@ -6479,12 +6468,24 @@ def Angmu_Aft_Refresh(account):
                         time.sleep(0.5)
                         pag.moveTo(790 + 50 + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540), 2)  # 한 번 움직여보고
                         time.sleep(0.5)
-                        trade_baseline_new = pag.locateCenterOnScreen('trade_baseline.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+                        trade_baseline_new = pag.locateCenterOnScreen('trade_baseline.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
                         if (trade_baseline_new):
                             pag.moveTo(790+(account//2)*960*2 + 50 - trade_baseline_new[0] + 73, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540), 3)  # 153인데 20 더 여유줌
                         time.sleep(0.5)
                         pag.mouseUp()
                         time.sleep(0.5)
+            
+            # 확인 동작 끝나고 드래그 하고 끝남 윽.
+            if 6 > Scroll_count >= 2:
+                trade_baseline = pag.locateAllOnScreen('trade_baseline.png', confidence=0.943, region=(2 + (account // 2) * 960,325 + (account % 2) * 540,750,26))
+                trade_baseline_list = list(trade_baseline)
+                if len(trade_baseline_list) != 0:
+                    for p in trade_baseline_list:
+                        ctr = pag.center(p)
+                        print('ctr',ctr)
+                        pag.moveTo(ctr)
+                        Angmu_Action_condition(ctr,account)
+
         return print('Angmu_Aft_Refresh 완료!')
     except:
         print('에러가 났어요! Angmu_Aft_Refresh')
