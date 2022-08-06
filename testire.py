@@ -138,6 +138,25 @@ bFirstCookhouC = False  # 첫 쿠하(클릭)
 bFirstFountainA = False  # 첫 분수(시간 확인만?)
 bFirstFountainB = False  # 첫 분수(시간 확인만?)
 bFirstFountainC = False  # 첫 분수(시간 확인만?)
+bBbopkki_first_A = False # 첫 뽑기
+bBbopkki_first_B = False # 첫 뽑기
+bBbopkki_first_C = False # 첫 뽑기
+bShop_first_A = False # 첫 상점
+bShop_first_B = False # 첫 상점
+bShop_first_C = False # 첫 상점
+bGuild_first_A = False # 첫 길드   
+bGuild_first_B = False # 첫 길드   
+bGuild_first_C = False # 첫 길드   
+bKpass_first_A = False # 첫 킹덤패스
+bKpass_first_B = False # 첫 킹덤패스
+bKpass_first_C = False # 첫 킹덤패스
+bTemple_first_A = False # 첫 신전
+bTemple_first_B = False # 첫 신전
+bTemple_first_C = False # 첫 신전
+bTropical_first_A = False # 첫 트로피칼
+bTropical_first_B = False # 첫 트로피칼
+bTropical_first_C = False # 첫 트로피칼
+
 bBbopkkiA = False  # 일일뽑기보상 받았나?
 bBbopkkiB = False  # 일일뽑기보상 받았나?
 bBbopkkiC = False  # 일일뽑기보상 받았나?
@@ -175,6 +194,27 @@ fountain_set_time_B = 3000  # 분수 클릭 주기
 cookie_set_time_B = 3000  # 쿠키하우스 클릭 주기
 fountain_set_time_C = 3000  # 분수 클릭 주기
 cookie_set_time_C = 3000  # 쿠키하우스 클릭 주기
+
+bbopkki_A   = 60*60*23 # 뽑기 확인 주기
+bbopkki_B   = 60*60*23 # 뽑기 확인 주기
+bbopkki_C   = 60*60*23 # 뽑기 확인 주기
+shop_A      = 60*60*23 # 상점 확인 주기
+shop_B      = 60*60*23 # 상점 확인 주기
+shop_C      = 60*60*23 # 상점 확인 주기
+guild_A     = 60*60*23 # 길드 확인 주기
+guild_B     = 60*60*23 # 길드 확인 주기
+guild_C     = 60*60*23 # 길드 확인 주기
+kpass_A     = 60*60*6 # 킹덤패스 확인 주기
+kpass_B     = 60*60*6 # 킹덤패스 확인 주기
+kpass_C     = 60*60*6 # 킹덤패스 확인 주기
+temple_A    = 60*60*6 # 신전 확인 주기
+temple_B    = 60*60*6 # 신전 확인 주기
+temple_C    = 60*60*6 # 신전 확인 주기
+tropical_A  = 60*60*6 # 트로피칼 확인 주기
+tropical_B  = 60*60*6 # 트로피칼 확인 주기
+tropical_C  = 60*60*6 # 트로피칼 확인 주기
+
+
 how_many_cycle = 1  # 생산 사이클
 delay_to_next_account = 1  # 다음 계정 동작 전 대기시간
 heart_set_num = 180  # 하트가 이 숫자보다 많으면.. 모험 실행
@@ -300,7 +340,7 @@ jewel_lev3_A = 25  # 로얄 곰젤리 크라운
 magic_num_A = 1    # 마법공방
 magic_lev1_A = 60    # 고농축 에스프레소
 magic_lev2_A = 60    # 울퉁불퉁 뿔고구마
-magic_lev3_A = 190    # 향기로운 포도주스
+magic_lev3_A = 290    # 향기로운 포도주스
 magic_lev4_A = 200    # 빨리감기 태엽장치
 magic_lev5_A = 0    # 수수께끼의 파우더 주머니
 magic_lev6_A = 0    # 수수께끼의 빛나는 파우더 주머니
@@ -312,7 +352,7 @@ magic_lev11_A = 0    # 토핑 조각
 magic_lev12_A = 0    # 찬란한 빛조각
 
 icecream_num_A = 2  # 아이스크림 트럭 건물 수
-icecream_lev1_A = 30  # 낮의 별가루 스프링클 아이스크림
+icecream_lev1_A = 20  # 낮의 별가루 스프링클 아이스크림
 icecream_lev2_A = 30  # 밤의 별가루 스프링클 아이스크림
 icecream_lev3_A = 30  # 꿈꾸는 성의 아이스크림 바닐라 샌드
 icecream_lev4_A = 30  # 꿈꾸는 성의 아이스크림 초코 샌드
@@ -431,9 +471,9 @@ jewel_lev2_B = 100  # 루비베리 브로치
 jewel_lev3_B = 100  # 로얄 곰젤리 크라운
 
 magic_num_B = 1    # 마법공방
-magic_lev1_B = 20    # 고농축 에스프레소
-magic_lev2_B = 20    # 울퉁불퉁 뿔고구마
-magic_lev3_B = 190    # 향기로운 포도주스
+magic_lev1_B = 30    # 고농축 에스프레소
+magic_lev2_B = 30    # 울퉁불퉁 뿔고구마
+magic_lev3_B = 290    # 향기로운 포도주스
 magic_lev4_B = 0    # 빨리감기 태엽장치
 magic_lev5_B = 0    # 수수께끼의 파우더 주머니
 magic_lev6_B = 0    # 수수께끼의 빛나는 파우더 주머니
@@ -446,7 +486,7 @@ magic_lev12_B = 0    # 찬란한 빛조각
 
 
 icecream_num_B = 2  # 아이스크림 트럭 건물 수
-icecream_lev1_B = 30  # 낮의 별가루 스프링클 아이스크림
+icecream_lev1_B = 20  # 낮의 별가루 스프링클 아이스크림
 icecream_lev2_B = 30  # 밤의 별가루 스프링클 아이스크림
 icecream_lev3_B = 30  # 꿈꾸는 성의 아이스크림 바닐라 샌드
 icecream_lev4_B = 30  # 꿈꾸는 성의 아이스크림 초코 샌드
@@ -566,9 +606,9 @@ jewel_lev2_C = 110  # 루비베리 브로치
 jewel_lev3_C = 110  # 로얄 곰젤리 크라운
 
 magic_num_C = 1    # 마법공방
-magic_lev1_C = 20    # 고농축 에스프레소
-magic_lev2_C = 20    # 울퉁불퉁 뿔고구마
-magic_lev3_C = 190    # 향기로운 포도주스
+magic_lev1_C = 30    # 고농축 에스프레소
+magic_lev2_C = 30    # 울퉁불퉁 뿔고구마
+magic_lev3_C = 290    # 향기로운 포도주스
 magic_lev4_C = 0    # 빨리감기 태엽장치
 magic_lev5_C = 0    # 수수께끼의 파우더 주머니
 magic_lev6_C = 0    # 수수께끼의 빛나는 파우더 주머니
@@ -581,9 +621,9 @@ magic_lev12_C = 0    # 찬란한 빛조각
 
 
 icecream_num_C = 2  # 아이스크림 트럭 건물 수
-icecream_lev1_C = 30  # 낮의 별가루 스프링클 아이스크림
-icecream_lev2_C = 40  # 밤의 별가루 스프링클 아이스크림
-icecream_lev3_C = 40  # 꿈꾸는 성의 아이스크림 바닐라 샌드
+icecream_lev1_C = 20  # 낮의 별가루 스프링클 아이스크림
+icecream_lev2_C = 30  # 밤의 별가루 스프링클 아이스크림
+icecream_lev3_C = 30  # 꿈꾸는 성의 아이스크림 바닐라 샌드
 icecream_lev4_C = 30  # 꿈꾸는 성의 아이스크림 초코 샌드
 icecream_lev5_C = 30  # 밀키웨이 아이스바
 
@@ -4223,10 +4263,10 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
             mark_x_mission = pag.locateCenterOnScreen('mark_x_mission.png', confidence=0.8, region=(778 + (account // 2) * 960, 124 + (account % 2) * 540, 50, 50))  # 미션 취소
             cond_error_page = pag.locateCenterOnScreen('cond_error_page.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 검은 바탕... 렉 등에 의한 오류?
             kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
-            kkd_ad = pag.locateCenterOnScreen('cond_error_ad.png', confidence=0.95, region=(1, 1 , 960*2, 540*2))
-            kkd_ad1 = pag.locateCenterOnScreen('cond_error_ad1.png', confidence=0.95, region=(1, 1, 960 * 2, 540 * 2))
-            kkd_ad2 = pag.locateCenterOnScreen('cond_error_ad2.png', confidence=0.95, region=(1, 1, 960 * 2, 540 * 2))
-            kkd_ad3 = pag.locateCenterOnScreen('cond_error_ad3.png', grayscale=True, confidence=0.8, region=(1, 1, 960 * 2, 540 * 2))
+            kkd_ad = pag.locateCenterOnScreen('cond_error_ad.png',  grayscale=True, confidence=0.8, region=(1471, 745 , 443, 335))
+            kkd_ad1 = pag.locateCenterOnScreen('cond_error_ad1.png',  grayscale=True, confidence=0.8, region=(1471, 745 , 443, 335))
+            kkd_ad2 = pag.locateCenterOnScreen('cond_error_ad2.png',  grayscale=True, confidence=0.8, region=(1471, 745 , 443, 335))
+            kkd_ad3 = pag.locateCenterOnScreen('cond_error_ad3.png',  grayscale=True, confidence=0.8, region=(1471, 745 , 443, 335))
             kkd_winupdate = pag.locateCenterOnScreen('cond_error_winupdate.png', confidence=0.95, region=(1, 1, 960 * 2, 540 * 2))
             cond_kkd_arena = pag.locateCenterOnScreen('cond_kkd_arena.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
             cond_kkd_arena_continue = pag.locateCenterOnScreen('cond_kkd_arena_continue.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 전투 재개(겜 튕겼다 들어와서 아레나 전투!)
@@ -8623,7 +8663,7 @@ def Arena_action(account, set_max_power):
 
 # 새 함수 추가가 필요할 경우 이 위에다 추가(++)
 
-
+macro_start_time = time.time() # 매크로 처음 시작한 시간!
 man_macro_chk_time = time.time()
 if number_of_accounts == 2 or number_of_accounts == 3:
     try:
@@ -8828,6 +8868,44 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                     cookie_time_C = time.time()
                 if not bFirstFountainC:
                     fountain_time_C = time.time()
+                
+                if not bBbopkki_first_A:
+                    bBbopkki_first_A = time.time()
+                if not bBbopkki_first_B:
+                    bBbopkki_first_B = time.time()
+                if not bBbopkki_first_C:
+                    bBbopkki_first_C = time.time()
+                if not bShop_first_A:
+                    bShop_first_A = time.time()
+                if not bShop_first_B:
+                    bShop_first_B = time.time()
+                if not bShop_first_C:
+                    bShop_first_C = time.time()
+                if not bGuild_first_A:
+                    bGuild_first_A = time.time()
+                if not bGuild_first_B:
+                    bGuild_first_B = time.time()
+                if not bGuild_first_C:
+                    bGuild_first_C = time.time()
+                if not bKpass_first_A:
+                    bKpass_first_A = time.time()
+                if not bKpass_first_B:
+                    bKpass_first_B = time.time()
+                if not bKpass_first_C:
+                    bKpass_first_C = time.time()
+                if not bTemple_first_A:
+                    bTemple_first_A = time.time()
+                if not bTemple_first_B:
+                    bTemple_first_B = time.time()
+                if not bTemple_first_C:
+                    bTemple_first_C = time.time()
+                if not bTropical_first_A:
+                    bTropical_first_A = time.time()
+                if not bTropical_first_B:
+                    bTropical_first_B = time.time()
+                if not bTropical_first_C:
+                    bTropical_first_C = time.time()
+                
             elif number_of_accounts == 2:
                 # 초기화
                 cycle_check = 0
@@ -8862,6 +8940,30 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                 if not bFirstFountainB:
                     fountain_time_B = time.time()
 
+                if not bBbopkki_time_A:
+                    bBbopkki_time_A = time.time()
+                if not bBbopkki_time_B:
+                    bBbopkki_time_B = time.time()
+                if not bShop_time_A:
+                    bShop_time_A = time.time()
+                if not bShop_time_B:
+                    bShop_time_B = time.time()
+                if not bGuild_time_A:
+                    bGuild_time_A = time.time()
+                if not bGuild_time_B:
+                    bGuild_time_B = time.time()
+                if not bKpass_time_A:
+                    bKpass_time_A = time.time()
+                if not bKpass_time_B:
+                    bKpass_time_B = time.time()
+                if not bTemple_time_A:
+                    bTemple_time_A = time.time()
+                if not bTemple_time_B:
+                    bTemple_time_B = time.time()
+                if not bTropical_time_A:
+                    bTropical_time_A = time.time()
+                if not bTropical_time_B:
+                    bTropical_time_B = time.time()
 
             cond_network = pag.locateCenterOnScreen('cond_network.png', confidence=0.96, region=(440 + (account // 2) * 960, 363 + (account % 2) * 540, 43, 29))
             if (cond_network):
@@ -9986,24 +10088,8 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                             # 여기서부턴 계정 자동 구분 되는 넘들
                             # 211206 추가 - 하트 남은 수량 확인해서... 마지막으로 돈 곳을 다시 돌기.(위치 클릭)
                             # 220203 추가 - 하트 클릭했을 때 밑에 시간 뜨면 조건확인, 안뜨면 바로 소진
-                            Kingdom_ready(account, 'kkd_out')
-                            # pag.screenshot('heart_full_check.png', region=(380 + (account // 2) * 960, 65 + (account % 2) * 540, 51, 14))
-                            # pag.click(357 + (account // 2) * 960, 55 + (account % 2) * 540)
-                            # time.sleep(1)
-                            # diff_check = pag.locateCenterOnScreen('heart_full_check.png', confidence=0.95, grayscale=True, region=(380 + (account // 2) * 960, 65 + (account % 2) * 540, 51, 14))
-                            # if (diff_check):
-                            #     print('하트 수량 Full입니다!')
-                            #     pag.click(396 + (account // 2) * 960, 386 + (account % 2) * 540)
-                            #     time.sleep(1)
-                            #     print('하트 소진모드 들어감다1')  # 마지막 들어간 곳이 센터정렬 되어서 그곳을 계속 돈다... 즉, 어둠모드는 아직 안됨 ㅠㅠ
-                            #     time.sleep(1)
-                            #     # Heart_sojin(account, '8-29')  # 8-29라 쓰지만 의미 읍따는 ㅠㅠ
-                            #     Heart_sojin(account, '8-23')  # 8-29라 쓰지만 의미 읍따는 ㅠㅠ
-                            # else:
-                            #     print('하트 수량 Full이 아닙니다.')
-                            #     pag.click(396 + (account // 2) * 960, 386 + (account % 2) * 540)
-                            #     time.sleep(1)
-
+                            Kingdom_ready(account, 'kkd_out')  # 바탕화면 잘 나가있는지 확인
+                            
                             # 앵무 교역소 확인 & 기차 보내기   이레가 추가..  자주자주 돌립시다다
                             print('앵무교역소 있어?')
                             if Angmu_Enter(account, 'trade'):
@@ -10064,6 +10150,75 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                 pag.keyUp('esc')
                                 time.sleep(2)
                                 Kingdom_ready(account, 'kkd_out')
+                            # 
+                            # now_time = time.time()  # 현재 시각은?
+                            # if (account) == 0:
+                            #     if not bFirstFountainA:
+                            #         Angmu_Enter(account, 'fountain')
+                            #         fountain_time_A = time.time()  # 클릭한 시간을 다시 저장
+                            #         bFirstFountainA = True
+                            #         time.sleep(1)
+                            #     else:
+                            #         if (now_time - fountain_time_A) > fountain_set_time_A:
+                            #             Angmu_Enter(account, 'fountain')
+                            #             fountain_time_A = time.time()  # 클릭한 시간을 다시 저장
+                            #             time.sleep(1)
+                            # 
+                            #     # 쿠하 클릭
+                            #     if not bBbopkki_first_A:
+                            #         print('[뽑기] 계정 A 첫 확인')
+                            #         time.sleep(0.2)
+                            #         cond_bbopkki = pag.locateCenterOnScreen('cond_bbopkki.png', confidence=0.85, region=(535 + (account // 2) * 960, 460 + (account % 2) * 540, 30, 30))
+                            #         if (cond_bbopkki):
+                            #             pag.click(532 + (account // 2) * 960, 504 + (account % 2) * 540)
+                            #             time.sleep(1)
+                            #             cond_bbopkki2 = pag.locateCenterOnScreen('cond_bbopkki2.png', confidence=0.85, region=(60 + (account // 2) * 960, 315 + 75 + (account % 2) * 540, 22, 22))
+                            #             if (cond_bbopkki2):
+                            #                 pag.click(46 + (account // 2) * 960, 357 + 75 + (account % 2) * 540)
+                            #                 time.sleep(0.5)
+                            #                 bbopkki_start_time = time.time()
+                            #                 while True:
+                            #                     bbopkki_now_time = time.time()
+                            #                     if bbopkki_now_time - bbopkki_start_time > 120:
+                            #                         End_kkd(account)  # 쿠킹덤 종료. 뽑기2분 안엔 끝나겠지?
+                            #                         Kingdom_ready(account, 'kkd_out')  # 재부팅
+                            #                         break
+                            #                     cond_bbopkki3 = pag.locateCenterOnScreen('cond_bbopkki3.png', confidence=0.85, region=(743 + (account // 2) * 960, 458 + (account % 2) * 540, 152, 53))
+                            #                     if (cond_bbopkki3):
+                            #                         pag.click(cond_bbopkki3)
+                            #                         time.sleep(1)
+                            #                     else:
+                            #                         print('뽑기 일일보상 완료!')
+                            #                         time.sleep(2)
+                            #                         pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
+                            #                         time.sleep(1)
+                            #                         pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
+                            #                         Kingdom_ready(account, 'kkd_out')
+                            #                         print('현재 계정 = ', account)
+                            #                         break
+                            #         else:
+                            #             print('뽑기 일일보상은 완료함')
+                            #         time.sleep(2)
+                            #         cookie_time_A = time.time()  # 클릭한 시간을 다시 저장
+                            #         bFirstCookhouA = True
+                            #         time.sleep(1)
+                            #     else:
+                            #         if (now_time - cookie_time_A) > cookie_set_time:
+                            #             print('[뽑기] 설정 시간이 지나서 클릭합니다.', now_time - cookie_time_A)
+                            #             time.sleep(0.2)
+                            #             pag.click(pag.locateCenterOnScreen('Cond_cookiehouse.png', confidence=0.93, region=(83 + (account // 2) * 960, 176 + (account % 2) * 540, 725, 280)))  # 917->845
+                            #             cookie_time_A = time.time()  # 클릭한 시간을 다시 저장
+                            #             time.sleep(1)
+                            # 
+                            # 
+                            # 
+                            # 
+                            # 
+                            # 
+                            # 
+                            # 
+                            # 
+
 
                             # 220203 추가 - 뽑기 일일 보상 획득
                             # 220226 추가 - 뽑기 아이콘으로 완료여부 판단
