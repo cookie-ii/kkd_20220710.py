@@ -5773,174 +5773,134 @@ def Angmu_Enter(account, whereto):
             cond_trade_angmu = pag.locateCenterOnScreen('cond_trade_angmu.png', confidence=0.85, region=(150 + (account // 2) * 960, 320 + (account % 2) * 540, 30, 30))  # 해상무역센터 앵무 교역소 이벤트
             cond_trade_refresh = pag.locateCenterOnScreen('cond_trade_refresh.png', confidence=0.85, region=(733 + (account // 2) * 960, 500 + (account % 2) * 540, 34, 18))  # 해상무역센터 앵무 교역소 새로고침
             cond_trade_angmu_confirm = pag.locateCenterOnScreen('cond_trade_angmu_confirm.png', confidence=0.85, region=(420 + (account // 2) * 960, 80 + (account % 2) * 540, 58, 33))  # 해상무역센터 앵무 교역소 위치 확인
-            # cond_trade_angmu_yoomul = pag.locateCenterOnScreen('cond_trade_angmu.png', confidence=0.85, region=(420 + (account // 2) * 960, 80 + (account % 2) * 540, 58, 33))  # 오색조개갤러리 유물!
-            # cond_trade_angmu_yoomul = pag.locateCenterOnScreen('cond_trade_angmu_confirm.png', confidence=0.85, region=(420 + (account // 2) * 960, 80 + (account % 2) * 540, 58, 33))  # 오색조개갤러리 유물!
+            cond_trade_angmu_yoomul = pag.locateCenterOnScreen('cond_trade_angmu.png', confidence=0.85, region=(70 + (account // 2) * 960, 325 + (account % 2) * 540, 20, 20))  # 오색 조개 갤러리 이벤트 있음!
+
             if not bStep2_Angmu and (cond_trade_event):
                 print('cond_trade_event', cond_trade_event)
             if not bStep2_Angmu and (cond_trade_perl):
                 print('cond_trade_perl', cond_trade_perl)
-                if (cond_trade_angmu):
-                    print('cond_trade_angmu', cond_trade_angmu)
-                    pag.click(x=cond_trade_angmu.x - 26, y=cond_trade_angmu.y + 24)
-                    time.sleep(2)
-                else:
-                    print('앵무 교역소 아닌 이벤트 입니다!')
-                    # pag.click(57 + (account // 2) * 960, 356 + (account % 2) * 540)   # 오색 조개 갤러리 들어가!
-                    # time.sleep(1)
-                    # pag.click(172 + (account // 2) * 960, 281 + (account % 2) * 540)   # 등급 높은 애 영혼석 1개 클릭!
-                    # time.sleep(1)
-                    # pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
-                    # time.sleep(2)
-
-                    # pag.click(561 + (account // 2) * 960, 403 + (account % 2) * 540)  # 유물 자리 클릭!
-                    # time.sleep(1)
-                    # pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
-                    # time.sleep(4)
-
-                    # pag.click(289 + (account // 2) * 960, 54 + (account % 2) * 540)  # 허공 한 번 클릭
-                    # time.sleep(2)
-
-                    # pag.click(561 + (account // 2) * 960, 403 + (account % 2) * 540)  # 유물 자리 클릭!
-                    # time.sleep(1)
-                    # pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
-                    # time.sleep(2)
-
-                    # pag.click(284 + (account // 2) * 960, 15 + (account % 2) * 540)   # 녹스 메뉴바 클릭!
-                    # time.sleep(1)
-                    # pag.hotkey('esc')
-                    # time.sleep(1)
-                    # pag.hotkey('esc')
-                    # time.sleep(6)
-                    # Kingdom_ready(account, 'kkd_out')
-                    # return False
-                    cond_trade_angmu_yoomul = pag.locateCenterOnScreen('cond_trade_angmu.png', confidence=0.85, region=(70 + (account // 2) * 960, 325 + (account % 2) * 540, 20, 20))  # 오색 조개 갤러리 이벤트 있음!
-                    if cond_trade_angmu_yoomul:
-                        pag.click(57 + (account // 2) * 960, 356 + (account % 2) * 540)   # 오색 조개 갤러리 들어가!
-                        print('오색 조개 갤러리 들어간다!')
-                        trade_error_count = 0
-                        while True:
-                            if keyboard.is_pressed('end'):
-                                print('end 누름')
-                                break
-                            print('오색 조개 갤러리 들어왔습니다.')
-                            time.sleep(1)
-                            cond_trade_gallary = pag.locateCenterOnScreen('cond_trade_gallary.png', confidence=0.9, region=(10 + (account // 2) * 960, 40 + (account % 2) * 540, 150, 50))  # 오색 조개 갤러리 들어옴!
-                            if (cond_trade_gallary):    # 갤러리 들어와 있는 상태에서
-                                print('오색 조개 갤러리 글자 보임')
-
-                                # cond_trade_gallary_guip = pag.locateCenterOnScreen('cond_trade_gallary_guip.png', confidence=0.85, region=(103 + (account // 2) * 960, 454 + (account % 2) * 540, 50, 50))  # 펄 마크! (전설 영혼석 자리 - 바요,서리)
-                                mark_x = pag.locateCenterOnScreen('mark_x.png', confidence=0.85, region=(619 + (account // 2) * 960, 144 + (account % 2) * 540, 30, 30))  # 뭔가 창이 떠있으?
-                                if mark_x:
-                                    # 뭔지 모르지만 떠있으니 사고 본다
-                                    pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
-                                    time.sleep(1)
-                                    # 만약 조개가 부족하면 ㅠ.ㅠ
-                                    cond_trade_not_enough = pag.locateCenterOnScreen('cond_trade_not_enough.PNG', confidence=0.85, region =(378 + (account // 2) * 960, 213 + (account % 2) * 540, 173, 35))
-                                    if (cond_trade_not_enough):
-                                        pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)   # 확인 클릭!
-                                        time.sleep(1)
-                                        pag.click(635 + (account // 2) * 960, 159 + (account % 2) * 540)  # x 클릭!
-                                        time.sleep(1)
-
-                                cond_trade_pearl1 = pag.locateCenterOnScreen('cond_trade_pearl.png', confidence=0.85, region=(103 + (account // 2) * 960, 454 + (account % 2) * 540, 50, 50))  # 펄 마크! (전설 영혼석 자리 - 바요,서리)
-                                if cond_trade_pearl1:
-                                    print('전설 영혼석 구매')
-                                    pag.click(172 + (account // 2) * 960, 281 + (account % 2) * 540)   # 전설 영혼석 클릭!
-                                    time.sleep(1)
-                                    pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
-                                    time.sleep(2)
-                                    # 만약 조개가 부족하면 ㅠ.ㅠ
-                                    cond_trade_not_enough = pag.locateCenterOnScreen('cond_trade_not_enough.PNG', confidence=0.85, region=(378 + (account // 2) * 960, 213 + (account % 2) * 540, 173, 35))
-                                    if (cond_trade_not_enough):
-                                        pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 확인 클릭!
-                                        time.sleep(1)
-                                        pag.click(635 + (account // 2) * 960, 159 + (account % 2) * 540)  # x 클릭!
-                                        time.sleep(1)
-                                        cond_trade_pearl1 = False
-
-                                if trade_legend:
-                                    cond_trade_pearl2 = pag.locateCenterOnScreen('cond_trade_pearl.png', confidence=0.85, region=(320 + (account // 2) * 960, 281 + (account % 2) * 540, 50, 50))  # 펄 마크! (전설 영혼 조각 자리)
-                                    if cond_trade_pearl2:
-                                        print('1번자리 구매')
-                                        pag.click(386 + (account // 2) * 960, 222 + (account % 2) * 540)   # 전설 영혼 조각 클릭!
-                                        time.sleep(1)
-                                        pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
-                                        time.sleep(2)
-                                        # 만약 조개가 부족하면 ㅠ.ㅠ
-                                        cond_trade_not_enough = pag.locateCenterOnScreen('cond_trade_not_enough.PNG', confidence=0.85, region=(378 + (account // 2) * 960, 213 + (account % 2) * 540, 173, 35))
-                                        if (cond_trade_not_enough):
-                                            pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 확인 클릭!
-                                            time.sleep(1)
-                                            pag.click(635 + (account // 2) * 960, 159 + (account % 2) * 540)  # x 클릭!
-                                            time.sleep(1)
-                                            cond_trade_pearl2 = False
-                                    elif not cond_trade_pearl2:
-                                        cond_trade_pearl2 = False
-                                # else:
-                                #     cond_trade_pearl2 = False
-
-                                if trade_hero:
-                                    cond_trade_pearl3 = pag.locateCenterOnScreen('cond_trade_pearl.png', confidence=0.85, region=(320 + (account // 2) * 960, 455 + (account % 2) * 540, 50, 50))  # 펄 마크! (에픽 영혼 조각 자리)
-                                    if cond_trade_pearl3:
-                                        print('2번자리 구매')
-                                        pag.click(388 + (account // 2) * 960, 400 + (account % 2) * 540)   # 에픽 영혼 조각 클릭!
-                                        time.sleep(1)
-                                        pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
-                                        time.sleep(2)
-                                        # 만약 조개가 부족하면 ㅠ.ㅠ
-                                        cond_trade_not_enough = pag.locateCenterOnScreen('cond_trade_not_enough.PNG', confidence=0.85, region=(378 + (account // 2) * 960, 213 + (account % 2) * 540, 173, 35))
-                                        if (cond_trade_not_enough):
-                                            pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 확인 클릭!
-                                            time.sleep(1)
-                                            pag.click(635 + (account // 2) * 960, 159 + (account % 2) * 540)  # x 클릭!
-                                            time.sleep(1)
-                                            cond_trade_pearl3 = False
-                                    elif not cond_trade_pearl3:
-                                        cond_trade_pearl3 = False
-                                # else:
-                                #     cond_trade_pearl3 = False
-
-                                cond_trade_pearl4 = pag.locateCenterOnScreen('cond_trade_pearl.png', confidence=0.85, region=(496 + (account // 2) * 960, 455 + (account % 2) * 540, 50, 50))  # 펄 마크! (길드 유물 자리)
-                                if cond_trade_pearl4:
-                                    print('4번자리 구매')
-                                    pag.click(561 + (account // 2) * 960, 403 + (account % 2) * 540)  # 유물 자리 클릭!
-                                    time.sleep(1)
-                                    pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
-                                    time.sleep(4)
-                                    pag.click(289 + (account // 2) * 960, 54 + (account % 2) * 540)  # 허공 한 번 클릭
-                                    time.sleep(2)
-                                    # 만약 조개가 부족하면 ㅠ.ㅠ
-                                    cond_trade_not_enough = pag.locateCenterOnScreen('cond_trade_not_enough.PNG', confidence=0.85, region=(378 + (account // 2) * 960, 213 + (account % 2) * 540, 173, 35))
-                                    if (cond_trade_not_enough):
-                                        pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 확인 클릭!
-                                        time.sleep(1)
-                                        pag.click(635 + (account // 2) * 960, 159 + (account % 2) * 540)  # x 클릭!
-                                        time.sleep(1)
-                                        cond_trade_pearl4 = False
-                                elif not cond_trade_pearl4:
-                                    cond_trade_pearl4 = False
-
-                                if not ((cond_trade_pearl1) or (cond_trade_pearl2) or (cond_trade_pearl3) or (cond_trade_pearl4)):
-                                    print('모든 구매를 마칩니다.')
-                                    pag.click(892 + (account // 2) * 960,54 + (account % 2) * 540)
-                                    time.sleep(2)
-                                    pag.click(892 + (account // 2) * 960,54 + (account % 2) * 540)
-                                    time.sleep(4)
-                                    Kingdom_ready(account, 'kkd_out')
-                                    return False
-                            else:
-                                pag.click(289 + (account // 2) * 960, 54 + (account % 2) * 540)  # 허공 한 번 클릭
-                                trade_error_count = trade_error_count + 1
-                                time.sleep(1)
-                                if trade_error_count > 10:
-                                    print('머선129, 오색갤러리 글자 안보임')
-                                    Kingdom_ready(account, 'kkd_out')
-                                    return False
-                            time.sleep(0.5)
+            # 앵무 교역소!
+            if (cond_trade_angmu):
+                print('cond_trade_angmu',cond_trade_angmu)
+                pag.click(x=cond_trade_angmu.x-26,y=cond_trade_angmu.y+24)
+                time.sleep(2)
+            # 오색 조개 갤러리!
+            elif (cond_trade_angmu_yoomul):
+                # 갤러리 들어가는 게 우선이지...
+                while True:
+                    if keyboard.is_pressed('end'):
+                        print('end 누름')
+                        return
+                    
+                    cond_trade_gallary = pag.locateCenterOnScreen('cond_trade_gallary.png', confidence=0.85, region=(60 + (account // 2) * 960, 40 + (account % 2) * 540, 50, 30))  # 오색 조개 갤러리 들어옴!
+                    if (cond_trade_gallary):    # 갤러리 들어와 있는 상태에서
+                        print('갤러리 잘 들어옴!')
+                        break
                     else:
-                        print('무엇때문에 들어왔을까')
+                        print('갤러리 들어가자!')
+                        pag.click(57 + (account // 2) * 960, 356 + (account % 2) * 540)   # 오색 조개 갤러리 들어가!
+                    time.sleep(1)
+                    
+                trade_error_count = 0
+                while True:
+                    if keyboard.is_pressed('end'):
+                        print('end 누름')
+                        return
+                    # cond_trade_gallary_guip = pag.locateCenterOnScreen('cond_trade_gallary_guip.png', confidence=0.85, region=(103 + (account // 2) * 960, 454 + (account % 2) * 540, 50, 50))  # 펄 마크! (전설 영혼석 자리 - 바요,서리)
+                    mark_x = pag.locateCenterOnScreen('mark_x.png', confidence=0.85, region=(619 + (account // 2) * 960, 144 + (account % 2) * 540, 30, 30))  # 뭔가 창이 떠있으?
+                    if mark_x:
+                        # 뭔지 모르지만 떠있으니 사고 본다
+                        pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
+                        time.sleep(1)
+                        # 만약 조개가 부족하면 ㅠ.ㅠ
+                        cond_trade_not_enough = pag.locateCenterOnScreen('cond_trade_not_enough.PNG', confidence=0.85, region =(378 + (account // 2) * 960, 213 + (account % 2) * 960, 173, 35))
+                        if (cond_trade_not_enough):
+                            pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)   # 확인 클릭!
+                            time.sleep(1)
+                            pag.click(635 + (account // 2) * 960, 159 + (account % 2) * 540)  # x 클릭!
+                            time.sleep(1)
+                            
+                    cond_trade_pearl1 = pag.locateCenterOnScreen('cond_trade_pearl.png', confidence=0.85, region=(103 + (account // 2) * 960, 454 + (account % 2) * 540, 50, 50))  # 펄 마크! (전설 영혼석 자리 - 바요,서리)
+                    if (cond_trade_pearl1):
+                        pag.click(172 + (account // 2) * 960, 281 + (account % 2) * 540)   # 전설 영혼석 클릭!
+                        time.sleep(1)
+                        pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
+                        time.sleep(2)
+                        # 만약 조개가 부족하면 ㅠ.ㅠ
+                        cond_trade_not_enough = pag.locateCenterOnScreen('cond_trade_not_enough.PNG', confidence=0.85, region=(378 + (account // 2) * 960, 213 + (account % 2) * 960, 173, 35))
+                        if (cond_trade_not_enough):
+                            pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 확인 클릭!
+                            time.sleep(1)
+                            pag.click(635 + (account // 2) * 960, 159 + (account % 2) * 540)  # x 클릭!
+                            time.sleep(1)
+                            cond_trade_pearl1 = False
+
+                    if trade_legend:
+                        cond_trade_pearl2 = pag.locateCenterOnScreen('cond_trade_pearl.png', confidence=0.85, region=(320 + (account // 2) * 960, 281 + (account % 2) * 540, 50, 50))  # 펄 마크! (전설 영혼 조각 자리)
+                        if (cond_trade_pearl2):
+                            pag.click(386 + (account // 2) * 960, 222 + (account % 2) * 540)   # 전설 영혼 조각 클릭!
+                            time.sleep(1)
+                            pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
+                            time.sleep(2)
+                            # 만약 조개가 부족하면 ㅠ.ㅠ
+                            cond_trade_not_enough = pag.locateCenterOnScreen('cond_trade_not_enough.PNG', confidence=0.85, region=(378 + (account // 2) * 960, 213 + (account % 2) * 960, 173, 35))
+                            if (cond_trade_not_enough):
+                                pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 확인 클릭!
+                                time.sleep(1)
+                                pag.click(635 + (account // 2) * 960, 159 + (account % 2) * 540)  # x 클릭!
+                                time.sleep(1)
+                                cond_trade_pearl2 = False
+                    else:
+                        cond_trade_pearl2 = False
+                    
+                    if trade_hero:
+                        cond_trade_pearl3 = pag.locateCenterOnScreen('cond_trade_pearl.png', confidence=0.85, region=(320 + (account // 2) * 960, 455 + (account % 2) * 540, 50, 50))  # 펄 마크! (에픽 영혼 조각 자리)
+                        if (cond_trade_pearl3):
+                            pag.click(388 + (account // 2) * 960, 400 + (account % 2) * 540)   # 에픽 영혼 조각 클릭!
+                            time.sleep(1)
+                            pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
+                            time.sleep(2)
+                    else:
+                        cond_trade_pearl3 = False
+                    
+                    cond_trade_pearl4 = pag.locateCenterOnScreen('cond_trade_pearl.png', confidence=0.85, region=(496 + (account // 2) * 960, 455 + (account % 2) * 540, 50, 50))  # 펄 마크! (길드 유물 자리)
+                    if (cond_trade_pearl4):
+                        pag.click(561 + (account // 2) * 960, 403 + (account % 2) * 540)  # 유물 자리 클릭!
+                        time.sleep(1)
+                        pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 구입하기 클릭클릭!!
+                        time.sleep(4)
+                        pag.click(289 + (account // 2) * 960, 54 + (account % 2) * 540)  # 허공 한 번 클릭
+                        time.sleep(2)
+                        # 만약 조개가 부족하면 ㅠ.ㅠ
+                        cond_trade_not_enough = pag.locateCenterOnScreen('cond_trade_not_enough.PNG', confidence=0.85, region=(378 + (account // 2) * 960, 213 + (account % 2) * 960, 173, 35))
+                        if (cond_trade_not_enough):
+                            pag.click(460 + (account // 2) * 960, 382 + (account % 2) * 540)  # 확인 클릭!
+                            time.sleep(1)
+                            pag.click(635 + (account // 2) * 960, 159 + (account % 2) * 540)  # x 클릭!
+                            time.sleep(1)
+                            cond_trade_pearl4 = False
+                    
+                    if not ((cond_trade_pearl1) or (cond_trade_pearl2) or (cond_trade_pearl3) or (cond_trade_pearl4)):
+                        print('모든 구매를 마칩니다.')
+                        pag.click(892 + (account // 2) * 960,54 + (account % 2) * 540)
+                        time.sleep(2)
+                        pag.click(892 + (account // 2) * 960,54 + (account % 2) * 540)
+                        time.sleep(4)
                         Kingdom_ready(account, 'kkd_out')
                         return False
+
+                    time.sleep(0.5)
+            else:
+                print('이벤트가 없는데 그냥 들어올리 없서!')
+                pag.click(289 + (account // 2) * 960, 54 + (account % 2) * 540)  # 허공 한 번 클릭
+                trade_error_count = trade_error_count + 1
+                time.sleep(1)
+                if trade_error_count > 10:
+                    print('무엇때문에 들어왔을까')
+                    pag.click(892 + (account // 2) * 960,54 + (account % 2) * 540)
+                    time.sleep(6)
+                    Kingdom_ready(account, 'kkd_out')
+                    return False
 
             if bStep2_Angmu and (cond_trade_refresh):  # 앵무 교역소, 무료 새로고침인 경우
                 print('cond_trade_refresh', cond_trade_refresh)
@@ -8259,10 +8219,12 @@ def Arena_action(account, set_max_power):
                                         time.sleep(1)
 
                                         # 로딩 창 떴다? 그럼 들어간거.
-                                        cond_adv_arena_fight_entered = pag.locateCenterOnScreen('cond_adv_arena_fight_entered.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
-                                        if (cond_adv_arena_fight_entered):
+                                        cond_adv_arena_fight_entered = pag.locateCenterOnScreen('cond_adv_arena_fight_entered.png', confidence=0.85, region=(2+(account//2)*960,32+(account%2)*540,917,505))            # 로딩창 VS
+                                        cond_adv_arena_fight_entered1 = pag.locateCenterOnScreen('cond_adv_arena_fight_entered1.png', confidence=0.85, region=(2+(account//2)*960,32+(account%2)*540,917,505))          # 킹덤 아레나 글씨
+                                        cond_adv_arena_fight_entered2 = pag.locateCenterOnScreen('cond_adv_arena_fight_entered2.png', confidence=0.85, region=(40-25+(account//2)*960,447-25+(account%2)*540,50,50))    # 아레나 진입 후 DMG ON 버튼
+                                        if (cond_adv_arena_fight_entered) or (cond_adv_arena_fight_entered1) or (cond_adv_arena_fight_entered2):
                                             print('전투 진입해뜸!')
-                                            # pag.click(827 + (account // 2) * 960, 491 + (account % 2) * 540) # ?
+                                            # pag.click(827 + (account // 2) * 960, 491 + (account % 2) * 540)
                                             bFight_started = True
 
                                         # 가끔(?) VS 인식 못하고 넘어가나? 트로피 보이면 전투 시작이라 판단(쩝..)
@@ -8387,11 +8349,14 @@ def Arena_action(account, set_max_power):
                                         pag.click(cond_start_fight)
                                         bFight_started = True
                                     time.sleep(1)
+
                                     # 로딩 창 떴다? 그럼 들어간거.
-                                    cond_adv_arena_fight_entered = pag.locateCenterOnScreen('Cond_wanted_start_fignt.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
-                                    if (cond_adv_arena_fight_entered):
-                                        print('전투 진입!')
-                                        pag.click(827 + (account // 2) * 960, 491 + (account % 2) * 540)
+                                    cond_adv_arena_fight_entered = pag.locateCenterOnScreen('cond_adv_arena_fight_entered.png', confidence=0.85, region=(2+(account//2)*960,32+(account%2)*540,917,505))            # 로딩창 VS
+                                    cond_adv_arena_fight_entered1 = pag.locateCenterOnScreen('cond_adv_arena_fight_entered1.png', confidence=0.85, region=(2+(account//2)*960,32+(account%2)*540,917,505))          # 킹덤 아레나 글씨
+                                    cond_adv_arena_fight_entered2 = pag.locateCenterOnScreen('cond_adv_arena_fight_entered2.png', confidence=0.85, region=(40-25+(account//2)*960,447-25+(account%2)*540,50,50))    # 아레나 진입 후 DMG ON 버튼
+                                    if (cond_adv_arena_fight_entered) or (cond_adv_arena_fight_entered1) or (cond_adv_arena_fight_entered2):
+                                        print('전투 진입해뜸!')
+                                        # pag.click(827 + (account // 2) * 960, 491 + (account % 2) * 540)
                                         bFight_started = True
 
                                     # 전투 전 0.5초 주기
