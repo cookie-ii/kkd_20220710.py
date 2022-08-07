@@ -3529,6 +3529,163 @@ bmagiccompleted = False
 #         print('ddddd')
 #         # Skip_Next(account, prod_direction_left)
 
-screen = ImageGrab.grab()
-pix_prod = screen.getpixel((610 + (account // 2) * 960, 140 + (account % 2) * 540))
-print(pix_prod)
+# screen = ImageGrab.grab()
+# pix_prod = screen.getpixel((610 + (account // 2) * 960, 140 + (account % 2) * 540))
+# print(pix_prod)
+#
+# account = 2
+# pag.screenshot('z0.PNG', region=(828+(account//2)*960, 194+(account%2)*540, 20, 10))
+# account = 2
+# z0 = pag.locateCenterOnScreen('z0.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+# z1 = pag.locateCenterOnScreen('z1.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+# z2 = pag.locateCenterOnScreen('z2.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+# z3 = pag.locateCenterOnScreen('z3.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+# z4 = pag.locateCenterOnScreen('z4.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+# z5 = pag.locateCenterOnScreen('z5.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+# z6 = pag.locateCenterOnScreen('z6.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+# z7 = pag.locateCenterOnScreen('z7.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+# z8 = pag.locateCenterOnScreen('z8.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+#
+#
+# if z8:
+#     print('8')
+# elif z7:
+#     print('7')
+# elif z6:
+#     print('6')
+# elif z5:
+#     print('5')
+# elif z4:
+#     print('4')
+# elif z3:
+#     print('3')
+# elif z2:
+#     print('2')
+# elif z1:
+#     print('1')
+# # elif z0:
+# #     print('0')
+account = 2
+z0 = pag.locateCenterOnScreen('z0.png', confidence=0.85, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+z1 = pag.locateCenterOnScreen('z1.png', confidence=0.85, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+z2 = pag.locateCenterOnScreen('z2.png', confidence=0.85, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+z3 = pag.locateCenterOnScreen('z3.png', confidence=0.85, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+z4 = pag.locateCenterOnScreen('z4.png', confidence=0.85, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+z5 = pag.locateCenterOnScreen('z5.png', confidence=0.85, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+z6 = pag.locateCenterOnScreen('z6.png', confidence=0.85, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+z7 = pag.locateCenterOnScreen('z7.png', confidence=0.85, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+z8 = pag.locateCenterOnScreen('z8.png', confidence=0.85, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+if not (z8 or z7 or z6 or z5 or z4 or z3 or z2 or z1):
+    print('리스트 full!4')
+else:
+    print('0')
+
+
+
+
+
+# def research_action1(account, what_research):
+#     print('연구소 들어왔어요!')
+#     research_ing = pag.locateCenterOnScreen('research_ing.png', confidence=0.945, region=(230 + (account // 2) * 960, 115 + (account % 2) * 540, 24, 18))
+#     if (research_ing):
+#         print('엇.. 뭔가 연구중입니다.')
+#         Kingdom_ready(account, 'kkd_out')
+#         return False
+#
+#     # 왕국이냐 쿠키냐 선택
+#     while True:
+#         if keyboard.is_pressed('end'):
+#             print('end 누름')
+#             return False
+#         # 연구소이고, 연구소 안에서 창이 떠있어서 화면 중간에 x버튼 있다? 없애!
+#         research_window = pag.locateCenterOnScreen('research_window.png', confidence=0.96, region=(600 + (account // 2) * 960, 35 + (account % 2) * 540, 245, 130))
+#         if (research_window):
+#             pag.click(research_window)
+#             time.sleep(0.3)
+#
+#         if what_research == 'W':
+#             screen = ImageGrab.grab()
+#             pix_research_wangkook = screen.getpixel((330 + (account // 2) * 960, 515 + (account % 2) * 540))  # 왕국 연구
+#             pix_research_selected = (58, 73, 109)
+#             if pix_research_wangkook == pix_research_selected:
+#                 print('왕국 연구 선택됨!')
+#                 break
+#             else:
+#                 pag.click(330 + (account // 2) * 960, 515 + (account % 2) * 540)
+#                 time.sleep(0.3)
+#
+#         if what_research == 'C':
+#             screen = ImageGrab.grab()
+#             pix_research_cookie = screen.getpixel((500 + (account // 2) * 960, 515 + (account % 2) * 540))  # 쿠키 연구
+#             pix_research_selected = (58, 73, 109)
+#             if pix_research_cookie == pix_research_selected:
+#                 print('쿠키 연구 선택됨!')
+#                 break
+#             else:
+#                 pag.click(500 + (account // 2) * 960, 515 + (account % 2) * 540)
+#                 time.sleep(0.3)
+#
+#     # 연구 돌립시다
+#     while True:
+#         if keyboard.is_pressed('end'):
+#             print('end 누름')
+#             return False
+#         # time.sleep(2)
+#
+#         research_green_light = pag.locateCenterOnScreen('research_green_light.png', confidence=0.96, region=(8 + (account // 2) * 960, 80 + (account % 2) * 540, 868, 401))
+#         if (research_green_light):
+#             print('실행 가능한 연구가 보여요!')
+#             print('green_light', research_green_light)
+#             pag.click(research_green_light.x + 43, research_green_light.y + 43)
+#             time.sleep(1)
+#             print('연구 시작합니다')
+#             pag.click(467 + (account // 2) * 960,471 + (account % 2) * 540)   # 연구하기 버튼 클릭
+#             time.sleep(1)
+#             research_ing = pag.locateCenterOnScreen('research_ing.png', confidence=0.945, region=(230 + (account // 2) * 960, 115 + (account % 2) * 540, 24, 18))
+#             if (research_ing):
+#                 print('연구 시작했습니다!')
+#                 Kingdom_ready(account, 'kkd_out')
+#                 return True
+#         else:
+#             print('실행 가능한 연구가 안 보여요!')
+#             pag.click(37+(account//2)*960, 59+(account%2)*540)   # 수염할아버지 얼굴 한번 클릭하고
+#             time.sleep(1)
+#
+#             # # 실행 가능한 연구 찾아 화면 왼쪽으로 드래그
+#             # pag.moveTo(random.randint(730 + (account // 2) * 960, 785 + (account // 2) * 960), random.randint(470 + (account % 2) * 540, 525 + (account % 2) * 540))
+#             # pag.drag(700, 0, 3)  # 왼 손으로 비비고
+#
+#             # 실행 가능한 연구 찾아 화면 오른쪽으로 드래그
+#             pag.moveTo(random.randint(730 + (account // 2) * 960, 785 + (account // 2) * 960), random.randint(470 + (account % 2) * 540, 480 + (account % 2) * 540))
+#             pag.drag(-350, 0, 3)  # 오른손으로 비비고
+#             continue
+
+
+
+# account = 2
+# research_action1(account, 'W')
+
+#
+# account = 0
+# check_check = pag.locateCenterOnScreen('check.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+# if (check_check):  # 있으면 클릭하긴 하는데..
+#     # pag.click(check_check)
+#     print(check_check)
+#     time.sleep(1)  # 2초쯤 기다리면 되려나..
+# else:
+#     print('check 없어요')
+# account = 0
+# screen = ImageGrab.grab()
+# pix_status_scr1 = screen.getpixel((65 + (account // 2) * 960, 505 + (account % 2) * 540))  # = 왼쪽아래 건설하기 아이콘쪽
+# pix_status1_tropical = (255, 98, 170)  # 트로피칼이다
+# pix_status1_tropical_windowopen = (127, 49, 85)  # 트로피칼에 메뉴창 떠있다
+# tropical_start_time = time.time()
+# while pix_status1_tropical or pix_status1_tropical_windowopen:
+#     tropical_now_time = time.time()
+#     if tropical_now_time - tropical_start_time >= 300:
+#         print('너무 오래 돌리는데? 300초 이상')
+#         break
+#     if (pix_status1_tropical):
+#         print('트로피칼!')
+
+
