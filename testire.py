@@ -68,9 +68,9 @@ bRollc_Quick = False  # 공작소 쾌속생산!
 bTropicalAction_A = False  # 트로피칼 A 계정 돌릴거냐
 bTropicalAction_B = False  # 트로피칼 B 계정 돌릴거냐
 bTropicalAction_C = False  # 트로피칼 C 계정 돌릴거냐
-bResearch_auto_A = False  # 연구소ㅅ 자동돌림(명확히 지정해줘야만 함..)
-bResearch_auto_B = False  # 연구소 자동돌림(명확히 지정해줘야만 함..)
-bResearch_auto_C = False  # 연구소 자동돌림(명확히 지정해줘야만 함..)
+bResearch_auto_A = True  # 연구소 자동돌림(명확히 지정해줘야만 함..)
+bResearch_auto_B = True  # 연구소 자동돌림(명확히 지정해줘야만 함..)
+bResearch_auto_C = True  # 연구소 자동돌림(명확히 지정해줘야만 함..)
 
 jjokji_limit_A = True  # 쪽지 제한 걸기(오늘 보상 다 받으면 끝냄)
 jjokji_limit_B = True  # 쪽지 제한 걸기(오늘 보상 다 받으면 끝냄)
@@ -129,7 +129,7 @@ bMacroTime = True  # 매크로 도는 중?
 bProdHigh = False  # 동일 건물 2개인 경우 2번째 건물에서 높은 생산품 우선 생산
 bSecond = False  # 두 번째 건물 작업이냐?
 
-bAcc_A_First = False  # 계정 먼저 시작 순서(True일 때 A부터, 아니면 B부터)
+bAcc_A_First = True  # 계정 먼저 시작 순서(True일 때 A부터, 아니면 B부터)
 bAcc_C_First = False     # C계정 먼저 시작해요!
 
 bFirstCookhouA = False  # 첫 쿠하(클릭)
@@ -194,25 +194,7 @@ fountain_set_time_B = 3000  # 분수 클릭 주기
 cookie_set_time_B = 3000  # 쿠키하우스 클릭 주기
 fountain_set_time_C = 3000  # 분수 클릭 주기
 cookie_set_time_C = 3000  # 쿠키하우스 클릭 주기
-#
-# bbopkki_A   = 60*60*23 # 뽑기 확인 주기
-# bbopkki_B   = 60*60*23 # 뽑기 확인 주기
-# bbopkki_C   = 60*60*23 # 뽑기 확인 주기
-# shop_A      = 60*60*23 # 상점 확인 주기
-# shop_B      = 60*60*23 # 상점 확인 주기
-# shop_C      = 60*60*23 # 상점 확인 주기
-# guild_A     = 60*60*23 # 길드 확인 주기
-# guild_B     = 60*60*23 # 길드 확인 주기
-# guild_C     = 60*60*23 # 길드 확인 주기
-# kpass_A     = 60*60*6 # 킹덤패스 확인 주기
-# kpass_B     = 60*60*6 # 킹덤패스 확인 주기
-# kpass_C     = 60*60*6 # 킹덤패스 확인 주기
-# temple_A    = 60*60*6 # 신전 확인 주기
-# temple_B    = 60*60*6 # 신전 확인 주기
-# temple_C    = 60*60*6 # 신전 확인 주기
-# tropical_A  = 60*60*6 # 트로피칼 확인 주기
-# tropical_B  = 60*60*6 # 트로피칼 확인 주기
-# tropical_C  = 60*60*6 # 트로피칼 확인 주기
+
 
 
 how_many_cycle = 1  # 생산 사이클
@@ -1524,9 +1506,12 @@ def Heart_sojin(account, WhatToDo):
             print('battle_count:', battle_count, '현재시간:', datetime.now().strftime('%H:%M:%S'))
             if (battle_count >= battle_count_fix):
                 pag.click(cond_end_fight1, clicks=1, interval=2.5)  # 왕국가기버튼 클릭. 나가기 버튼과 항상 함께 있어서 오류날 일 없겠지
-                time.sleep(15)
+                time.sleep(19)
                 if Kingdom_ready(account, 'kkd_out'):  # 어후 왕국에 잘 들어왔어
                     print('월드탐험 잘 마치고 종료합니다!')
+                    pag.hotkey('-')
+                    time.sleep(2)
+                    pag.hotkey('-')
                     return True
             if (cond_end_fight2):  # 다시하기 버튼이 있으면
                 print('다시하기 버튼!')
@@ -1535,9 +1520,12 @@ def Heart_sojin(account, WhatToDo):
                 # bWanted_fight_ing = True
             else:
                 pag.click(cond_end_fight1, clicks=1, interval=2.5)  # 왕국가기버튼 클릭. 나가기 버튼과 항상 함께 있어서 오류날 일 없겠지
-                time.sleep(15)
+                time.sleep(19)
                 if Kingdom_ready(account, 'kkd_out'):  # 어후 왕국에 잘 들어왔어
                     print('월드탐험 잘 마치고 종료합니다!')
+                    pag.hotkey('-')
+                    time.sleep(2)
+                    pag.hotkey('-')
                     return True
 
 
@@ -1567,6 +1555,7 @@ bWood = False
 # 실제 생산하는 녀석.. 이렇게 보니 앞에 생산품도 함수로 만들수 있지 않을까
 def prod_action(image, list_image, account, check_num):
     # print('Prod_action함수!', image, list_image, account, check_num)
+    time.sleep(1)
     start_time = time.time()
     error_count = 0
 
@@ -1598,15 +1587,23 @@ def prod_action(image, list_image, account, check_num):
         # # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
         # pag.click(x=random.randint(243, 422) + (account // 2) * 960, y=random.randint(190, 410) + (account % 2) * 540)
         # time.sleep(0.3)
-    z0 = pag.locateCenterOnScreen('z0.png', confidence=0.96, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z1 = pag.locateCenterOnScreen('z1.png', confidence=0.96, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    if z0 or z1:
+    z0 = pag.locateCenterOnScreen('z0.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z1 = pag.locateCenterOnScreen('z1.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z2 = pag.locateCenterOnScreen('z2.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z3 = pag.locateCenterOnScreen('z3.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z4 = pag.locateCenterOnScreen('z4.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z5 = pag.locateCenterOnScreen('z5.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z6 = pag.locateCenterOnScreen('z6.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z7 = pag.locateCenterOnScreen('z7.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z8 = pag.locateCenterOnScreen('z8.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    if not (z8 or z7 or z6 or z5 or z4 or z3 or z2 or z1):
         # 3~7렙 Full list인 경우 다음 건물로 넘어감. 하지만 고렙 생산..중이면 그거 취소 못하고 저렙 생산이 안될텐데...
         print('리스트 full!')
         Skip_Next(account, prod_direction_left)
         return True
     else:
         ShowTime = True
+
     # cond_2nd_clear = pag.locateCenterOnScreen('cond_2nd_clear.png', confidence=0.96, region=(75 - 10 + (account//2)*960, 200 - 10 + (account%2) * 540, 20, 20))
     # cond_2nd_clear1 = pag.locateCenterOnScreen('cond_2nd_clear1.png', confidence=0.94, region=(75 - 10 + (account // 2) * 960, 200 - 10 + (account % 2) * 540, 20, 20))
     # cond_3rd_clear1 = pag.locateCenterOnScreen('cond_3rd_clear1.png', confidence=0.94, region=(75 - 10 +(account // 2) * 960, 200 - 10 +  70+(account % 2) * 540, 20, 20))  # 세번째 3번째 칸 비었으면 생산시작!
@@ -1641,10 +1638,17 @@ def prod_action(image, list_image, account, check_num):
 
         now_time = time.time()
 
-        z0 = pag.locateCenterOnScreen('z0.png', confidence=0.94, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        z1 = pag.locateCenterOnScreen('z1.png', confidence=0.94, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        if z0 or z1:
-        # 3~7렙 Full list인 경우 다음 건물로 넘어감. 하지만 고렙 생산..중이면 그거 취소 못하고 저렙 생산이 안될텐데...
+        z0 = pag.locateCenterOnScreen('z0.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        z1 = pag.locateCenterOnScreen('z1.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        z2 = pag.locateCenterOnScreen('z2.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        z3 = pag.locateCenterOnScreen('z3.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        z4 = pag.locateCenterOnScreen('z4.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        z5 = pag.locateCenterOnScreen('z5.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        z6 = pag.locateCenterOnScreen('z6.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        z7 = pag.locateCenterOnScreen('z7.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        z8 = pag.locateCenterOnScreen('z8.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        if not (z8 or z7 or z6 or z5 or z4 or z3 or z2 or z1):
+            # 3~7렙 Full list인 경우 다음 건물로 넘어감. 하지만 고렙 생산..중이면 그거 취소 못하고 저렙 생산이 안될텐데...
             print('리스트 full!1')
             return True
         if now_time - start_time > 10:
@@ -1706,9 +1710,9 @@ def prod_action(image, list_image, account, check_num):
                     print('생산품 클릭!')
                     pag.moveTo(ctr[0] + 235, ctr[1] + 48)
                     # pag.moveTo(ctr[0] + 177, ctr[1] + 48)
-                    time.sleep(0.2)
+                    time.sleep(0.4)
                     pag.mouseDown()
-                    time.sleep(0.3)
+                    time.sleep(0.4)
                     pag.mouseUp()
                     time.sleep(0.7)
 
@@ -2282,17 +2286,19 @@ def Wood_to_Cotton(account, Min_number, Max_number, Making_Level, prod_direction
     #     # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
     #     pag.click(x=random.randint(243, 422) + (account // 2) * 960, y=random.randint(336, 398) + (account % 2) * 540)
     #     time.sleep(0.3)
-    # # 클릭했는데도 리스트가 가득 차있다? 얘들은 좋지
-    # prod_full_list3 = pag.locateCenterOnScreen('prod_full_list3.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    # prod_full_list4 = pag.locateCenterOnScreen('prod_full_list4.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    # prod_full_list5 = pag.locateCenterOnScreen('prod_full_list5.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    # prod_full_list6 = pag.locateCenterOnScreen('prod_full_list6.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    # prod_full_list7 = pag.locateCenterOnScreen('prod_full_list7.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    # prod_full_list8 = pag.locateCenterOnScreen('prod_full_list8.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    z0 =pag.locateCenterOnScreen('z0.png', confidence=0.95, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+
+    z0 = pag.locateCenterOnScreen('z0.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z1 = pag.locateCenterOnScreen('z1.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z2 = pag.locateCenterOnScreen('z2.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z3 = pag.locateCenterOnScreen('z3.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z4 = pag.locateCenterOnScreen('z4.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z5 = pag.locateCenterOnScreen('z5.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z6 = pag.locateCenterOnScreen('z6.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z7 = pag.locateCenterOnScreen('z7.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z8 = pag.locateCenterOnScreen('z8.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
     # 3~7렙 Full list인 경우 다음 건물로 넘어감. 하지만 고렙 생산..중이면 그거 취소 못하고 저렙 생산이 안될텐데...
     # if (prod_full_list3) or (prod_full_list4) or (prod_full_list5) or (prod_full_list6) or (prod_full_list7):
-    if (z0):
+    if not (z8 or z7 or z6 or z5 or z4 or z3 or z2 or z1):
         print('리스트 full!2')
         Skip_Next(account, prod_direction_left)
         return False
@@ -2493,14 +2499,16 @@ def Wood_to_Cotton_Quick(account, Max_number, Making_Level, prod_direction_left)
     #     pag.click(x=random.randint(243, 422) + (account // 2) * 960, y=random.randint(336, 398) + (account % 2) * 540)
     #     time.sleep(0.5)
     # 클릭했는데도 리스트가 가득 차있다? 어찔까... 그냥 넘어가면 최고렙을 계속 찍을..지도?
-    # prod_full_list3 = pag.locateCenterOnScreen('prod_full_list3.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    # prod_full_list4 = pag.locateCenterOnScreen('prod_full_list4.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    # prod_full_list5 = pag.locateCenterOnScreen('prod_full_list5.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    # prod_full_list6 = pag.locateCenterOnScreen('prod_full_list6.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    # prod_full_list7 = pag.locateCenterOnScreen('prod_full_list7.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    # prod_full_list8 = pag.locateCenterOnScreen('prod_full_list8.png', confidence=0.95, region=(45 + (account // 2) * 960, 60 + (account % 2) * 540, 55, 22))
-    z0 = pag.locateCenterOnScreen('z0.png', confidence=0.95, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    if z0:
+    z0 = pag.locateCenterOnScreen('z0.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z1 = pag.locateCenterOnScreen('z1.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z2 = pag.locateCenterOnScreen('z2.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z3 = pag.locateCenterOnScreen('z3.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z4 = pag.locateCenterOnScreen('z4.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z5 = pag.locateCenterOnScreen('z5.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z6 = pag.locateCenterOnScreen('z6.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z7 = pag.locateCenterOnScreen('z7.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z8 = pag.locateCenterOnScreen('z8.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    if not (z8 or z7 or z6 or z5 or z4 or z3 or z2 or z1):
     # 3~7렙 Full list인 경우 다음 건물로 넘어감. 하지만 고렙 생산..중이면 그거 취소 못하고 저렙 생산이 안될텐데...
         print('리스트 full!3')
         prod_warehousefull = pag.locateCenterOnScreen('prod_warehousefull.PNG', confidence=0.95, region=(339 + (account // 2) * 960, 253 + (account % 2) * 540, 175, 87))
@@ -5692,15 +5700,14 @@ def Angmu_Enter(account, whereto):
                     return print('분수 보상 수령할 게 없네요!')
             # 있었는데요. 없습니다.
             Cond_fountain_result = pag.locateCenterOnScreen('Cond_fountain_result.png', confidence=0.9, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
-            Cond_fountain_result1 = pag.locateCenterOnScreen('Cond_fountain_result1.png', confidence=0.8, region=(15 + (account // 2) * 960, 496 + (account % 2) * 540, 89, 42))
-            if (Cond_fountain_result) or (Cond_fountain_result1):
-                time.sleep(1)
+            if (Cond_fountain_result):
                 pag.click(295 + (account // 2) * 960, 60 + (account % 2) * 540)
-                # Cond_fountain_result = pag.locateCenterOnScreen('Cond_fountain_result.png', confidence=0.9, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
-                # Cond_fountain_result1 = pag.locateCenterOnScreen('Cond_fountain_result1.png', confidence=0.8, region=(15 + (account // 2) * 960, 496 + (account % 2) * 540, 89, 42))
-                # if (not Cond_fountain_result) or (not Cond_fountain_result1):
-                #     time.sleep(1)
-                    # Kingdom_ready(account, 'kkd_out')
+                time.sleep(0.3)
+                Cond_fountain_result = pag.locateCenterOnScreen('Cond_fountain_result.png', confidence=0.9, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+                Cond_fountain_result1 = pag.locateCenterOnScreen('Cond_fountain_result1.png', confidence=0.8, region=(15 + (account // 2) * 960, 496 + (account % 2) * 540, 89, 42))
+                if (not Cond_fountain_result) or (not Cond_fountain_result1):
+                    time.sleep(1)
+                    Kingdom_ready(account, 'kkd_out')
                 return print('분수 보상 수령 완료! 현재시간:', datetime.now().strftime('%H:%M:%S'))
             time.sleep(1)
 
@@ -6784,6 +6791,12 @@ def Kpass_reward(account):
                 print('end 누름')
                 break
 
+            ok_button = pag.locateCenterOnScreen('ok_button.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 700, 540))  # 재화가 부족하여 요청을 수행할 수 없습니다. 버튼 뜨면
+            if (ok_button):
+                print('확인 버튼이 있네?')
+                pag.click(ok_button)
+                time.sleep(3)
+
             bClicked = False
             screen = ImageGrab.grab()
             pix_kpass1 = screen.getpixel((16 + (account // 2) * 960, 101 + (account % 2) * 540))  # 데일리 미션
@@ -7238,6 +7251,7 @@ def numb_new_recog(prod_pin, line, account):
 
 def three_prod_action(account, check_list_img1, check_list_img2, check_list_img3, check_num1, check_num2, check_num3, prod_direction_left):
     start_time = time.time()
+    time.sleep(0.5)
 
     cond_network = pag.locateCenterOnScreen('cond_network.png', confidence=0.96, region=(440 + (account // 2) * 960, 363 + (account % 2) * 540, 43, 29))
     if (cond_network):
@@ -7245,10 +7259,16 @@ def three_prod_action(account, check_list_img1, check_list_img2, check_list_img3
         time.sleep(0.3)
 
     # # 풀리스트인 경우 넘어감
-    z0 = pag.locateCenterOnScreen('z0.png', confidence=0.94, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z1 = pag.locateCenterOnScreen('z1.png', confidence=0.94, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    if z0 or z1:
-        # if (prod_full_list3) or (prod_full_list4) or (prod_full_list5) or (prod_full_list6) or (prod_full_list7) or (prod_full_list8):
+    z0 = pag.locateCenterOnScreen('z0.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z1 = pag.locateCenterOnScreen('z1.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z2 = pag.locateCenterOnScreen('z2.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z3 = pag.locateCenterOnScreen('z3.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z4 = pag.locateCenterOnScreen('z4.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z5 = pag.locateCenterOnScreen('z5.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z6 = pag.locateCenterOnScreen('z6.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z7 = pag.locateCenterOnScreen('z7.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    z8 = pag.locateCenterOnScreen('z8.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+    if not (z8 or z7 or z6 or z5 or z4 or z3 or z2 or z1):
         print('리스트 full!4')
         Skip_Next(account, prod_direction_left)
         return True
@@ -7328,9 +7348,17 @@ def three_prod_action(account, check_list_img1, check_list_img2, check_list_img3
             time.sleep(0.3)
 
         # # 풀리스트인 경우 넘어감
-        z0 = pag.locateCenterOnScreen('z0.png', confidence=0.94, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        z1 = pag.locateCenterOnScreen('z1.png', confidence=0.94, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        if z0 or z1:
+        z0 = pag.locateCenterOnScreen('z0.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        z1 = pag.locateCenterOnScreen('z1.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        z2 = pag.locateCenterOnScreen('z2.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        z3 = pag.locateCenterOnScreen('z3.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        z4 = pag.locateCenterOnScreen('z4.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        z5 = pag.locateCenterOnScreen('z5.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        z6 = pag.locateCenterOnScreen('z6.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        z7 = pag.locateCenterOnScreen('z7.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        z8 = pag.locateCenterOnScreen('z8.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
+        if not (z8 or z7 or z6 or z5 or z4 or z3 or z2 or z1):
+        # if z0 or z1:
             print('리스트 full!5')
             Skip_Next(account, prod_direction_left)
             return True
@@ -7473,6 +7501,81 @@ def find_and_check(account, where_to):
         print('비슷한 이미지도 없음')
         return False
 
+def research_action1(account, what_research):
+    print('연구소 들어왔어요!')
+    research_ing = pag.locateCenterOnScreen('research_ing.png', confidence=0.945, region=(230 + (account // 2) * 960, 115 + (account % 2) * 540, 24, 18))
+    if (research_ing):
+        print('엇.. 뭔가 연구중입니다.')
+        Kingdom_ready(account, 'kkd_out')
+        return False
+
+    # 왕국이냐 쿠키냐 선택
+    while True:
+        if keyboard.is_pressed('end'):
+            print('end 누름')
+            return False
+        # 연구소이고, 연구소 안에서 창이 떠있어서 화면 중간에 x버튼 있다? 없애!
+        research_window = pag.locateCenterOnScreen('research_window.png', confidence=0.96, region=(600 + (account // 2) * 960, 35 + (account % 2) * 540, 245, 130))
+        if (research_window):
+            pag.click(research_window)
+            time.sleep(0.3)
+
+        if what_research == 'W':
+            screen = ImageGrab.grab()
+            pix_research_wangkook = screen.getpixel((330 + (account // 2) * 960, 515 + (account % 2) * 540))  # 왕국 연구
+            pix_research_selected = (58, 73, 109)
+            if pix_research_wangkook == pix_research_selected:
+                print('왕국 연구 선택됨!')
+                break
+            else:
+                pag.click(330 + (account // 2) * 960, 515 + (account % 2) * 540)
+                time.sleep(0.3)
+
+        if what_research == 'C':
+            screen = ImageGrab.grab()
+            pix_research_cookie = screen.getpixel((500 + (account // 2) * 960, 515 + (account % 2) * 540))  # 쿠키 연구
+            pix_research_selected = (58, 73, 109)
+            if pix_research_cookie == pix_research_selected:
+                print('쿠키 연구 선택됨!')
+                break
+            else:
+                pag.click(500 + (account // 2) * 960, 515 + (account % 2) * 540)
+                time.sleep(0.3)
+
+    # 연구 돌립시다
+    while True:
+        if keyboard.is_pressed('end'):
+            print('end 누름')
+            return False
+        # time.sleep(2)
+
+        research_green_light = pag.locateCenterOnScreen('research_green_light.png', confidence=0.96, region=(8 + (account // 2) * 960, 80 + (account % 2) * 540, 868, 401))
+        if (research_green_light):
+            print('실행 가능한 연구가 보여요!')
+            print('green_light', research_green_light)
+            pag.click(research_green_light.x + 43, research_green_light.y + 43)
+            time.sleep(1)
+            print('연구 시작합니다')
+            pag.click(467 + (account // 2) * 960,471 + (account % 2) * 540)   # 연구하기 버튼 클릭
+            time.sleep(1)
+            research_ing = pag.locateCenterOnScreen('research_ing.png', confidence=0.945, region=(230 + (account // 2) * 960, 115 + (account % 2) * 540, 24, 18))
+            if (research_ing):
+                print('연구 시작했습니다!')
+                Kingdom_ready(account, 'kkd_out')
+                return True
+        else:
+            print('실행 가능한 연구가 안 보여요!')
+            pag.click(37+(account//2)*960, 59+(account%2)*540)   # 수염할아버지 얼굴 한번 클릭하고
+            time.sleep(1)
+
+            # # 실행 가능한 연구 찾아 화면 왼쪽으로 드래그
+            # pag.moveTo(random.randint(730 + (account // 2) * 960, 785 + (account // 2) * 960), random.randint(470 + (account % 2) * 540, 525 + (account % 2) * 540))
+            # pag.drag(700, 0, 3)  # 왼 손으로 비비고
+
+            # 실행 가능한 연구 찾아 화면 오른쪽으로 드래그
+            pag.moveTo(random.randint(730 + (account // 2) * 960, 785 + (account // 2) * 960), random.randint(470 + (account % 2) * 540, 480 + (account % 2) * 540))
+            pag.drag(-350, 0, 3)  # 오른손으로 비비고
+            continue
 
 def research_action(account, what_research, where_to):
     research_position = 0
@@ -7488,6 +7591,7 @@ def research_action(account, what_research, where_to):
         if keyboard.is_pressed('end'):
             print('end 누름')
             return False
+        # 연구소이고, 화면 중간에 x버튼 있다? 지워!
         research_window = pag.locateCenterOnScreen('research_window.png', confidence=0.96, region=(600 + (account // 2) * 960, 35 + (account % 2) * 540, 245, 130))
         if (research_window):
             pag.click(research_window)
@@ -9423,13 +9527,16 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                     if bResearch_auto:
                         if (account) == 0:
                             if Angmu_Enter(account, 'research'):
-                                research_action(account, 'C', 'research_C_23')  # 케이크 충전 가속
+                                # research_action(account, 'C', 'research_C_23')  # 케이크 충전 가속
+                                research_action(account, 'W')  # 왕국 연구 고고싱!
                         if (account) == 1:
                             if Angmu_Enter(account, 'research'):
-                                research_action(account, 'C', 'research_C_283')  # 케이크 충전 가속
+                                # research_action(account, 'C', 'research_C_283')  # 케이크 충전 가속
+                                research_action1(account, 'W')  # 왕국 연구 고고싱!
                         if (account) == 2:
                             if Angmu_Enter(account, 'research'):
-                                research_action(account, 'C', 'research_C_283')  # 케이크 충전 가속
+                                # research_action(account, 'C', 'research_C_283')  # 케이크 충전 가속
+                                research_action1(account, 'W')  # 왕국 연구 고고싱!
 
                     # 열차
                     if Angmu_Enter(account, 'train'):  # 느낌표 떠있으면 들어감, 아니면 패스
@@ -9464,6 +9571,8 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                     # 21.12.04 추가 - 체크 마크 클릭하기
                     check_mark_time = time.time()  # 혹시 모르니 시간 제한도 넣고..
                     while True:
+                        if keyboard.is_pressed('end'):
+                            break
                         cond_network = pag.locateCenterOnScreen('cond_network.png', confidence=0.96, region=(440 + (account // 2) * 960, 363 + (account % 2) * 540, 43, 29))
                         if (cond_network):
                             pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(377 - 5, 377 + 5) + (account % 2) * 540)
@@ -9487,9 +9596,57 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         check_check = pag.locateCenterOnScreen('check.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
                         if (check_check):  # 있으면 클릭하긴 하는데..
                             pag.click(check_check)
-                            time.sleep(1)  # 2초쯤 기다리면 되려나..
+                            time.sleep(5)  # 2초쯤 기다리면 되려나..
                             # ++ 여기다 열차, 열기구, 연구소, 트로피칼, 건물 완료, 왕국 미션 완료 다 때려박아야할듯..
+                            screen = ImageGrab.grab()
+                            pix_status_scr1 = screen.getpixel((65 + (account // 2) * 960, 505 + (account % 2) * 540))  # = 왼쪽아래 건설하기 아이콘쪽
+                            pix_status1_tropical = (255, 98, 170)  # 트로피칼이다
+                            pix_status1_tropical_windowopen = (127, 49, 85)  # 트로피칼에 메뉴창 떠있다
+                            tropical_start_time = time.time()
+                            while pix_status1_tropical or pix_status1_tropical_windowopen:
+                                if keyboard.is_pressed('end'):
+                                    break
+                                tropical_now_time = time.time()
+                                if tropical_now_time - tropical_start_time >= 300:
+                                    print('너무 오래 돌리는데? 300초 이상')
+                                    break
+                                if (pix_status1_tropical):
+                                    print('트로피칼!')
+
+                                    # 영토 확장 완료!
+                                    check_check = pag.locateCenterOnScreen('check.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+                                    if check_check:
+                                        print('영토 확장 완료!')
+                                        pag.click(check_check)
+
+                                    # 새로 열린 영토 느낌표
+                                    cond_tropical_exclamation = pag.locateCenterOnScreen('cond_tropical_exclamation.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 느낌표
+                                    if (cond_tropical_exclamation):
+                                        print('느낌표 클릭!')
+                                        # pag.click(cond_tropical_exclamation)
+                                        print(cond_tropical_exclamation)
+                                        time.sleep(2)
+                                        pag.click(175 + (account // 2) * 960, 17 + (account % 2) * 540)  # 우선 해당 창 클릭하고!
+                                        time.sleep(1)
+                                        pag.hotkey('esc')
+                                        time.sleep(1)
+
+                                    # 느낌표도 영토확장도 없다?
+                                    if not check_check and not cond_tropical_exclamation:
+                                        print('영토 확장 체크마크, 느낌표 없어요!')
+                                        break
+
+                                elif pix_status1_tropical_windowopen:
+                                    print('창켜진 트로피칼!')
+                                    pag.click(175 + (account // 2) * 960, 17 + (account % 2) * 540)  # 우선 해당 창 클릭하고!
+                                    time.sleep(1)
+                                    pag.hotkey('esc')
+                                else:
+                                    print('뭐야!')
+                                    time.sleep(2)
+                            # 트로피칼 아니라면 그냥 나옵시다
                             Kingdom_ready(account, 'kkd_out')  # 이쯤 되니 헷갈리네....그냥 빠져나오는 거였나..
+
                         if not (check_check):
                             print('체크 마크 없네요!')
                             break
@@ -10062,7 +10219,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                 # 쿠하 클릭
                                 if not bFirstCookhouA:
                                     print('[쿠하] 계정 A 첫 클릭')
-                                    time.sleep(0.2)
+                                    time.sleep(0.5)
                                     pag.click(pag.locateCenterOnScreen('Cond_cookiehouse.png', confidence=0.93, region=(83 + (account // 2) * 960, 176 + (account % 2) * 540,  725, 280)))  # 917->845
                                     cookie_time_A = time.time()  # 클릭한 시간을 다시 저장
                                     bFirstCookhouA = True
@@ -10070,7 +10227,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                 else:
                                     if (now_time - cookie_time_A) > cookie_set_time:
                                         print('[쿠하] 설정 시간이 지나서 클릭합니다.', now_time - cookie_time_A)
-                                        time.sleep(0.2)
+                                        time.sleep(0.5)
                                         pag.click(pag.locateCenterOnScreen('Cond_cookiehouse.png', confidence=0.93,region=(83 + (account // 2) * 960, 176 + (account % 2) * 540,  725, 280)))  # 917->845
                                         cookie_time_A = time.time()  # 클릭한 시간을 다시 저장
                                         time.sleep(1)
@@ -10092,7 +10249,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                 # 쿠하 클릭
                                 if not bFirstCookhouB:
                                     print('[쿠하] 계정 B 첫 클릭')
-                                    time.sleep(0.2)
+                                    time.sleep(0.5)
                                     pag.click(pag.locateCenterOnScreen('Cond_cookiehouse.png', confidence=0.93,region=(83 + (account // 2) * 960, 176 + (account % 2) * 540,  725, 280)))  # 917->845
                                     cookie_time_B = time.time()  # 클릭한 시간을 다시 저장
                                     bFirstCookhouB = True
@@ -10100,7 +10257,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                 else:
                                     if (now_time - cookie_time_B) > cookie_set_time:
                                         print('[쿠하] 설정 시간이 지나서 클릭합니다.', now_time - cookie_time_B)
-                                        time.sleep(0.2)
+                                        time.sleep(0.5)
                                         pag.click(pag.locateCenterOnScreen('Cond_cookiehouse.png', confidence=0.93,region=(83 + (account // 2) * 960, 176 + (account % 2) * 540,  725, 280)))  # 917->845
                                         cookie_time_B = time.time()  # 클릭한 시간을 다시 저장
                                         time.sleep(1)
@@ -10122,7 +10279,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                 # 쿠하 클릭
                                 if not bFirstCookhouC:
                                     print('[쿠하] 계정 C 첫 클릭')
-                                    time.sleep(0.2)
+                                    time.sleep(0.5)
                                     pag.click(pag.locateCenterOnScreen('Cond_cookiehouse.png', confidence=0.93, region=(83 + (account // 2) * 960, 176 + (account % 2) * 540,  725, 280)))  # 917->845
                                     cookie_time_C = time.time()  # 클릭한 시간을 다시 저장
                                     bFirstCookhouC = True
@@ -10130,7 +10287,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                 else:
                                     if (now_time - cookie_time_C) > cookie_set_time:
                                         print('[쿠하] 설정 시간이 지나서 클릭합니다.', now_time - cookie_time_C)
-                                        time.sleep(0.2)
+                                        time.sleep(0.5)
                                         pag.click(pag.locateCenterOnScreen('Cond_cookiehouse.png', confidence=0.93, region=(83 + (account // 2) * 960, 176 + (account % 2) * 540,  725, 280)))  # 917->845
                                         cookie_time_C = time.time()  # 클릭한 시간을 다시 저장
                                         time.sleep(1)
@@ -10167,9 +10324,109 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                 Kingdom_ready(account, 'kkd_out')
                                 # 시간 체크를 정확히 하려면 Train_time함수를 while True: 안에 넣어서 return 값이 True가 되는 조건으로...
 
+                            # 연구소 돌리기...
+                            if bResearch_auto:
+                                if (account) == 0:
+                                    if Angmu_Enter(account, 'research'):
+                                        # research_action(account, 'C', 'research_C_23')  # 케이크 충전 가속
+                                        research_action(account, 'W')  # 왕국 연구 고고싱!
+                                if (account) == 1:
+                                    if Angmu_Enter(account, 'research'):
+                                        # research_action(account, 'C', 'research_C_283')  # 케이크 충전 가속
+                                        research_action1(account, 'W')  # 왕국 연구 고고싱!
+                                if (account) == 2:
+                                    if Angmu_Enter(account, 'research'):
+                                        # research_action(account, 'C', 'research_C_283')  # 케이크 충전 가속
+                                        research_action1(account, 'W')  # 왕국 연구 고고싱!
                             # 열기구 보내기
                             if Angmu_Enter(account, 'balloon'):
                                 Ballon_send(account)
+
+                            while True:
+                                if keyboard.is_pressed('end'):
+                                    break
+                                cond_network = pag.locateCenterOnScreen('cond_network.png', confidence=0.96, region=(440 + (account // 2) * 960, 363 + (account % 2) * 540, 43, 29))
+                                if (cond_network):
+                                    pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(377 - 5, 377 + 5) + (account % 2) * 540)
+                                    time.sleep(0.3)
+
+                                cond_halted = pag.locateCenterOnScreen('cond_halted.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+                                if (cond_halted):
+                                    # pag.click(740 + (account // 2) * 960, 310 + (account % 2) * 540)
+                                    pag.click(cond_halted)
+                                    End_kkd(account)
+                                    Kingdom_ready(account, 'kkd_out')  # 재부팅
+
+                                cond_halted1 = pag.locateCenterOnScreen('cond_halted1.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+                                cond_halted_close = pag.locateCenterOnScreen('cond_halted_close.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+                                if (cond_halted1):
+                                    pag.click(cond_halted_close)
+                                    time.sleep(7)
+                                    Kingdom_ready(account, 'kkd_out')  # 재부팅
+
+                                # 초롯갯 체크 있으면 클릭해요!
+                                now_time = time.time()
+                                check_check = pag.locateCenterOnScreen('check.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+                                if (check_check):  # 있으면 클릭하긴 하는데..
+                                    pag.click(check_check)
+                                    time.sleep(5)  # 2초쯤 기다리면 되려나..
+                                    # ++ 여기다 열차, 열기구, 연구소, 트로피칼, 건물 완료, 왕국 미션 완료 다 때려박아야할듯..
+                                    screen = ImageGrab.grab()
+                                    pix_status_scr1 = screen.getpixel((65 + (account // 2) * 960, 505 + (account % 2) * 540))  # = 왼쪽아래 건설하기 아이콘쪽
+                                    pix_status1_tropical = (255, 98, 170)  # 트로피칼이다
+                                    pix_status1_tropical_windowopen = (127, 49, 85)  # 트로피칼에 메뉴창 떠있다
+                                    tropical_start_time = time.time()
+                                    while pix_status1_tropical or pix_status1_tropical_windowopen:
+                                        if keyboard.is_pressed('end'):
+                                            break
+                                        tropical_now_time = time.time()
+                                        if tropical_now_time - tropical_start_time >= 300:
+                                            print('너무 오래 돌리는데? 300초 이상')
+                                            break
+                                        if (pix_status1_tropical):
+                                            print('트로피칼!')
+
+                                            # 영토 확장 완료!
+                                            check_check = pag.locateCenterOnScreen('check.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+                                            if check_check:
+                                                print('영토 확장 완료!')
+                                                pag.click(check_check)
+
+                                            # 새로 열린 영토 느낌표
+                                            cond_tropical_exclamation = pag.locateCenterOnScreen('cond_tropical_exclamation.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 느낌표
+                                            if (cond_tropical_exclamation):
+                                                print('느낌표 클릭!')
+                                                # pag.click(cond_tropical_exclamation)
+                                                print(cond_tropical_exclamation)
+                                                time.sleep(2)
+                                                pag.click(175 + (account // 2) * 960, 17 + (account % 2) * 540)  # 우선 해당 창 클릭하고!
+                                                time.sleep(1)
+                                                pag.hotkey('esc')
+                                                time.sleep(1)
+
+                                            # 느낌표도 영토확장도 없다?
+                                            if not check_check and not cond_tropical_exclamation:
+                                                print('영토 확장 체크마크, 느낌표 없어요!')
+                                                break
+
+                                        elif pix_status1_tropical_windowopen:
+                                            print('창켜진 트로피칼!')
+                                            pag.click(175 + (account // 2) * 960, 17 + (account % 2) * 540)  # 우선 해당 창 클릭하고!
+                                            time.sleep(1)
+                                            pag.hotkey('esc')
+                                        else:
+                                            print('뭐야!')
+                                            time.sleep(2)
+                                    # 트로피칼 아니라면 그냥 나옵시다
+                                    Kingdom_ready(account, 'kkd_out')  # 이쯤 되니 헷갈리네....그냥 빠져나오는 거였나..
+
+                                if not (check_check):
+                                    print('체크 마크 없네요!')
+                                    break
+                                if (now_time - check_mark_time) > 120:  # 설마 2분은 안넘겠지..
+                                    print('체크 마크 동작 시간 초과!')
+                                    break
+                                time.sleep(1)
 
                             heart_sojin_start = time.time()
                             while True:
@@ -12788,7 +13045,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                 # 쿠하 클릭
                                 if not bFirstCookhouA:
                                     print('[쿠하] 계정 A 첫 클릭')
-                                    time.sleep(0.2)
+                                    time.sleep(0.5)
                                     pag.click(pag.locateCenterOnScreen('Cond_cookiehouse.png', confidence=0.93, region=(83 + (account // 2) * 960, 176 + (account % 2) * 540, 725, 280)))  # 917->845
                                     cookie_time_A = time.time()  # 클릭한 시간을 다시 저장
                                     bFirstCookhouA = True
@@ -12796,7 +13053,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                 else:
                                     if (now_time - cookie_time_A) > cookie_set_time:
                                         print('[쿠하] 설정 시간이 지나서 클릭합니다.', now_time - cookie_time_A)
-                                        time.sleep(0.2)
+                                        time.sleep(0.5)
                                         pag.click(pag.locateCenterOnScreen('Cond_cookiehouse.png', confidence=0.93, region=(83 + (account // 2) * 960, 176 + (account % 2) * 540, 725, 280)))  # 917->845
                                         cookie_time_A = time.time()  # 클릭한 시간을 다시 저장
                                         time.sleep(1)
@@ -12818,7 +13075,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                 # 쿠하 클릭
                                 if not bFirstCookhouB:
                                     print('[쿠하] 계정 B 첫 클릭')
-                                    time.sleep(0.2)
+                                    time.sleep(0.5)
                                     pag.click(pag.locateCenterOnScreen('Cond_cookiehouse.png', confidence=0.93, region=(83 + (account // 2) * 960, 176 + (account % 2) * 540, 725, 280)))  # 917->845
                                     cookie_time_B = time.time()  # 클릭한 시간을 다시 저장
                                     bFirstCookhouB = True
