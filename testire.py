@@ -4232,8 +4232,6 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
             cond_kkd_arena = pag.locateCenterOnScreen('cond_kkd_arena.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
             cond_kkd_arena_continue = pag.locateCenterOnScreen('cond_kkd_arena_continue.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 전투 재개(겜 튕겼다 들어와서 아레나 전투!)
 
-            Cond_fountain_result1 = pag.locateCenterOnScreen('Cond_fountain_result1.png', confidence=0.8, region=(15 + (account // 2) * 960, 496 + (account % 2) * 540, 89, 42))  # 바탕화면인데 보상받아서 왕국활동 글씨가 살짝 보임
-
             print('[Kingdom_ready] 현재 픽셀값 : ', pix_status, '실행 %s초 지났습니다.' % int(now_time - start_time), account, '계정, 현재시간:', datetime.now().strftime('%H:%M:%S'))
             # print('[Kingdom_ready] 실행 %s초 지났습니다.' % int(now_time - start_time), '현재시간:', datetime.now().strftime('%H:%M:%S'))
             if now_time - start_time >= 300:
@@ -4276,11 +4274,6 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
                 man_macro_stop = pag.locateCenterOnScreen('macro_stop.png', confidence=0.9, region=(1398, 540, 513, 523))
                 pag.click(man_macro_stop)
                 time.sleep(2)
-
-            if (Cond_fountain_result1):
-                print('왕국활동 창이 살짝 보인다!')
-                time.sleep(1)
-                pag.click(295 + (account // 2) * 960, 60 + (account % 2) * 540)
 
             if (kkd_ad):
                 print('광고 없애!')
