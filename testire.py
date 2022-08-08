@@ -129,7 +129,7 @@ bMacroTime = True  # 매크로 도는 중?
 bProdHigh = False  # 동일 건물 2개인 경우 2번째 건물에서 높은 생산품 우선 생산
 bSecond = False  # 두 번째 건물 작업이냐?
 
-bAcc_A_First = True  # 계정 먼저 시작 순서(True일 때 A부터, 아니면 B부터)
+bAcc_A_First = False  # 계정 먼저 시작 순서(True일 때 A부터, 아니면 B부터)
 bAcc_C_First = False     # C계정 먼저 시작해요!
 
 bFirstCookhouA = False  # 첫 쿠하(클릭)
@@ -5994,27 +5994,34 @@ def Angmu_Enter(account, whereto):
 
         # 연구소 입장 확인까지만
         while bResearchEvent:
-            cond_network = pag.locateCenterOnScreen('cond_network.png', confidence=0.96, region=(440 + (account // 2) * 960, 363 + (account % 2) * 540, 43, 29))
-            if (cond_network):
-                pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(377 - 5, 377 + 5) + (account % 2) * 540)
-                time.sleep(0.3)
+            try:
+                cond_network = pag.locateCenterOnScreen('cond_network.png', confidence=0.96, region=(440 + (account // 2) * 960, 363 + (account % 2) * 540, 43, 29))
+                if (cond_network):
+                    pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(377 - 5, 377 + 5) + (account % 2) * 540)
+                    time.sleep(0.3)
 
-            activity_now_time = time.time()
-            if activity_now_time - activity_monitor_time > 120:
-                print('2분 넘게 돌아서 종료하고 메인화면으로 갑니다.')
-                Kingdom_ready(account, 'kkd_out')
-                return False
-            if keyboard.is_pressed('end'):
-                print('end 누름')
-                return False
-            cond_research = pag.locateCenterOnScreen('cond_research.png', confidence=0.9, region=(12 + (account // 2) * 960, 36 + (account % 2) * 540, 36, 36))  # 연구소 노움 얼굴
-            if (cond_research):
-                return True
-            Cond_research_comp = pag.locateCenterOnScreen('Cond_research_comp.png', confidence=0.945, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
-            if (Cond_research_comp):
-                print('Cond_research_comp', Cond_research_comp)
-                pag.click(random.randint(205, 205 + 515) + (account // 2) * 960, random.randint(95, 95 + 400) + (account % 2) * 540)
-            time.sleep(1)
+                activity_now_time = time.time()
+                if activity_now_time - activity_monitor_time > 120:
+                    print('2분 넘게 돌아서 종료하고 메인화면으로 갑니다.')
+                    Kingdom_ready(account, 'kkd_out')
+                    return False
+                if keyboard.is_pressed('end'):
+                    print('end 누름')
+                    return False
+                cond_research = pag.locateCenterOnScreen('cond_research.png', confidence=0.9, region=(12 + (account // 2) * 960, 36 + (account % 2) * 540, 36, 36))  # 연구소 노움 얼굴
+                if (cond_research):
+                    return True
+                # 연구 완료가 있다! '연구 완료!'글씨
+                Cond_research_comp = pag.locateCenterOnScreen('Cond_research_comp.png', confidence=0.945, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+                if (Cond_research_comp):
+                    print('Cond_research_comp', Cond_research_comp)
+                    pag.click(random.randint(205, 205 + 515) + (account // 2) * 960, random.randint(95, 95 + 400) + (account % 2) * 540)
+                    time.sleep(2)
+                    return True
+            except:
+                print('에러났어요! while bResearchEvent')
+                send_telegram_message('while bResearchEvent 에러!')
+                Kingdom_ready(account, 'kkd_out')  # 바탕화면으로 고고!
 
         # 열기구 입장 확인 및 보내기.
         while bBalloonEvent:
@@ -9528,7 +9535,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         if (account) == 0:
                             if Angmu_Enter(account, 'research'):
                                 # research_action(account, 'C', 'research_C_23')  # 케이크 충전 가속
-                                research_action(account, 'W')  # 왕국 연구 고고싱!
+                                research_action1(account, 'W')  # 왕국 연구 고고싱!
                         if (account) == 1:
                             if Angmu_Enter(account, 'research'):
                                 # research_action(account, 'C', 'research_C_283')  # 케이크 충전 가속
@@ -9612,6 +9619,11 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                     break
                                 if (pix_status1_tropical):
                                     print('트로피칼!')
+                                    # 우선 화면 줌아웃 하고
+                                    pag.hotkey('-')
+                                    time.sleep(2)
+                                    pag.hotkey('-')
+                                    time.sleep(3)
 
                                     # 영토 확장 완료!
                                     check_check = pag.locateCenterOnScreen('check.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
@@ -9623,7 +9635,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                     cond_tropical_exclamation = pag.locateCenterOnScreen('cond_tropical_exclamation.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 느낌표
                                     if (cond_tropical_exclamation):
                                         print('느낌표 클릭!')
-                                        # pag.click(cond_tropical_exclamation)
+                                        pag.click(cond_tropical_exclamation)
                                         print(cond_tropical_exclamation)
                                         time.sleep(2)
                                         pag.click(175 + (account // 2) * 960, 17 + (account % 2) * 540)  # 우선 해당 창 클릭하고!
@@ -10329,7 +10341,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                 if (account) == 0:
                                     if Angmu_Enter(account, 'research'):
                                         # research_action(account, 'C', 'research_C_23')  # 케이크 충전 가속
-                                        research_action(account, 'W')  # 왕국 연구 고고싱!
+                                        research_action1(account, 'W')  # 왕국 연구 고고싱!
                                 if (account) == 1:
                                     if Angmu_Enter(account, 'research'):
                                         # research_action(account, 'C', 'research_C_283')  # 케이크 충전 가속
@@ -10364,7 +10376,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                     time.sleep(7)
                                     Kingdom_ready(account, 'kkd_out')  # 재부팅
 
-                                # 초롯갯 체크 있으면 클릭해요!
+                                # 초록색 체크 있으면 클릭해요!
                                 now_time = time.time()
                                 check_check = pag.locateCenterOnScreen('check.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
                                 if (check_check):  # 있으면 클릭하긴 하는데..
@@ -10385,6 +10397,11 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                             break
                                         if (pix_status1_tropical):
                                             print('트로피칼!')
+                                            # 우선 화면 줌아웃 하고
+                                            pag.hotkey('-')
+                                            time.sleep(2)
+                                            pag.hotkey('-')
+                                            time.sleep(3)
 
                                             # 영토 확장 완료!
                                             check_check = pag.locateCenterOnScreen('check.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
@@ -10396,7 +10413,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                             cond_tropical_exclamation = pag.locateCenterOnScreen('cond_tropical_exclamation.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 느낌표
                                             if (cond_tropical_exclamation):
                                                 print('느낌표 클릭!')
-                                                # pag.click(cond_tropical_exclamation)
+                                                pag.click(cond_tropical_exclamation)
                                                 print(cond_tropical_exclamation)
                                                 time.sleep(2)
                                                 pag.click(175 + (account // 2) * 960, 17 + (account % 2) * 540)  # 우선 해당 창 클릭하고!
@@ -10794,149 +10811,149 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                             if Arena_Event(account):
                                 Arena_action(account, set_max_power)
 
-                            # 220802 추가 : 디즈니 이벤트
-                            bLineEnd_1 = False
-                            bLineEnd_2 = False
-                            bLineEnd_3 = False
-                            iHowMany = 0
-                            tStart_Disney = time.time()
-                            while True:
-                                tNow_Disney = time.time()
-                                if tNow_Disney - tStart_Disney > 120:
-                                    print('제한 시간 초과!')
-                                    Kingdom_ready(account, 'kkd_out')
-                                    break
-                                if keyboard.is_pressed('end'):
-                                    print('end 누름')
-                                    break
-
-                                # 재화가 부족하여 요청을... 화면이면? - 2022.08.06 추가
-                                screen = ImageGrab.grab()
-                                pix_status = screen.getpixel((605 + (account // 2) * 960, 55 + (account % 2) * 540))  # 상단골드
-                                ok_button =pag.locateCenterOnScreen('ok_button.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 700, 540))  # 재화가 부족하여 요청을 수행할 수 없습니다. 버튼 뜨면
-                                if pix_status == (16, 14, 18) and ok_button:
-                                    pag.click(ok_button)
-                                    time.sleep(1)
-
-                                cond_event_butak = pag.locateCenterOnScreen('cond_event_butak.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 700, 540))  # 특별한 '부탁' 인지 확인
-                                if not (cond_event_butak):
-                                    cond_kkd_out = pag.locateCenterOnScreen('cond_kkd_out.png', confidence=0.85, region=(825 + (account // 2) * 960, 490 + (account % 2) * 540, 45, 40))  # 쿠키왕국
-                                    if (cond_kkd_out):  # 왕국이면... 조건 추가..를 해야하남
-                                        pag.click(45 + random.randint(-5, 5) + (account // 2) * 960, 200 + random.randint(-5, 5) + (account % 2) * 540)  # 이벤트 아이콘 클릭
-                                        time.sleep(1)
-                                    else:  # 왕국 아니면
-                                        cond_event_in = pag.locateCenterOnScreen('cond_event_in.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 700, 540))  # 이벤트 내부인데 부탁이 없다?
-                                        if not (cond_event_in):
-                                            pag.moveTo(90 + random.randint(-5, 5) + (account // 2) * 960, 140 + random.randint(-5, 5) + (account % 2) * 540)
-                                            pag.drag(0, 350, 2)  # 좌상에서 좌하로 350 이동
-                                            time.sleep(1)
-                                        else:
-                                            pag.click(85 + random.randint(-5, 5) + (account // 2) * 960, 410 + random.randint(-5, 5) + (account % 2) * 540)  # 좌상 끌어올렸으면 해당 이벤트 클릭
-                                            time.sleep(1)
-                                else:
-                                    pix_refresh = (243, 90, 28)  # 새로고침 버튼(눌렸음)
-                                    pix_can_give = (97, 211, 0)  # 줄 수 있는 녹색 체크
-                                    pix_cannot_give = (154, 154, 154)  # 줄 수 없는 회색 체크
-                                    pix_refresh = (191, 175, 143)  # _1 새로고침(어두워짐)
-                                    pix_purple = (113, 88, 146)  # _2, _3 보라색
-                                    pix_not_refresh = (255, 233, 191)  # _1 열려있음(밝음)
-
-                                    time.sleep(1)
-
-                                    screen = ImageGrab.grab()
-                                    # 상단
-                                    pix_1_1 = screen.getpixel((330 + (account // 2) * 960, 225 + (account % 2) * 540))
-                                    pix_2_1 = screen.getpixel((330 + 228 * 1 + (account // 2) * 960, 225 + (account % 2) * 540))
-                                    pix_3_1 = screen.getpixel((330 + 228 * 2 + (account // 2) * 960, 225 + (account % 2) * 540))
-
-                                    # 새로고침
-                                    pix_1_2 = screen.getpixel((280 + (account // 2) * 960, 430 + (account % 2) * 540))
-                                    pix_2_2 = screen.getpixel((280 + 228 * 1 + (account // 2) * 960, 430 + (account % 2) * 540))
-                                    pix_3_2 = screen.getpixel((280 + 228 * 2 + (account // 2) * 960, 430 + (account % 2) * 540))
-
-                                    # 체크박스
-                                    pix_1_3 = screen.getpixel((390 + (account // 2) * 960, 430 + (account % 2) * 540))
-                                    pix_2_3 = screen.getpixel((390 + 228 * 1 + (account // 2) * 960, 430 + (account % 2) * 540))
-                                    pix_3_3 = screen.getpixel((390 + 228 * 2 + (account // 2) * 960, 430 + (account % 2) * 540))
-                                    # print('1', pix_1_1, pix_1_2, pix_1_3)
-                                    # pag.moveTo(280,430+account*540)
-                                    # time.sleep(0.3)
-                                    # pag.moveTo(390,430+account*540)
-                                    # time.sleep(0.3)
-
-                                    # print('2', pix_2_1, pix_2_2, pix_2_3)
-                                    # pag.moveTo(280+228*1,430+account*540)
-                                    # time.sleep(0.3)
-                                    # pag.moveTo(390+228*1,430+account*540)
-                                    # time.sleep(0.3)
-
-                                    # print('3', pix_3_1, pix_3_2, pix_3_3)
-                                    # pag.moveTo(280+228*2,430+account*540)
-                                    # time.sleep(0.3)
-                                    # pag.moveTo(390+228*2,430+account*540)
-                                    # time.sleep(0.3)
-
-                                    if pix_1_3 == pix_can_give:  # 건넬 수 있으면 건넴
-                                        pag.click(390 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
-                                        iHowMany = iHowMany + 1
-                                        time.sleep(1)
-                                    elif pix_1_3 == pix_cannot_give:  # 건넬 수 없으면 새로고침
-                                        pag.click(280 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
-                                        time.sleep(1)
-                                    else:  # 둘 다 아니면 상단 체크
-                                        if pix_1_1 == pix_refresh:
-                                            print('1번 새로고침중...')
-                                            bLineEnd_1 = True
-                                            time.sleep(1)
-                                        else:
-                                            pag.click(330 + (account // 2) * 960, 225 + (account % 2) * 540)  # 정확해야 해서 랜덤함수 뺌..
-                                            time.sleep(1)
-
-                                    if pix_2_3 == pix_can_give:  # 건넬 수 있으면 건넴
-                                        pag.click(390 + 228 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
-                                        iHowMany = iHowMany + 1
-                                        time.sleep(1)
-                                    elif pix_2_3 == pix_cannot_give:  # 건넬 수 없으면 새로고침
-                                        pag.click(280 + 228 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
-                                        time.sleep(1)
-                                    else:  # 둘 다 아니면 상단 체크
-                                        if pix_2_1 == pix_refresh:
-                                            print('2번 새로고침중...')
-                                            bLineEnd_2 = True
-                                            time.sleep(1)
-                                        else:
-                                            pag.click(330 + 228 + (account // 2) * 960, 225 + (account % 2) * 540)  # 정확해야 해서 랜덤함수 뺌..
-                                            time.sleep(1)
-
-                                    if pix_3_3 == pix_can_give:  # 건넬 수 있으면 건넴
-                                        pag.click(390 + 228 * 2 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
-                                        iHowMany = iHowMany + 1
-                                        time.sleep(1)
-                                    elif pix_3_3 == pix_cannot_give:  # 건넬 수 없으면 새로고침
-                                        pag.click(280 + 228 * 2 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
-                                        time.sleep(1)
-                                    else:  # 둘 다 아니면 상단 체크
-                                        if pix_3_1 == pix_refresh:
-                                            print('3번 새로고침중...')
-                                            bLineEnd_3 = True
-                                            time.sleep(1)
-                                        else:
-                                            pag.click(330 + 228 * 2 + (account // 2) * 960, 225 + (account % 2) * 540)  # 정확해야 해서 랜덤함수 뺌..
-                                            time.sleep(1)
-                                    if iHowMany >= 20:
-                                        print('%s번 돌렸다!' % (iHowMany))
-                                        pag.click(892 + (account // 2) * 960, 54 + (account % 2) * 540)
-                                        time.sleep(2)
-                                        Kingdom_ready(account, 'kkd_out')
-                                        break
-
-                                    if bLineEnd_1 and bLineEnd_2 and bLineEnd_3:
-                                        print('다 새로고침 상태.. %s번 돌림' % (iHowMany))
-                                        pag.click(892 + (account // 2) * 960, 54 + (account % 2) * 540)
-                                        time.sleep(2)
-                                        Kingdom_ready(account, 'kkd_out')
-                                        break
-                                time.sleep(0.5)
+                            # # 220802 추가 : 디즈니 이벤트
+                            # bLineEnd_1 = False
+                            # bLineEnd_2 = False
+                            # bLineEnd_3 = False
+                            # iHowMany = 0
+                            # tStart_Disney = time.time()
+                            # while True:
+                            #     tNow_Disney = time.time()
+                            #     if tNow_Disney - tStart_Disney > 120:
+                            #         print('제한 시간 초과!')
+                            #         Kingdom_ready(account, 'kkd_out')
+                            #         break
+                            #     if keyboard.is_pressed('end'):
+                            #         print('end 누름')
+                            #         break
+                            #
+                            #     # 재화가 부족하여 요청을... 화면이면? - 2022.08.06 추가
+                            #     screen = ImageGrab.grab()
+                            #     pix_status = screen.getpixel((605 + (account // 2) * 960, 55 + (account % 2) * 540))  # 상단골드
+                            #     ok_button =pag.locateCenterOnScreen('ok_button.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 700, 540))  # 재화가 부족하여 요청을 수행할 수 없습니다. 버튼 뜨면
+                            #     if pix_status == (16, 14, 18) and ok_button:
+                            #         pag.click(ok_button)
+                            #         time.sleep(1)
+                            #
+                            #     cond_event_butak = pag.locateCenterOnScreen('cond_event_butak.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 700, 540))  # 특별한 '부탁' 인지 확인
+                            #     if not (cond_event_butak):
+                            #         cond_kkd_out = pag.locateCenterOnScreen('cond_kkd_out.png', confidence=0.85, region=(825 + (account // 2) * 960, 490 + (account % 2) * 540, 45, 40))  # 쿠키왕국
+                            #         if (cond_kkd_out):  # 왕국이면... 조건 추가..를 해야하남
+                            #             pag.click(45 + random.randint(-5, 5) + (account // 2) * 960, 200 + random.randint(-5, 5) + (account % 2) * 540)  # 이벤트 아이콘 클릭
+                            #             time.sleep(1)
+                            #         else:  # 왕국 아니면
+                            #             cond_event_in = pag.locateCenterOnScreen('cond_event_in.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 700, 540))  # 이벤트 내부인데 부탁이 없다?
+                            #             if not (cond_event_in):
+                            #                 pag.moveTo(90 + random.randint(-5, 5) + (account // 2) * 960, 140 + random.randint(-5, 5) + (account % 2) * 540)
+                            #                 pag.drag(0, 350, 2)  # 좌상에서 좌하로 350 이동
+                            #                 time.sleep(1)
+                            #             else:
+                            #                 pag.click(85 + random.randint(-5, 5) + (account // 2) * 960, 410 + random.randint(-5, 5) + (account % 2) * 540)  # 좌상 끌어올렸으면 해당 이벤트 클릭
+                            #                 time.sleep(1)
+                            #     else:
+                            #         pix_refresh = (243, 90, 28)  # 새로고침 버튼(눌렸음)
+                            #         pix_can_give = (97, 211, 0)  # 줄 수 있는 녹색 체크
+                            #         pix_cannot_give = (154, 154, 154)  # 줄 수 없는 회색 체크
+                            #         pix_refresh = (191, 175, 143)  # _1 새로고침(어두워짐)
+                            #         pix_purple = (113, 88, 146)  # _2, _3 보라색
+                            #         pix_not_refresh = (255, 233, 191)  # _1 열려있음(밝음)
+                            #
+                            #         time.sleep(1)
+                            #
+                            #         screen = ImageGrab.grab()
+                            #         # 상단
+                            #         pix_1_1 = screen.getpixel((330 + (account // 2) * 960, 225 + (account % 2) * 540))
+                            #         pix_2_1 = screen.getpixel((330 + 228 * 1 + (account // 2) * 960, 225 + (account % 2) * 540))
+                            #         pix_3_1 = screen.getpixel((330 + 228 * 2 + (account // 2) * 960, 225 + (account % 2) * 540))
+                            #
+                            #         # 새로고침
+                            #         pix_1_2 = screen.getpixel((280 + (account // 2) * 960, 430 + (account % 2) * 540))
+                            #         pix_2_2 = screen.getpixel((280 + 228 * 1 + (account // 2) * 960, 430 + (account % 2) * 540))
+                            #         pix_3_2 = screen.getpixel((280 + 228 * 2 + (account // 2) * 960, 430 + (account % 2) * 540))
+                            #
+                            #         # 체크박스
+                            #         pix_1_3 = screen.getpixel((390 + (account // 2) * 960, 430 + (account % 2) * 540))
+                            #         pix_2_3 = screen.getpixel((390 + 228 * 1 + (account // 2) * 960, 430 + (account % 2) * 540))
+                            #         pix_3_3 = screen.getpixel((390 + 228 * 2 + (account // 2) * 960, 430 + (account % 2) * 540))
+                            #         # print('1', pix_1_1, pix_1_2, pix_1_3)
+                            #         # pag.moveTo(280,430+account*540)
+                            #         # time.sleep(0.3)
+                            #         # pag.moveTo(390,430+account*540)
+                            #         # time.sleep(0.3)
+                            #
+                            #         # print('2', pix_2_1, pix_2_2, pix_2_3)
+                            #         # pag.moveTo(280+228*1,430+account*540)
+                            #         # time.sleep(0.3)
+                            #         # pag.moveTo(390+228*1,430+account*540)
+                            #         # time.sleep(0.3)
+                            #
+                            #         # print('3', pix_3_1, pix_3_2, pix_3_3)
+                            #         # pag.moveTo(280+228*2,430+account*540)
+                            #         # time.sleep(0.3)
+                            #         # pag.moveTo(390+228*2,430+account*540)
+                            #         # time.sleep(0.3)
+                            #
+                            #         if pix_1_3 == pix_can_give:  # 건넬 수 있으면 건넴
+                            #             pag.click(390 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
+                            #             iHowMany = iHowMany + 1
+                            #             time.sleep(1)
+                            #         elif pix_1_3 == pix_cannot_give:  # 건넬 수 없으면 새로고침
+                            #             pag.click(280 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
+                            #             time.sleep(1)
+                            #         else:  # 둘 다 아니면 상단 체크
+                            #             if pix_1_1 == pix_refresh:
+                            #                 print('1번 새로고침중...')
+                            #                 bLineEnd_1 = True
+                            #                 time.sleep(1)
+                            #             else:
+                            #                 pag.click(330 + (account // 2) * 960, 225 + (account % 2) * 540)  # 정확해야 해서 랜덤함수 뺌..
+                            #                 time.sleep(1)
+                            #
+                            #         if pix_2_3 == pix_can_give:  # 건넬 수 있으면 건넴
+                            #             pag.click(390 + 228 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
+                            #             iHowMany = iHowMany + 1
+                            #             time.sleep(1)
+                            #         elif pix_2_3 == pix_cannot_give:  # 건넬 수 없으면 새로고침
+                            #             pag.click(280 + 228 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
+                            #             time.sleep(1)
+                            #         else:  # 둘 다 아니면 상단 체크
+                            #             if pix_2_1 == pix_refresh:
+                            #                 print('2번 새로고침중...')
+                            #                 bLineEnd_2 = True
+                            #                 time.sleep(1)
+                            #             else:
+                            #                 pag.click(330 + 228 + (account // 2) * 960, 225 + (account % 2) * 540)  # 정확해야 해서 랜덤함수 뺌..
+                            #                 time.sleep(1)
+                            #
+                            #         if pix_3_3 == pix_can_give:  # 건넬 수 있으면 건넴
+                            #             pag.click(390 + 228 * 2 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
+                            #             iHowMany = iHowMany + 1
+                            #             time.sleep(1)
+                            #         elif pix_3_3 == pix_cannot_give:  # 건넬 수 없으면 새로고침
+                            #             pag.click(280 + 228 * 2 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
+                            #             time.sleep(1)
+                            #         else:  # 둘 다 아니면 상단 체크
+                            #             if pix_3_1 == pix_refresh:
+                            #                 print('3번 새로고침중...')
+                            #                 bLineEnd_3 = True
+                            #                 time.sleep(1)
+                            #             else:
+                            #                 pag.click(330 + 228 * 2 + (account // 2) * 960, 225 + (account % 2) * 540)  # 정확해야 해서 랜덤함수 뺌..
+                            #                 time.sleep(1)
+                            #         if iHowMany >= 20:
+                            #             print('%s번 돌렸다!' % (iHowMany))
+                            #             pag.click(892 + (account // 2) * 960, 54 + (account % 2) * 540)
+                            #             time.sleep(2)
+                            #             Kingdom_ready(account, 'kkd_out')
+                            #             break
+                            #
+                            #         if bLineEnd_1 and bLineEnd_2 and bLineEnd_3:
+                            #             print('다 새로고침 상태.. %s번 돌림' % (iHowMany))
+                            #             pag.click(892 + (account // 2) * 960, 54 + (account % 2) * 540)
+                            #             time.sleep(2)
+                            #             Kingdom_ready(account, 'kkd_out')
+                            #             break
+                            #     time.sleep(0.5)
 
                             # 수동 매크로 동작 - 건물에 들어간 후 수동 매크로 돌려야 하는 거면 Enter_building(account) 넣어줄 것.
                             print('수동 매크로 실행할까 말까')
