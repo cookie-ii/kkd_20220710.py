@@ -15,9 +15,9 @@ import sys
 import logging
 import traceback
 
+pix_error_count = 0
 # 공통 모듈 Import
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-
 
 # -----------------------------------------------------------------------------
 # - Name : send_telegram_msg
@@ -129,7 +129,7 @@ bMacroTime = True  # 매크로 도는 중?
 bProdHigh = False  # 동일 건물 2개인 경우 2번째 건물에서 높은 생산품 우선 생산
 bSecond = False  # 두 번째 건물 작업이냐?
 
-bAcc_A_First = False  # 계정 먼저 시작 순서(True일 때 A부터, 아니면 B부터)
+bAcc_A_First = True  # 계정 먼저 시작 순서(True일 때 A부터, 아니면 B부터)
 bAcc_C_First = False     # C계정 먼저 시작해요!
 
 bFirstCookhouA = False  # 첫 쿠하(클릭)
@@ -209,6 +209,29 @@ battle_count_fix = 4     # 전투 몇번이나 돌릴까?
 quick_production = 1     # 빠른 생산할 때 몇렙으로 돌릴까? - quick모드 때 사용
 
 
+pix_wood = (117, 59, 40)  # 나무
+pix_jelbean = (4, 239, 237)  # 젤리빈
+pix_sugar = (255, 255, 255)  # 설탕
+pix_biscuit = (205, 132, 63)  # 비스킷
+pix_berry = (187, 40, 44)  # 젤리베리
+pix_milk = (236, 241, 241)  # 우유
+pix_cotton = (255, 247, 255)  # 솜
+pix_smith = (163, 118, 85)  # 도끼 스미스
+pix_jelly = (15, 174, 202)  # 젤리빈 잼 젤리
+pix_rollc = (214, 146, 105)  # 솔새 롤케
+pix_bread = (142, 66, 8)  # 호밀빵 브레드
+pix_jampy = (168, 29, 42)  # 젤리스튜 잼파이
+pix_doye = (157, 84, 43)  # 비스킷 화분 - 도예
+pix_flower = (255, 30, 130)  # 캔디꽃 - flower
+pix_milky = (213, 229, 234)  # 크림 - milky
+pix_latte = (255, 251, 238)  # 젤리빈 라떼 - latte
+pix_dolls = (109, 235, 249)  # 쿠션 - dolls
+pix_beer = (153, 103, 67)  # 크림루트비어 - beer
+pix_muffin = (190, 92, 59)  # 머핀 - muffin
+pix_jewel = (143, 99, 63)  # 글레이즈드링 - jewel
+pix_magic = (93, 55, 48)  # 마법공방 - magic
+pix_icecream = (254, 253, 229)  # 디즈니 아이스크림 트럭
+
 wood_min_A = 1800
 wood_max_A = 2200
 wood_prod_A = 2
@@ -282,9 +305,9 @@ doye_lev3_A = 170  # 반짝이는 색동구슬
 doye_lev4_A = 170  # 무지갯빛 디저트 보울
 
 flower_num_A = 2  # 꽃가게 건물 수
-flower_lev1_A = 260  # 캔디꽃
-flower_lev2_A = 230  # 행복한 꽃화분
-flower_lev3_A = 160  # 캔디꽃다발
+flower_lev1_A = 150  # 캔디꽃
+flower_lev2_A = 150  # 행복한 꽃화분
+flower_lev3_A = 150  # 캔디꽃다발
 flower_lev4_A = 180  # 롤리팝 꽃바구니
 flower_lev5_A = 200  # 유리꽃 부케
 flower_lev6_A = 0  # 찬란한 요거트 화환
@@ -515,22 +538,22 @@ smith_lev6_C = 200  # 집게
 smith_lev7_C = 200  # 망치
 
 jelly_num_C = 2  # 젤리쨈 건물 수
-jelly_lev1_C = 250  # 젤리빈
-jelly_lev2_C = 250  # 스윗젤리 잼
-jelly_lev3_C = 250  # 달고나 잼
-jelly_lev4_C = 250  # 석류 잼
+jelly_lev1_C = 220  # 젤리빈
+jelly_lev2_C = 220  # 스윗젤리 잼
+jelly_lev3_C = 220  # 달고나 잼
+jelly_lev4_C = 220  # 석류 잼
 jelly_lev5_C = 0  # 톡톡베리 잼
 
 rollc_num_C = 2  # 롤케이크 건물 수
-rollc_lev1_C = 250  # 솔방울새 인형
-rollc_lev2_C = 250  # 도토리 램프
-rollc_lev3_C = 250  # 뻐꾹뻐꾹 시계
+rollc_lev1_C = 220  # 솔방울새 인형
+rollc_lev2_C = 220  # 도토리 램프
+rollc_lev3_C = 220  # 뻐꾹뻐꾹 시계
 rollc_lev4_C = 350  # 백조깃털 드림캐처
 
 bread_num_C = 2  # 빵집 건물 수
-bread_lev1_C = 250  # 든든한 호밀빵
-bread_lev2_C = 250  # 달콤쫀득 잼파이
-bread_lev3_C = 250  # 은행 포카치아
+bread_lev1_C = 220  # 든든한 호밀빵
+bread_lev2_C = 220  # 달콤쫀득 잼파이
+bread_lev3_C = 220  # 은행 포카치아
 bread_lev4_C = 250  # 슈가코팅 도넛
 bread_lev5_C = 250  # 폭신 카스테라
 bread_lev6_C = 0  # 골드리치 크로와상
@@ -1579,24 +1602,8 @@ def prod_action(image, list_image, account, check_num):
         time.sleep(7)
         Kingdom_ready(account, 'kkd_out')  # 재부팅
 
-    # prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.945, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
-    # if not (prod_refresh) or 140<= (prod_refresh.y) <= 140+175:
-    #     ShowTime = True
-    # else:
-    #     return False
-        # # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
-        # pag.click(x=random.randint(243, 422) + (account // 2) * 960, y=random.randint(190, 410) + (account % 2) * 540)
-        # time.sleep(0.3)
-    z0 = pag.locateCenterOnScreen('z0.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z1 = pag.locateCenterOnScreen('z1.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z2 = pag.locateCenterOnScreen('z2.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z3 = pag.locateCenterOnScreen('z3.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z4 = pag.locateCenterOnScreen('z4.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z5 = pag.locateCenterOnScreen('z5.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z6 = pag.locateCenterOnScreen('z6.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z7 = pag.locateCenterOnScreen('z7.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z8 = pag.locateCenterOnScreen('z8.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    if not (z8 or z7 or z6 or z5 or z4 or z3 or z2 or z1):
+    z = Check_available_slots(account)
+    if z == 0:
         # 3~7렙 Full list인 경우 다음 건물로 넘어감. 하지만 고렙 생산..중이면 그거 취소 못하고 저렙 생산이 안될텐데...
         print('리스트 full!')
         Skip_Next(account, prod_direction_left)
@@ -1638,16 +1645,8 @@ def prod_action(image, list_image, account, check_num):
 
         now_time = time.time()
 
-        z0 = pag.locateCenterOnScreen('z0.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        z1 = pag.locateCenterOnScreen('z1.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        z2 = pag.locateCenterOnScreen('z2.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        z3 = pag.locateCenterOnScreen('z3.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        z4 = pag.locateCenterOnScreen('z4.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        z5 = pag.locateCenterOnScreen('z5.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        z6 = pag.locateCenterOnScreen('z6.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        z7 = pag.locateCenterOnScreen('z7.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        z8 = pag.locateCenterOnScreen('z8.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        if not (z8 or z7 or z6 or z5 or z4 or z3 or z2 or z1):
+        z = Check_available_slots(account)
+        if z == 0:
             # 3~7렙 Full list인 경우 다음 건물로 넘어감. 하지만 고렙 생산..중이면 그거 취소 못하고 저렙 생산이 안될텐데...
             print('리스트 full!1')
             return True
@@ -1758,6 +1757,72 @@ def prod_action(image, list_image, account, check_num):
                 time.sleep(2)
                 error_count = error_count + 1
 
+account = 0
+# 생산건물 대기열 몇개나 비었는지 확인
+def Check_available_slots(account):
+    prod_full_1 = pag.locateCenterOnScreen('prod_full_1.PNG', grayscale=True, confidence=0.9, region=(65 + (account // 2) * 960, 60 + (account % 2) * 540, 20, 22))
+    prod_full_2 = pag.locateCenterOnScreen('prod_full_2.PNG', grayscale=True, confidence=0.9, region=(65 + (account // 2) * 960, 60 + (account % 2) * 540, 20, 22))
+    prod_full_3 = pag.locateCenterOnScreen('prod_full_3.PNG', grayscale=True, confidence=0.9, region=(65 + (account // 2) * 960, 60 + (account % 2) * 540, 20, 22))
+    prod_full_4 = pag.locateCenterOnScreen('prod_full_4.PNG', grayscale=True, confidence=0.9, region=(65 + (account // 2) * 960, 60 + (account % 2) * 540, 20, 22))
+    prod_full_5 = pag.locateCenterOnScreen('prod_full_5.PNG', grayscale=True, confidence=0.9, region=(65 + (account // 2) * 960, 60 + (account % 2) * 540, 20, 22))
+    prod_full_6 = pag.locateCenterOnScreen('prod_full_6.PNG', grayscale=True, confidence=0.9, region=(65 + (account // 2) * 960, 60 + (account % 2) * 540, 20, 22))
+    prod_full_7 = pag.locateCenterOnScreen('prod_full_7.PNG', grayscale=True, confidence=0.9, region=(65 + (account // 2) * 960, 60 + (account % 2) * 540, 20, 22))
+    prod_full_8 = pag.locateCenterOnScreen('prod_full_8.PNG', grayscale=True, confidence=0.9, region=(65 + (account // 2) * 960, 60 + (account % 2) * 540, 20, 22))
+    prod_full_9 = pag.locateCenterOnScreen('prod_full_9.PNG', grayscale=True, confidence=0.9, region=(65 + (account // 2) * 960, 60 + (account % 2) * 540, 20, 22))
+    prod_full_10 = pag.locateCenterOnScreen('prod_full_10.PNG', grayscale=True, confidence=0.9, region=(65 + (account // 2) * 960, 60 + (account % 2) * 540, 20, 22))
+    
+    prod_full_n3 = pag.locateCenterOnScreen('prod_full_n3.PNG', grayscale=True, confidence=0.9, region=(84 + (account // 2) * 960, 60 + (account % 2) * 540, 22, 25))
+    prod_full_n4 = pag.locateCenterOnScreen('prod_full_n4.PNG', grayscale=True, confidence=0.9, region=(84 + (account // 2) * 960, 60 + (account % 2) * 540, 22, 25))
+    prod_full_n5 = pag.locateCenterOnScreen('prod_full_n5.PNG', grayscale=True, confidence=0.9, region=(84 + (account // 2) * 960, 60 + (account % 2) * 540, 22, 25))
+    prod_full_n6 = pag.locateCenterOnScreen('prod_full_n6.PNG', grayscale=True, confidence=0.9, region=(84 + (account // 2) * 960, 60 + (account % 2) * 540, 22, 25))
+    prod_full_n7 = pag.locateCenterOnScreen('prod_full_n7.PNG', grayscale=True, confidence=0.9, region=(84 + (account // 2) * 960, 60 + (account % 2) * 540, 22, 25))
+    prod_full_n8 = pag.locateCenterOnScreen('prod_full_n8.PNG', grayscale=True, confidence=0.9, region=(84 + (account // 2) * 960, 60 + (account % 2) * 540, 22, 25))
+    prod_full_n9 = pag.locateCenterOnScreen('prod_full_n9.PNG', grayscale=True, confidence=0.9, region=(84 + (account // 2) * 960, 60 + (account % 2) * 540, 22, 25))
+    prod_full_n10 = pag.locateCenterOnScreen('prod_full_n10.PNG', grayscale=True, confidence=0.9, region=(84 + (account // 2) * 960, 60 + (account % 2) * 540, 22, 22))
+    if(prod_full_1):
+        a = 1
+    elif(prod_full_2):
+        a = 2
+    elif(prod_full_3):
+        a = 3
+    elif(prod_full_4):
+        a = 4
+    elif(prod_full_5):
+        a = 5
+    elif(prod_full_6):
+        a = 6
+    elif(prod_full_7):
+        a = 7
+    elif(prod_full_8):
+        a = 8
+    elif(prod_full_9):
+        a = 9
+    elif (prod_full_10):
+        a = 10
+    else:
+        a = 0
+
+    if(prod_full_n3):
+        b = 3
+    elif(prod_full_n4):
+        b = 4
+    elif(prod_full_n5):
+        b = 5
+    elif(prod_full_n6):
+        b = 6
+    elif(prod_full_n7):
+        b = 7
+    elif(prod_full_n8):
+        b = 8
+    elif(prod_full_n9):
+        b = 9
+    elif(prod_full_n10):
+        b = 10
+
+    print('a:', a, 'b:', b, 'available_slot:', b-a)
+    return b-a
+
+
 # 부팅 확인할 때 쓰는
 def Check_Initiating(account):
     print('부팅여부 확인합니다.')
@@ -1768,8 +1833,12 @@ def Check_Initiating(account):
     kkd_down = pag.locateCenterOnScreen('init_Touch1.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
     kkd_start_bg = pag.locateCenterOnScreen('init_kkm_recent.png', confidence=0.9, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 최근 항목이 없습니다.
     kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
-
+    start_time = time.time()
     while True:
+        now_time = time.time()
+        if (now_time - start_time) >= 180:
+            print('너무 오래 돌려요! 3분')
+            return False
         cond_network = pag.locateCenterOnScreen('cond_network.png', confidence=0.94, region=(376 + (account // 2) * 960, 354 + (account % 2) * 540, 159, 45))
         if (cond_network):  # 네트워크오류인듯?
             pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(377 - 5, 377 + 5) + (account % 2) * 540)
@@ -2281,31 +2350,11 @@ def Wood_to_Cotton(account, Min_number, Max_number, Making_Level, prod_direction
         time.sleep(7)
         Kingdom_ready(account, 'kkd_out')  # 재부팅
 
-    # prod_refresh = pag.locateCenterOnScreen('prod_refresh.png', confidence=0.945, region=(90 + (account // 2) * 960, 145 + (account % 2) * 540, 24, 20))
-    # if not (prod_refresh):
-    #     # 생산품 완료 + 혹시 운좋아 점점점을 클릭할 수도..
-    #     pag.click(x=random.randint(243, 422) + (account // 2) * 960, y=random.randint(336, 398) + (account % 2) * 540)
-    #     time.sleep(0.3)
-
-    z0 = pag.locateCenterOnScreen('z0.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z1 = pag.locateCenterOnScreen('z1.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z2 = pag.locateCenterOnScreen('z2.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z3 = pag.locateCenterOnScreen('z3.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z4 = pag.locateCenterOnScreen('z4.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z5 = pag.locateCenterOnScreen('z5.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z6 = pag.locateCenterOnScreen('z6.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z7 = pag.locateCenterOnScreen('z7.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z8 = pag.locateCenterOnScreen('z8.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    # 3~7렙 Full list인 경우 다음 건물로 넘어감. 하지만 고렙 생산..중이면 그거 취소 못하고 저렙 생산이 안될텐데...
-    # if (prod_full_list3) or (prod_full_list4) or (prod_full_list5) or (prod_full_list6) or (prod_full_list7):
-    if not (z8 or z7 or z6 or z5 or z4 or z3 or z2 or z1):
+    z = Check_available_slots(account)
+    if z == 0:
         print('리스트 full!2')
         Skip_Next(account, prod_direction_left)
         return False
-    # else:
-    #     prod_empty = pag.locateAllOnScreen('prod_empty.png', confidence = 0.96, region = (42,97+account*540,66,391))
-    #     prod_empty = list(prod_empty)
-    #     empty_space = len(prod_empty)+1
 
     its_number = Upper_numb(account)
 
@@ -2499,16 +2548,8 @@ def Wood_to_Cotton_Quick(account, Max_number, Making_Level, prod_direction_left)
     #     pag.click(x=random.randint(243, 422) + (account // 2) * 960, y=random.randint(336, 398) + (account % 2) * 540)
     #     time.sleep(0.5)
     # 클릭했는데도 리스트가 가득 차있다? 어찔까... 그냥 넘어가면 최고렙을 계속 찍을..지도?
-    z0 = pag.locateCenterOnScreen('z0.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z1 = pag.locateCenterOnScreen('z1.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z2 = pag.locateCenterOnScreen('z2.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z3 = pag.locateCenterOnScreen('z3.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z4 = pag.locateCenterOnScreen('z4.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z5 = pag.locateCenterOnScreen('z5.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z6 = pag.locateCenterOnScreen('z6.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z7 = pag.locateCenterOnScreen('z7.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z8 = pag.locateCenterOnScreen('z8.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    if not (z8 or z7 or z6 or z5 or z4 or z3 or z2 or z1):
+    z = Check_available_slots(account)
+    if z == 0:
     # 3~7렙 Full list인 경우 다음 건물로 넘어감. 하지만 고렙 생산..중이면 그거 취소 못하고 저렙 생산이 안될텐데...
         print('리스트 full!3')
         prod_warehousefull = pag.locateCenterOnScreen('prod_warehousefull.PNG', confidence=0.95, region=(339 + (account // 2) * 960, 253 + (account % 2) * 540, 175, 87))
@@ -6421,7 +6462,7 @@ def Angmu_Aft_Refresh(account):
                 pag.moveTo(random.randint(786, 820) + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540))
                 pag.mouseDown()
                 time.sleep(0.5)
-                pag.moveTo(random.randint(786, 820) - 150 * 3 + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540), 5)  # 153인데 20 더 여유줌
+                pag.moveTo(random.randint(786, 820) - 150 * 3.5 + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540), 5)  # 153인데 20 더 여유줌
                 time.sleep(0.5)
                 pag.mouseUp()
                 time.sleep(0.5)
@@ -6470,12 +6511,19 @@ def Angmu_Aft_Refresh(account):
                         time.sleep(0.5)
                         pag.mouseUp()
                         time.sleep(0.5)
-
+                # trade_baseline = pag.locateCenterOnScreen('trade_baseline.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+                # if (trade_baseline):
+                #     print(92 + 157 + (account // 2) * 960, '>=', trade_baseline[0], '>', 70 + 157 + (account // 2) * 960)
+                #     if (92 + (account // 2) * 960 >= trade_baseline[0] > 70 + (account // 2) * 960) or (92 + 157 + (account // 2) * 960 >= trade_baseline[0] > 70 + 157 + (account // 2) * 960):
+                #         print(92 + 157 + (account // 2) * 960 * 2, '>=', trade_baseline[0], '>', 70 + 157 + (account // 2) * 960)
+                #         Scroll_count = Scroll_count + 1
+                #         break
                 trade_baseline = pag.locateCenterOnScreen('trade_baseline.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+                print(trade_baseline)
                 if (trade_baseline):
-                    print(92 + 157 + (account // 2) * 960, '>=', trade_baseline[0], '>', 70 + 157 + (account // 2) * 960)
-                    if (92 + (account // 2) * 960 >= trade_baseline[0] > 70 + (account // 2) * 960) or (92 + 157 + (account // 2) * 960 >= trade_baseline[0] > 70 + 157 + (account // 2) * 960):
-                        print(92 + 157 + (account // 2) * 960*2 ,'>=', trade_baseline[0] ,'>', 70 + 157 + (account // 2) * 960)
+                    print(92 + 0 + (account // 2) * 960, '>=', trade_baseline[0], '>', 70 + 0 + (account // 2) * 960)
+                    if (92 + (account // 2) * 960 >= trade_baseline[0] > 70 + (account // 2) * 960) or (92 + 0 + (account // 2) * 960 >= trade_baseline[0] > 70 + 0 + (account // 2) * 960):
+                        print(92 + 0 + (account // 2) * 960*2 ,'>=', trade_baseline[0] ,'>', 70 + 0 + (account // 2) * 960)
                         Scroll_count = Scroll_count + 1
                         break
                     else:            # 약간 왼쪽으로(trade baseline 뉴 찾을때까지) 돌려
@@ -7266,16 +7314,8 @@ def three_prod_action(account, check_list_img1, check_list_img2, check_list_img3
         time.sleep(0.3)
 
     # # 풀리스트인 경우 넘어감
-    z0 = pag.locateCenterOnScreen('z0.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z1 = pag.locateCenterOnScreen('z1.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z2 = pag.locateCenterOnScreen('z2.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z3 = pag.locateCenterOnScreen('z3.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z4 = pag.locateCenterOnScreen('z4.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z5 = pag.locateCenterOnScreen('z5.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z6 = pag.locateCenterOnScreen('z6.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z7 = pag.locateCenterOnScreen('z7.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    z8 = pag.locateCenterOnScreen('z8.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-    if not (z8 or z7 or z6 or z5 or z4 or z3 or z2 or z1):
+    z = Check_available_slots(account)
+    if z == 0:
         print('리스트 full!4')
         Skip_Next(account, prod_direction_left)
         return True
@@ -7355,17 +7395,8 @@ def three_prod_action(account, check_list_img1, check_list_img2, check_list_img3
             time.sleep(0.3)
 
         # # 풀리스트인 경우 넘어감
-        z0 = pag.locateCenterOnScreen('z0.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        z1 = pag.locateCenterOnScreen('z1.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        z2 = pag.locateCenterOnScreen('z2.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        z3 = pag.locateCenterOnScreen('z3.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        z4 = pag.locateCenterOnScreen('z4.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        z5 = pag.locateCenterOnScreen('z5.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        z6 = pag.locateCenterOnScreen('z6.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        z7 = pag.locateCenterOnScreen('z7.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        z8 = pag.locateCenterOnScreen('z8.png', confidence=0.9, region=(814 + (account // 2) * 960, 86 + (account % 2) * 540, 50, 446))
-        if not (z8 or z7 or z6 or z5 or z4 or z3 or z2 or z1):
-        # if z0 or z1:
+        z = Check_available_slots(account)
+        if z == 0:
             print('리스트 full!5')
             Skip_Next(account, prod_direction_left)
             return True
@@ -8886,8 +8917,8 @@ def Angmu_Action_condition(ctr, account):
 macro_start_time = time.time() # 매크로 처음 시작한 시간!
 man_macro_chk_time = time.time()
 if number_of_accounts == 2 or number_of_accounts == 3:
-    try:
-        while True:  # 여기서부턴 실제 생산
+    # try:
+    while True:  # 여기서부턴 실제 생산
             start_timeA = time.time()
             if keyboard.is_pressed('END'):
                 break
@@ -9722,28 +9753,28 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         pix_lackof = screen.getpixel((545 + (account // 2) * 960, 745 - 540 + (account % 2) * 540))  # 재료부족창?
 
                         pix_lackof1 = (243, 233, 223)  # 베이지색
-                        pix_wood = (119, 59, 38)  # 나무
-                        pix_jelbean = (0, 239, 238)  # 젤리빈
-                        pix_sugar = (255, 255, 255)  # 설탕
-                        pix_biscuit = (204, 133, 61)  # 비스킷
-                        pix_berry = (187, 39, 44)  # 젤리베리
-                        pix_milk = (233, 241, 241)  # 우유
-                        pix_cotton = (255, 247, 255)  # 솜
-                        pix_smith = (164, 116, 85)  # 도끼 스미스
-                        pix_jelly = (12, 171, 199)  # 젤리빈 잼 젤리
-                        pix_rollc = (215, 147, 106)  # 솔새 롤케
-                        pix_bread = (142, 65, 8)  # 호밀빵 브레드
-                        pix_jampy = (166, 29, 42)  # 젤리스튜 잼파이
-                        pix_doye = (158, 84, 42)  # 비스킷 화분 - 도예
-                        pix_flower = (255, 30, 130)  # 캔디꽃 - flower
-                        pix_milky = (214, 231, 231)  # 크림 - milky
-                        pix_latte = (255, 251, 239)  # 젤리빈 라떼 - latte
-                        pix_dolls = (108, 235, 249)  # 쿠션 - dolls
-                        pix_beer = (152, 101, 68)  # 크림루트비어 - beer
-                        pix_muffin = (191, 91, 59)  # 머핀 - muffin
-                        pix_jewel = (135, 90, 50)  # 글레이즈드링 - jewel
-                        pix_magic = (93, 55, 48)  # 마법공방 - magic
-                        pix_icecream = (254, 253, 229)  # 디즈니 아이스크림 트럭
+                        # pix_wood = (117, 59, 40)  # 나무
+                        # pix_jelbean = (4, 239, 237)  # 젤리빈
+                        # pix_sugar = (255, 255, 255)  # 설탕
+                        # pix_biscuit = (205, 132, 63)  # 비스킷
+                        # pix_berry = (187, 40, 44)  # 젤리베리
+                        # pix_milk = (236, 241, 241)  # 우유
+                        # pix_cotton = (255, 247, 255)  # 솜
+                        # pix_smith = (163, 118, 85)  # 도끼 스미스
+                        # pix_jelly = (15, 174, 202)  # 젤리빈 잼 젤리
+                        # pix_rollc = (214, 146, 105)  # 솔새 롤케
+                        # pix_bread = (142, 66, 8)  # 호밀빵 브레드
+                        # pix_jampy = (168, 29, 42)  # 젤리스튜 잼파이
+                        # pix_doye = (157, 84, 43)  # 비스킷 화분 - 도예
+                        # pix_flower = (255, 30, 130)  # 캔디꽃 - flower
+                        # pix_milky = (213, 229, 234)  # 크림 - milky
+                        # pix_latte = (255, 251, 238)  # 젤리빈 라떼 - latte
+                        # pix_dolls = (109, 235, 249)  # 쿠션 - dolls
+                        # pix_beer = (153, 103, 67)  # 크림루트비어 - beer
+                        # pix_muffin = (190, 92, 59)  # 머핀 - muffin
+                        # pix_jewel = (143, 99, 63)  # 글레이즈드링 - jewel
+                        # pix_magic = (93, 55, 48)  # 마법공방 - magic
+                        # pix_icecream = (254, 253, 229)  # 디즈니 아이스크림 트럭
 
                         screen = ImageGrab.grab()
                         pix_prod = screen.getpixel((610 + (account // 2) * 960, 140 + (account % 2) * 540))
@@ -10477,332 +10508,447 @@ if number_of_accounts == 2 or number_of_accounts == 3:
 
                             current_hour = datetime.now().strftime('%H')
                             # print(datetime.now().strftime('%H'))
-                            # 1시, 오후 1시 총 2회 확인 = 뽑기, 상점, 길드, 신전, 트로피칼전투 돌려욧
-                            if account == 0 and ((current_hour == 1) or (current_hour == 13) or (current_hour == 23) or (bBbopkki_first_A == False)or (bShop_first_A == False)or (bGuild_first_A == False)or (bTemple_first_A == False)or (bTropical_first_A == False)):  # 12시간마다 확인하는 항목 - 뽑기, 상점, 길드, 신전, 트로피칼 전투
+                            # 1시, 오후 1시, 저녁11시 총 2회 확인 = 뽑기, 상점, 길드, 신전, 트로피칼전투 돌려욧
+                            # if account == 0 and ((current_hour == 1) or (current_hour == 13) or (current_hour == 23) or (bBbopkki_first_A == False)or (bShop_first_A == False)or (bGuild_first_A == False)or (bTemple_first_A == False)or (bTropical_first_A == False)):  # 12시간마다 확인하는 항목 - 뽑기, 상점, 길드, 신전, 트로피칼 전투
+                            if account == 0:  # 12시간마다 확인하는 항목 - 뽑기, 상점, 길드, 신전, 트로피칼 전투
                                 if (bBbopkki_first_A == False) or (bShop_first_A == False) or (bGuild_first_A == False) or (bTemple_first_A == False) or (bTropical_first_A == False):
+                                # if (bBbopkki_first_A == False) or (bShop_first_A == False) or (bGuild_first_A == False) or (bTemple_first_A == False) or (bTropical_first_A == False):
                                     print('%d계정 첫 이벤트 확인!'%(account))
-                                elif(current_hour == 1):
-                                    print('%d계정 새벽 1시 이벤트 확인!'%(account))
-                                elif(current_hour == 13):
-                                    print('%d계정 오후 1시 이벤트 확인!'%(account))
-                                elif(current_hour == 23):
-                                    print('%d계정 저녁 11시 이벤트 확인!' % (account))
-                                # print('%d계정 '%(account))
-                                # 220203 추가 - 뽑기 일일 보상 획득
-                                # 220226 추가 - 뽑기 아이콘으로 완료여부 판단
 
-                                cond_bbopkki = pag.locateCenterOnScreen('cond_bbopkki.png', confidence=0.85, region=(535 + (account // 2) * 960, 460 + (account % 2) * 540, 30, 30))
-                                if (cond_bbopkki):
-                                    pag.click(532 + (account // 2) * 960, 504 + (account % 2) * 540)
-                                    time.sleep(1)
-                                    cond_bbopkki2 = pag.locateCenterOnScreen('cond_bbopkki2.png', confidence=0.85, region=(60 + (account // 2) * 960, 315 + 75 + (account % 2) * 540, 22, 22))
-                                    if (cond_bbopkki2):
-                                        pag.click(46 + (account // 2) * 960, 357 + 75 + (account % 2) * 540)
-                                        time.sleep(0.5)
-                                        bbopkki_start_time = time.time()
-                                        while True:
-                                            bbopkki_now_time = time.time()
-                                            if bbopkki_now_time - bbopkki_start_time > 120:
-                                                End_kkd(account)  # 쿠킹덤 종료. 뽑기2분 안엔 끝나겠지?
-                                                Kingdom_ready(account, 'kkd_out')  # 재부팅
-                                                break
-                                            cond_bbopkki3 = pag.locateCenterOnScreen('cond_bbopkki3.png', confidence=0.85, region=(743 + (account // 2) * 960, 458 + (account % 2) * 540, 152, 53))
-                                            if (cond_bbopkki3):
-                                                pag.click(cond_bbopkki3)
-                                                time.sleep(1)
-                                            else:
-                                                print('%d 계정 뽑기 일일보상 완료!'%(account))
-                                                bBbopkki_first_A = True
-                                                time.sleep(2)
-                                                pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
-                                                time.sleep(1)
-                                                pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
-                                                Kingdom_ready(account, 'kkd_out')
-                                                print('현재 계정 = ', account)
-                                                break
-                                else:
-                                    print('%d 계정 뽑기 일일보상은 완료함'%(account))
-                                    bBbopkki_first_A = True
-                                time.sleep(2)
-                            if account == 0 and ((current_hour == 1) or (current_hour == 13) or (current_hour == 23) or (bShop_first_A == False)):
-                                print('%d 계정 상점'%(account))
-                                # 220302 추가 - 상점 일일보상 획득
-                                Angmu_Enter(account, 'shop')
-                                bShop_first_A = True
-                            if account == 0 and ((current_hour == 1) or (current_hour == 13) or (current_hour == 23) or (bGuild_first_A == False)):
-                                print('%d 계정 길드'%(account))
-                                # 220309 추가 - 길드 일일보상 획득
-                                Angmu_Enter(account, 'guild')
-                                bGuild_first_A = True
-                            if account == 0 and ((current_hour == 1) or (current_hour == 13) or (current_hour == 23) or (bTemple_first_A == False)):
-                                print('%d 계정 신전'%(account))
-                                # 220618 추가 - 신전
-                                Angmu_Enter(account, 'temple')
-                                bTemple_first_A = True
-                            if account == 0 and ((current_hour == 1) or (current_hour == 13) or (current_hour == 23) or (bTropical_first_A == False)):
-                                print('%d 계정 트로피칼'%(account))
-                                # 트로피칼 확인
-                                if bTropical:
-                                    if Tropical_Event(account):
-                                        Tropical_Fight(account)
-                                        bTropical_first_A = True
-                            elif account == 0 and bShop_first_A and bGuild_first_A and bTemple_first_A and bTropical_first_A:
-                                print('뽑기, 상점, 길드, 신전, 트로피칼전투 넘어가용, %d 계정'%(account))
+                                    # 뽑기 돌려요!
+                                    print('%d 계정 뽑기' % (account))
+                                    cond_bbopkki = pag.locateCenterOnScreen('cond_bbopkki.png', confidence=0.85, region=(535 + (account // 2) * 960, 460 + (account % 2) * 540, 30, 30))
+                                    if (cond_bbopkki):
+                                        pag.click(532 + (account // 2) * 960, 504 + (account % 2) * 540)
+                                        time.sleep(1)
+                                        cond_bbopkki2 = pag.locateCenterOnScreen('cond_bbopkki2.png', confidence=0.85, region=(60 + (account // 2) * 960, 315 + 75 + (account % 2) * 540, 22, 22))
+                                        if (cond_bbopkki2):
+                                            pag.click(46 + (account // 2) * 960, 357 + 75 + (account % 2) * 540)
+                                            time.sleep(0.5)
+                                            bbopkki_start_time = time.time()
+                                            while True:
+                                                bbopkki_now_time = time.time()
+                                                if bbopkki_now_time - bbopkki_start_time > 120:
+                                                    End_kkd(account)  # 쿠킹덤 종료. 뽑기2분 안엔 끝나겠지?
+                                                    Kingdom_ready(account, 'kkd_out')  # 재부팅
+                                                    break
+                                                cond_bbopkki3 = pag.locateCenterOnScreen('cond_bbopkki3.png', confidence=0.85, region=(743 + (account // 2) * 960, 458 + (account % 2) * 540, 152, 53))
+                                                if (cond_bbopkki3):
+                                                    pag.click(cond_bbopkki3)
+                                                    time.sleep(1)
+                                                else:
+                                                    print('%d 계정 뽑기 일일보상 완료!' % (account))
+                                                    bBbopkki_first_A = True
+                                                    time.sleep(2)
+                                                    pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
+                                                    time.sleep(1)
+                                                    pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
+                                                    Kingdom_ready(account, 'kkd_out')
+                                                    print('현재 계정 = ', account)
+                                                    break
+                                    else:
+                                        print('%d 계정 뽑기 일일보상은 완료함' % (account))
+                                        bBbopkki_first_A = True
+                                    time.sleep(2)
 
-                            if account == 1 and ((current_hour == 1) or (current_hour == 13) or (current_hour == 23) or (bBbopkki_first_B == False)or (bShop_first_B == False)or (bGuild_first_B == False)or (bTemple_first_B == False)or (bTropical_first_B == False)):  # 12시간마다 확인하는 항목 - 뽑기, 상점, 길드, 신전, 트로피칼 전투
+                                    # 상점 돌려요!
+                                    print('%d 계정 상점' % (account))
+                                    # 220302 추가 - 상점 일일보상 획득
+                                    Angmu_Enter(account, 'shop')
+                                    bShop_first_A = True
+
+                                    # 길드 돌려요!
+                                    print('%d 계정 길드' % (account))
+                                    # 220309 추가 - 길드 일일보상 획득
+                                    Angmu_Enter(account, 'guild')
+                                    bGuild_first_A = True
+
+                                    # 신전 돌려요!
+                                    print('%d 계정 신전' % (account))
+                                    # 220618 추가 - 신전
+                                    Angmu_Enter(account, 'temple')
+                                    bTemple_first_A = True
+
+                                    # 트로피칼 돌려요!
+                                    print('%d 계정 트로피칼' % (account))
+                                    # 트로피칼 확인
+                                    if bTropical:
+                                        if Tropical_Event(account):
+                                            Tropical_Fight(account)
+                                            bTropical_first_A = True
+
+                                elif (current_hour == 1) or (current_hour == 13) or (current_hour == 23): # 1시, 13시, 23시에 모두 다시 확인!
+                                    print('%d계정 %s시 이벤트 확인!'%(account, current_hour))
+
+                                    #뽑기 돌려요!
+                                    print('%d 계정 뽑기' % (account))
+                                    cond_bbopkki = pag.locateCenterOnScreen('cond_bbopkki.png', confidence=0.85, region=(535 + (account // 2) * 960, 460 + (account % 2) * 540, 30, 30))
+                                    if (cond_bbopkki):
+                                        pag.click(532 + (account // 2) * 960, 504 + (account % 2) * 540)
+                                        time.sleep(1)
+                                        cond_bbopkki2 = pag.locateCenterOnScreen('cond_bbopkki2.png', confidence=0.85, region=(60 + (account // 2) * 960, 315 + 75 + (account % 2) * 540, 22, 22))
+                                        if (cond_bbopkki2):
+                                            pag.click(46 + (account // 2) * 960, 357 + 75 + (account % 2) * 540)
+                                            time.sleep(0.5)
+                                            bbopkki_start_time = time.time()
+                                            while True:
+                                                bbopkki_now_time = time.time()
+                                                if bbopkki_now_time - bbopkki_start_time > 120:
+                                                    End_kkd(account)  # 쿠킹덤 종료. 뽑기2분 안엔 끝나겠지?
+                                                    Kingdom_ready(account, 'kkd_out')  # 재부팅
+                                                    break
+                                                cond_bbopkki3 = pag.locateCenterOnScreen('cond_bbopkki3.png', confidence=0.85, region=(743 + (account // 2) * 960, 458 + (account % 2) * 540, 152, 53))
+                                                if (cond_bbopkki3):
+                                                    pag.click(cond_bbopkki3)
+                                                    time.sleep(1)
+                                                else:
+                                                    print('%d 계정 뽑기 일일보상 완료!'%(account))
+                                                    bBbopkki_first_A = True
+                                                    time.sleep(2)
+                                                    pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
+                                                    time.sleep(1)
+                                                    pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
+                                                    Kingdom_ready(account, 'kkd_out')
+                                                    print('현재 계정 = ', account)
+                                                    break
+                                    else:
+                                        print('%d 계정 뽑기 일일보상은 완료함'%(account))
+                                        bBbopkki_first_A = True
+                                    time.sleep(2)
+
+                                    # 상점 돌려요!
+                                    print('%d 계정 상점' % (account))
+                                    # 220302 추가 - 상점 일일보상 획득
+                                    Angmu_Enter(account, 'shop')
+                                    bShop_first_A = True
+
+                                    # 길드 돌려요!
+                                    print('%d 계정 길드' % (account))
+                                    # 220309 추가 - 길드 일일보상 획득
+                                    Angmu_Enter(account, 'guild')
+                                    bGuild_first_A = True
+
+                                    # 신전 돌려요!
+                                    print('%d 계정 신전' % (account))
+                                    # 220618 추가 - 신전
+                                    Angmu_Enter(account, 'temple')
+                                    bTemple_first_A = True
+
+                                    # 트로피칼 돌려요!
+                                    print('%d 계정 트로피칼' % (account))
+                                    # 트로피칼 확인
+                                    if bTropical:
+                                        if Tropical_Event(account):
+                                            Tropical_Fight(account)
+                                            bTropical_first_A = True
+
+                                
+                            # if account == 1 and ((current_hour == 1) or (current_hour == 13) or (current_hour == 23) or (bBbopkki_first_B == False)or (bShop_first_B == False)or (bGuild_first_B == False)or (bTemple_first_B == False)or (bTropical_first_B == False)):  # 12시간마다 확인하는 항목 - 뽑기, 상점, 길드, 신전, 트로피칼 전투
+                            if account == 1:  # 12시간마다 확인하는 항목 - 뽑기, 상점, 길드, 신전, 트로피칼 전투
                                 if (bBbopkki_first_B == False) or (bShop_first_B == False) or (bGuild_first_B == False) or (bTemple_first_B == False) or (bTropical_first_B == False):
                                     print('%d계정 첫 이벤트 확인!'%(account))
-                                elif(current_hour == 1):
-                                    print('%d계정 새벽 1시 이벤트 확인!'%(account))
-                                elif(current_hour == 13):
-                                    print('%d계정 오후 1시 이벤트 확인!'%(account))
-                                elif(current_hour == 23):
-                                    print('%d계정 저녁 11시 이벤트 확인!' % (account))
-                                # print('%d 계정 뽑기'%(account))
-                                # 220203 추가 - 뽑기 일일 보상 획득
-                                # 220226 추가 - 뽑기 아이콘으로 완료여부 판단
-                                cond_bbopkki = pag.locateCenterOnScreen('cond_bbopkki.png', confidence=0.85, region=(535 + (account // 2) * 960, 460 + (account % 2) * 540, 30, 30))
-                                if (cond_bbopkki):
-                                    pag.click(532 + (account // 2) * 960, 504 + (account % 2) * 540)
-                                    time.sleep(1)
-                                    cond_bbopkki2 = pag.locateCenterOnScreen('cond_bbopkki2.png', confidence=0.85, region=(60 + (account // 2) * 960, 315 + 75 + (account % 2) * 540, 22, 22))
-                                    if (cond_bbopkki2):
-                                        pag.click(46 + (account // 2) * 960, 357 + 75 + (account % 2) * 540)
-                                        time.sleep(0.5)
-                                        bbopkki_start_time = time.time()
-                                        while True:
-                                            bbopkki_now_time = time.time()
-                                            if bbopkki_now_time - bbopkki_start_time > 120:
-                                                End_kkd(account)  # 쿠킹덤 종료. 뽑기2분 안엔 끝나겠지?
-                                                Kingdom_ready(account, 'kkd_out')  # 재부팅
-                                                break
-                                            cond_bbopkki3 = pag.locateCenterOnScreen('cond_bbopkki3.png', confidence=0.85, region=(743 + (account // 2) * 960, 458 + (account % 2) * 540, 152, 53))
-                                            if (cond_bbopkki3):
-                                                pag.click(cond_bbopkki3)
-                                                time.sleep(1)
-                                            else:
-                                                print('%d 계정 뽑기 일일보상 완료!'%account)
-                                                bBbopkki_first_B = True
-                                                time.sleep(2)
-                                                pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
-                                                time.sleep(1)
-                                                pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
-                                                Kingdom_ready(account, 'kkd_out')
-                                                print('현재 계정 = ', account)
-                                                break
-                                else:
-                                    print('%d 계정 뽑기 일일보상은 완료함'%(account))
-                                    bBbopkki_first_B = True
-                                time.sleep(2)
-                            if account == 1 and ((current_hour == 1) or (current_hour == 13) or (current_hour == 23) or (bShop_first_B == False)):
-                                print('%d 계정 상점'%(account))
-                                # 220302 추가 - 상점 일일보상 획득
-                                Angmu_Enter(account, 'shop')
-                                bShop_first_B = True
-                            if account == 1 and ((current_hour == 1) or (current_hour == 13) or (current_hour == 23) or (bGuild_first_B == False)):
-                                print('%d 계정 길드'%(account))
-                                # 220309 추가 - 길드 일일보상 획득
-                                Angmu_Enter(account, 'guild')
-                                bGuild_first_B = True
-                            if account == 1 and ((current_hour == 1) or (current_hour == 13) or (current_hour == 23) or (bTemple_first_B == False)):
-                                print('%d 계정 신전'%(account))
-                                # 220618 추가 - 신전
-                                Angmu_Enter(account, 'temple')
-                                bTemple_first_B = True
-                            if account == 1 and ((current_hour == 1) or (current_hour == 13) or (current_hour == 23) or (bTropical_first_B == False)):
-                                print('%d 계정 트로피칼'%(account))
-                                # 트로피칼 확인
-                                if bTropical:
-                                    if Tropical_Event(account):
-                                        Tropical_Fight(account)
-                                        bTropical_first_B = True
-                            elif (account == 1) and bShop_first_B and bGuild_first_B and bTemple_first_B and bTropical_first_B:
-                                print('뽑기, 상점, 길드, 신전, 트로피칼전투 넘어가용, %d 계정:'%(account))
 
-                            if account == 2 and ((current_hour == 1) or (current_hour == 13) or (current_hour == 23) or (bBbopkki_first_C == False)or (bShop_first_C == False)or (bGuild_first_C == False)or (bTemple_first_C == False)or (bTropical_first_C == False)):  # 12시간마다 확인하는 항목 - 뽑기, 상점, 길드, 신전, 트로피칼 전투
+                                    # 뽑기 돌려요!
+                                    print('%d 계정 뽑기' % (account))
+                                    cond_bbopkki = pag.locateCenterOnScreen('cond_bbopkki.png', confidence=0.85, region=(535 + (account // 2) * 960, 460 + (account % 2) * 540, 30, 30))
+                                    if (cond_bbopkki):
+                                        pag.click(532 + (account // 2) * 960, 504 + (account % 2) * 540)
+                                        time.sleep(1)
+                                        cond_bbopkki2 = pag.locateCenterOnScreen('cond_bbopkki2.png', confidence=0.85, region=(60 + (account // 2) * 960, 315 + 75 + (account % 2) * 540, 22, 22))
+                                        if (cond_bbopkki2):
+                                            pag.click(46 + (account // 2) * 960, 357 + 75 + (account % 2) * 540)
+                                            time.sleep(0.5)
+                                            bbopkki_start_time = time.time()
+                                            while True:
+                                                bbopkki_now_time = time.time()
+                                                if bbopkki_now_time - bbopkki_start_time > 120:
+                                                    End_kkd(account)  # 쿠킹덤 종료. 뽑기2분 안엔 끝나겠지?
+                                                    Kingdom_ready(account, 'kkd_out')  # 재부팅
+                                                    break
+                                                cond_bbopkki3 = pag.locateCenterOnScreen('cond_bbopkki3.png', confidence=0.85, region=(743 + (account // 2) * 960, 458 + (account % 2) * 540, 152, 53))
+                                                if (cond_bbopkki3):
+                                                    pag.click(cond_bbopkki3)
+                                                    time.sleep(1)
+                                                else:
+                                                    print('%d 계정 뽑기 일일보상 완료!' % (account))
+                                                    bBbopkki_first_B = True
+                                                    time.sleep(2)
+                                                    pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
+                                                    time.sleep(1)
+                                                    pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
+                                                    Kingdom_ready(account, 'kkd_out')
+                                                    print('현재 계정 = ', account)
+                                                    break
+                                    else:
+                                        print('%d 계정 뽑기 일일보상은 완료함' % (account))
+                                        bBbopkki_first_B = True
+                                    time.sleep(2)
+
+                                    # 상점 돌려요!
+                                    print('%d 계정 상점' % (account))
+                                    # 220302 추가 - 상점 일일보상 획득
+                                    Angmu_Enter(account, 'shop')
+                                    bShop_first_B = True
+
+                                    # 길드 돌려요!
+                                    print('%d 계정 길드' % (account))
+                                    # 220309 추가 - 길드 일일보상 획득
+                                    Angmu_Enter(account, 'guild')
+                                    bGuild_first_B = True
+
+                                    # 신전 돌려요!
+                                    print('%d 계정 신전' % (account))
+                                    # 220618 추가 - 신전
+                                    Angmu_Enter(account, 'temple')
+                                    bTemple_first_B = True
+
+                                    # 트로피칼 돌려요!
+                                    print('%d 계정 트로피칼' % (account))
+                                    # 트로피칼 확인
+                                    if bTropical:
+                                        if Tropical_Event(account):
+                                            Tropical_Fight(account)
+                                            bTropical_first_B = True
+
+                                elif (current_hour == 1) or (current_hour == 13) or (current_hour == 23):  # 1시, 13시, 23시에 모두 다시 확인!
+                                    print('%d계정 %s시 이벤트 확인!' % (account, current_hour))
+
+                                    # 뽑기 돌려요!
+                                    print('%d 계정 뽑기' % (account))
+                                    cond_bbopkki = pag.locateCenterOnScreen('cond_bbopkki.png', confidence=0.85, region=(535 + (account // 2) * 960, 460 + (account % 2) * 540, 30, 30))
+                                    if (cond_bbopkki):
+                                        pag.click(532 + (account // 2) * 960, 504 + (account % 2) * 540)
+                                        time.sleep(1)
+                                        cond_bbopkki2 = pag.locateCenterOnScreen('cond_bbopkki2.png', confidence=0.85, region=(60 + (account // 2) * 960, 315 + 75 + (account % 2) * 540, 22, 22))
+                                        if (cond_bbopkki2):
+                                            pag.click(46 + (account // 2) * 960, 357 + 75 + (account % 2) * 540)
+                                            time.sleep(0.5)
+                                            bbopkki_start_time = time.time()
+                                            while True:
+                                                bbopkki_now_time = time.time()
+                                                if bbopkki_now_time - bbopkki_start_time > 120:
+                                                    End_kkd(account)  # 쿠킹덤 종료. 뽑기2분 안엔 끝나겠지?
+                                                    Kingdom_ready(account, 'kkd_out')  # 재부팅
+                                                    break
+                                                cond_bbopkki3 = pag.locateCenterOnScreen('cond_bbopkki3.png', confidence=0.85, region=(743 + (account // 2) * 960, 458 + (account % 2) * 540, 152, 53))
+                                                if (cond_bbopkki3):
+                                                    pag.click(cond_bbopkki3)
+                                                    time.sleep(1)
+                                                else:
+                                                    print('%d 계정 뽑기 일일보상 완료!' % (account))
+                                                    bBbopkki_first_B = True
+                                                    time.sleep(2)
+                                                    pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
+                                                    time.sleep(1)
+                                                    pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
+                                                    Kingdom_ready(account, 'kkd_out')
+                                                    print('현재 계정 = ', account)
+                                                    break
+                                    else:
+                                        print('%d 계정 뽑기 일일보상은 완료함' % (account))
+                                        bBbopkki_first_B = True
+                                    time.sleep(2)
+
+                                    # 상점 돌려요!
+                                    print('%d 계정 상점' % (account))
+                                    # 220302 추가 - 상점 일일보상 획득
+                                    Angmu_Enter(account, 'shop')
+                                    bShop_first_B = True
+
+                                    # 길드 돌려요!
+                                    print('%d 계정 길드' % (account))
+                                    # 220309 추가 - 길드 일일보상 획득
+                                    Angmu_Enter(account, 'guild')
+                                    bGuild_first_B = True
+
+                                    # 신전 돌려요!
+                                    print('%d 계정 신전' % (account))
+                                    # 220618 추가 - 신전
+                                    Angmu_Enter(account, 'temple')
+                                    bTemple_first_B = True
+
+                                    # 트로피칼 돌려요!
+                                    print('%d 계정 트로피칼' % (account))
+                                    # 트로피칼 확인
+                                    if bTropical:
+                                        if Tropical_Event(account):
+                                            Tropical_Fight(account)
+                                            bTropical_first_B = True
+
+                            # if account == 2 and (current_hour == 1) or (current_hour == 13) or (current_hour == 23) or (bBbopkki_first_C == False) or (bShop_first_C == False) or (bGuild_first_C == False) or (bTemple_first_C == False) or (bTropical_first_C == False)):  # 12시간마다 확인하는 항목 - 뽑기, 상점, 길드, 신전, 트로피칼 전투
+                            if account == 2:  # 12시간마다 확인하는 항목 - 뽑기, 상점, 길드, 신전, 트로피칼 전투
                                 if (bBbopkki_first_C == False) or (bShop_first_C == False) or (bGuild_first_C == False) or (bTemple_first_C == False) or (bTropical_first_C == False):
                                     print('%d계정 첫 이벤트 확인!'%(account))
-                                elif(current_hour == 1):
-                                    print('%d계정 새벽 1시 이벤트 확인!'%(account))
-                                elif(current_hour == 13):
-                                    print('%d계정 오후 1시 이벤트 확인!'%(account))
-                                elif(current_hour == 23):
-                                    print('%d계정 저녁 11시 이벤트 확인!' % (account))
-                                # print('%d 계정 뽑기'%(account))
-                                # 220203 추가 - 뽑기 일일 보상 획득
-                                # 220226 추가 - 뽑기 아이콘으로 완료여부 판단
-                                cond_bbopkki = pag.locateCenterOnScreen('cond_bbopkki.png', confidence=0.85, region=(535 + (account // 2) * 960, 460 + (account % 2) * 540, 30, 30))
-                                if (cond_bbopkki):
-                                    pag.click(532 + (account // 2) * 960, 504 + (account % 2) * 540)
-                                    time.sleep(1)
-                                    cond_bbopkki2 = pag.locateCenterOnScreen('cond_bbopkki2.png', confidence=0.85, region=(60 + (account // 2) * 960, 315 + 75 + (account % 2) * 540, 22, 22))
-                                    if (cond_bbopkki2):
-                                        pag.click(46 + (account // 2) * 960, 357 + 75 + (account % 2) * 540)
-                                        time.sleep(0.5)
-                                        bbopkki_start_time = time.time()
-                                        while True:
-                                            bbopkki_now_time = time.time()
-                                            if bbopkki_now_time - bbopkki_start_time > 120:
-                                                End_kkd(account)  # 쿠킹덤 종료. 뽑기2분 안엔 끝나겠지?
-                                                Kingdom_ready(account, 'kkd_out')  # 재부팅
-                                                break
-                                            cond_bbopkki3 = pag.locateCenterOnScreen('cond_bbopkki3.png', confidence=0.85, region=(743 + (account // 2) * 960, 458 + (account % 2) * 540, 152, 53))
-                                            if (cond_bbopkki3):
-                                                pag.click(cond_bbopkki3)
-                                                time.sleep(1)
-                                            else:
-                                                print('%d 계정 뽑기 일일보상 완료!'%(account))
-                                                bBbopkki_first_C = True
-                                                time.sleep(2)
-                                                pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
-                                                time.sleep(1)
-                                                pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
-                                                Kingdom_ready(account, 'kkd_out')
-                                                print('현재 계정 = ', account)
-                                                break
-                                else:
-                                    print('%d 계정 뽑기 일일보상은 완료함'%(account))
-                                    bBbopkki_first_C = True
-                                time.sleep(2)
-                            if account == 2 and ((current_hour == 1) or (current_hour == 13) or (current_hour == 23) or (bShop_first_C == False)):
-                                print('%d 계정 상점'%(account))
-                                # 220302 추가 - 상점 일일보상 획득
-                                Angmu_Enter(account, 'shop')
-                                bShop_first_C = True
-                            if account == 2 and ((current_hour == 1) or (current_hour == 13) or (current_hour == 23) or (bGuild_first_C == False)):
-                                print('%d 계정 길드'%(account))
-                                # 220309 추가 - 길드 일일보상 획득
-                                Angmu_Enter(account, 'guild')
-                                bGuild_first_C = True
-                            if account == 2 and ((current_hour == 1) or (current_hour == 13) or (current_hour == 23) or (bTemple_first_C == False)): # 
-                                print('%d 계정 신전'%(account))
-                                # 220618 추가 - 신전
-                                Angmu_Enter(account, 'temple')
-                                bTemple_first_C = True
-                            if account == 2 and ((current_hour == 1) or (current_hour == 13) or (current_hour == 23) or (bTropical_first_C == False)):
-                                print('%d 계정 트로피칼'%(account))
-                                # 트로피칼 확인
-                                if bTropical:
-                                    if Tropical_Event(account):
-                                        Tropical_Fight(account)
-                                        bTropical_first_C = True
-                            elif (account == 2) and bShop_first_C and bGuild_first_C and bTemple_first_C and bTropical_first_C:
-                                print('뽑기, 상점, 길드, 신전, 트로피칼전투 넘어가용, %d 계정'%(account))
+
+                                    # 뽑기 돌려요!
+                                    print('%d 계정 뽑기' % (account))
+                                    cond_bbopkki = pag.locateCenterOnScreen('cond_bbopkki.png', confidence=0.85, region=(535 + (account // 2) * 960, 460 + (account % 2) * 540, 30, 30))
+                                    if (cond_bbopkki):
+                                        pag.click(532 + (account // 2) * 960, 504 + (account % 2) * 540)
+                                        time.sleep(1)
+                                        cond_bbopkki2 = pag.locateCenterOnScreen('cond_bbopkki2.png', confidence=0.85, region=(60 + (account // 2) * 960, 315 + 75 + (account % 2) * 540, 22, 22))
+                                        if (cond_bbopkki2):
+                                            pag.click(46 + (account // 2) * 960, 357 + 75 + (account % 2) * 540)
+                                            time.sleep(0.5)
+                                            bbopkki_start_time = time.time()
+                                            while True:
+                                                bbopkki_now_time = time.time()
+                                                if bbopkki_now_time - bbopkki_start_time > 120:
+                                                    End_kkd(account)  # 쿠킹덤 종료. 뽑기2분 안엔 끝나겠지?
+                                                    Kingdom_ready(account, 'kkd_out')  # 재부팅
+                                                    break
+                                                cond_bbopkki3 = pag.locateCenterOnScreen('cond_bbopkki3.png', confidence=0.85, region=(743 + (account // 2) * 960, 458 + (account % 2) * 540, 152, 53))
+                                                if (cond_bbopkki3):
+                                                    pag.click(cond_bbopkki3)
+                                                    time.sleep(1)
+                                                else:
+                                                    print('%d 계정 뽑기 일일보상 완료!' % (account))
+                                                    bBbopkki_first_C = True
+                                                    time.sleep(2)
+                                                    pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
+                                                    time.sleep(1)
+                                                    pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
+                                                    Kingdom_ready(account, 'kkd_out')
+                                                    print('현재 계정 = ', account)
+                                                    break
+                                    else:
+                                        print('%d 계정 뽑기 일일보상은 완료함' % (account))
+                                        bBbopkki_first_C = True
+                                    time.sleep(2)
+
+                                    # 상점 돌려요!
+                                    print('%d 계정 상점' % (account))
+                                    # 220302 추가 - 상점 일일보상 획득
+                                    Angmu_Enter(account, 'shop')
+                                    bShop_first_C = True
+
+                                    # 길드 돌려요!
+                                    print('%d 계정 길드' % (account))
+                                    # 220309 추가 - 길드 일일보상 획득
+                                    Angmu_Enter(account, 'guild')
+                                    bGuild_first_C = True
+
+                                    # 신전 돌려요!
+                                    print('%d 계정 신전' % (account))
+                                    # 220618 추가 - 신전
+                                    Angmu_Enter(account, 'temple')
+                                    bTemple_first_C = True
+
+                                    # 트로피칼 돌려요!
+                                    print('%d 계정 트로피칼' % (account))
+                                    # 트로피칼 확인
+                                    if bTropical:
+                                        if Tropical_Event(account):
+                                            Tropical_Fight(account)
+                                            bTropical_first_C = True
+
+                                elif (current_hour == 1) or (current_hour == 13) or (current_hour == 23):  # 1시, 13시, 23시에 모두 다시 확인!
+                                    print('%d계정 %s시 이벤트 확인!' % (account, current_hour))
+
+                                    # 뽑기 돌려요!
+                                    print('%d 계정 뽑기' % (account))
+                                    cond_bbopkki = pag.locateCenterOnScreen('cond_bbopkki.png', confidence=0.85, region=(535 + (account // 2) * 960, 460 + (account % 2) * 540, 30, 30))
+                                    if (cond_bbopkki):
+                                        pag.click(532 + (account // 2) * 960, 504 + (account % 2) * 540)
+                                        time.sleep(1)
+                                        cond_bbopkki2 = pag.locateCenterOnScreen('cond_bbopkki2.png', confidence=0.85, region=(60 + (account // 2) * 960, 315 + 75 + (account % 2) * 540, 22, 22))
+                                        if (cond_bbopkki2):
+                                            pag.click(46 + (account // 2) * 960, 357 + 75 + (account % 2) * 540)
+                                            time.sleep(0.5)
+                                            bbopkki_start_time = time.time()
+                                            while True:
+                                                bbopkki_now_time = time.time()
+                                                if bbopkki_now_time - bbopkki_start_time > 120:
+                                                    End_kkd(account)  # 쿠킹덤 종료. 뽑기2분 안엔 끝나겠지?
+                                                    Kingdom_ready(account, 'kkd_out')  # 재부팅
+                                                    break
+                                                cond_bbopkki3 = pag.locateCenterOnScreen('cond_bbopkki3.png', confidence=0.85, region=(743 + (account // 2) * 960, 458 + (account % 2) * 540, 152, 53))
+                                                if (cond_bbopkki3):
+                                                    pag.click(cond_bbopkki3)
+                                                    time.sleep(1)
+                                                else:
+                                                    print('%d 계정 뽑기 일일보상 완료!' % (account))
+                                                    bBbopkki_first_C = True
+                                                    time.sleep(2)
+                                                    pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
+                                                    time.sleep(1)
+                                                    pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
+                                                    Kingdom_ready(account, 'kkd_out')
+                                                    print('현재 계정 = ', account)
+                                                    break
+                                    else:
+                                        print('%d 계정 뽑기 일일보상은 완료함' % (account))
+                                        bBbopkki_first_C = True
+                                    time.sleep(2)
+
+                                    # 상점 돌려요!
+                                    print('%d 계정 상점' % (account))
+                                    # 220302 추가 - 상점 일일보상 획득
+                                    Angmu_Enter(account, 'shop')
+                                    bShop_first_C = True
+
+                                    # 길드 돌려요!
+                                    print('%d 계정 길드' % (account))
+                                    # 220309 추가 - 길드 일일보상 획득
+                                    Angmu_Enter(account, 'guild')
+                                    bGuild_first_C = True
+
+                                    # 신전 돌려요!
+                                    print('%d 계정 신전' % (account))
+                                    # 220618 추가 - 신전
+                                    Angmu_Enter(account, 'temple')
+                                    bTemple_first_C = True
+
+                                    # 트로피칼 돌려요!
+                                    print('%d 계정 트로피칼' % (account))
+                                    # 트로피칼 확인
+                                    if bTropical:
+                                        if Tropical_Event(account):
+                                            Tropical_Fight(account)
+                                            bTropical_first_C = True
 
                             # 1시, 7시, 오후 1시, 오후 8시, 오후 11시 총 5회 확인 = 킹덤패스만
                             if account == 0 and ((current_hour == 1) or (current_hour == 7) or (current_hour == 13) or (current_hour == 20) or (current_hour == 23) or (bKpass_first_A == False)):  # 12시간마다 확인하는 항목 - 뽑기, 상점, 길드, 신전, 트로피칼 전투
                                 if (bKpass_first_A == False):
                                     print('%d계정 첫 킹덤패스 확인!'%(account))
-                                elif(current_hour == 1):
-                                    print('%d계정 새벽 1시 킹덤패스 확인!'%(account))
-                                elif (current_hour == 7):
-                                    print('%d계정 아침 7시 킹덤패스 확인!' % (account))
-                                elif(current_hour == 13):
-                                    print('%d계정 오후 1시 킹덤패스 확인!'%(account))
-                                elif (current_hour == 20):
-                                    print('%d계정 오후 8시 킹덤패스 확인!' % (account))
-                                elif(current_hour == 23):
-                                    print('%d계정 저녁 11시 킹덤패스 확인!'%(account))
-                                # print('%d 계정 킹덤패스'%(account))
-                                # 킹덤패스 보상 확인
-                                Kpass_reward(account)
-                                bKpass_first_A = True
+                                    # 킹덤패스 보상 확인
+                                    Kpass_reward(account)
+                                    bKpass_first_A = True
+                                else:
+                                    print('%d계정 %s시 킹덤패스 확인!'%(account, current_hour))
+                                    # 킹덤패스 보상 확인
+                                    Kpass_reward(account)
+                                    bKpass_first_A = True
                             elif account == 0 and bKpass_first_A:
                                 print('%d 계정 킹덤패스 넘어가용'%(account))
 
                             if account == 1 and ((current_hour == 1) or (current_hour == 7) or (current_hour == 13) or (current_hour == 20) or (current_hour == 23) or (bKpass_first_B == False)):  # 12시간마다 확인하는 항목 - 뽑기, 상점, 길드, 신전, 트로피칼 전투
                                 if (bKpass_first_B == False):
                                     print('%d계정 첫 킹덤패스 확인!' % (account))
-                                elif (current_hour == 1):
-                                    print('%d계정 새벽 1시 킹덤패스 확인!' % (account))
-                                elif (current_hour == 7):
-                                    print('%d계정 아침 7시 킹덤패스 확인!' % (account))
-                                elif (current_hour == 13):
-                                    print('%d계정 오후 1시 킹덤패스 확인!' % (account))
-                                elif (current_hour == 20):
-                                    print('%d계정 오후 8시 킹덤패스 확인!' % (account))
-                                elif (current_hour == 23):
-                                    print('%d계정 저녁 11시 킹덤패스 확인!' % (account))
-                                # print('%d 계정 킹덤패스'%(account))
-                                # 킹덤패스 보상 확인
-                                Kpass_reward(account)
-                                bKpass_first_B = True
+                                    # 킹덤패스 보상 확인
+                                    Kpass_reward(account)
+                                    bKpass_first_B = True
+                                else:
+                                    print('%d계정 %s시 킹덤패스 확인!' % (account, current_hour))
+                                    # 킹덤패스 보상 확인
+                                    Kpass_reward(account)
+                                    bKpass_first_B = True
                             elif account == 1 and bKpass_first_B:
                                 print('%d 계정 킹덤패스 넘어가용'%(account))
 
                             if account == 2 and ((current_hour == 1) or (current_hour == 7) or (current_hour == 13) or (current_hour == 20) or (current_hour == 23) or (bKpass_first_C == False)):  # 12시간마다 확인하는 항목 - 뽑기, 상점, 길드, 신전, 트로피칼 전투
                                 if (bKpass_first_A == False):
                                     print('%d계정 첫 킹덤패스 확인!'%(account))
-                                elif(current_hour == 1):
-                                    print('%d계정 새벽 1시 킹덤패스 확인!'%(account))
-                                elif (current_hour == 7):
-                                    print('%d계정 아침 7시 킹덤패스 확인!' % (account))
-                                elif(current_hour == 13):
-                                    print('%d계정 오후 1시 킹덤패스 확인!'%(account))
-                                elif (current_hour == 20):
-                                    print('%d계정 오후 8시 킹덤패스 확인!' % (account))
-                                elif(current_hour == 23):
-                                    print('%d계정 저녁 11시 킹덤패스 확인!'%(account))
-                                # print('%d 계정 킹덤패스'%(account))
-                                # 킹덤패스 보상 확인
-                                Kpass_reward(account)
-                                bKpass_first_C = True
+                                    # 킹덤패스 보상 확인
+                                    Kpass_reward(account)
+                                    bKpass_first_C = True
+                                else:
+                                    print('%d계정 %s시 킹덤패스 확인!'%(account, current_hour))
+                                    # 킹덤패스 보상 확인
+                                    Kpass_reward(account)
+                                    bKpass_first_C = True
                             elif account == 2 and bKpass_first_C:
                                 print('%d 계정 킹덤패스 넘어가용'%(account))
-
-
-                            # # 220203 추가 - 뽑기 일일 보상 획득
-                            # # 220226 추가 - 뽑기 아이콘으로 완료여부 판단
-                            # cond_bbopkki = pag.locateCenterOnScreen('cond_bbopkki.png', confidence=0.85, region=(535 + (account // 2) * 960, 460 + (account % 2) * 540, 30, 30))
-                            # if (cond_bbopkki):
-                            #     pag.click(532 + (account // 2) * 960, 504 + (account % 2) * 540)
-                            #     time.sleep(1)
-                            #     cond_bbopkki2 = pag.locateCenterOnScreen('cond_bbopkki2.png', confidence=0.85, region=(60 + (account // 2) * 960, 315+ 75 + (account % 2) * 540, 22, 22))
-                            #     if (cond_bbopkki2):
-                            #         pag.click(46 + (account // 2) * 960, 357 + 75 + (account % 2) * 540)
-                            #         time.sleep(0.5)
-                            #         bbopkki_start_time = time.time()
-                            #         while True:
-                            #             bbopkki_now_time = time.time()
-                            #             if bbopkki_now_time - bbopkki_start_time > 120:
-                            #                 End_kkd(account)  # 쿠킹덤 종료. 뽑기2분 안엔 끝나겠지?
-                            #                 Kingdom_ready(account, 'kkd_out')  # 재부팅
-                            #                 break
-                            #             cond_bbopkki3 = pag.locateCenterOnScreen('cond_bbopkki3.png', confidence=0.85, region=(743 + (account // 2) * 960, 458 + (account % 2) * 540, 152, 53))
-                            #             if (cond_bbopkki3):
-                            #                 pag.click(cond_bbopkki3)
-                            #                 time.sleep(1)
-                            #             else:
-                            #                 print('뽑기 일일보상 완료!')
-                            #                 time.sleep(2)
-                            #                 pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
-                            #                 time.sleep(1)
-                            #                 pag.click(889 + (account // 2) * 960, 55 + (account % 2) * 540)
-                            #                 Kingdom_ready(account, 'kkd_out')
-                            #                 print('현재 계정 = ', account)
-                            #                 break
-                            # else:
-                            #     print('뽑기 일일보상은 완료함')
-                            # time.sleep(2)
-
-                            # 위에 시간별로 돌리기 추가해서 우선 지워봄
-                            # print('상점들어가볼까')
-                            # # 220302 추가 - 상점 일일보상 획득
-                            # Angmu_Enter(account, 'shop')
-                            #
-                            # # 220309 추가 - 길드 일일보상 획득
-                            # Angmu_Enter(account, 'guild')
-                            #
-                            # # 220618 추가 - 신전
-                            # Angmu_Enter(account, 'temple')
-                            #
-                            # # 킹덤패스 보상 확인
-                            # Kpass_reward(account)
-                            #
-                            # # 트로피칼 확인
-                            # if bTropical:
-                            #     if Tropical_Event(account):
-                            #         Tropical_Fight(account)
 
                             # 소원나무 쪽지 보내기
                             Sowon_jjokji_action(jjokji_numb, account, jjokji_limit)
@@ -11099,28 +11245,28 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         pix_arrow2 = (251, 248, 246)  # 밑바닥칸
                         pix_lackof1 = (243, 233, 223)  # 베이지색
 
-                        pix_wood = (119, 59, 38)  # 나무         # pix_prod 픽셀 확인!
-                        pix_jelbean = (0, 239, 238)  # 젤리빈
-                        pix_sugar = (255, 255, 255)  # 설탕
-                        pix_biscuit = (204, 133, 61)  # 비스킷
-                        pix_berry = (187, 39, 44)  # 젤리베리
-                        pix_milk = (233, 241, 241)  # 우유
-                        pix_cotton = (255, 247, 255)  # 솜
-                        pix_smith = (164, 116, 85)  # 도끼 스미스
-                        pix_jelly = (12, 171, 199)  # 젤리빈 잼 젤리
-                        pix_rollc = (215, 147, 106)  # 솔새 롤케
-                        pix_bread = (142, 65, 8)  # 호밀빵 브레드
-                        pix_jampy = (166, 29, 42)  # 젤리스튜 잼파이
-                        pix_doye = (158, 84, 42)  # 비스킷 화분 - 도예
-                        pix_flower = (255, 30, 130)  # 캔디꽃 - flower
-                        pix_milky = (214, 231, 231)  # 크림 - milky
-                        pix_latte = (255, 251, 239)  # 젤리빈 라떼 - latte
-                        pix_dolls = (108, 235, 249)  # 쿠션 - dolls
-                        pix_beer = (152, 101, 68)  # 크림루트비어 - beer
-                        pix_muffin = (191, 91, 59)  # 머핀 - muffin
-                        pix_jewel = (135, 90, 50)  # 글레이즈드링 - jewel
-                        pix_magic = (93, 55, 48)  # 마법공방 - magic
-                        pix_icecream = (254, 253, 229) # 디즈니 아이스크림 트럭
+                        # pix_wood = (117, 59, 40)  # 나무
+                        # pix_jelbean = (4, 239, 237)  # 젤리빈
+                        # pix_sugar = (255, 255, 255)  # 설탕
+                        # pix_biscuit = (205, 132, 63)  # 비스킷
+                        # pix_berry = (187, 40, 44)  # 젤리베리
+                        # pix_milk = (236, 241, 241)  # 우유
+                        # pix_cotton = (255, 247, 255)  # 솜
+                        # pix_smith = (163, 118, 85)  # 도끼 스미스
+                        # pix_jelly = (15, 174, 202)  # 젤리빈 잼 젤리
+                        # pix_rollc = (214, 146, 105)  # 솔새 롤케
+                        # pix_bread = (142, 66, 8)  # 호밀빵 브레드
+                        # pix_jampy = (168, 29, 42)  # 젤리스튜 잼파이
+                        # pix_doye = (157, 84, 43)  # 비스킷 화분 - 도예
+                        # pix_flower = (255, 30, 130)  # 캔디꽃 - flower
+                        # pix_milky = (213, 229, 234)  # 크림 - milky
+                        # pix_latte = (255, 251, 238)  # 젤리빈 라떼 - latte
+                        # pix_dolls = (109, 235, 249)  # 쿠션 - dolls
+                        # pix_beer = (153, 103, 67)  # 크림루트비어 - beer
+                        # pix_muffin = (190, 92, 59)  # 머핀 - muffin
+                        # pix_jewel = (143, 99, 63)  # 글레이즈드링 - jewel
+                        # pix_magic = (93, 55, 48)  # 마법공방 - magic
+                        # pix_icecream = (254, 253, 229)  # 디즈니 아이스크림 트럭
                         # pix_status_in = (194, 144, 10)  # 생산건물 내
                         pix_status_in = (227, 163, 2)  # 아이스크림 생산건물 내
 
@@ -12682,28 +12828,28 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         pix_lackof = screen.getpixel((545 + (account // 2) * 960, 745 - 540 + (account % 2) * 540))  # 재료부족창?
 
                         pix_lackof1 = (243, 233, 223)  # 베이지색
-                        pix_wood = (119, 59, 38)  # 나무
-                        pix_jelbean = (0, 239, 238)  # 젤리빈
-                        pix_sugar = (255, 255, 255)  # 설탕
-                        pix_biscuit = (204, 133, 61)  # 비스킷
-                        pix_berry = (187, 39, 44)  # 젤리베리
-                        pix_milk = (233, 241, 241)  # 우유
-                        pix_cotton = (255, 247, 255)  # 솜
-                        pix_smith = (164, 116, 85)  # 도끼 스미스
-                        pix_jelly = (12, 171, 199)  # 젤리빈 잼 젤리
-                        pix_rollc = (215, 147, 106)  # 솔새 롤케
-                        pix_bread = (142, 65, 8)  # 호밀빵 브레드
-                        pix_jampy = (166, 29, 42)  # 젤리스튜 잼파이
-                        pix_doye = (158, 84, 42)  # 비스킷 화분 - 도예
-                        pix_flower = (255, 30, 130)  # 캔디꽃 - flower
-                        pix_milky = (214, 231, 231)  # 크림 - milky
-                        pix_latte = (255, 251, 239)  # 젤리빈 라떼 - latte
-                        pix_dolls = (108, 235, 249)  # 쿠션 - dolls
-                        pix_beer = (152, 101, 68)  # 크림루트비어 - beer
-                        pix_muffin = (191, 91, 59)  # 머핀 - muffin
-                        pix_jewel = (135, 90, 50)  # 글레이즈드링 - jewel
-                        pix_magic = (93, 55, 48)  # 마법공방 - magic
-                        pix_icecream = (254, 253, 229)  # 디즈니 아이스크림 트럭
+                        # pix_wood = (117, 59, 40)  # 나무
+                        # pix_jelbean = (4, 239, 237)  # 젤리빈
+                        # pix_sugar = (255, 255, 255)  # 설탕
+                        # pix_biscuit = (205, 132, 63)  # 비스킷
+                        # pix_berry = (187, 40, 44)  # 젤리베리
+                        # pix_milk = (236, 241, 241)  # 우유
+                        # pix_cotton = (255, 247, 255)  # 솜
+                        # pix_smith = (163, 118, 85)  # 도끼 스미스
+                        # pix_jelly = (15, 174, 202)  # 젤리빈 잼 젤리
+                        # pix_rollc = (214, 146, 105)  # 솔새 롤케
+                        # pix_bread = (142, 66, 8)  # 호밀빵 브레드
+                        # pix_jampy = (168, 29, 42)  # 젤리스튜 잼파이
+                        # pix_doye = (157, 84, 43)  # 비스킷 화분 - 도예
+                        # pix_flower = (255, 30, 130)  # 캔디꽃 - flower
+                        # pix_milky = (213, 229, 234)  # 크림 - milky
+                        # pix_latte = (255, 251, 238)  # 젤리빈 라떼 - latte
+                        # pix_dolls = (109, 235, 249)  # 쿠션 - dolls
+                        # pix_beer = (153, 103, 67)  # 크림루트비어 - beer
+                        # pix_muffin = (190, 92, 59)  # 머핀 - muffin
+                        # pix_jewel = (143, 99, 63)  # 글레이즈드링 - jewel
+                        # pix_magic = (93, 55, 48)  # 마법공방 - magic
+                        # pix_icecream = (254, 253, 229)  # 디즈니 아이스크림 트럭
 
                         screen = ImageGrab.grab()
                         pix_prod = screen.getpixel((610 + (account // 2) * 960, 140 + (account % 2) * 540))
@@ -13348,28 +13494,28 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         pix_arrow2 = (251, 248, 246)  # 밑바닥칸
                         pix_lackof1 = (243, 233, 223)  # 베이지색
 
-                        pix_wood = (119, 59, 38)  # 나무
-                        pix_jelbean = (0, 239, 238)  # 젤리빈
-                        pix_sugar = (255, 255, 255)  # 설탕
-                        pix_biscuit = (204, 133, 61)  # 비스킷
-                        pix_berry = (187, 39, 44)  # 젤리베리
-                        pix_milk = (233, 241, 241)  # 우유
-                        pix_cotton = (255, 247, 255)  # 솜
-                        pix_smith = (164, 116, 85)  # 도끼 스미스
-                        pix_jelly = (12, 171, 199)  # 젤리빈 잼 젤리
-                        pix_rollc = (215, 147, 106)  # 솔새 롤케
-                        pix_bread = (142, 65, 8)  # 호밀빵 브레드
-                        pix_jampy = (166, 29, 42)  # 젤리스튜 잼파이
-                        pix_doye = (158, 84, 42)  # 비스킷 화분 - 도예
-                        pix_flower = (255, 30, 130)  # 캔디꽃 - flower
-                        pix_milky = (214, 231, 231)  # 크림 - milky
-                        pix_latte = (255, 251, 239)  # 젤리빈 라떼 - latte
-                        pix_dolls = (108, 235, 249)  # 쿠션 - dolls
-                        pix_beer = (152, 101, 68)  # 크림루트비어 - beer
-                        pix_muffin = (191, 91, 59)  # 머핀 - muffin
-                        pix_jewel = (135, 90, 50)  # 글레이즈드링 - jewel
-                        pix_magic = (93, 55, 48)  # 마법공방 - magic
-                        pix_icecream = (254, 253, 229)  # 디즈니 아이스크림 트럭
+                        # pix_wood = (117, 59, 40)  # 나무
+                        # pix_jelbean = (4, 239, 237)  # 젤리빈
+                        # pix_sugar = (255, 255, 255)  # 설탕
+                        # pix_biscuit = (205, 132, 63)  # 비스킷
+                        # pix_berry = (187, 40, 44)  # 젤리베리
+                        # pix_milk = (236, 241, 241)  # 우유
+                        # pix_cotton = (255, 247, 255)  # 솜
+                        # pix_smith = (163, 118, 85)  # 도끼 스미스
+                        # pix_jelly = (15, 174, 202)  # 젤리빈 잼 젤리
+                        # pix_rollc = (214, 146, 105)  # 솔새 롤케
+                        # pix_bread = (142, 66, 8)  # 호밀빵 브레드
+                        # pix_jampy = (168, 29, 42)  # 젤리스튜 잼파이
+                        # pix_doye = (157, 84, 43)  # 비스킷 화분 - 도예
+                        # pix_flower = (255, 30, 130)  # 캔디꽃 - flower
+                        # pix_milky = (213, 229, 234)  # 크림 - milky
+                        # pix_latte = (255, 251, 238)  # 젤리빈 라떼 - latte
+                        # pix_dolls = (109, 235, 249)  # 쿠션 - dolls
+                        # pix_beer = (153, 103, 67)  # 크림루트비어 - beer
+                        # pix_muffin = (190, 92, 59)  # 머핀 - muffin
+                        # pix_jewel = (143, 99, 63)  # 글레이즈드링 - jewel
+                        # pix_magic = (93, 55, 48)  # 마법공방 - magic
+                        # pix_icecream = (254, 253, 229)  # 디즈니 아이스크림 트럭
 
                         # pix_status_in = (194, 144, 10)  # 생산건물 내
                         pix_status_in = (227, 163, 2)  # 아이스크림 생산건물 내
@@ -15137,9 +15283,9 @@ if number_of_accounts == 2 or number_of_accounts == 3:
 
                         # print('이 밖인가')
                 # 숏텀 모드 시작..할까?
-    except:
-        print('오류가 났네! 현재시간:', datetime.now().strftime('%H:%M:%S'))
-        send_telegram_message('오류가 났네!')
+    # except:
+    #     print('오류가 났네! 현재시간:', datetime.now().strftime('%H:%M:%S'))
+    #     send_telegram_message('오류가 났네!')
 else:
     print('number_of_accounts는 2나 3만 입력해주세요!')
     sys.exit()
