@@ -343,9 +343,9 @@ jewel_lev2_A = 25  # 루비베리 브로치
 jewel_lev3_A = 25  # 로얄 곰젤리 크라운
 
 magic_num_A = 1    # 마법공방
-magic_lev1_A = 60    # 고농축 에스프레소
-magic_lev2_A = 60    # 울퉁불퉁 뿔고구마
-magic_lev3_A = 290    # 향기로운 포도주스
+magic_lev1_A = 90    # 고농축 에스프레소
+magic_lev2_A = 90    # 울퉁불퉁 뿔고구마
+magic_lev3_A = 190    # 향기로운 포도주스
 magic_lev4_A = 200    # 빨리감기 태엽장치
 magic_lev5_A = 0    # 수수께끼의 파우더 주머니
 magic_lev6_A = 0    # 수수께끼의 빛나는 파우더 주머니
@@ -476,9 +476,9 @@ jewel_lev2_B = 100  # 루비베리 브로치
 jewel_lev3_B = 100  # 로얄 곰젤리 크라운
 
 magic_num_B = 1    # 마법공방
-magic_lev1_B = 30    # 고농축 에스프레소
-magic_lev2_B = 30    # 울퉁불퉁 뿔고구마
-magic_lev3_B = 290    # 향기로운 포도주스
+magic_lev1_B = 90    # 고농축 에스프레소
+magic_lev2_B = 90    # 울퉁불퉁 뿔고구마
+magic_lev3_B = 190    # 향기로운 포도주스
 magic_lev4_B = 0    # 빨리감기 태엽장치
 magic_lev5_B = 0    # 수수께끼의 파우더 주머니
 magic_lev6_B = 0    # 수수께끼의 빛나는 파우더 주머니
@@ -611,9 +611,9 @@ jewel_lev2_C = 110  # 루비베리 브로치
 jewel_lev3_C = 110  # 로얄 곰젤리 크라운
 
 magic_num_C = 1    # 마법공방
-magic_lev1_C = 30    # 고농축 에스프레소
-magic_lev2_C = 30    # 울퉁불퉁 뿔고구마
-magic_lev3_C = 290    # 향기로운 포도주스
+magic_lev1_C = 90    # 고농축 에스프레소
+magic_lev2_C = 90    # 울퉁불퉁 뿔고구마
+magic_lev3_C = 190    # 향기로운 포도주스
 magic_lev4_C = 0    # 빨리감기 태엽장치
 magic_lev5_C = 0    # 수수께끼의 파우더 주머니
 magic_lev6_C = 0    # 수수께끼의 빛나는 파우더 주머니
@@ -2302,7 +2302,7 @@ def list_clear(account):
                 time.sleep(0.2)
                 pag.click(random.randint(75 - 5, 75 + 5) + (account // 2) * 960, random.randint(200 - 5, 200 + 5) - 73 + (account % 2) * 540)  # 첫째 칸 클릭
                 time.sleep(0.2)
-                pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(378 - 5, 378 + 5) + (account % 2) * 540)  # 확인
+                pag.click(random.randint(462 - 5, 462 + 5)+72 + (account // 2) * 960, random.randint(378 - 5, 378 + 5) + (account % 2) * 540)  # 확인
                 time.sleep(0.4)
                 return
         else:
@@ -2409,8 +2409,8 @@ def Wood_to_Cotton(account, Min_number, Max_number, Making_Level, prod_direction
                     time.sleep(0.2)
                     pag.click(random.randint(75 - 5, 75 + 5) + (account // 2) * 960, random.randint(200 - 5, 200 + 5) - 73 + (account % 2) * 540)  # 첫째 칸 클릭
                     time.sleep(0.2)
-                    pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(378 - 5, 378 + 5) + (account % 2) * 540)  # 확인
-                    time.sleep(0.4)
+                    pag.click(random.randint(462 - 5, 462 + 5)+72 + (account // 2) * 960, random.randint(378 - 5, 378 + 5) + (account % 2) * 540)  # 확인
+                    time.sleep(0.5)
             else:
                 break
         pag.moveTo(random.randint(850 - 5, 850 + 5) + (account // 2) * 960, random.randint(200 - 3, 200 + 3) + (account % 2) * 540)      # 여기가 실제 생산 인가????
@@ -2645,7 +2645,7 @@ def Wood_to_Cotton_Quick(account, Max_number, Making_Level, prod_direction_left)
                                 time.sleep(0.2)
                                 pag.click(random.randint(75 - 5, 75 + 5) + (account // 2) * 960, random.randint(200 - 5, 200 + 5) - 73 + (account % 2) * 540)  # 첫째 칸 클릭
                                 time.sleep(0.2)
-                                pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(378 - 5, 378 + 5) + (account % 2) * 540)  # 확인
+                                pag.click(random.randint(462 - 5, 462 + 5)+72 + (account // 2) * 960, random.randint(378 - 5, 378 + 5) + (account % 2) * 540)  # 확인
                                 time.sleep(0.4)
                                 break
                 if jelbean_clear:
@@ -2673,7 +2673,7 @@ def Wood_to_Cotton_Quick(account, Max_number, Making_Level, prod_direction_left)
                                 time.sleep(0.2)
                                 pag.click(random.randint(75 - 5, 75 + 5) + (account // 2) * 960, random.randint(200 - 5, 200 + 5) - 73 + (account % 2) * 540)  # 첫째 칸 클릭
                                 time.sleep(0.2)
-                                pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(378 - 5, 378 + 5) + (account % 2) * 540)  # 확인
+                                pag.click(random.randint(462 - 5, 462 + 5)+72 + (account // 2) * 960, random.randint(378 - 5, 378 + 5) + (account % 2) * 540)  # 확인
                                 time.sleep(0.4)
                                 break
                 if sugar_clear:
@@ -2701,7 +2701,7 @@ def Wood_to_Cotton_Quick(account, Max_number, Making_Level, prod_direction_left)
                                 time.sleep(0.2)
                                 pag.click(random.randint(75 - 5, 75 + 5) + (account // 2) * 960, random.randint(200 - 5, 200 + 5) - 73 + (account % 2) * 540)  # 첫째 칸 클릭
                                 time.sleep(0.2)
-                                pag.click(random.randint(462 - 5, 462 + 5) + (account // 2) * 960, random.randint(378 - 5, 378 + 5) + (account % 2) * 540)  # 확인
+                                pag.click(random.randint(462 - 5, 462 + 5)+72 + (account // 2) * 960, random.randint(378 - 5, 378 + 5) + (account % 2) * 540)  # 확인
                                 time.sleep(0.4)
                                 break
             pag.moveTo(random.randint(850 - 5, 850 + 5) + (account // 2) * 960, random.randint(200 - 3, 200 + 3) + (Making_Level - 1) * 153 + (account % 2) * 540)  # 1렙이면 200. 2~3렙은 153씩 올라감
@@ -2892,171 +2892,169 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
         normal_prod = 0.9  # 1~2시간 제품
         hard_prod = 0.95  # 2시간 초과
 
-        pix_wood = (171, 101, 64)
-        pix_jelbean = (0, 249, 227)
-        pix_sugar = (199, 203, 209)
-        pix_biscuit = (187, 102, 31)
-        pix_berry = (194, 37, 42)
-        pix_milk = (254, 249, 217)
-        pix_cotton = (255, 197, 217)
+        pix_s_wood = (169, 99, 64)  # 나무
+        pix_s_jelbean = (0, 250, 227)  # 젤빈
+        pix_s_sugar = (198, 203, 205)  # 각설
+        pix_s_biscuit = (178, 93, 24)  # 비스
+        pix_s_berry = (194, 37, 42)  # 젤리베리
+        pix_s_milk = (255, 249, 217)  # 우유
+        pix_s_cotton = (255, 197, 215)  # 솜사탕 양털
 
-        pix_smith_lv1 = (36, 46, 65)     # 단단 도끼
-        pix_smith_lv2 = (137, 14, 14)    # 튼튼 곡괭이
-        pix_smith_lv3 = (76, 93, 115)    # 슥삭슥삭 톱
-        pix_smith_lv4 = (113, 101, 94)    # 푹푹 삽
-        pix_smith_lv5 = (192, 97, 53)    # 신비한 프레첼 말뚝
-        pix_smith_lv6 = (120, 144, 163)  # 영롱한 푸른사탕 집게
-        pix_smith_lv7 = (255, 251, 235)  # 불변의 슈가 코팅 망치
+        pix_s_smith_lv1 = (36, 46, 65)  # 도끼
+        pix_s_smith_lv2 = (127, 19, 18)  # 곡괭이
+        pix_s_smith_lv3 = (75, 91, 115)  # 톱
+        pix_s_smith_lv4 = (116, 95, 88)  # 삽
+        pix_s_smith_lv5 = (200, 99, 48)  # 말뚝
+        pix_s_smith_lv6 = (111, 143, 165)  # 집게
+        pix_s_smith_lv7 = (255, 251, 235)  # 망치
 
-        pix_jelly_lv1 = (153, 218, 219)  # 젤리빈 잼
-        pix_jelly_lv2 = (233, 146, 152)  # 스윗젤리 잼
-        pix_jelly_lv3 = (221, 136, 21)   # 달고나 잼
-        pix_jelly_lv4 = (233, 28, 134)   # 석류잼
-        # pix_jelly_lv5 =                # 톡톡베리 잼
+        pix_s_jelly_lv1 = (149, 220, 222)  # 젤리빈 잼
+        pix_s_jelly_lv2 = (233, 146, 152)  # 스윗젤리 잼
+        pix_s_jelly_lv3 = (221, 136, 21)  # 달고나 잼
+        pix_s_jelly_lv4 = (224, 35, 128)  # 석류 잼
 
-        pix_rollc_lv1 = (163, 72, 37)         # 솔방울새 인형
-        pix_rollc_lv2 = (255, 251, 224)       # 도토리 램프
-        pix_rollc_lv3 = (107, 124, 52)        # 뻐꾹뻐꾹 시계
-        pix_rollc_lv4 = (143, 78, 43)         # 백조깃털 드림캐쳐
+        pix_s_rollc_lv1 = (163, 70, 35)  # 솔방울새 인형
+        pix_s_rollc_lv2 = (255, 251, 224)  # 도토리 램프
+        pix_s_rollc_lv3 = (119, 125, 55)  # 뻐꾹뻐꾹 시계
+        pix_s_rollc_lv4 = (147, 78, 41)  # 백조깃털 드림캐처
 
-        pix_bread_lv1 = (172, 79, 20)        # 든든한 호밀빵
-        pix_bread_lv2 = (150, 11, 24)        # 달콤쫀득 잼파이
-        pix_bread_lv3 = (251, 182, 90)       # 은행 포카치아
-        pix_bread_lv4 = (255, 244, 221)       # 슈가코팅 도넛
-        pix_bread_lv5 = (204, 120, 36)        # 폭신 카스테라
-        # pix_bread_lv6 =                     # 골드리치 크루아상
+        pix_s_bread_lv1 = (171, 79, 20)  # 든든한 호밀빵
+        pix_s_bread_lv2 = (150, 11, 24)  # 달콤쫀득 잼파이
+        pix_s_bread_lv3 = (251, 181, 90)  # 은행 포카치아
+        pix_s_bread_lv4 = (255, 244, 220)  # 슈가코팅 도넛
+        pix_s_bread_lv5 = (209, 118, 34)  # 폭신 카스테라
 
-        pix_jampy_lv1 = (181, 44, 57)        # 따끈따끈 젤리스튜
-        pix_jampy_lv2 = (229, 168, 67)       # 곰젤리 버거
-        pix_jampy_lv3 = (254, 202, 189)      # 캔디크림 파스타
-        pix_jampy_lv4 = (227, 154, 29)       # 폭신폭신 오므라이스
-        pix_jampy_lv5 = (230, 31, 60)        # 콤비네이션 피자젤리
-        # pix_jampy_lv6 =                    # 고급스러운 젤리빈 정식
+        pix_s_jampy_lv1 = (180, 39, 57)  # 따끈따끈 젤리스튜
+        pix_s_jampy_lv2 = (229, 168, 66)  # 곰젤리 버거
+        pix_s_jampy_lv3 = (254, 198, 186)  # 캔디크림 파스타
+        pix_s_jampy_lv4 = (227, 155, 29)  # 폭신폭신 오므라이스
+        pix_s_jampy_lv5 = (230, 31, 60)  # 콤비네이션 피자젤리
+        pix_s_jampy_lv6 = (0, 0, 0)  # 고급스러운 젤리빈 정식
 
-        pix_doye_lv1 = (206, 122, 71)       # 비스킷 화분
-        pix_doye_lv2 = (176, 184, 220)      # 반짝반짝 유리판
-        pix_doye_lv3 = (159, 72, 21)        # 반짝이는 색동구슬
-        pix_doye_lv4 = (245, 175, 232)      # 무지갯빛 디저트 보울
+        pix_s_doye_lv1 = (206, 123, 71)  # 비스킷 화분
+        pix_s_doye_lv2 = (177, 183, 220)  # 반짝반짝 유리판
+        pix_s_doye_lv3 = (152, 66, 30)  # 반짝이는 색동구슬
+        pix_s_doye_lv4 = (244, 173, 234)  # 무지갯빛 디저트 보울
 
-        pix_flower_lv1 = (245, 137, 221)    # 캔디꽃
-        pix_flower_lv2 = (136, 67, 16)      # 행복한 꽃화분
-        pix_flower_lv3 = (179, 240, 228)    # 캔디꽃다발
-        pix_flower_lv4 = (204, 45, 80)      # 롤리팝 꽃바구니
-        pix_flower_lv5 = (184, 197, 232)    # 유리꽃 부케
-        pix_flower_lv6 = (36, 46, 65)      # 찬란한 요거트 화환
+        pix_s_flower_lv1 = (245, 137, 221)  # 캔디꽃
+        pix_s_flower_lv2 = (134, 65, 15)  # 행복한 꽃화분
+        pix_s_flower_lv3 = (182, 245, 234)  # 캔디꽃다발
+        pix_s_flower_lv4 = (200, 38, 75)  # 롤리팝 꽃바구니
+        pix_s_flower_lv5 = (184, 197, 233)  # 유리꽃 부케
+        pix_s_flower_lv6 = (36, 46, 65)  # 찬란한 요거트 화환
 
-        pix_milk_lv1 = (25, 91, 123)     # 크림
-        pix_milk_lv2 = (237, 214, 137)   # 버터
-        pix_milk_lv3 = (121, 170, 192)   # 수제 치즈
+        pix_s_milk_lv1 = (26, 91, 123)  # 크림
+        pix_s_milk_lv2 = (239, 210, 134)  # 버터
+        pix_s_milk_lv3 = (142, 180, 194)  # 수제 치즈
 
-        pix_latte_lv1 = (248, 244, 212)   # 젤리빈 라떼
-        pix_latte_lv2 = (255, 240, 193)   # 몽글몽글 버블티
-        pix_latte_lv3 = (206, 33, 62)     # 스윗베리 에이드
+        pix_s_latte_lv1 = (249, 244, 213)  # 젤리빈 라떼
+        pix_s_latte_lv2 = (255, 238, 191)  # 몽글몽글 버블티
+        pix_s_latte_lv3 = (204, 33, 63)  # 스윗베리 에이드
 
-        pix_dolls_lv1 = (49, 152, 89)    # 구름사탕 쿠션
-        pix_dolls_lv2 = (223, 102, 82)    # 곰젤리 솜인형
-        pix_dolls_lv3 = (189, 16, 59)   # 용과 드래곤 솜인형
+        pix_s_dolls_lv1 = (42, 159, 110)  # 구름사탕 쿠션
+        pix_s_dolls_lv2 = (223, 102, 82)  # 곰젤리 솜인형
+        pix_s_dolls_lv3 = (0, 0, 0)  # 용과 드래곤 솜인형
 
-        pix_beer_lv1 = (207, 149, 92)      # 크림 루트비어
-        pix_beer_lv2 = (61, 21, 55)        # 레드베리 주스
-        pix_beer_lv3 = (253, 201, 134)     # 빈티지 와일드 보틀
+        pix_s_beer_lv1 = (207, 147, 92)  # 크림 루트비어
+        pix_s_beer_lv2 = (62, 21, 55)  # 레드베리 주스
+        pix_s_beer_lv3 = (250, 197, 130)  # 빈티지 와일드 보틀
 
-        pix_muffin_lv1 = (186, 89, 54)       # 으스스 머핀
-        pix_muffin_lv2 = (231, 214, 195)     # 생딸기 케이크
-        pix_muffin_lv3 = (223, 120, 145)   # 파티파티 쉬폰케이크
+        pix_s_muffin_lv1 = (186, 89, 55)  # 으스스 머핀
+        pix_s_muffin_lv2 = (231, 214, 194)  # 생딸기 케이크
+        pix_s_muffin_lv3 = (223, 120, 145)  # 파티파티 쉬폰케이크
 
-        pix_jewel_lv1 = (36, 46, 65)      # 글레이즈드링
-        pix_jewel_lv2 = (255, 65, 142)    # 루비베리 브로치
-        pix_jewel_lv3 = (134, 65, 12)     # 로얄곰젤리크라운
+        pix_s_jewel_lv1 = (36, 46, 65)  # 글레이즈드 링
+        pix_s_jewel_lv2 = (255, 66, 142)  # 루비베리 브로치
+        pix_s_jewel_lv3 = (134, 65, 12)  # 로얄 곰젤리 크라운
 
-        if pix_status == pix_wood:
+        if pix_status == pix_s_wood:
             print('나무')
             if Sowon_numb(account) > 1000:
                 return True
             else:
                 return False
 
-        elif pix_status == pix_jelbean:
+        elif pix_status == pix_s_jelbean:
             print('젤리빈')
             if Sowon_numb(account) > 1000:
                 return True
             else:
                 return False
 
-        elif pix_status == pix_sugar:
+        elif pix_status == pix_s_sugar:
             print('각설탕')
             if Sowon_numb(account) > 1000:
                 return True
             else:
                 return False
 
-        elif pix_status == pix_biscuit:
+        elif pix_status == pix_s_biscuit:
             print('비스킷 가루')
             if Sowon_numb(account) > 1000:
                 return True
             else:
                 return False
 
-        elif pix_status == pix_berry:
+        elif pix_status == pix_s_berry:
             print('젤리베리')
             if Sowon_numb(account) > 1000:
                 return True
             else:
                 return False
 
-        elif pix_status == pix_milk:
+        elif pix_status == pix_s_milk:
             print('우유')
             if Sowon_numb(account) > 1000:
                 return True
             else:
                 return False
 
-        elif pix_status == pix_cotton:
+        elif pix_status == pix_s_cotton:
             print('솜')
             if Sowon_numb(account) > 1000:
                 return True
             else:
                 return False
 
-        elif pix_status == pix_smith_lv1:
+        elif pix_status == pix_s_smith_lv1:
             print('단단 도끼', smith_lev1)
             if Sowon_numb(account) > smith_lev1 * easy_prod:
                 return True
             else:
                 return False
-        elif pix_status == pix_smith_lv2:
+        elif pix_status == pix_s_smith_lv2:
             print('튼튼 곡괭이', smith_lev2)
             if Sowon_numb(account) > smith_lev2 * easy_prod:
                 return True
             else:
                 return False
-        elif pix_status == pix_smith_lv3:
+        elif pix_status == pix_s_smith_lv3:
             print('슥삭슥삭 톱', smith_lev3)
             if Sowon_numb(account) > smith_lev3 * easy_prod:
                 return True
             else:
                 return False
-        elif pix_status == pix_smith_lv4:
+        elif pix_status == pix_s_smith_lv4:
             print('푹푹 삽', smith_lev4)
             if Sowon_numb(account) > smith_lev4 * easy_prod:
                 return True
             else:
                 return False
-        elif pix_status == pix_smith_lv5:
+        elif pix_status == pix_s_smith_lv5:
             print('신비한 프레첼 말뚝', smith_lev5)
             if Sowon_numb(account) > smith_lev5 * normal_prod:
                 return True
             else:
                 return False
 
-        elif pix_status == pix_smith_lv6:
+        elif pix_status == pix_s_smith_lv6:
             print('영롱한 푸른사탕 집게', smith_lev6)
             if Sowon_numb(account) > smith_lev6 * normal_prod:
                 return True
             else:
                 return False
 
-        elif pix_status == pix_smith_lv7:
+        elif pix_status == pix_s_smith_lv7:
             print('불변의 슈가 코팅 망치', smith_lev7)
             if Sowon_numb(account) > smith_lev7 * hard_prod:
                 return True
@@ -3064,21 +3062,21 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 return False
 
 
-        elif pix_status == pix_jelly_lv1:
+        elif pix_status == pix_s_jelly_lv1:
             print('젤리빈 잼', jelly_lev1)
             if Sowon_numb(account) > jelly_lev1 * easy_prod:
                 return True
             else:
                 return False
 
-        elif pix_status == pix_jelly_lv2:
+        elif pix_status == pix_s_jelly_lv2:
             print('스윗젤리 잼', jelly_lev2)
             if Sowon_numb(account) > jelly_lev2 * easy_prod:
                 return True
             else:
                 return False
 
-        elif pix_status == pix_jelly_lv3:
+        elif pix_status == pix_s_jelly_lv3:
             print('달고나 잼', jelly_lev3)
             if jjokji_berry:
                 return False
@@ -3088,7 +3086,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_jelly_lv4:
+        elif pix_status == pix_s_jelly_lv4:
             print('석류 잼',jelly_lev4)
             if jjokji_milk or jjokji_cotton:
                 return False
@@ -3098,21 +3096,21 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        # elif pix_status == pix_jelly_lv5:
+        # elif pix_status == pix_s_jelly_lv5:
         #     print('톡톡베리 잼',jelly_lev5)
         #     if Sowon_numb(account) > jelly_lev5*hard_prod:
         #         return True
         #     else:
         #         return False
 
-        elif pix_status == pix_rollc_lv1:
+        elif pix_status == pix_s_rollc_lv1:
             print('솔방울새 인형', rollc_lev1)
             if Sowon_numb(account) > rollc_lev1 * easy_prod:
                 return True
             else:
                 return False
 
-        elif pix_status == pix_rollc_lv2:
+        elif pix_status == pix_s_rollc_lv2:
             print('도토리 램프', rollc_lev2)
             if jjokji_berry:
                 return False
@@ -3122,7 +3120,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_rollc_lv3:
+        elif pix_status == pix_s_rollc_lv3:
             print('뻐꾹뻐꾹 시계', rollc_lev3)
             if jjokji_biscuit or jjokji_berry:
                 return False
@@ -3132,7 +3130,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_rollc_lv4:
+        elif pix_status == pix_s_rollc_lv4:
             print('백조깃털 드림캐쳐', rollc_lev4)
             if jjokji_biscuit or jjokji_berry or jjokji_cotton:
                 return False
@@ -3143,7 +3141,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                     return False
 
 
-        elif pix_status == pix_bread_lv1:
+        elif pix_status == pix_s_bread_lv1:
             print('든든한 호밀빵', bread_lev1)
             if jjokji_biscuit:
                 return False
@@ -3153,7 +3151,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_bread_lv2:
+        elif pix_status == pix_s_bread_lv2:
             print('달콤쫀득 잼파이', bread_lev2)
             if jjokji_biscuit:
                 return False
@@ -3163,7 +3161,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_bread_lv3:
+        elif pix_status == pix_s_bread_lv3:
             print('은행 포카치아', bread_lev3)
             if jjokji_biscuit or jjokji_berry:
                 return False
@@ -3173,7 +3171,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_bread_lv4:
+        elif pix_status == pix_s_bread_lv4:
             print('슈가코팅 도넛', bread_lev4)
             if jjokji_biscuit or jjokji_berry:
                 return False
@@ -3183,7 +3181,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_bread_lv5:
+        elif pix_status == pix_s_bread_lv5:
             print('폭신 카스테라', bread_lev5)
             if jjokji_milk:
                 return False
@@ -3193,14 +3191,14 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        # elif pix_status == pix_bread_lv6:
+        # elif pix_status == pix_s_bread_lv6:
         #     print('골드리치 크로와상',bread_lev6)
         #     if Sowon_numb(account) > bread_lev6*hard_prod:
         #         return True
         #     else:
         #         return False
 
-        elif pix_status == pix_jampy_lv1:
+        elif pix_status == pix_s_jampy_lv1:
             print('따끈따끈 젤리스튜', jampy_lev1)
             if jjokji_berry:
                 return False
@@ -3210,7 +3208,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_jampy_lv2:
+        elif pix_status == pix_s_jampy_lv2:
             print('곰젤리 버거', jampy_lev2)
             if jjokji_biscuit:
                 return False
@@ -3220,7 +3218,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_jampy_lv3:
+        elif pix_status == pix_s_jampy_lv3:
             print('캔디크림 파스타', jampy_lev3)
             if jjokji_biscuit or jjokji_milk:
                 return False
@@ -3230,7 +3228,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_jampy_lv4:
+        elif pix_status == pix_s_jampy_lv4:
             print('폭신폭신 오므라이스', jampy_lev4)
             if jjokji_biscuit or jjokji_berry:
                 return False
@@ -3240,21 +3238,21 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_jampy_lv5:
+        elif pix_status == pix_s_jampy_lv5:
             print('콤비네이션 피자젤리',jampy_lev5)
             if Sowon_numb(account) > jampy_lev5*hard_prod:
                 return True
             else:
                 return False
 
-        # elif pix_status == pix_jampy_lv6:
+        # elif pix_status == pix_s_jampy_lv6:
         #     print('고급스러운 젤리빈 정식',jampy_lev6)
         #     if Sowon_numb(account) > jampy_lev6*hard_prod:
         #         return True
         #     else:
         #         return False
 
-        elif pix_status == pix_doye_lv1:
+        elif pix_status == pix_s_doye_lv1:
             print('비스킷 화분', doye_lev1)
             if jjokji_biscuit:
                 return False
@@ -3264,7 +3262,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_doye_lv2:
+        elif pix_status == pix_s_doye_lv2:
             print('반짝반짝 유리판', doye_lev2)
             if jjokji_berry:
                 return False
@@ -3274,7 +3272,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_doye_lv3:
+        elif pix_status == pix_s_doye_lv3:
             print('반짝이는 색동구슬', doye_lev3)
             if jjokji_biscuit or jjokji_cotton:
                 return False
@@ -3284,7 +3282,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_doye_lv4:
+        elif pix_status == pix_s_doye_lv4:
             print('무지갯빛 디저트 보울', doye_lev4)
             if jjokji_milk or jjokji_cotton:
                 return False
@@ -3295,7 +3293,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                     return False
 
 
-        elif pix_status == pix_flower_lv1:
+        elif pix_status == pix_s_flower_lv1:
             print('캔디꽃', flower_lev1)
             if jjokji_biscuit or jjokji_berry:
                 return False
@@ -3305,7 +3303,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_flower_lv2:
+        elif pix_status == pix_s_flower_lv2:
             print('행복한 꽃화분', flower_lev2)
             if jjokji_berry:
                 return False
@@ -3315,7 +3313,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_flower_lv3:
+        elif pix_status == pix_s_flower_lv3:
             print('캔디꽃다발', flower_lev3)
             if jjokji_biscuit or jjokji_berry or jjokji_milk:
                 return False
@@ -3325,7 +3323,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_flower_lv4:
+        elif pix_status == pix_s_flower_lv4:
             print('롤리팝 꽃바구니', flower_lev4)
             if jjokji_biscuit:
                 return False
@@ -3335,7 +3333,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_flower_lv5:
+        elif pix_status == pix_s_flower_lv5:
             print('유리꽃 부케 안보내요', flower_lev5)
             return False
             # if Sowon_numb(account) > flower_lev5*hard_prod:
@@ -3343,7 +3341,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
             # else:
             #     return False
 
-        elif pix_status == pix_flower_lv6:
+        elif pix_status == pix_s_flower_lv6:
             print('찬란한 요거트 화환 안보내요',flower_lev6)
             return False
         #     # if Sowon_numb(account) > flower_lev6*hard_prod:
@@ -3351,7 +3349,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
         #     # else:
         #     #     return False
 
-        elif pix_status == pix_milk_lv1:
+        elif pix_status == pix_s_milk_lv1:
             print('크림', milky_lev1)
             if jjokji_milk:
                 return False
@@ -3361,21 +3359,21 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_milk_lv2:
+        elif pix_status == pix_s_milk_lv2:
             print('버터',milky_lev2)
             if Sowon_numb(account) > milky_lev2*normal_prod:
                 return True
             else:
                 return False
 
-        elif pix_status == pix_milk_lv3:
+        elif pix_status == pix_s_milk_lv3:
             print('수제 치즈',milky_lev3)
             if Sowon_numb(account) > milky_lev3*hard_prod:
                 return True
             else:
                 return False
 
-        elif pix_status == pix_latte_lv1:
+        elif pix_status == pix_s_latte_lv1:
             print('젤리빈 라떼', latte_lev1)
             if jjokji_milk:
                 return False
@@ -3385,7 +3383,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_latte_lv2:
+        elif pix_status == pix_s_latte_lv2:
             print('몽글몽글 버블티', latte_lev2)
             if jjokji_biscuit or jjokji_berry or jjokji_cotton:
                 return False
@@ -3395,14 +3393,14 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_latte_lv3:
+        elif pix_status == pix_s_latte_lv3:
             print('스윗베리 에이드',latte_lev3)
             if Sowon_numb(account) > latte_lev3*hard_prod:
                 return True
             else:
                 return False
 
-        elif pix_status == pix_dolls_lv1:
+        elif pix_status == pix_s_dolls_lv1:
             print('구름사탕 쿠션', dolls_lev1)
             if jjokji_biscuit or jjokji_cotton:
                 return False
@@ -3412,7 +3410,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_dolls_lv2:
+        elif pix_status == pix_s_dolls_lv2:
             print('곰젤리 솜인형', dolls_lev2)
             if jjokji_biscuit or jjokji_berry or jjokji_milk or jjokji_cotton:
                 return False
@@ -3422,15 +3420,14 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_dolls_lv3:
-            print('용과 드래곤 솜인형',dolls_lev3)
-            return False
+        # elif pix_status == pix_s_dolls_lv3:
+        #     print('용과 드래곤 솜인형',dolls_lev3)
             # if Sowon_numb(account) > dolls_lev3*hard_prod:
             #     return True
             # else:
             #     return False
 
-        elif pix_status == pix_beer_lv1:
+        elif pix_status == pix_s_beer_lv1:
             print('크림 루트비어', beer_lev1)
             if jjokji_biscuit or jjokji_berry:
                 return False
@@ -3440,7 +3437,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_beer_lv2:
+        elif pix_status == pix_s_beer_lv2:
             print('레드베리 주스 안보내요', beer_lev2)
             return False
             # if Sowon_numb(account) > beer_lev2*hard_prod:
@@ -3448,7 +3445,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
             # else:
             #     return False
 
-        elif pix_status == pix_beer_lv3:
+        elif pix_status == pix_s_beer_lv3:
             print('빈티지 와일드 보틀 안보내요', beer_lev3)
             return False
             # if Sowon_numb(account) > beer_lev3*hard_prod:
@@ -3457,7 +3454,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
             #     return False
 
 
-        elif pix_status == pix_muffin_lv1:
+        elif pix_status == pix_s_muffin_lv1:
             print('으스스 머핀',muffin_lev1)
             if jjokji_biscuit or jjokji_milk:
                 return False
@@ -3467,7 +3464,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
                 else:
                     return False
 
-        elif pix_status == pix_muffin_lv2:
+        elif pix_status == pix_s_muffin_lv2:
             print('생딸기 케이크',muffin_lev2)
             # return False
             if Sowon_numb(account) > muffin_lev2*easy_prod:
@@ -3475,7 +3472,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
             else:
                 return False
 
-        elif pix_status == pix_muffin_lv3:
+        elif pix_status == pix_s_muffin_lv3:
             print('파티파티 쉬폰케이크',muffin_lev3)
             # return False
             if Sowon_numb(account) > muffin_lev3*hard_prod:
@@ -3483,7 +3480,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
             else:
                 return False
 
-        elif pix_status == pix_jewel_lv1:
+        elif pix_status == pix_s_jewel_lv1:
             print('글레이즈드 링 안보내요',jewel_lev1)
             # return False
             if Sowon_numb(account) > jewel_lev1*normal_prod:
@@ -3491,7 +3488,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
             else:
                 return False
 
-        elif pix_status == pix_jewel_lv2:
+        elif pix_status == pix_s_jewel_lv2:
             print('루비베리 브로치',jewel_lev2)
             # return False
             if Sowon_numb(account) > jewel_lev2*hard_prod:
@@ -3499,7 +3496,7 @@ def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjok
             else:
                 return False
 
-        elif pix_status == pix_jewel_lv3:
+        elif pix_status == pix_s_jewel_lv3:
             print('로얄 곰젤리 크라운',jewel_lev3)
             # return False
             if Sowon_numb(account) > jewel_lev3*hard_prod:
@@ -4193,6 +4190,22 @@ def Ballon_send(account):
         send_telegram_message('Ballon_send에서 에러가 났어요!')
         Kingdom_ready(account, 'kkd_out')  # 재부팅
 
+def Check_if_error(account):
+    print('original', account)
+    account = (account + 1) % 3
+    kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+    man_macro = pag.locateCenterOnScreen('cond_manual_macro.png', confidence=0.9, region=(500 + (account // 2) * 960, 1 + (account % 2) * 540, 422, 29))
+    if (kkd_start_ire) and (man_macro):
+        print('%d계정 매크로 돌리는 다른 계정 겜 튕겼네!'%(account))
+        pag.click(man_macro)
+    account = (account + 1) % 3
+    kkd_start_ire = pag.locateCenterOnScreen('cond_g_play1.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
+    man_macro = pag.locateCenterOnScreen('cond_manual_macro.png', confidence=0.9, region=(500 + (account // 2) * 960, 1 + (account % 2) * 540, 422, 29))
+    if (kkd_start_ire) and (man_macro):
+        print('%d계정 매크로 돌리는 다른 계정 겜 튕겼네!'%(account))
+        pag.click(man_macro)
+    else:
+        print('매크로 동작+튕김 현상 없음!')
 
 def Kingdom_ready(account, whereto):  # 특정 위치 확인
     try:
@@ -4290,9 +4303,9 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
                 start_time = 0
 
             #현재 계정 매크로 종료...흠....
-            man_macroA = pag.locateCenterOnScreen('cond_manual_macro.png', confidence=0.9, region=(500 + (account // 2) * 960, 1 + (account % 2) * 540, 422, 29))
-            man_macroB = pag.locateCenterOnScreen('cond_manual_macro.png', confidence=0.9, region=(500 + (account // 2) * 960, 1 + (account % 2) * 540, 422, 29))
-            man_macroC = pag.locateCenterOnScreen('cond_manual_macro.png', confidence=0.9, region=(500 + (account // 2) * 960, 1 + (account % 2) * 540, 422, 29))
+            man_macroA = pag.locateCenterOnScreen('cond_manual_macro.png', confidence=0.9, region=(500 + (0 // 2) * 960, 1 + (0 % 2) * 540, 422, 29))
+            man_macroB = pag.locateCenterOnScreen('cond_manual_macro.png', confidence=0.9, region=(500 + (1 // 2) * 960, 1 + (1 % 2) * 540, 422, 29))
+            man_macroC = pag.locateCenterOnScreen('cond_manual_macro.png', confidence=0.9, region=(500 + (2 // 2) * 960, 1 + (2 % 2) * 540, 422, 29))
             if account == 0 and man_macroA:
                 print('A계정 수동 매크로 동작중... 종료한다!')
                 pag.click(man_macroA)
@@ -4323,6 +4336,12 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
                 man_macro_stop = pag.locateCenterOnScreen('macro_stop.png', confidence=0.9, region=(1398, 540, 513, 523))
                 pag.click(man_macro_stop)
                 time.sleep(2)
+            elif account == 0 and (man_macroB or man_macroC):
+                Check_if_error(account)
+            elif account == 1 and (man_macroC or man_macroA):
+                Check_if_error(account)
+            elif account == 2 and (man_macroA or man_macroB):
+                Check_if_error(account)
 
             if (kkd_ad):
                 print('광고 없애!')
@@ -5747,7 +5766,7 @@ def Angmu_Enter(account, whereto):
                 Cond_fountain_result = pag.locateCenterOnScreen('Cond_fountain_result.png', confidence=0.9, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
                 Cond_fountain_result1 = pag.locateCenterOnScreen('Cond_fountain_result1.png', confidence=0.8, region=(15 + (account // 2) * 960, 496 + (account % 2) * 540, 89, 42))
                 if (not Cond_fountain_result) or (not Cond_fountain_result1):
-                    time.sleep(1)
+                    # time.sleep(1)
                     Kingdom_ready(account, 'kkd_out')
                 return print('분수 보상 수령 완료! 현재시간:', datetime.now().strftime('%H:%M:%S'))
             time.sleep(1)
@@ -6462,7 +6481,7 @@ def Angmu_Aft_Refresh(account):
                 pag.moveTo(random.randint(786, 820) + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540))
                 pag.mouseDown()
                 time.sleep(0.5)
-                pag.moveTo(random.randint(786, 820) - 150 * 3.5 + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540), 5)  # 153인데 20 더 여유줌
+                pag.moveTo(random.randint(786, 820) - 150 * 2.5 + (account // 2) * 960, random.randint(474 + (account % 2) * 540, 481 + (account % 2) * 540), 5)  # 153인데 20 더 여유줌
                 time.sleep(0.5)
                 pag.mouseUp()
                 time.sleep(0.5)
@@ -10262,7 +10281,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                 # 쿠하 클릭
                                 if not bFirstCookhouA:
                                     print('[쿠하] 계정 A 첫 클릭')
-                                    time.sleep(0.5)
+                                    time.sleep(1)
                                     pag.click(pag.locateCenterOnScreen('Cond_cookiehouse.png', confidence=0.93, region=(83 + (account // 2) * 960, 176 + (account % 2) * 540,  725, 280)))  # 917->845
                                     cookie_time_A = time.time()  # 클릭한 시간을 다시 저장
                                     bFirstCookhouA = True
@@ -10270,7 +10289,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                 else:
                                     if (now_time - cookie_time_A) > cookie_set_time:
                                         print('[쿠하] 설정 시간이 지나서 클릭합니다.', now_time - cookie_time_A)
-                                        time.sleep(0.5)
+                                        time.sleep(1)
                                         pag.click(pag.locateCenterOnScreen('Cond_cookiehouse.png', confidence=0.93,region=(83 + (account // 2) * 960, 176 + (account % 2) * 540,  725, 280)))  # 917->845
                                         cookie_time_A = time.time()  # 클릭한 시간을 다시 저장
                                         time.sleep(1)
@@ -10292,7 +10311,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                 # 쿠하 클릭
                                 if not bFirstCookhouB:
                                     print('[쿠하] 계정 B 첫 클릭')
-                                    time.sleep(0.5)
+                                    time.sleep(1)
                                     pag.click(pag.locateCenterOnScreen('Cond_cookiehouse.png', confidence=0.93,region=(83 + (account // 2) * 960, 176 + (account % 2) * 540,  725, 280)))  # 917->845
                                     cookie_time_B = time.time()  # 클릭한 시간을 다시 저장
                                     bFirstCookhouB = True
@@ -10300,7 +10319,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                 else:
                                     if (now_time - cookie_time_B) > cookie_set_time:
                                         print('[쿠하] 설정 시간이 지나서 클릭합니다.', now_time - cookie_time_B)
-                                        time.sleep(0.5)
+                                        time.sleep(1)
                                         pag.click(pag.locateCenterOnScreen('Cond_cookiehouse.png', confidence=0.93,region=(83 + (account // 2) * 960, 176 + (account % 2) * 540,  725, 280)))  # 917->845
                                         cookie_time_B = time.time()  # 클릭한 시간을 다시 저장
                                         time.sleep(1)
@@ -10322,7 +10341,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                 # 쿠하 클릭
                                 if not bFirstCookhouC:
                                     print('[쿠하] 계정 C 첫 클릭')
-                                    time.sleep(0.5)
+                                    time.sleep(1)
                                     pag.click(pag.locateCenterOnScreen('Cond_cookiehouse.png', confidence=0.93, region=(83 + (account // 2) * 960, 176 + (account % 2) * 540,  725, 280)))  # 917->845
                                     cookie_time_C = time.time()  # 클릭한 시간을 다시 저장
                                     bFirstCookhouC = True
@@ -10330,7 +10349,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                 else:
                                     if (now_time - cookie_time_C) > cookie_set_time:
                                         print('[쿠하] 설정 시간이 지나서 클릭합니다.', now_time - cookie_time_C)
-                                        time.sleep(0.5)
+                                        time.sleep(1)
                                         pag.click(pag.locateCenterOnScreen('Cond_cookiehouse.png', confidence=0.93, region=(83 + (account // 2) * 960, 176 + (account % 2) * 540,  725, 280)))  # 917->845
                                         cookie_time_C = time.time()  # 클릭한 시간을 다시 저장
                                         time.sleep(1)
@@ -10507,7 +10526,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                 Kingdom_ready(account, 'kkd_out')
 
                             current_hour = datetime.now().strftime('%H')
-                            # print(datetime.now().strftime('%H'))
+                            print('current_hour = ', current_hour)
                             # 1시, 오후 1시, 저녁11시 총 2회 확인 = 뽑기, 상점, 길드, 신전, 트로피칼전투 돌려욧
                             # if account == 0 and ((current_hour == 1) or (current_hour == 13) or (current_hour == 23) or (bBbopkki_first_A == False)or (bShop_first_A == False)or (bGuild_first_A == False)or (bTemple_first_A == False)or (bTropical_first_A == False)):  # 12시간마다 확인하는 항목 - 뽑기, 상점, 길드, 신전, 트로피칼 전투
                             if account == 0:  # 12시간마다 확인하는 항목 - 뽑기, 상점, 길드, 신전, 트로피칼 전투
@@ -10957,149 +10976,149 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                             if Arena_Event(account):
                                 Arena_action(account, set_max_power)
 
-                            # # 220802 추가 : 디즈니 이벤트
-                            # bLineEnd_1 = False
-                            # bLineEnd_2 = False
-                            # bLineEnd_3 = False
-                            # iHowMany = 0
-                            # tStart_Disney = time.time()
-                            # while True:
-                            #     tNow_Disney = time.time()
-                            #     if tNow_Disney - tStart_Disney > 120:
-                            #         print('제한 시간 초과!')
-                            #         Kingdom_ready(account, 'kkd_out')
-                            #         break
-                            #     if keyboard.is_pressed('end'):
-                            #         print('end 누름')
-                            #         break
-                            #
-                            #     # 재화가 부족하여 요청을... 화면이면? - 2022.08.06 추가
-                            #     screen = ImageGrab.grab()
-                            #     pix_status = screen.getpixel((605 + (account // 2) * 960, 55 + (account % 2) * 540))  # 상단골드
-                            #     ok_button =pag.locateCenterOnScreen('ok_button.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 700, 540))  # 재화가 부족하여 요청을 수행할 수 없습니다. 버튼 뜨면
-                            #     if pix_status == (16, 14, 18) and ok_button:
-                            #         pag.click(ok_button)
-                            #         time.sleep(1)
-                            #
-                            #     cond_event_butak = pag.locateCenterOnScreen('cond_event_butak.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 700, 540))  # 특별한 '부탁' 인지 확인
-                            #     if not (cond_event_butak):
-                            #         cond_kkd_out = pag.locateCenterOnScreen('cond_kkd_out.png', confidence=0.85, region=(825 + (account // 2) * 960, 490 + (account % 2) * 540, 45, 40))  # 쿠키왕국
-                            #         if (cond_kkd_out):  # 왕국이면... 조건 추가..를 해야하남
-                            #             pag.click(45 + random.randint(-5, 5) + (account // 2) * 960, 200 + random.randint(-5, 5) + (account % 2) * 540)  # 이벤트 아이콘 클릭
-                            #             time.sleep(1)
-                            #         else:  # 왕국 아니면
-                            #             cond_event_in = pag.locateCenterOnScreen('cond_event_in.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 700, 540))  # 이벤트 내부인데 부탁이 없다?
-                            #             if not (cond_event_in):
-                            #                 pag.moveTo(90 + random.randint(-5, 5) + (account // 2) * 960, 140 + random.randint(-5, 5) + (account % 2) * 540)
-                            #                 pag.drag(0, 350, 2)  # 좌상에서 좌하로 350 이동
-                            #                 time.sleep(1)
-                            #             else:
-                            #                 pag.click(85 + random.randint(-5, 5) + (account // 2) * 960, 410 + random.randint(-5, 5) + (account % 2) * 540)  # 좌상 끌어올렸으면 해당 이벤트 클릭
-                            #                 time.sleep(1)
-                            #     else:
-                            #         pix_refresh = (243, 90, 28)  # 새로고침 버튼(눌렸음)
-                            #         pix_can_give = (97, 211, 0)  # 줄 수 있는 녹색 체크
-                            #         pix_cannot_give = (154, 154, 154)  # 줄 수 없는 회색 체크
-                            #         pix_refresh = (191, 175, 143)  # _1 새로고침(어두워짐)
-                            #         pix_purple = (113, 88, 146)  # _2, _3 보라색
-                            #         pix_not_refresh = (255, 233, 191)  # _1 열려있음(밝음)
-                            #
-                            #         time.sleep(1)
-                            #
-                            #         screen = ImageGrab.grab()
-                            #         # 상단
-                            #         pix_1_1 = screen.getpixel((330 + (account // 2) * 960, 225 + (account % 2) * 540))
-                            #         pix_2_1 = screen.getpixel((330 + 228 * 1 + (account // 2) * 960, 225 + (account % 2) * 540))
-                            #         pix_3_1 = screen.getpixel((330 + 228 * 2 + (account // 2) * 960, 225 + (account % 2) * 540))
-                            #
-                            #         # 새로고침
-                            #         pix_1_2 = screen.getpixel((280 + (account // 2) * 960, 430 + (account % 2) * 540))
-                            #         pix_2_2 = screen.getpixel((280 + 228 * 1 + (account // 2) * 960, 430 + (account % 2) * 540))
-                            #         pix_3_2 = screen.getpixel((280 + 228 * 2 + (account // 2) * 960, 430 + (account % 2) * 540))
-                            #
-                            #         # 체크박스
-                            #         pix_1_3 = screen.getpixel((390 + (account // 2) * 960, 430 + (account % 2) * 540))
-                            #         pix_2_3 = screen.getpixel((390 + 228 * 1 + (account // 2) * 960, 430 + (account % 2) * 540))
-                            #         pix_3_3 = screen.getpixel((390 + 228 * 2 + (account // 2) * 960, 430 + (account % 2) * 540))
-                            #         # print('1', pix_1_1, pix_1_2, pix_1_3)
-                            #         # pag.moveTo(280,430+account*540)
-                            #         # time.sleep(0.3)
-                            #         # pag.moveTo(390,430+account*540)
-                            #         # time.sleep(0.3)
-                            #
-                            #         # print('2', pix_2_1, pix_2_2, pix_2_3)
-                            #         # pag.moveTo(280+228*1,430+account*540)
-                            #         # time.sleep(0.3)
-                            #         # pag.moveTo(390+228*1,430+account*540)
-                            #         # time.sleep(0.3)
-                            #
-                            #         # print('3', pix_3_1, pix_3_2, pix_3_3)
-                            #         # pag.moveTo(280+228*2,430+account*540)
-                            #         # time.sleep(0.3)
-                            #         # pag.moveTo(390+228*2,430+account*540)
-                            #         # time.sleep(0.3)
-                            #
-                            #         if pix_1_3 == pix_can_give:  # 건넬 수 있으면 건넴
-                            #             pag.click(390 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
-                            #             iHowMany = iHowMany + 1
-                            #             time.sleep(1)
-                            #         elif pix_1_3 == pix_cannot_give:  # 건넬 수 없으면 새로고침
-                            #             pag.click(280 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
-                            #             time.sleep(1)
-                            #         else:  # 둘 다 아니면 상단 체크
-                            #             if pix_1_1 == pix_refresh:
-                            #                 print('1번 새로고침중...')
-                            #                 bLineEnd_1 = True
-                            #                 time.sleep(1)
-                            #             else:
-                            #                 pag.click(330 + (account // 2) * 960, 225 + (account % 2) * 540)  # 정확해야 해서 랜덤함수 뺌..
-                            #                 time.sleep(1)
-                            #
-                            #         if pix_2_3 == pix_can_give:  # 건넬 수 있으면 건넴
-                            #             pag.click(390 + 228 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
-                            #             iHowMany = iHowMany + 1
-                            #             time.sleep(1)
-                            #         elif pix_2_3 == pix_cannot_give:  # 건넬 수 없으면 새로고침
-                            #             pag.click(280 + 228 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
-                            #             time.sleep(1)
-                            #         else:  # 둘 다 아니면 상단 체크
-                            #             if pix_2_1 == pix_refresh:
-                            #                 print('2번 새로고침중...')
-                            #                 bLineEnd_2 = True
-                            #                 time.sleep(1)
-                            #             else:
-                            #                 pag.click(330 + 228 + (account // 2) * 960, 225 + (account % 2) * 540)  # 정확해야 해서 랜덤함수 뺌..
-                            #                 time.sleep(1)
-                            #
-                            #         if pix_3_3 == pix_can_give:  # 건넬 수 있으면 건넴
-                            #             pag.click(390 + 228 * 2 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
-                            #             iHowMany = iHowMany + 1
-                            #             time.sleep(1)
-                            #         elif pix_3_3 == pix_cannot_give:  # 건넬 수 없으면 새로고침
-                            #             pag.click(280 + 228 * 2 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
-                            #             time.sleep(1)
-                            #         else:  # 둘 다 아니면 상단 체크
-                            #             if pix_3_1 == pix_refresh:
-                            #                 print('3번 새로고침중...')
-                            #                 bLineEnd_3 = True
-                            #                 time.sleep(1)
-                            #             else:
-                            #                 pag.click(330 + 228 * 2 + (account // 2) * 960, 225 + (account % 2) * 540)  # 정확해야 해서 랜덤함수 뺌..
-                            #                 time.sleep(1)
-                            #         if iHowMany >= 20:
-                            #             print('%s번 돌렸다!' % (iHowMany))
-                            #             pag.click(892 + (account // 2) * 960, 54 + (account % 2) * 540)
-                            #             time.sleep(2)
-                            #             Kingdom_ready(account, 'kkd_out')
-                            #             break
-                            #
-                            #         if bLineEnd_1 and bLineEnd_2 and bLineEnd_3:
-                            #             print('다 새로고침 상태.. %s번 돌림' % (iHowMany))
-                            #             pag.click(892 + (account // 2) * 960, 54 + (account % 2) * 540)
-                            #             time.sleep(2)
-                            #             Kingdom_ready(account, 'kkd_out')
-                            #             break
-                            #     time.sleep(0.5)
+                            # 220802 추가 : 디즈니 이벤트
+                            bLineEnd_1 = False
+                            bLineEnd_2 = False
+                            bLineEnd_3 = False
+                            iHowMany = 0
+                            tStart_Disney = time.time()
+                            while True:
+                                tNow_Disney = time.time()
+                                if tNow_Disney - tStart_Disney > 120:
+                                    print('제한 시간 초과!')
+                                    Kingdom_ready(account, 'kkd_out')
+                                    break
+                                if keyboard.is_pressed('end'):
+                                    print('end 누름')
+                                    break
+
+                                # 재화가 부족하여 요청을... 화면이면? - 2022.08.06 추가
+                                screen = ImageGrab.grab()
+                                pix_status = screen.getpixel((605 + (account // 2) * 960, 55 + (account % 2) * 540))  # 상단골드
+                                ok_button =pag.locateCenterOnScreen('ok_button.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 700, 540))  # 재화가 부족하여 요청을 수행할 수 없습니다. 버튼 뜨면
+                                if pix_status == (16, 14, 18) and ok_button:
+                                    pag.click(ok_button)
+                                    time.sleep(1)
+
+                                cond_event_butak = pag.locateCenterOnScreen('cond_event_butak.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 700, 540))  # 특별한 '부탁' 인지 확인
+                                if not (cond_event_butak):
+                                    cond_kkd_out = pag.locateCenterOnScreen('cond_kkd_out.png', confidence=0.85, region=(825 + (account // 2) * 960, 490 + (account % 2) * 540, 45, 40))  # 쿠키왕국
+                                    if (cond_kkd_out):  # 왕국이면... 조건 추가..를 해야하남
+                                        pag.click(45 + random.randint(-5, 5) + (account // 2) * 960, 200 + random.randint(-5, 5) + (account % 2) * 540)  # 이벤트 아이콘 클릭
+                                        time.sleep(1)
+                                    else:  # 왕국 아니면
+                                        cond_event_in = pag.locateCenterOnScreen('cond_event_in.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 700, 540))  # 이벤트 내부인데 부탁이 없다?
+                                        if not (cond_event_in):
+                                            pag.moveTo(90 + random.randint(-5, 5) + (account // 2) * 960, 140 + random.randint(-5, 5) + (account % 2) * 540)
+                                            pag.drag(0, 350, 2)  # 좌상에서 좌하로 350 이동
+                                            time.sleep(1)
+                                        else:
+                                            pag.click(85 + random.randint(-5, 5) + (account // 2) * 960, 410 + random.randint(-5, 5) + (account % 2) * 540)  # 좌상 끌어올렸으면 해당 이벤트 클릭
+                                            time.sleep(1)
+                                else:
+                                    pix_refresh = (243, 90, 28)  # 새로고침 버튼(눌렸음)
+                                    pix_can_give = (97, 211, 0)  # 줄 수 있는 녹색 체크
+                                    pix_cannot_give = (154, 154, 154)  # 줄 수 없는 회색 체크
+                                    pix_refresh = (191, 175, 143)  # _1 새로고침(어두워짐)
+                                    pix_purple = (113, 88, 146)  # _2, _3 보라색
+                                    pix_not_refresh = (255, 233, 191)  # _1 열려있음(밝음)
+
+                                    time.sleep(1)
+
+                                    screen = ImageGrab.grab()
+                                    # 상단
+                                    pix_1_1 = screen.getpixel((330 + (account // 2) * 960, 225 + (account % 2) * 540))
+                                    pix_2_1 = screen.getpixel((330 + 228 * 1 + (account // 2) * 960, 225 + (account % 2) * 540))
+                                    pix_3_1 = screen.getpixel((330 + 228 * 2 + (account // 2) * 960, 225 + (account % 2) * 540))
+
+                                    # 새로고침
+                                    pix_1_2 = screen.getpixel((280 + (account // 2) * 960, 430 + (account % 2) * 540))
+                                    pix_2_2 = screen.getpixel((280 + 228 * 1 + (account // 2) * 960, 430 + (account % 2) * 540))
+                                    pix_3_2 = screen.getpixel((280 + 228 * 2 + (account // 2) * 960, 430 + (account % 2) * 540))
+
+                                    # 체크박스
+                                    pix_1_3 = screen.getpixel((390 + (account // 2) * 960, 430 + (account % 2) * 540))
+                                    pix_2_3 = screen.getpixel((390 + 228 * 1 + (account // 2) * 960, 430 + (account % 2) * 540))
+                                    pix_3_3 = screen.getpixel((390 + 228 * 2 + (account // 2) * 960, 430 + (account % 2) * 540))
+                                    # print('1', pix_1_1, pix_1_2, pix_1_3)
+                                    # pag.moveTo(280,430+account*540)
+                                    # time.sleep(0.3)
+                                    # pag.moveTo(390,430+account*540)
+                                    # time.sleep(0.3)
+
+                                    # print('2', pix_2_1, pix_2_2, pix_2_3)
+                                    # pag.moveTo(280+228*1,430+account*540)
+                                    # time.sleep(0.3)
+                                    # pag.moveTo(390+228*1,430+account*540)
+                                    # time.sleep(0.3)
+
+                                    # print('3', pix_3_1, pix_3_2, pix_3_3)
+                                    # pag.moveTo(280+228*2,430+account*540)
+                                    # time.sleep(0.3)
+                                    # pag.moveTo(390+228*2,430+account*540)
+                                    # time.sleep(0.3)
+
+                                    if pix_1_3 == pix_can_give:  # 건넬 수 있으면 건넴
+                                        pag.click(390 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
+                                        iHowMany = iHowMany + 1
+                                        time.sleep(1)
+                                    elif pix_1_3 == pix_cannot_give:  # 건넬 수 없으면 새로고침
+                                        pag.click(280 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
+                                        time.sleep(1)
+                                    else:  # 둘 다 아니면 상단 체크
+                                        if pix_1_1 == pix_refresh:
+                                            print('1번 새로고침중...')
+                                            bLineEnd_1 = True
+                                            time.sleep(1)
+                                        else:
+                                            pag.click(330 + (account // 2) * 960, 225 + (account % 2) * 540)  # 정확해야 해서 랜덤함수 뺌..
+                                            time.sleep(1)
+
+                                    if pix_2_3 == pix_can_give:  # 건넬 수 있으면 건넴
+                                        pag.click(390 + 228 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
+                                        iHowMany = iHowMany + 1
+                                        time.sleep(1)
+                                    elif pix_2_3 == pix_cannot_give:  # 건넬 수 없으면 새로고침
+                                        pag.click(280 + 228 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
+                                        time.sleep(1)
+                                    else:  # 둘 다 아니면 상단 체크
+                                        if pix_2_1 == pix_refresh:
+                                            print('2번 새로고침중...')
+                                            bLineEnd_2 = True
+                                            time.sleep(1)
+                                        else:
+                                            pag.click(330 + 228 + (account // 2) * 960, 225 + (account % 2) * 540)  # 정확해야 해서 랜덤함수 뺌..
+                                            time.sleep(1)
+
+                                    if pix_3_3 == pix_can_give:  # 건넬 수 있으면 건넴
+                                        pag.click(390 + 228 * 2 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
+                                        iHowMany = iHowMany + 1
+                                        time.sleep(1)
+                                    elif pix_3_3 == pix_cannot_give:  # 건넬 수 없으면 새로고침
+                                        pag.click(280 + 228 * 2 + random.randint(-5, 5) + (account // 2) * 960, 430 + random.randint(-5, 5) + (account % 2) * 540)
+                                        time.sleep(1)
+                                    else:  # 둘 다 아니면 상단 체크
+                                        if pix_3_1 == pix_refresh:
+                                            print('3번 새로고침중...')
+                                            bLineEnd_3 = True
+                                            time.sleep(1)
+                                        else:
+                                            pag.click(330 + 228 * 2 + (account // 2) * 960, 225 + (account % 2) * 540)  # 정확해야 해서 랜덤함수 뺌..
+                                            time.sleep(1)
+                                    if iHowMany >= 20:
+                                        print('%s번 돌렸다!' % (iHowMany))
+                                        pag.click(892 + (account // 2) * 960, 54 + (account % 2) * 540)
+                                        time.sleep(2)
+                                        Kingdom_ready(account, 'kkd_out')
+                                        break
+
+                                    if bLineEnd_1 and bLineEnd_2 and bLineEnd_3:
+                                        print('다 새로고침 상태.. %s번 돌림' % (iHowMany))
+                                        pag.click(892 + (account // 2) * 960, 54 + (account % 2) * 540)
+                                        time.sleep(2)
+                                        Kingdom_ready(account, 'kkd_out')
+                                        break
+                                time.sleep(0.5)
 
                             # 수동 매크로 동작 - 건물에 들어간 후 수동 매크로 돌려야 하는 거면 Enter_building(account) 넣어줄 것.
                             print('수동 매크로 실행할까 말까')
