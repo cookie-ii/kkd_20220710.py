@@ -345,16 +345,18 @@ jewel_lev3_A = 25  # 로얄 곰젤리 크라운
 magic_num_A = 1    # 마법공방
 magic_lev1_A = 90    # 고농축 에스프레소
 magic_lev2_A = 90    # 울퉁불퉁 뿔고구마
-magic_lev3_A = 190    # 향기로운 포도주스
-magic_lev4_A = 200    # 빨리감기 태엽장치
-magic_lev5_A = 0    # 수수께끼의 파우더 주머니
-magic_lev6_A = 0    # 수수께끼의 빛나는 파우더 주머니
-magic_lev7_A = 0    # 수수께끼의 신비한 파우더 주머니
-magic_lev8_A = 0    # 힘의 설탕결정
-magic_lev9_A = 0    # 신속의 설탕결정
-magic_lev10_A = 0    # 마력의 설탕결정
-magic_lev11_A = 0    # 토핑 조각
-magic_lev12_A = 0    # 찬란한 빛조각
+magic_lev3_A = 90    # 향기로운 포도주스
+magic_lev4_A = 90    # 칼슘 튼튼 우유 
+magic_lev5_A = 90    # 까끌까끌 생호밀 
+magic_lev6_A = 0    # 빨리감기 태엽장치
+magic_lev7_A = 0    # 수수께끼의 파우더 주머니
+magic_lev8_A = 0    # 수수께끼의 빛나는 파우더 주머니
+magic_lev9_A = 0    # 수수께끼의 신비한 파우더 주머니
+magic_lev10_A = 0   # 힘의 설탕결정
+magic_lev11_A = 0   # 신속의 설탕결정
+magic_lev12_A = 0   #  마력의 설탕결정
+magic_lev13_A = 0   # 토핑 조각
+magic_lev14_A = 0   # 찬란한 빛조각
 
 icecream_num_A = 2  # 아이스크림 트럭 건물 수
 icecream_lev1_A = 20  # 낮의 별가루 스프링클 아이스크림
@@ -478,17 +480,18 @@ jewel_lev3_B = 100  # 로얄 곰젤리 크라운
 magic_num_B = 1    # 마법공방
 magic_lev1_B = 90    # 고농축 에스프레소
 magic_lev2_B = 90    # 울퉁불퉁 뿔고구마
-magic_lev3_B = 190    # 향기로운 포도주스
-magic_lev4_B = 0    # 빨리감기 태엽장치
-magic_lev5_B = 0    # 수수께끼의 파우더 주머니
-magic_lev6_B = 0    # 수수께끼의 빛나는 파우더 주머니
-magic_lev7_B = 0    # 수수께끼의 신비한 파우더 주머니
-magic_lev8_B = 0    # 힘의 설탕결정
-magic_lev9_B = 0    # 신속의 설탕결정
-magic_lev10_B = 0    # 마력의 설탕결정
-magic_lev11_B = 0    # 토핑 조각
-magic_lev12_B = 0    # 찬란한 빛조각
-
+magic_lev3_B = 90    # 향기로운 포도주스
+magic_lev4_B = 90    # 칼슘 튼튼 우유 
+magic_lev5_B = 90    # 까끌까끌 생호밀 
+magic_lev6_B = 0    # 빨리감기 태엽장치
+magic_lev7_B = 0    # 수수께끼의 파우더 주머니
+magic_lev8_B = 0    # 수수께끼의 빛나는 파우더 주머니
+magic_lev9_B = 0    # 수수께끼의 신비한 파우더 주머니
+magic_lev10_B = 0   # 힘의 설탕결정
+magic_lev11_B = 0   # 신속의 설탕결정
+magic_lev12_B = 0   #  마력의 설탕결정
+magic_lev13_B = 0   # 토핑 조각
+magic_lev14_B = 0   # 찬란한 빛조각
 
 icecream_num_B = 2  # 아이스크림 트럭 건물 수
 icecream_lev1_B = 20  # 낮의 별가루 스프링클 아이스크림
@@ -613,17 +616,18 @@ jewel_lev3_C = 110  # 로얄 곰젤리 크라운
 magic_num_C = 1    # 마법공방
 magic_lev1_C = 90    # 고농축 에스프레소
 magic_lev2_C = 90    # 울퉁불퉁 뿔고구마
-magic_lev3_C = 190    # 향기로운 포도주스
-magic_lev4_C = 0    # 빨리감기 태엽장치
-magic_lev5_C = 0    # 수수께끼의 파우더 주머니
-magic_lev6_C = 0    # 수수께끼의 빛나는 파우더 주머니
-magic_lev7_C = 0    # 수수께끼의 신비한 파우더 주머니
-magic_lev8_C = 0    # 힘의 설탕결정
-magic_lev9_C = 0    # 신속의 설탕결정
-magic_lev10_C = 0    # 마력의 설탕결정
-magic_lev11_C = 0    # 토핑 조각
-magic_lev12_C = 0    # 찬란한 빛조각
-
+magic_lev3_C = 90    # 향기로운 포도주스
+magic_lev4_C = 90    # 칼슘 튼튼 우유 
+magic_lev5_C = 90    # 까끌까끌 생호밀 
+magic_lev6_C = 0    # 빨리감기 태엽장치
+magic_lev7_C = 0    # 수수께끼의 파우더 주머니
+magic_lev8_C = 0    # 수수께끼의 빛나는 파우더 주머니
+magic_lev9_C = 0    # 수수께끼의 신비한 파우더 주머니
+magic_lev10_C = 0   # 힘의 설탕결정
+magic_lev11_C = 0   # 신속의 설탕결정
+magic_lev12_C = 0   #  마력의 설탕결정
+magic_lev13_C = 0   # 토핑 조각
+magic_lev14_C = 0   # 찬란한 빛조각
 
 icecream_num_C = 2  # 아이스크림 트럭 건물 수
 icecream_lev1_C = 20  # 낮의 별가루 스프링클 아이스크림
@@ -9585,15 +9589,15 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         if (account) == 0:
                             if Angmu_Enter(account, 'research'):
                                 # research_action(account, 'C', 'research_C_23')  # 케이크 충전 가속
-                                research_action1(account, 'W')  # 왕국 연구 고고싱!
+                                research_action1(account, 'C')  # 왕국 연구 고고싱! -> 쿠키연구
                         if (account) == 1:
                             if Angmu_Enter(account, 'research'):
                                 # research_action(account, 'C', 'research_C_283')  # 케이크 충전 가속
-                                research_action1(account, 'W')  # 왕국 연구 고고싱!
+                                research_action1(account, 'C')  # 왕국 연구 고고싱! -> 쿠키연구
                         if (account) == 2:
                             if Angmu_Enter(account, 'research'):
                                 # research_action(account, 'C', 'research_C_283')  # 케이크 충전 가속
-                                research_action1(account, 'W')  # 왕국 연구 고고싱!
+                                research_action1(account, 'C')  # 왕국 연구 고고싱! -> 쿠키연구
 
                     # 열차
                     if Angmu_Enter(account, 'train'):  # 느낌표 떠있으면 들어감, 아니면 패스
@@ -10391,15 +10395,15 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                                 if (account) == 0:
                                     if Angmu_Enter(account, 'research'):
                                         # research_action(account, 'C', 'research_C_23')  # 케이크 충전 가속
-                                        research_action1(account, 'W')  # 왕국 연구 고고싱!
+                                        research_action1(account, 'C')  # 왕국 연구 고고싱!
                                 if (account) == 1:
                                     if Angmu_Enter(account, 'research'):
                                         # research_action(account, 'C', 'research_C_283')  # 케이크 충전 가속
-                                        research_action1(account, 'W')  # 왕국 연구 고고싱!
+                                        research_action1(account, 'C')  # 왕국 연구 고고싱!
                                 if (account) == 2:
                                     if Angmu_Enter(account, 'research'):
                                         # research_action(account, 'C', 'research_C_283')  # 케이크 충전 가속
-                                        research_action1(account, 'W')  # 왕국 연구 고고싱!
+                                        research_action1(account, 'C')  # 왕국 연구 고고싱!
                             # 열기구 보내기
                             if Angmu_Enter(account, 'balloon'):
                                 Ballon_send(account)
