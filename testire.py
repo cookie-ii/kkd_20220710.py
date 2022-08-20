@@ -208,6 +208,11 @@ tShort_Term_Set = 1800  # 쑛텀 생산 시간
 battle_count_fix = 4     # 전투 몇번이나 돌릴까?
 quick_production = 1     # 빠른 생산할 때 몇렙으로 돌릴까? - quick모드 때 사용
 
+# 소원나무 조건 모음
+pix_upper_void = (46, 30, 50)  # 이미지 확인공간 대기상태(아무 생산품도 클릭 안함)
+easy_prod = 0.8  # 1시간 이내 제품
+normal_prod = 0.9  # 1~2시간 제품
+hard_prod = 0.95  # 2시간 초과
 
 pix_wood = (117, 59, 40)  # 나무
 pix_jelbean = (4, 239, 237)  # 젤리빈
@@ -2887,634 +2892,483 @@ def Sowon_numb(account):
     return its_number
 
 
-def Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjokji_cotton):
+def Sowon_Prod_New(account, jjokji_biscuit, jjokji_berry, jjokji_milk, jjokji_cotton):
     try:
-
-        print('[Sowon_Prod_Check - ', pix_status, ']')
-        pix_upper_void = (46, 30, 50)  # 이미지 확인공간 대기상태(아무 생산품도 클릭 안함)
-        easy_prod = 0.8  # 1시간 이내 제품
-        normal_prod = 0.9  # 1~2시간 제품
-        hard_prod = 0.95  # 2시간 초과
-
-        pix_s_wood = (169, 99, 64)  # 나무
-        pix_s_jelbean = (0, 250, 227)  # 젤빈
-        pix_s_sugar = (198, 203, 205)  # 각설
-        pix_s_biscuit = (178, 93, 24)  # 비스
-        pix_s_berry = (194, 37, 42)  # 젤리베리
-        pix_s_milk = (255, 249, 217)  # 우유
-        pix_s_cotton = (255, 197, 215)  # 솜사탕 양털
-
-        pix_s_smith_lv1 = (36, 46, 65)  # 도끼
-        pix_s_smith_lv2 = (127, 19, 18)  # 곡괭이
-        pix_s_smith_lv3 = (75, 91, 115)  # 톱
-        pix_s_smith_lv4 = (116, 95, 88)  # 삽
-        pix_s_smith_lv5 = (200, 99, 48)  # 말뚝
-        pix_s_smith_lv6 = (111, 143, 165)  # 집게
-        pix_s_smith_lv7 = (255, 251, 235)  # 망치
-
-        pix_s_jelly_lv1 = (149, 220, 222)  # 젤리빈 잼
-        pix_s_jelly_lv2 = (233, 146, 152)  # 스윗젤리 잼
-        pix_s_jelly_lv3 = (221, 136, 21)  # 달고나 잼
-        pix_s_jelly_lv4 = (224, 35, 128)  # 석류 잼
-
-        pix_s_rollc_lv1 = (163, 70, 35)  # 솔방울새 인형
-        pix_s_rollc_lv2 = (255, 251, 224)  # 도토리 램프
-        pix_s_rollc_lv3 = (119, 125, 55)  # 뻐꾹뻐꾹 시계
-        pix_s_rollc_lv4 = (147, 78, 41)  # 백조깃털 드림캐처
-
-        pix_s_bread_lv1 = (171, 79, 20)  # 든든한 호밀빵
-        pix_s_bread_lv2 = (150, 11, 24)  # 달콤쫀득 잼파이
-        pix_s_bread_lv3 = (251, 181, 90)  # 은행 포카치아
-        pix_s_bread_lv4 = (255, 244, 220)  # 슈가코팅 도넛
-        pix_s_bread_lv5 = (209, 118, 34)  # 폭신 카스테라
-
-        pix_s_jampy_lv1 = (180, 39, 57)  # 따끈따끈 젤리스튜
-        pix_s_jampy_lv2 = (229, 168, 66)  # 곰젤리 버거
-        pix_s_jampy_lv3 = (254, 198, 186)  # 캔디크림 파스타
-        pix_s_jampy_lv4 = (227, 155, 29)  # 폭신폭신 오므라이스
-        pix_s_jampy_lv5 = (230, 31, 60)  # 콤비네이션 피자젤리
-        pix_s_jampy_lv6 = (0, 0, 0)  # 고급스러운 젤리빈 정식
-
-        pix_s_doye_lv1 = (206, 123, 71)  # 비스킷 화분
-        pix_s_doye_lv2 = (177, 183, 220)  # 반짝반짝 유리판
-        pix_s_doye_lv3 = (152, 66, 30)  # 반짝이는 색동구슬
-        pix_s_doye_lv4 = (244, 173, 234)  # 무지갯빛 디저트 보울
-
-        pix_s_flower_lv1 = (245, 137, 221)  # 캔디꽃
-        pix_s_flower_lv2 = (134, 65, 15)  # 행복한 꽃화분
-        pix_s_flower_lv3 = (182, 245, 234)  # 캔디꽃다발
-        pix_s_flower_lv4 = (200, 38, 75)  # 롤리팝 꽃바구니
-        pix_s_flower_lv5 = (184, 197, 233)  # 유리꽃 부케
-        pix_s_flower_lv6 = (36, 46, 65)  # 찬란한 요거트 화환
-
-        pix_s_milk_lv1 = (26, 91, 123)  # 크림
-        pix_s_milk_lv2 = (239, 210, 134)  # 버터
-        pix_s_milk_lv3 = (142, 180, 194)  # 수제 치즈
-
-        pix_s_latte_lv1 = (249, 244, 213)  # 젤리빈 라떼
-        pix_s_latte_lv2 = (255, 238, 191)  # 몽글몽글 버블티
-        pix_s_latte_lv3 = (204, 33, 63)  # 스윗베리 에이드
-
-        pix_s_dolls_lv1 = (42, 159, 110)  # 구름사탕 쿠션
-        pix_s_dolls_lv2 = (223, 102, 82)  # 곰젤리 솜인형
-        pix_s_dolls_lv3 = (0, 0, 0)  # 용과 드래곤 솜인형
-
-        pix_s_beer_lv1 = (207, 147, 92)  # 크림 루트비어
-        pix_s_beer_lv2 = (62, 21, 55)  # 레드베리 주스
-        pix_s_beer_lv3 = (250, 197, 130)  # 빈티지 와일드 보틀
-
-        pix_s_muffin_lv1 = (186, 89, 55)  # 으스스 머핀
-        pix_s_muffin_lv2 = (231, 214, 194)  # 생딸기 케이크
-        pix_s_muffin_lv3 = (223, 120, 145)  # 파티파티 쉬폰케이크
-
-        pix_s_jewel_lv1 = (36, 46, 65)  # 글레이즈드 링
-        pix_s_jewel_lv2 = (255, 66, 142)  # 루비베리 브로치
-        pix_s_jewel_lv3 = (134, 65, 12)  # 로얄 곰젤리 크라운
-
-        if pix_status == pix_s_wood:
-            print('나무')
-            if Sowon_numb(account) > 1000:
-                return True
-            else:
-                return False
-
-        elif pix_status == pix_s_jelbean:
-            print('젤리빈')
-            if Sowon_numb(account) > 1000:
-                return True
-            else:
-                return False
-
-        elif pix_status == pix_s_sugar:
-            print('각설탕')
-            if Sowon_numb(account) > 1000:
-                return True
-            else:
-                return False
-
-        elif pix_status == pix_s_biscuit:
-            print('비스킷 가루')
-            if Sowon_numb(account) > 1000:
-                return True
-            else:
-                return False
-
-        elif pix_status == pix_s_berry:
-            print('젤리베리')
-            if Sowon_numb(account) > 1000:
-                return True
-            else:
-                return False
-
-        elif pix_status == pix_s_milk:
-            print('우유')
-            if Sowon_numb(account) > 1000:
-                return True
-            else:
-                return False
-
-        elif pix_status == pix_s_cotton:
-            print('솜')
-            if Sowon_numb(account) > 1000:
-                return True
-            else:
-                return False
-
-        elif pix_status == pix_s_smith_lv1:
-            print('단단 도끼', smith_lev1)
-            if Sowon_numb(account) > smith_lev1 * easy_prod:
-                return True
-            else:
-                return False
-        elif pix_status == pix_s_smith_lv2:
-            print('튼튼 곡괭이', smith_lev2)
-            if Sowon_numb(account) > smith_lev2 * easy_prod:
-                return True
-            else:
-                return False
-        elif pix_status == pix_s_smith_lv3:
-            print('슥삭슥삭 톱', smith_lev3)
-            if Sowon_numb(account) > smith_lev3 * easy_prod:
-                return True
-            else:
-                return False
-        elif pix_status == pix_s_smith_lv4:
-            print('푹푹 삽', smith_lev4)
-            if Sowon_numb(account) > smith_lev4 * easy_prod:
-                return True
-            else:
-                return False
-        elif pix_status == pix_s_smith_lv5:
-            print('신비한 프레첼 말뚝', smith_lev5)
-            if Sowon_numb(account) > smith_lev5 * normal_prod:
-                return True
-            else:
-                return False
-
-        elif pix_status == pix_s_smith_lv6:
-            print('영롱한 푸른사탕 집게', smith_lev6)
-            if Sowon_numb(account) > smith_lev6 * normal_prod:
-                return True
-            else:
-                return False
-
-        elif pix_status == pix_s_smith_lv7:
-            print('불변의 슈가 코팅 망치', smith_lev7)
-            if Sowon_numb(account) > smith_lev7 * hard_prod:
-                return True
-            else:
-                return False
-
-
-        elif pix_status == pix_s_jelly_lv1:
-            print('젤리빈 잼', jelly_lev1)
-            if Sowon_numb(account) > jelly_lev1 * easy_prod:
-                return True
-            else:
-                return False
-
-        elif pix_status == pix_s_jelly_lv2:
-            print('스윗젤리 잼', jelly_lev2)
-            if Sowon_numb(account) > jelly_lev2 * easy_prod:
-                return True
-            else:
-                return False
-
-        elif pix_status == pix_s_jelly_lv3:
-            print('달고나 잼', jelly_lev3)
-            if jjokji_berry:
-                return False
-            else:
-                if Sowon_numb(account) > jelly_lev3 * easy_prod:
-                    return True
+        for i in range(1,64):
+            mid_text = str(i)
+            start_text = 'sowon_item_check'
+            end_text = '.png'
+            now_image = pag.locateCenterOnScreen(start_text+mid_text+end_text, confidence=0.9, region = (460-20 + (account // 2) * 960,95-20 + (account % 2) * 540,40,40))
+            if (now_image):
+                if i == 1:
+                    print('나무')
+                    if Sowon_numb(account) > 1000:
+                        return True
+                    else:
+                        return False
+                elif i == 2: 
+                    print('젤리빈')
+                    if Sowon_numb(account) > 1000:
+                        return True
+                    else:
+                        return False
+                elif i == 3: 
+                    print('각설탕')
+                    if Sowon_numb(account) > 1000:
+                        return True
+                    else:
+                        return False
+                elif i == 4: 
+                    print('비스킷')
+                    if Sowon_numb(account) > 1000:
+                        return True
+                    else:
+                        return False
+                elif i == 5: 
+                    print('젤리베리')
+                    if Sowon_numb(account) > 1000:
+                        return True
+                    else:
+                        return False
+                elif i == 6: 
+                    print('우유')
+                    if Sowon_numb(account) > 1000:
+                        return True
+                    else:
+                        return False
+                elif i == 7: 
+                    print('솜')
+                    if Sowon_numb(account) > 1000:
+                        return True
+                    else:
+                        return False
+                elif i == 8: 
+                    print('단단 도끼',smith_lev1)
+                    if Sowon_numb(account) > smith_lev1*easy_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 9: 
+                    print('튼튼 곡괭이',smith_lev2)
+                    if Sowon_numb(account) > smith_lev2*easy_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 10: 
+                    print('슥삭슥삭 톱',smith_lev3)
+                    if Sowon_numb(account) > smith_lev3*easy_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 11: 
+                    print('푹푹 삽',smith_lev4)
+                    if Sowon_numb(account) > smith_lev4*easy_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 12: 
+                    print('신비한 프레첼 말뚝',smith_lev5)
+                    if Sowon_numb(account) > smith_lev5*normal_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 13: 
+                    print('영롱한 푸른사탕 집게',smith_lev6)
+                    if Sowon_numb(account) > smith_lev6*normal_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 14: 
+                    print('불변의 슈가 코팅 망치',smith_lev7)
+                    if Sowon_numb(account) > smith_lev7*hard_prod:
+                        return True
+                    else:
+                        return False
+                
+                elif i == 15: 
+                    print('젤리빈 잼',jelly_lev1)
+                    if Sowon_numb(account) > jelly_lev1*easy_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 16: 
+                    print('스윗젤리 잼',jelly_lev2)
+                    if Sowon_numb(account) > jelly_lev2*easy_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 17: 
+                    print('달고나 잼',jelly_lev3)
+                    if jjokji_berry:
+                        return False
+                    else:
+                        if Sowon_numb(account) > jelly_lev3*easy_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 18: 
+                    print('석류 잼',jelly_lev4)
+                    if jjokji_milk or jjokji_cotton:
+                        return False
+                    else:
+                        if Sowon_numb(account) > jelly_lev4*normal_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 19: 
+                    print('톡톡베리 잼',jelly_lev5)
+                    if Sowon_numb(account) > jelly_lev5*hard_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 20: 
+                    print('솔방울새 인형',rollc_lev1)
+                    if Sowon_numb(account) > rollc_lev1*easy_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 21: 
+                    print('도토리 램프',rollc_lev2)
+                    if jjokji_berry:
+                        return False
+                    else:
+                        if Sowon_numb(account) > rollc_lev2*easy_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 22:
+                    print('뻐꾹뻐꾹 시계',rollc_lev3)
+                    if jjokji_biscuit or jjokji_berry:
+                        return False
+                    else:
+                        if Sowon_numb(account) > rollc_lev3*normal_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 23: 
+                    print('백조깃털 드림캐쳐',rollc_lev4)
+                    if jjokji_biscuit or jjokji_berry or jjokji_cotton:
+                        return False
+                    else:
+                        if Sowon_numb(account) > rollc_lev4*hard_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 24: 
+                    print('든든한 호밀빵',bread_lev1)
+                    if jjokji_biscuit:
+                        return False
+                    else:
+                        if Sowon_numb(account) > bread_lev1*easy_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 25: 
+                    print('달콤쫀득 잼파이',bread_lev2)
+                    if jjokji_biscuit:
+                        return False
+                    else:
+                        if Sowon_numb(account) > bread_lev2*easy_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 26: 
+                    print('은행 포카치아',bread_lev3)
+                    if jjokji_biscuit or jjokji_berry:
+                        return False
+                    else:
+                        if Sowon_numb(account) > bread_lev3*easy_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 27: 
+                    print('슈가코팅 도넛',bread_lev4)
+                    if jjokji_biscuit or jjokji_berry:
+                        return False
+                    else:
+                        if Sowon_numb(account) > bread_lev4*easy_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 28: 
+                    print('폭신 카스테라',bread_lev5)
+                    if jjokji_milk:
+                        return False
+                    else:
+                        if Sowon_numb(account) > bread_lev5*normal_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 29: 
+                    print('골드리치 크로와상',bread_lev6)
+                    if Sowon_numb(account) > bread_lev6*hard_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 30: 
+                    print('따끈따끈 젤리스튜',jampy_lev1)
+                    if jjokji_berry:
+                        return False
+                    else:
+                        if Sowon_numb(account) > jampy_lev1*easy_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 31: 
+                    print('곰젤리 버거',jampy_lev2)
+                    if jjokji_biscuit:
+                        return False
+                    else:
+                        if Sowon_numb(account) > jampy_lev2*easy_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 32: 
+                    print('캔디크림 파스타',jampy_lev3)
+                    if jjokji_biscuit or jjokji_milk:
+                        return False
+                    else:
+                        if Sowon_numb(account) > jampy_lev3*easy_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 33: 
+                    print('폭신폭신 오므라이스',jampy_lev4)
+                    if jjokji_biscuit or jjokji_berry:
+                        return False
+                    else:
+                        if Sowon_numb(account) > jampy_lev4*normal_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 34: 
+                    print('콤비네이션 피자젤리',jampy_lev5)
+                    if Sowon_numb(account) > jampy_lev5*hard_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 35: 
+                    print('고급스러운 젤리빈 정식',jampy_lev6) 
+                    if Sowon_numb(account) > jampy_lev6*hard_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 36: 
+                    print('비스킷 화분',doye_lev1)
+                    if jjokji_biscuit:
+                        return False
+                    else:
+                        if Sowon_numb(account) > doye_lev1*easy_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 37: 
+                    print('반짝반짝 유리판',doye_lev2)
+                    if jjokji_berry:
+                        return False
+                    else:
+                        if Sowon_numb(account) > doye_lev2*easy_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 38: 
+                    print('반짝이는 색동구슬',doye_lev3)
+                    if jjokji_biscuit or jjokji_cotton:
+                        return False
+                    else:
+                        if Sowon_numb(account) > doye_lev3*normal_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 39: 
+                    print('무지갯빛 디저트 보울',doye_lev4)
+                    if jjokji_milk or jjokji_cotton:
+                        return False
+                    else:
+                        if Sowon_numb(account) > doye_lev4*hard_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 40: 
+                    print('캔디꽃',flower_lev1)
+                    if jjokji_biscuit or jjokji_berry:
+                        return False
+                    else:
+                        if Sowon_numb(account) > flower_lev1*easy_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 41: 
+                    print('행복한 꽃화분',flower_lev2)
+                    if jjokji_berry:
+                        return False
+                    else:
+                        if Sowon_numb(account) > flower_lev2*easy_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 42: 
+                    print('캔디꽃다발',flower_lev3)
+                    if jjokji_biscuit or jjokji_berry or jjokji_milk:
+                        return False
+                    else:
+                        if Sowon_numb(account) > flower_lev3*easy_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 43: 
+                    print('롤리팝 꽃바구니',flower_lev4)
+                    if jjokji_biscuit:
+                        return False
+                    else:
+                        if Sowon_numb(account) > flower_lev4*normal_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 44: 
+                    print('유리꽃 부케',flower_lev5)
+                    if Sowon_numb(account) > flower_lev5*hard_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 45: 
+                    print('찬란한 요거트 화환',flower_lev6)
+                    if Sowon_numb(account) > flower_lev6*hard_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 46: 
+                    print('크림',milky_lev1)
+                    if jjokji_milk:
+                        return False
+                    else:
+                        if Sowon_numb(account) > milky_lev1*easy_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 47: 
+                    print('버터',milky_lev2)
+                    if Sowon_numb(account) > milky_lev2*normal_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 48: 
+                    print('수제 치즈',milky_lev3)
+                    if Sowon_numb(account) > milky_lev3*hard_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 49: 
+                    print('젤리빈 라떼',latte_lev1)
+                    if jjokji_milk:
+                        return False
+                    else:
+                        if Sowon_numb(account) > latte_lev1*easy_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 50: 
+                    print('몽글몽글 버블티',latte_lev2)
+                    if jjokji_biscuit or jjokji_berry or jjokji_cotton:
+                        return False
+                    else:
+                        if Sowon_numb(account) > latte_lev2*hard_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 51: 
+                    print('스윗베리 에이드',latte_lev3) 
+                    if Sowon_numb(account) > latte_lev3*hard_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 52: 
+                    print('구름사탕 쿠션',dolls_lev1)
+                    if jjokji_biscuit or jjokji_cotton:
+                        return False
+                    else:
+                        if Sowon_numb(account) > dolls_lev1*normal_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 53: 
+                    print('곰젤리 솜인형',dolls_lev2)
+                    if jjokji_biscuit or jjokji_berry or jjokji_milk or jjokji_cotton:
+                        return False
+                    else:
+                        if Sowon_numb(account) > dolls_lev2*hard_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 54: 
+                    print('용과 드래곤 솜인형',dolls_lev3) 
+                    if Sowon_numb(account) > dolls_lev3*hard_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 55: 
+                    print('크림 루트비어',beer_lev1)
+                    if jjokji_biscuit or jjokji_berry:
+                        return False
+                    else:
+                        if Sowon_numb(account) > beer_lev1*normal_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 56: 
+                    print('레드베리 주스',beer_lev2)
+                    if Sowon_numb(account) > beer_lev2*hard_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 57: 
+                    print('빈티지 와일드 보틀',beer_lev3)
+                    if Sowon_numb(account) > beer_lev3*hard_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 58: 
+                    print('으스스 머핀',muffin_lev1)
+                    if jjokji_biscuit or jjokji_milk:
+                        return False
+                    else:
+                        if Sowon_numb(account) > muffin_lev1*normal_prod:
+                            return True
+                        else:
+                            return False
+                elif i == 59: 
+                    print('생딸기 케이크',muffin_lev2)
+                    if Sowon_numb(account) > muffin_lev2*easy_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 60: 
+                    print('파티파티 쉬폰케이크',muffin_lev3) 
+                    if Sowon_numb(account) > muffin_lev3*hard_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 61: 
+                    print('글레이즈드 링',jewel_lev1)
+                    if Sowon_numb(account) > jewel_lev1*normal_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 62: 
+                    print('루비베리 브로치',jewel_lev2)
+                    if Sowon_numb(account) > jewel_lev2*hard_prod:
+                        return True
+                    else:
+                        return False
+                elif i == 63: 
+                    print('로얄 곰젤리 크라운',jewel_lev3)
+                    if Sowon_numb(account) > jewel_lev3*hard_prod:
+                        return True
+                    else:
+                        return False
                 else:
+                    print('못찾거나 안팔거!')
                     return False
-
-        elif pix_status == pix_s_jelly_lv4:
-            print('석류 잼',jelly_lev4)
-            if jjokji_milk or jjokji_cotton:
-                return False
-            else:
-                if Sowon_numb(account) > jelly_lev4*normal_prod:
-                    return True
-                else:
-                    return False
-
-        # elif pix_status == pix_s_jelly_lv5:
-        #     print('톡톡베리 잼',jelly_lev5)
-        #     if Sowon_numb(account) > jelly_lev5*hard_prod:
-        #         return True
-        #     else:
-        #         return False
-
-        elif pix_status == pix_s_rollc_lv1:
-            print('솔방울새 인형', rollc_lev1)
-            if Sowon_numb(account) > rollc_lev1 * easy_prod:
-                return True
-            else:
-                return False
-
-        elif pix_status == pix_s_rollc_lv2:
-            print('도토리 램프', rollc_lev2)
-            if jjokji_berry:
-                return False
-            else:
-                if Sowon_numb(account) > rollc_lev2 * easy_prod:
-                    return True
-                else:
-                    return False
-
-        elif pix_status == pix_s_rollc_lv3:
-            print('뻐꾹뻐꾹 시계', rollc_lev3)
-            if jjokji_biscuit or jjokji_berry:
-                return False
-            else:
-                if Sowon_numb(account) > rollc_lev3 * normal_prod:
-                    return True
-                else:
-                    return False
-
-        elif pix_status == pix_s_rollc_lv4:
-            print('백조깃털 드림캐쳐', rollc_lev4)
-            if jjokji_biscuit or jjokji_berry or jjokji_cotton:
-                return False
-            else:
-                if Sowon_numb(account) > rollc_lev4 * hard_prod:
-                    return True
-                else:
-                    return False
-
-
-        elif pix_status == pix_s_bread_lv1:
-            print('든든한 호밀빵', bread_lev1)
-            if jjokji_biscuit:
-                return False
-            else:
-                if Sowon_numb(account) > bread_lev1 * easy_prod:
-                    return True
-                else:
-                    return False
-
-        elif pix_status == pix_s_bread_lv2:
-            print('달콤쫀득 잼파이', bread_lev2)
-            if jjokji_biscuit:
-                return False
-            else:
-                if Sowon_numb(account) > bread_lev2 * easy_prod:
-                    return True
-                else:
-                    return False
-
-        elif pix_status == pix_s_bread_lv3:
-            print('은행 포카치아', bread_lev3)
-            if jjokji_biscuit or jjokji_berry:
-                return False
-            else:
-                if Sowon_numb(account) > bread_lev3 * easy_prod:
-                    return True
-                else:
-                    return False
-
-        elif pix_status == pix_s_bread_lv4:
-            print('슈가코팅 도넛', bread_lev4)
-            if jjokji_biscuit or jjokji_berry:
-                return False
-            else:
-                if Sowon_numb(account) > bread_lev4 * easy_prod:
-                    return True
-                else:
-                    return False
-
-        elif pix_status == pix_s_bread_lv5:
-            print('폭신 카스테라', bread_lev5)
-            if jjokji_milk:
-                return False
-            else:
-                if Sowon_numb(account) > bread_lev5 * normal_prod:
-                    return True
-                else:
-                    return False
-
-        # elif pix_status == pix_s_bread_lv6:
-        #     print('골드리치 크로와상',bread_lev6)
-        #     if Sowon_numb(account) > bread_lev6*hard_prod:
-        #         return True
-        #     else:
-        #         return False
-
-        elif pix_status == pix_s_jampy_lv1:
-            print('따끈따끈 젤리스튜', jampy_lev1)
-            if jjokji_berry:
-                return False
-            else:
-                if Sowon_numb(account) > jampy_lev1 * easy_prod:
-                    return True
-                else:
-                    return False
-
-        elif pix_status == pix_s_jampy_lv2:
-            print('곰젤리 버거', jampy_lev2)
-            if jjokji_biscuit:
-                return False
-            else:
-                if Sowon_numb(account) > jampy_lev2 * easy_prod:
-                    return True
-                else:
-                    return False
-
-        elif pix_status == pix_s_jampy_lv3:
-            print('캔디크림 파스타', jampy_lev3)
-            if jjokji_biscuit or jjokji_milk:
-                return False
-            else:
-                if Sowon_numb(account) > jampy_lev3 * easy_prod:
-                    return True
-                else:
-                    return False
-
-        elif pix_status == pix_s_jampy_lv4:
-            print('폭신폭신 오므라이스', jampy_lev4)
-            if jjokji_biscuit or jjokji_berry:
-                return False
-            else:
-                if Sowon_numb(account) > jampy_lev4 * normal_prod:
-                    return True
-                else:
-                    return False
-
-        elif pix_status == pix_s_jampy_lv5:
-            print('콤비네이션 피자젤리',jampy_lev5)
-            if Sowon_numb(account) > jampy_lev5*hard_prod:
-                return True
-            else:
-                return False
-
-        # elif pix_status == pix_s_jampy_lv6:
-        #     print('고급스러운 젤리빈 정식',jampy_lev6)
-        #     if Sowon_numb(account) > jampy_lev6*hard_prod:
-        #         return True
-        #     else:
-        #         return False
-
-        elif pix_status == pix_s_doye_lv1:
-            print('비스킷 화분', doye_lev1)
-            if jjokji_biscuit:
-                return False
-            else:
-                if Sowon_numb(account) > doye_lev1 * easy_prod:
-                    return True
-                else:
-                    return False
-
-        elif pix_status == pix_s_doye_lv2:
-            print('반짝반짝 유리판', doye_lev2)
-            if jjokji_berry:
-                return False
-            else:
-                if Sowon_numb(account) > doye_lev2 * easy_prod:
-                    return True
-                else:
-                    return False
-
-        elif pix_status == pix_s_doye_lv3:
-            print('반짝이는 색동구슬', doye_lev3)
-            if jjokji_biscuit or jjokji_cotton:
-                return False
-            else:
-                if Sowon_numb(account) > doye_lev3 * normal_prod:
-                    return True
-                else:
-                    return False
-
-        elif pix_status == pix_s_doye_lv4:
-            print('무지갯빛 디저트 보울', doye_lev4)
-            if jjokji_milk or jjokji_cotton:
-                return False
-            else:
-                if Sowon_numb(account) > doye_lev4 * hard_prod:
-                    return True
-                else:
-                    return False
-
-
-        elif pix_status == pix_s_flower_lv1:
-            print('캔디꽃', flower_lev1)
-            if jjokji_biscuit or jjokji_berry:
-                return False
-            else:
-                if Sowon_numb(account) > flower_lev1 * easy_prod:
-                    return True
-                else:
-                    return False
-
-        elif pix_status == pix_s_flower_lv2:
-            print('행복한 꽃화분', flower_lev2)
-            if jjokji_berry:
-                return False
-            else:
-                if Sowon_numb(account) > flower_lev2 * easy_prod:
-                    return True
-                else:
-                    return False
-
-        elif pix_status == pix_s_flower_lv3:
-            print('캔디꽃다발', flower_lev3)
-            if jjokji_biscuit or jjokji_berry or jjokji_milk:
-                return False
-            else:
-                if Sowon_numb(account) > flower_lev3 * easy_prod:
-                    return True
-                else:
-                    return False
-
-        elif pix_status == pix_s_flower_lv4:
-            print('롤리팝 꽃바구니', flower_lev4)
-            if jjokji_biscuit:
-                return False
-            else:
-                if Sowon_numb(account) > flower_lev4 * normal_prod:
-                    return True
-                else:
-                    return False
-
-        elif pix_status == pix_s_flower_lv5:
-            print('유리꽃 부케 안보내요', flower_lev5)
-            return False
-            # if Sowon_numb(account) > flower_lev5*hard_prod:
-            #     return True
-            # else:
-            #     return False
-
-        elif pix_status == pix_s_flower_lv6:
-            print('찬란한 요거트 화환 안보내요',flower_lev6)
-            return False
-        #     # if Sowon_numb(account) > flower_lev6*hard_prod:
-        #     #     return True
-        #     # else:
-        #     #     return False
-
-        elif pix_status == pix_s_milk_lv1:
-            print('크림', milky_lev1)
-            if jjokji_milk:
-                return False
-            else:
-                if Sowon_numb(account) > milky_lev1 * easy_prod:
-                    return True
-                else:
-                    return False
-
-        elif pix_status == pix_s_milk_lv2:
-            print('버터',milky_lev2)
-            if Sowon_numb(account) > milky_lev2*normal_prod:
-                return True
-            else:
-                return False
-
-        elif pix_status == pix_s_milk_lv3:
-            print('수제 치즈',milky_lev3)
-            if Sowon_numb(account) > milky_lev3*hard_prod:
-                return True
-            else:
-                return False
-
-        elif pix_status == pix_s_latte_lv1:
-            print('젤리빈 라떼', latte_lev1)
-            if jjokji_milk:
-                return False
-            else:
-                if Sowon_numb(account) > latte_lev1 * easy_prod:
-                    return True
-                else:
-                    return False
-
-        elif pix_status == pix_s_latte_lv2:
-            print('몽글몽글 버블티', latte_lev2)
-            if jjokji_biscuit or jjokji_berry or jjokji_cotton:
-                return False
-            else:
-                if Sowon_numb(account) > latte_lev2 * hard_prod:
-                    return True
-                else:
-                    return False
-
-        elif pix_status == pix_s_latte_lv3:
-            print('스윗베리 에이드',latte_lev3)
-            if Sowon_numb(account) > latte_lev3*hard_prod:
-                return True
-            else:
-                return False
-
-        elif pix_status == pix_s_dolls_lv1:
-            print('구름사탕 쿠션', dolls_lev1)
-            if jjokji_biscuit or jjokji_cotton:
-                return False
-            else:
-                if Sowon_numb(account) > dolls_lev1 * normal_prod:
-                    return True
-                else:
-                    return False
-
-        elif pix_status == pix_s_dolls_lv2:
-            print('곰젤리 솜인형', dolls_lev2)
-            if jjokji_biscuit or jjokji_berry or jjokji_milk or jjokji_cotton:
-                return False
-            else:
-                if Sowon_numb(account) > dolls_lev2 * hard_prod:
-                    return True
-                else:
-                    return False
-
-        # elif pix_status == pix_s_dolls_lv3:
-        #     print('용과 드래곤 솜인형',dolls_lev3)
-            # if Sowon_numb(account) > dolls_lev3*hard_prod:
-            #     return True
-            # else:
-            #     return False
-
-        elif pix_status == pix_s_beer_lv1:
-            print('크림 루트비어', beer_lev1)
-            if jjokji_biscuit or jjokji_berry:
-                return False
-            else:
-                if Sowon_numb(account) > beer_lev1 * normal_prod:
-                    return True
-                else:
-                    return False
-
-        elif pix_status == pix_s_beer_lv2:
-            print('레드베리 주스 안보내요', beer_lev2)
-            return False
-            # if Sowon_numb(account) > beer_lev2*hard_prod:
-            #     return True
-            # else:
-            #     return False
-
-        elif pix_status == pix_s_beer_lv3:
-            print('빈티지 와일드 보틀 안보내요', beer_lev3)
-            return False
-            # if Sowon_numb(account) > beer_lev3*hard_prod:
-            #     return True
-            # else:
-            #     return False
-
-
-        elif pix_status == pix_s_muffin_lv1:
-            print('으스스 머핀',muffin_lev1)
-            if jjokji_biscuit or jjokji_milk:
-                return False
-            else:
-                if Sowon_numb(account) > muffin_lev1*normal_prod:
-                    return True
-                else:
-                    return False
-
-        elif pix_status == pix_s_muffin_lv2:
-            print('생딸기 케이크',muffin_lev2)
-            # return False
-            if Sowon_numb(account) > muffin_lev2*easy_prod:
-                return True
-            else:
-                return False
-
-        elif pix_status == pix_s_muffin_lv3:
-            print('파티파티 쉬폰케이크',muffin_lev3)
-            # return False
-            if Sowon_numb(account) > muffin_lev3*hard_prod:
-                return True
-            else:
-                return False
-
-        elif pix_status == pix_s_jewel_lv1:
-            print('글레이즈드 링 안보내요',jewel_lev1)
-            # return False
-            if Sowon_numb(account) > jewel_lev1*normal_prod:
-                return True
-            else:
-                return False
-
-        elif pix_status == pix_s_jewel_lv2:
-            print('루비베리 브로치',jewel_lev2)
-            # return False
-            if Sowon_numb(account) > jewel_lev2*hard_prod:
-                return True
-            else:
-                return False
-
-        elif pix_status == pix_s_jewel_lv3:
-            print('로얄 곰젤리 크라운',jewel_lev3)
-            # return False
-            if Sowon_numb(account) > jewel_lev3*hard_prod:
-                return True
-            else:
-                return False
-
-        else:
-            if pix_status != pix_upper_void:
-                print('뭐지 이건..', pix_status)
-                time.sleep(0.5)
-
-                pag.click(random.randint(680, 680 + 14) + (account // 2) * 960, random.randint(76, 76 + 14) + (account % 2) * 540)
-                time.sleep(0.5)
     except:
         print('에러가 났어요! Sowon_Prod_Check')
         send_telegram_message('Sowon_Prod_check에서 에러가 났어요!')
@@ -3538,7 +3392,8 @@ def jjokji_check(pos, account):
     if pix_status == pix_upper_void:
         print('우하 없고')
     else:
-        if Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjokji_cotton):
+        # if Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjokji_cotton):
+        if Sowon_Prod_New(account, jjokji_biscuit, jjokji_berry, jjokji_milk, jjokji_cotton):
             pag.click(random.randint(680, 680 + 14) + (account // 2) * 960, random.randint(76, 76 + 14) + (account % 2) * 540)
             time.sleep(0.5)
         else:
@@ -3555,7 +3410,8 @@ def jjokji_check(pos, account):
         if pix_status == pix_upper_void:
             print('좌하 없고')
         else:
-            if Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjokji_cotton):
+            # if Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjokji_cotton):
+            if Sowon_Prod_New(account, jjokji_biscuit, jjokji_berry, jjokji_milk, jjokji_cotton):
                 pag.click(random.randint(680, 680 + 14) + (account // 2) * 960, random.randint(76, 76 + 14) + (account % 2) * 540)
                 time.sleep(0.5)
             else:
@@ -3571,7 +3427,8 @@ def jjokji_check(pos, account):
         if pix_status == pix_upper_void:
             print('우상 없고')
         else:
-            if Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjokji_cotton):
+            # if Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjokji_cotton):
+            if Sowon_Prod_New(account, jjokji_biscuit, jjokji_berry, jjokji_milk, jjokji_cotton):
                 pag.click(random.randint(680, 680 + 14) + (account // 2) * 960, random.randint(76, 76 + 14) + (account % 2) * 540)
                 time.sleep(0.5)
             else:
@@ -3587,7 +3444,8 @@ def jjokji_check(pos, account):
         if pix_status == pix_upper_void:
             print('좌상 없고')
         else:
-            if Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjokji_cotton):
+            # if Sowon_Prod_Check(pix_status, jjokji_biscuit, jjokji_berry, jjokji_milk, jjokji_cotton):
+            if Sowon_Prod_New(account, jjokji_biscuit, jjokji_berry, jjokji_milk, jjokji_cotton):
                 pag.click(random.randint(680, 680 + 14) + (account // 2) * 960, random.randint(76, 76 + 14) + (account % 2) * 540)
                 time.sleep(0.5)
             else:
