@@ -4160,7 +4160,8 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
             kkd_winupdate = pag.locateCenterOnScreen('cond_error_winupdate.png', confidence=0.95, region=(1, 1, 960 * 2, 540 * 2))
             cond_kkd_arena = pag.locateCenterOnScreen('cond_kkd_arena.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
             cond_kkd_arena_continue = pag.locateCenterOnScreen('cond_kkd_arena_continue.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 전투 재개(겜 튕겼다 들어와서 아레나 전투!)
-
+            cond_trade_perl = pag.locateCenterOnScreen('cond_trade_perl.png', confidence=0.85, region=(2,32+account*540,917,505))               # 해상무역센터 위치 확인
+            
             print('[Kingdom_ready] 현재 픽셀값 : ', pix_status, '실행 %s초 지났습니다.' % int(now_time - start_time), account, '계정, 현재시간:', datetime.now().strftime('%H:%M:%S'))
             # print('[Kingdom_ready] 실행 %s초 지났습니다.' % int(now_time - start_time), '현재시간:', datetime.now().strftime('%H:%M:%S'))
             if now_time - start_time >= 300:
@@ -4330,7 +4331,21 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
                 pag.hotkey('esc')
                 time.sleep(0.5)
 
-            elif pix_status == pix_status_trade:  # 무역센터
+            # elif pix_status == pix_status_trade:  # 무역센터
+            #     print('무역센터 내부!')
+            #     if (pix_status == whereto) or (whereto == 'trade_in'):
+            #         print('무역센터야!')
+            #         return True
+            #     else:
+            #         if whereto == 'trade_in':
+            #             return False
+            #         print('무역센터 아니야!')
+            #         pag.click(284 + (account // 2) * 960, 15 + (account % 2) * 540)
+            #         time.sleep(0.3)
+            #         pag.hotkey('esc')
+            #         time.sleep(0.3)
+            elif (cond_trade_perl):    # 무역센터
+                error_position = 0
                 print('무역센터 내부!')
                 if (pix_status == whereto) or (whereto == 'trade_in'):
                     print('무역센터야!')
@@ -4339,11 +4354,11 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
                     if whereto == 'trade_in':
                         return False
                     print('무역센터 아니야!')
-                    pag.click(284 + (account // 2) * 960, 15 + (account % 2) * 540)
-                    time.sleep(0.3)
+                    pag.click(284,15+account*540)
+                    time.sleep(0.1)
                     pag.hotkey('esc')
                     time.sleep(0.3)
-
+                    
             elif pix_status == pix_status_temple:  # 신전
                 print('신전 내부!')
                 if (pix_status == whereto) or (whereto == 'temple_in'):
