@@ -275,24 +275,24 @@ smith_lev6_A = 200  # 집게
 smith_lev7_A = 200  # 망치
 
 jelly_num_A = 2  # 젤리쨈 건물 수
-jelly_lev1_A = 300  # 젤리빈
-jelly_lev2_A = 300  # 스윗젤리 잼
-jelly_lev3_A = 300  # 달고나 잼
-jelly_lev4_A = 300  # 석류 잼
+jelly_lev1_A = 290  # 젤리빈
+jelly_lev2_A = 290  # 스윗젤리 잼
+jelly_lev3_A = 290  # 달고나 잼
+jelly_lev4_A = 290  # 석류 잼
 jelly_lev5_A = 0  # 톡톡베리 잼
 
 rollc_num_A = 2  # 롤케이크 건물 수
-rollc_lev1_A = 290  # 솔방울새 인형
-rollc_lev2_A = 290  # 도토리 램프
-rollc_lev3_A = 245  # 뻐꾹뻐꾹 시계
+rollc_lev1_A = 250  # 솔방울새 인형
+rollc_lev2_A = 250  # 도토리 램프
+rollc_lev3_A = 250  # 뻐꾹뻐꾹 시계
 rollc_lev4_A = 300  # 백조깃털 드림캐처
 
 bread_num_A = 2  # 빵집 건물 수
-bread_lev1_A = 110  # 든든한 호밀빵
-bread_lev2_A = 90  # 달콤쫀득 잼파이
-bread_lev3_A = 90  # 은행 포카치아
-bread_lev4_A = 90  # 슈가코팅 도넛
-bread_lev5_A = 100  # 폭신 카스테라
+bread_lev1_A = 100  # 든든한 호밀빵
+bread_lev2_A = 100 # 달콤쫀득 잼파이
+bread_lev3_A = 100 # 은행 포카치아
+bread_lev4_A = 100 # 슈가코팅 도넛
+bread_lev5_A = 200  # 폭신 카스테라
 bread_lev6_A = 0  # 골드리치 크로와상
 
 jampy_num_A = 2  # 잼파이 건물 수
@@ -304,8 +304,8 @@ jampy_lev5_A = 0  # 콤비네이션 피자젤리
 jampy_lev6_A = 0  # 고급스러운 젤리빈 정식
 
 doye_num_A = 2  # 토닥토닥 도예공방 건물 수
-doye_lev1_A = 300  # 비스킷 화분
-doye_lev2_A = 240  # 반짝반짝 유리판
+doye_lev1_A = 170  # 비스킷 화분
+doye_lev2_A = 170  # 반짝반짝 유리판
 doye_lev3_A = 170  # 반짝이는 색동구슬
 doye_lev4_A = 170  # 무지갯빛 디저트 보울
 
@@ -328,8 +328,8 @@ latte_lev2_A = 120  # 몽글몽글 버블티
 latte_lev3_A = 0  # 스윗베리 에이드
 
 dolls_num_A = 1  # 러블리 인형공방 건물 수
-dolls_lev1_A = 110  # 구름사탕 쿠션
-dolls_lev2_A = 110  # 곰젤리 솜인형
+dolls_lev1_A = 100  # 구름사탕 쿠션
+dolls_lev2_A = 100  # 곰젤리 솜인형
 dolls_lev3_A = 0  # 용과 드래곤 솜인형
 
 beer_num_A = 1  # 오크통 쉼터 건물 수
@@ -343,9 +343,9 @@ muffin_lev2_A = 50  # 생딸기 케이크
 muffin_lev3_A = 50  # 파티파티 쉬폰케이크
 
 jewel_num_A = 1  # 살롱 드 쥬얼리 건물 수
-jewel_lev1_A = 25  # 글레이즈드 링
-jewel_lev2_A = 25  # 루비베리 브로치
-jewel_lev3_A = 25  # 로얄 곰젤리 크라운
+jewel_lev1_A = 35  # 글레이즈드 링
+jewel_lev2_A = 35  # 루비베리 브로치
+jewel_lev3_A = 35  # 로얄 곰젤리 크라운
 
 magic_num_A = 1    # 마법공방
 magic_lev1_A = 30    # 고농축 에스프레소
@@ -417,9 +417,9 @@ jelly_lev4_B = 250  # 석류 잼
 jelly_lev5_B = 0  # 톡톡베리 잼
 
 rollc_num_B = 2  # 롤케이크 건물 수
-rollc_lev1_B = 250  # 솔방울새 인형
-rollc_lev2_B = 250  # 도토리 램프
-rollc_lev3_B = 250  # 뻐꾹뻐꾹 시계
+rollc_lev1_B = 200  # 솔방울새 인형
+rollc_lev2_B = 200  # 도토리 램프
+rollc_lev3_B = 200  # 뻐꾹뻐꾹 시계
 rollc_lev4_B = 200  # 백조깃털 드림캐처
 
 bread_num_B = 2  # 빵집 건물 수
@@ -431,23 +431,23 @@ bread_lev5_B = 225  # 폭신 카스테라
 bread_lev6_B = 0  # 골드리치 크로와상
 
 jampy_num_B = 2  # 잼파이 건물 수
-jampy_lev1_B = 180  # 따끈따끈 젤리스튜
-jampy_lev2_B = 100  # 곰젤리 버거
-jampy_lev3_B = 60  # 캔디크림 파스타
+jampy_lev1_B = 130  # 따끈따끈 젤리스튜
+jampy_lev2_B = 130  # 곰젤리 버거
+jampy_lev3_B = 100  # 캔디크림 파스타
 jampy_lev4_B = 60  # 폭신폭신 오므라이스
 jampy_lev5_B = 100  # 콤비네이션 피자젤리
 jampy_lev6_B = 0  # 고급스러운 젤리빈 정식
 
 doye_num_B = 2  # 토닥토닥 도예공방 건물 수
-doye_lev1_B = 250  # 비스킷 화분
-doye_lev2_B = 250  # 반짝반짝 유리판
-doye_lev3_B = 250  # 반짝이는 색동구슬
+doye_lev1_B = 100  # 비스킷 화분
+doye_lev2_B = 100  # 반짝반짝 유리판
+doye_lev3_B = 100  # 반짝이는 색동구슬
 doye_lev4_B = 250  # 무지갯빛 디저트 보울
 
 flower_num_B = 2  # 꽃가게 건물 수
-flower_lev1_B = 80  # 캔디꽃
-flower_lev2_B = 80  # 행복한 꽃화분
-flower_lev3_B = 60  # 캔디꽃다발
+flower_lev1_B = 50  # 캔디꽃
+flower_lev2_B = 50  # 행복한 꽃화분
+flower_lev3_B = 50  # 캔디꽃다발
 flower_lev4_B = 55  # 롤리팝 꽃바구니
 flower_lev5_B = 55  # 유리꽃 부케
 flower_lev6_B = 72  # 찬란한 요거트 화환
@@ -463,8 +463,8 @@ latte_lev2_B = 150  # 몽글몽글 버블티
 latte_lev3_B = 150  # 스윗베리 에이드
 
 dolls_num_B = 2  # 러블리 인형공방 건물 수
-dolls_lev1_B = 140  # 구름사탕 쿠션
-dolls_lev2_B = 140  # 곰젤리 솜인형
+dolls_lev1_B = 130  # 구름사탕 쿠션
+dolls_lev2_B = 130  # 곰젤리 솜인형
 dolls_lev3_B = 0  # 용과 드래곤 솜인형
 
 beer_num_B = 2  # 오크통 쉼터 건물 수
@@ -553,9 +553,9 @@ jelly_lev4_C = 220  # 석류 잼
 jelly_lev5_C = 0  # 톡톡베리 잼
 
 rollc_num_C = 2  # 롤케이크 건물 수
-rollc_lev1_C = 220  # 솔방울새 인형
-rollc_lev2_C = 220  # 도토리 램프
-rollc_lev3_C = 220  # 뻐꾹뻐꾹 시계
+rollc_lev1_C = 180  # 솔방울새 인형
+rollc_lev2_C = 180  # 도토리 램프
+rollc_lev3_C = 180  # 뻐꾹뻐꾹 시계
 rollc_lev4_C = 350  # 백조깃털 드림캐처
 
 bread_num_C = 2  # 빵집 건물 수
@@ -567,22 +567,22 @@ bread_lev5_C = 250  # 폭신 카스테라
 bread_lev6_C = 0  # 골드리치 크로와상
 
 jampy_num_C = 2  # 잼파이 건물 수
-jampy_lev1_C = 90  # 따끈따끈 젤리스튜
-jampy_lev2_C = 100  # 곰젤리 버거
-jampy_lev3_C = 100  # 캔디크림 파스타
-jampy_lev4_C = 100  # 폭신폭신 오므라이스
+jampy_lev1_C = 110  # 따끈따끈 젤리스튜
+jampy_lev2_C = 110  # 곰젤리 버거
+jampy_lev3_C = 110  # 캔디크림 파스타
+jampy_lev4_C = 110  # 폭신폭신 오므라이스
 jampy_lev5_C = 200  # 콤비네이션 피자젤리
 jampy_lev6_C = 0  # 고급스러운 젤리빈 정식
 
 doye_num_C = 2  # 토닥토닥 도예공방 건물 수
-doye_lev1_C = 250  # 비스킷 화분
-doye_lev2_C = 250  # 반짝반짝 유리판
-doye_lev3_C = 250  # 반짝이는 색동구슬
+doye_lev1_C = 150  # 비스킷 화분
+doye_lev2_C = 150  # 반짝반짝 유리판
+doye_lev3_C = 150  # 반짝이는 색동구슬
 doye_lev4_C = 300  # 무지갯빛 디저트 보울
 
 flower_num_C = 2  # 꽃가게 건물 수
-flower_lev1_C = 90  # 캔디꽃
-flower_lev2_C = 60  # 행복한 꽃화분
+flower_lev1_C = 50  # 캔디꽃
+flower_lev2_C = 50  # 행복한 꽃화분
 flower_lev3_C = 50  # 캔디꽃다발
 flower_lev4_C = 50  # 롤리팝 꽃바구니
 flower_lev5_C = 40  # 유리꽃 부케
@@ -6943,60 +6943,60 @@ def numb_new_recog(prod_pin, line, account):
                                                             else:
                                                                 print('십의 자리 숫자 확인 에러!!')
         # 1의자리 숫자 걍검색
-        num_1 = pag.locateCenterOnScreen('prod_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
+        num_1 = pag.locateCenterOnScreen('prod_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5 + 10, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
         # print('두자릿수 1자리 범위:', prod_pin[0] + 24 - pos_numb * 5 + 10, prod_pin[1] + 85 - 7 + 153 * (line - 1))
         if (num_1):
             its_number = its_number + 1
         else:
-            num_1_1 = pag.locateCenterOnScreen('prod_1_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
+            num_1_1 = pag.locateCenterOnScreen('prod_1_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5 + 10, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
             if (num_1_1):
                 its_number = its_number + 1
             else:
-                num_2 = pag.locateCenterOnScreen('prod_2.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
+                num_2 = pag.locateCenterOnScreen('prod_2.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5 + 10, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
                 if (num_2):
                     its_number = its_number + 2
                 else:
-                    num_3 = pag.locateCenterOnScreen('prod_3.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
+                    num_3 = pag.locateCenterOnScreen('prod_3.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5 + 10, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
                     if (num_3):
                         its_number = its_number + 3
                     else:
-                        num_3_1 = pag.locateCenterOnScreen('prod_3_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
+                        num_3_1 = pag.locateCenterOnScreen('prod_3_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5 + 10, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
                         if (num_3_1):
                             its_number = its_number + 3
                         else:
-                            num_4 = pag.locateCenterOnScreen('prod_4.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
+                            num_4 = pag.locateCenterOnScreen('prod_4.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5 + 10, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
                             if (num_4):
                                 its_number = its_number + 4
                             else:
-                                num_4_2 = pag.locateCenterOnScreen('prod_4_2.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
+                                num_4_2 = pag.locateCenterOnScreen('prod_4_2.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5 + 10, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
                                 if (num_4_2):
                                     its_number = its_number + 4
                                 else:
-                                    num_5 = pag.locateCenterOnScreen('prod_5.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
+                                    num_5 = pag.locateCenterOnScreen('prod_5.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5 + 10, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
                                     if (num_5):
                                         its_number = its_number + 5
                                     else:
-                                        num_6 = pag.locateCenterOnScreen('prod_6.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
+                                        num_6 = pag.locateCenterOnScreen('prod_6.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5 + 10, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
                                         if (num_6):
                                             its_number = its_number + 6
                                         else:
-                                            num_7 = pag.locateCenterOnScreen('prod_7.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
+                                            num_7 = pag.locateCenterOnScreen('prod_7.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5 + 10, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
                                             if (num_7):
                                                 its_number = its_number + 7
                                             else:
-                                                num_8 = pag.locateCenterOnScreen('prod_8.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
+                                                num_8 = pag.locateCenterOnScreen('prod_8.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5 + 10, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
                                                 if (num_8):
                                                     its_number = its_number + 8
                                                 else:
-                                                    num_8_1 = pag.locateCenterOnScreen('prod_8_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
+                                                    num_8_1 = pag.locateCenterOnScreen('prod_8_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5 + 10, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
                                                     if (num_8_1):
                                                         its_number = its_number + 8
                                                     else:
-                                                        num_9 = pag.locateCenterOnScreen('prod_9.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
+                                                        num_9 = pag.locateCenterOnScreen('prod_9.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5 + 10, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
                                                         if (num_9):
                                                             its_number = its_number + 9
                                                         else:
-                                                            num_9_1 = pag.locateCenterOnScreen('prod_9_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
+                                                            num_9_1 = pag.locateCenterOnScreen('prod_9_1.png', confidence=0.8, region=(prod_pin[0] + 24 - pos_numb * 5 + 10, prod_pin[1] + 85 - 7 + 153 * (line - 1), 10, 14))
                                                             if (num_9_1):
                                                                 its_number = its_number + 9
                                                             else:
