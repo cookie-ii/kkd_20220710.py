@@ -155,5 +155,9 @@ account = 0
 # list_numb2 = list(list_numb1)
 # print(list_numb2)
 # print((list_numb2[0][0]-14, list_numb2[0][1]+52))
-a = check_item_number(account, 'top')
-print('a:', a)
+# a = check_item_number(account, 'top')
+# print('a:', a)
+
+list_numb1 = pag.locateAllOnScreen('prod_check_point_magic.PNG', confidence=0.96, region=(560 + (account // 2) * 960, 75 + (account % 2) * 540, 105, 100))  # 마법공방 건물일때
+list_numb2 = list(list_numb1)
+print(list_numb2)
