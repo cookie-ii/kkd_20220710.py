@@ -208,58 +208,108 @@ tShort_Term_Set = 1800  # 쑛텀 생산 시간
 battle_count_fix = 4     # 전투 몇번이나 돌릴까?
 quick_production = 1     # 빠른 생산할 때 몇렙으로 돌릴까? - quick모드 때 사용
 
-# 소원나무 조건 모음
-pix_upper_void = (46, 30, 50)  # 이미지 확인공간 대기상태(아무 생산품도 클릭 안함)
-easy_prod = 0.8  # 1시간 이내 제품
-normal_prod = 0.9  # 1~2시간 제품
-hard_prod = 0.95  # 2시간 초과
+# ----------- 전체 조건 -------------
+easy_prod = 0.8                 # 1시간 이내 제품
+normal_prod = 0.9               # 1~2시간 제품
+hard_prod = 0.95                # 2시간 초과
+# 킹덤패스
+bReward = (121, 207, 16)        # 모두 받기 활성화
+pix_pass_reward_exist = (255, 0, 0)
 
-# pix_wood = (117, 59, 40)  # 나무
-# pix_jelbean = (4, 239, 237)  # 젤리빈
-# pix_sugar = (255, 255, 255)  # 설탕
-# pix_biscuit = (205, 132, 63)  # 비스킷
-# pix_berry = (187, 40, 44)  # 젤리베리
-# pix_milk = (236, 241, 241)  # 우유
-# pix_cotton = (255, 247, 255)  # 솜
-# pix_smith = (163, 118, 85)  # 도끼 스미스
-# pix_jelly = (15, 174, 202)  # 젤리빈 잼 젤리
-# pix_rollc = (214, 146, 105)  # 솔새 롤케
-# pix_bread = (142, 66, 8)  # 호밀빵 브레드
-# pix_jampy = (168, 29, 42)  # 젤리스튜 잼파이
-# pix_doye = (157, 84, 43)  # 비스킷 화분 - 도예
-# pix_flower = (255, 30, 130)  # 캔디꽃 - flower
-# pix_milky = (213, 229, 234)  # 크림 - milky
-# pix_latte = (255, 251, 238)  # 젤리빈 라떼 - latte
-# pix_dolls = (109, 235, 249)  # 쿠션 - dolls
-# pix_beer = (153, 103, 67)  # 크림루트비어 - beer
-# pix_muffin = (190, 92, 59)  # 머핀 - muffin
-# pix_jewel = (143, 99, 63)  # 글레이즈드링 - jewel
-# pix_magic = (93, 55, 48)  # 마법공방 - magic
-# pix_icecream = (254, 253, 229)  # 디즈니 아이스크림 트럭
-
-pix_wood = (117, 57, 38)  # 나무
-pix_jelbean = (1, 239, 237)  # 젤리빈
-pix_sugar = (255, 255, 255)  # 설탕
-pix_biscuit = (206, 137, 54)  # 비스킷
-pix_berry = (187, 41, 46)  # 젤리베리
-pix_milk = (232, 242, 242)  # 우유
-pix_cotton = (255, 247, 255)  # 솜
-pix_smith = (164, 116, 84)  # 도끼 스미스
-pix_jelly = (13, 172, 201)  # 젤리빈 잼 젤리
-pix_rollc = (215, 148, 105)  # 솔새 롤케
-pix_bread = (142, 66, 10)  # 호밀빵 브레드
-pix_jampy = (166, 29, 45)  # 젤리스튜 잼파이
-pix_doye =(158, 84, 42)  # 비스킷 화분 - 도예
-pix_flower = (254, 31, 132)  # 캔디꽃 - flower
-pix_milky = (214, 229, 228)  # 크림 - milky
-pix_latte = (255, 251, 239)  # 젤리빈 라떼 - latte
-pix_dolls = (109, 236, 250)  # 쿠션 - dolls
-pix_beer = (152, 103, 67)  # 크림루트비어 - beer
-pix_muffin = (192, 91, 58)  # 머핀 - muffin
-pix_jewel = (143, 99, 63)  # 글레이즈드링 - jewel
-pix_magic = (92, 55, 48)  # 마법공방 - magic
+# 건물 내부 색상
+pix_wood = (117, 57, 38)        # 나무
+pix_jelbean = (1, 239, 237)     # 젤리빈
+pix_white = (255, 255, 255)     # 설탕
+pix_biscuit = (206, 137, 54)    # 비스킷
+pix_berry = (187, 41, 46)       # 젤리베리
+pix_milk = (232, 242, 242)      # 우유
+pix_cotton = (255, 247, 255)    # 솜
+pix_smith = (164, 116, 84)      # 도끼 스미스
+pix_jelly = (13, 172, 201)      # 젤리빈 잼 젤리
+pix_rollc = (215, 148, 105)     # 솔새 롤케
+pix_bread = (142, 66, 10)        # 호밀빵 브레드
+pix_jampy = (166, 29, 45)       # 젤리스튜 잼파이
+pix_doye = (158, 84, 42)        # 비스킷 화분 - 도예
+pix_flower = (254, 31, 132)     # 캔디꽃 - flower
+pix_milky = (214, 229, 228)     # 크림 - milky
+pix_latte = (255, 251, 239)     # 젤리빈 라떼 - latte
+pix_dolls = (109, 236, 250)     # 쿠션 - dolls
+pix_beer = (152, 103, 67)       # 크림루트비어 - beer
+pix_muffin = (192, 91, 58)      # 머핀 - muffin
+pix_jewel = (143, 99, 63)       # 글레이즈드링 - jewel
+pix_magic = (92, 55, 48)        # 마법공방 - magic
 pix_icecream = (254, 253, 229)  # 디즈니 아이스크림 트럭
+pix_status_in = (227, 163, 2)   # 생산건물 내 07.31. 수정
+pix_status_in_dark = (113, 81, 1)   # 건물 안이긴 한데 창이 떠있음
+pix_status_in_magic_dark = (109, 81, 9)     # 마법공방이고 생산품 보상이 떠있음
 
+# 왕국(건물 밖)
+pix_status_out = (12, 193, 252)  # 바탕화면(왕국), 트로피컬도 동일
+pix_status_out_window = (6, 97, 124)  # 창이 떠서 어두워짐
+pix_status_out_esc = (6, 97, 126)  # 왕국.. ESC나 트로피컬 썬배드로 어두워진..
+pix_status_bal_lobby = (175, 131, 0) # 열기구 로비
+pix_status_bal_window = (127, 95, 4)  #열기구 창 떠서 어두워짐
+pix_status_kdpass = (42, 27, 19) # 킹덤패스
+pix_status_warehouse = (55, 64, 105) # 창고 뜸
+pix_status_mail = (60, 70, 105)  # 우편함
+pix_lackof1 = (243, 233, 223)  # 베이지색
+pix_status_not_prod = (0, 124, 176) # 건물 클릭했지만 생산 건물은 아님
+pix_status_cookiehouse = (9, 138, 180) # 엥 이게 다 달라?
+pix_status_lotto = (255, 208, 2)  # 뽑기, 해변교역소
+pix_status_mycookie = (95, 240, 241) #내 쿠키...으... 움직이면 틀어질텐데
+pix_status_fountain = (84, 93, 134) # 분수..
+pix_stats_kkd_start = (11, 10, 42) # 바탕화면 나갔네
+pix_status_trade = (255, 209, 2)  # 해상무역센터 로비
+pix_status_wanted = (29, 10, 12)  # 오늘의 현상수배 선택하는 곳
+pix_status_fight_comp = (168, 167, 167) # 모험 전투 후
+pix_status_fight_comp1 = (121, 98, 74)  # 모험 전투 후1
+pix_status1_tropical = (255, 98, 170)  # 트로피칼이다
+pix_status1_tropical_windowopen = (127, 49, 85)  # 트로피칼에 메뉴창 떠있다
+
+# 곰젤리열기구
+pix_status_bal_what = (85, 63, 0)
+pix_status_bal_arrive = (170, 169, 168) # 열기구 보상수령(바닥 글씨 마침표)
+pix_status_bal_lobby = (174, 130, 2) # 열기구 로비
+pix_status_ballon = (29, 36, 46) # 열기구 날아다니는 중
+pix_status_bal_window = (127, 95, 4)  #열기구 창 떠서 어두워짐
+
+# 스샷모드
+pix_clicked = (28, 39, 51)      # 클릭해서 어두워짐
+
+# 앵무 엔터 Angmu_Enter
+pix_green = (121,207,12)
+
+# 연구소 research_action
+pix_research_selected = (58, 73, 109)
+pix_green = (121, 207, 12)   # 녹색(가능)
+pix_grey = (160, 160, 160)   # 회색(불가능)
+
+# 아레나 Arena_action
+pix_medal_normal = (249, 206, 22) # 이건 왜지
+pix_medal_normal1 = (249, 205, 21) # 이건 왜지
+pix_daejun_selected = (65, 58, 56)
+pix_daejun_not_selected = (69, 78, 121)
+
+# 하트 소진 Heart_sojin
+pix_adv_dark = (74, 44, 34)  # 스토리모드 어둠모드 확인
+
+# 소원나무 sowon_jjokji_action
+pix_upper_void = (46, 30, 50) # 이미지 확인공간 대기상태(아무 생산품도 클릭 안함)
+pix_wait = (115, 224, 0) # 갱신하기 후 기다림 오른쪽 연두색>>체크인듯
+pix_wait1 = (0, 167, 255) # 갱신하기 후 기다림 왼쪽 파란색막대기둥
+pix_wait2 = (112, 222, 0) # 대기중이야..
+pix_no_reward = (33, 44, 64)        # 일일보상 아직..
+pix_yes_reward = (255, 255, 250)    # 일일보상 받아!
+
+# 그 외, 기타, 차이점, 미사용
+pix_stats_kkd_start = (11, 10, 42) # 바탕화면 나갔네
+pix_status_arena_lobby = (197, 196, 194) # 아레나 로비화면!
+pix_status_boldline_yes = (13, 16, 48)
+pix_status_temple = (177, 123, 153) # 찬란한 영웅들의 신전 대기화면, 석상화면 같음
+pix_status_temple_dark = (88, 61, 76) # 찬란한 영웅들의 신전 화면 어두워졌을 때(슬롯 확장 잘못누름)
+pix_tier_up1 = (20, 19, 18)  # 다이아 2티어
+pix_tier_up2 = (5, 4, 2)  # 마스터 5티어
+# ----------------------------------
 
 wood_min_A = 1800
 wood_max_A = 2200
@@ -1219,58 +1269,6 @@ def Heart_sojin(account, WhatToDo):
         pix_status = screen.getpixel((605 + (account // 2) * 960, 55 + (account % 2) * 540))  # 상단골드
         pix_status2 = screen.getpixel((540 + (account // 2) * 960, 510 + (account % 2) * 540))  # 마침표
 
-        pix_status_in = (227, 163, 2)  # 생산건물 내 07.31. 수정
-        pix_status_in_dark = (114, 81, 1)  # 건물 안이긴 한데 창이 떠있음
-        pix_status_in_magic_dark = (110, 81, 9)  # 건물 안이긴 한데 창이 떠있음
-        pix_status_out = (11, 194, 252)  # 바탕화면(왕국), 트로피컬도 동일
-        pix_status_out_window = (6, 97, 124)  # 창이 떠서 어두워짐
-        pix_status_out_esc = (6, 97, 126)  # 왕국.. ESC나 트로피컬 썬배드로 어두워진..
-        pix_status_sowon = (255, 206, 1)  # 소원나무, 곰젤리열차, 상점 동일
-        pix_status_ballon = (29, 36, 46)  # 열기구 날아다니는 중
-        pix_status_bal_lobby = (170, 126, 1)  # 열기구 로비
-        pix_status_bal_window = (127, 95, 4)  # 열기구 창 떠서 어두워짐
-        pix_status_adv = (11, 194, 252)  # 모험하기
-        pix_status_kdpass = (253, 253, 253)  # 킹덤패스
-        pix_status_warehouse = (55, 64, 105)  # 창고 뜸
-        pix_status_mail = (60, 70, 105)  # 우편함
-        pix_lackof1 = (243, 233, 223)  # 베이지색
-        pix_status_not_prod = (8, 134, 174)  # 건물 클릭했지만 생산 건물은 아님
-        pix_status_cookiehouse = (8, 138, 179)  # 엥 이게 다 달라?
-        pix_status_lotto = (255, 206, 1)  # 뽑기, 해변교역소
-        pix_status_mycookie = (0, 0, 0)  # 내 쿠키...으... 움직이면 틀어질텐데
-        pix_status_fountain = (84, 93, 134)  # 분수..
-        pix_stats_kkd_start = (11, 10, 42)  # 바탕화면 나갔네
-        pix_status_trade = (255, 206, 2)  # 해상무역센터 로비
-        pix_status_wanted = (29, 10, 12)  # 오늘의 현상수배 선택하는 곳
-        pix_status_fight_comp = (168, 167, 167)  # 모험 전투 후
-        pix_status_fight_comp1 = (121, 98, 74)  # 모험 전투 후1
-        #
-        # # pix_status_in = (194, 144, 10)  # 생산건물 내
-        # pix_status_in = (227, 163, 2)  # 아이스크림 생산건물 내
-        # pix_status_in_dark = (97, 72, 5)  # 건물 안이긴 한데 창이 떠있음
-        # pix_status_out = (0, 181, 255)  # 바탕화면(왕국), 트로피컬도 동일
-        # pix_status_out_window = (0, 64, 91)  # 창이 떠서 어두워짐
-        # pix_status_out_esc = (0, 90, 127)  # 왕국.. ESC나 트로피컬 썬배드로 어두워진..
-        # pix_status_sowon = (239, 171, 2)  # 소원나무, 곰젤리열차, 상점 동일
-        # pix_status_ballon = (29, 36, 46)  # 열기구 날아다니는 중
-        # pix_status_bal_lobby = (170, 126, 1)  # 열기구 로비
-        # pix_status_bal_window = (127, 95, 4)  # 열기구 창 떠서 어두워짐
-        # pix_status_adv = (0, 181, 255)  # 모험하기
-        # pix_status_kdpass = (42, 27, 19)  # 킹덤패스
-        # pix_status_warehouse = (55, 64, 105)  # 창고 뜸
-        # pix_status_mail = (60, 70, 105)  # 우편함
-        # pix_lackof1 = (243, 233, 223)  # 베이지색
-        # pix_status_not_prod = (0, 124, 176)  # 건물 클릭했지만 생산 건물은 아님
-        # pix_status_cookiehouse = (0, 129, 182)  # 엥 이게 다 달라?
-        # pix_status_lotto = (255, 189, 8)  # 뽑기, 해변교역소
-        # pix_status_mycookie = (0, 0, 0)  # 내 쿠키...으... 움직이면 틀어질텐데
-        # pix_status_fountain = (84, 93, 134)  # 분수..
-        # pix_stats_kkd_start = (11, 10, 42)  # 바탕화면 나갔네
-        # pix_status_trade = (255, 216, 2)  # 해상무역센터 로비
-        # pix_status_wanted = (29, 10, 12)  # 오늘의 현상수배 선택하는 곳
-        # pix_status_fight_comp = (168, 167, 167)  # 모험 전투 후
-        # pix_status_fight_comp1 = (121, 98, 74)  # 모험 전투 후1
-
         # cond_adv_dark_mode = pag.locateCenterOnScreen('cond_adv_dark_mode.png', confidence=0.9, region=(200,60+account*540,30,17))  # 어둠모드 입니까?
         cond_adv_mode_select = pag.locateCenterOnScreen('cond_adv_mode_select.png', confidence=0.85, region=(12 + (account // 2) * 960, 38 + (account % 2) * 540, 37, 36))  # Play버튼 누른 후 모험하기 창
         adv_normal = pag.locateCenterOnScreen('adv_normal.png', confidence=0.85, region=(232 + (account // 2) * 960, 53 + (account % 2) * 540, 35, 19))  # 에피소드에서 좌상단 일반/어둠 선택 확인하기
@@ -2013,58 +2011,6 @@ def Today_wanted(account, WhatToDo):
         pix_status = screen.getpixel((605 + (account // 2) * 960, 55 + (account % 2) * 540))  # 상단골드
         pix_status2 = screen.getpixel((540 + (account // 2) * 960, 510 + (account % 2) * 540))  # 마침표
 
-        pix_status_in = (227, 163, 2)  # 생산건물 내 07.31. 수정
-        pix_status_in_dark = (114, 81, 1)  # 건물 안이긴 한데 창이 떠있음
-        pix_status_in_magic_dark = (110, 81, 9)  # 건물 안이긴 한데 창이 떠있음
-        pix_status_out = (11, 194, 252)  # 바탕화면(왕국), 트로피컬도 동일
-        pix_status_out_window = (6, 97, 124)  # 창이 떠서 어두워짐
-        pix_status_out_esc = (6, 97, 126)  # 왕국.. ESC나 트로피컬 썬배드로 어두워진..
-        pix_status_sowon = (255, 206, 1)  # 소원나무, 곰젤리열차, 상점 동일
-        pix_status_ballon = (29, 36, 46)  # 열기구 날아다니는 중
-        pix_status_bal_lobby = (170, 126, 1)  # 열기구 로비
-        pix_status_bal_window = (127, 95, 4)  # 열기구 창 떠서 어두워짐
-        pix_status_adv = (11, 194, 252)  # 모험하기
-        pix_status_kdpass = (253, 253, 253)  # 킹덤패스
-        pix_status_warehouse = (55, 64, 105)  # 창고 뜸
-        pix_status_mail = (60, 70, 105)  # 우편함
-        pix_lackof1 = (243, 233, 223)  # 베이지색
-        pix_status_not_prod = (8, 134, 174)  # 건물 클릭했지만 생산 건물은 아님
-        pix_status_cookiehouse = (8, 138, 179)  # 엥 이게 다 달라?
-        pix_status_lotto = (255, 206, 1)  # 뽑기, 해변교역소
-        pix_status_mycookie = (0, 0, 0)  # 내 쿠키...으... 움직이면 틀어질텐데
-        pix_status_fountain = (84, 93, 134)  # 분수..
-        pix_stats_kkd_start = (11, 10, 42)  # 바탕화면 나갔네
-        pix_status_trade = (255, 206, 2)  # 해상무역센터 로비
-        pix_status_wanted = (29, 10, 12)  # 오늘의 현상수배 선택하는 곳
-        pix_status_fight_comp = (168, 167, 167)  # 모험 전투 후
-        pix_status_fight_comp1 = (121, 98, 74)  # 모험 전투 후1
-
-        # # pix_status_in = (194, 143, 10)  # 생산건물 내
-        # pix_status_in = (227, 163, 2) # 생산건물 내 07.31. 수정
-        # pix_status_in_dark = (97, 71, 5)  # 건물 안이긴 한데 창이 떠있음
-        # pix_status_out = (0, 181, 255)  # 바탕화면(왕국), 트로피컬도 동일
-        # pix_status_out_window = (0, 64, 91)  # 창이 떠서 어두워짐
-        # pix_status_out_esc = (0, 90, 127)  # 왕국.. ESC나 트로피컬 썬배드로 어두워진..
-        # pix_status_sowon = (239, 171, 2)  # 소원나무, 곰젤리열차, 상점, 쿠하까지 동일
-        # pix_status_ballon = (64, 55, 45)  # 열기구 날아다니는 중
-        # pix_status_bal_lobby = (170, 126, 1)  # 열기구 로비
-        # pix_status_bal_window = (127, 95, 4)  # 열기구 창 떠서 어두워짐
-        # pix_status_adv = (0, 181, 255)  # 모험하기
-        # pix_status_kdpass = (42, 27, 19)  # 킹덤패스
-        # pix_status_warehouse = (55, 64, 105)  # 창고 뜸
-        # pix_status_mail = (60, 70, 105)  # 우편함
-        # pix_lackof1 = (243, 233, 223)  # 베이지색
-        # pix_status_not_prod = (0, 124, 176)  # 건물 클릭했지만 생산 건물은 아님
-        # pix_status_cookiehouse = (0, 129, 182)  # 엥 이게 다 달라?
-        # pix_status_lotto = (255, 189, 8)  # 뽑기, 해변교역소
-        # pix_status_mycookie = (110, 18, 33)  # 내 쿠키...으... 움직이면 틀어질텐데
-        # pix_status_fountain = (84, 93, 134)  # 분수..
-        # pix_stats_kkd_start = (11, 10, 44)  # 바탕화면 나갔네
-        # pix_status_trade = (255, 215, 3)  # 해상무역센터 로비
-        # pix_status_wanted = (29, 10, 12)  # 오늘의 현상수배 선택하는 곳
-        # pix_status_fight_comp = (168, 167, 167)  # 모험 전투 후
-        # pix_status_fight_comp1 = (78, 25, 21)  # 모험 전투 후1
-
         # if not bWanted_fight_started:   # 전투시작 후에는 cond_end_fight1,2,3 조건만 볼거니깐...
         cond_ready_fight = pag.locateCenterOnScreen('Cond_wanted_ready_fignt.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 전투준비 버튼
         cond_start_fight = pag.locateCenterOnScreen('Cond_wanted_start_fignt.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 전투시작 버튼
@@ -2073,7 +2019,8 @@ def Today_wanted(account, WhatToDo):
         cond_end_fight1 = pag.locateCenterOnScreen('Cond_wanted_go_kingdom.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 왕국가기 버튼
         cond_end_fight2 = pag.locateCenterOnScreen('Cond_wanted_refignt.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 다시하기 버튼
         cond_end_fight3 = pag.locateCenterOnScreen('Cond_wanted_go_out.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 나가기 버튼
-
+        cond_adv_mode_select = pag.locateCenterOnScreen('cond_adv_mode_select.png', confidence=0.85, region=(12 + (account // 2) * 960,38 + (account % 2) * 540,37,36))  # Play버튼 누른 후 모험하기 창
+        
         # 입장화면 스킬 파우더 확인
         cond_wanted_all = pag.locateCenterOnScreen('cond_wanted_all.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 주일, 전체
 
@@ -2096,7 +2043,7 @@ def Today_wanted(account, WhatToDo):
             pag.click(random.randint(730 + (account // 2) * 960, 785 + (account // 2) * 960), random.randint(470 + (account % 2) * 540, 525 + (account % 2) * 540))
             time.sleep(3)
 
-        if pix_status == pix_status_adv:  # 모험하기 화면이면 현상수배 찾기
+        if (cond_adv_mode_select):  # 모험하기 화면이면 현상수배 찾기
             cond_wanted = pag.locateCenterOnScreen('cond_wanted.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
             if (cond_wanted):
                 print('현상수배 있으니 들어가자!')
@@ -2463,7 +2410,6 @@ def Wood_to_Cotton(account, Min_number, Max_number, Making_Level, prod_direction
         print('최대수량 : 생산하지 않고 넘어갑니다.')
         screen = ImageGrab.grab()
         pix_lackof = screen.getpixel((545 + (account // 2) * 960, 745 - 540 + (account % 2) * 540))  # 재료부족창?
-        pix_lackof1 = (243, 233, 223)  # 베이지색
         if pix_lackof != pix_lackof1:
             pag.click(164 + (account // 2) * 960, 280 + (account % 2) * 540)
             time.sleep(0.5)
@@ -3411,7 +3357,6 @@ def jjokji_check(pos, account):
         time.sleep(0.5)
 
     jokji1_ok = True
-    pix_upper_void = (46, 30, 50)  # 이미지 확인공간 대기상태(아무 생산품도 클릭 안함)
     # 우하 확인
     time.sleep(1)
     pag.click(236 + 54 + (pos - 1) * 165 + (account // 2) * 960, 317 + 54 + (account % 2) * 540)
@@ -3567,9 +3512,6 @@ def Sowon_jjokji_action(jjokji_numb, account, jjokji_limit):
                     else:
                         screen = ImageGrab.grab()
                         pix_status = screen.getpixel((605 + (account // 2) * 960, 55 + (account % 2) * 540))  # 상단골드
-                        # pix_status_in = (194, 143, 10)  # 생산건물 내
-                        pix_status_in = (227, 163, 2)  # 생산건물 내 07.31. 수정
-                        pix_status_in_dark = (97, 72, 5)  # 건물 안이긴 한데 창이 떠있음
                         if (pix_status == pix_status_in) or (pix_status == pix_status_in_dark):
                             Kingdom_ready(account, 'kkd_out')
                         else:
@@ -3624,31 +3566,10 @@ def Sowon_jjokji_action(jjokji_numb, account, jjokji_limit):
             screen = ImageGrab.grab()
             pix_status = screen.getpixel((460 + (account // 2) * 960, 90 + (account % 2) * 540))  # 소원나무 확인 뽀인트
             pix_reward = screen.getpixel((39 + (account // 2) * 960, 340 + (account % 2) * 540))  # 소원나무 일일보상 칸 좌상단
-            pix_upper_void = (46, 30, 50)  # 이미지 확인공간 대기상태(아무 생산품도 클릭 안함)
-            pix_give = (121, 207, 12)  # 건네주기(쪽지 열려 있음)
-            pix_wait1 = (0, 167, 255)    # 갱신하기 후 기다림 왼쪽 파란색막대기둥
-            pix_wait2 = (112, 222, 0)   # 대기중이야..
-            # pix_wait2 = (37, 33, 23)
-            pix_wait = (115, 224, 0)  # 갱신하기 후 기다림 오른쪽 연두색>>체크인듯
-            pix_no_reward = (33, 44, 64)  # 일일보상 대기상태
-            # pix_yes_reward = (255, 255, 251)  # 일일보상 뜸
-            pix_yes_reward = (255, 255, 255)  # 일일보상 뜸
             pix_jokji1 = screen.getpixel((265 + (account // 2) * 960, 450 + (account % 2) * 540))  # 쪽지1
             pix_jokji2 = screen.getpixel((427 + (account // 2) * 960, 450 + (account % 2) * 540))  # 쪽지2
             pix_jokji3 = screen.getpixel((589 + (account // 2) * 960, 450 + (account % 2) * 540))  # 쪽지3
             pix_jokji4 = screen.getpixel((751 + (account // 2) * 960, 450 + (account % 2) * 540))  # 쪽지4
-            # pix_jokji1_wait = screen.getpixel((705 + 85 - 165 * 3 + (account // 2) * 960, 224 + (account % 2) * 540))  # 쪽지1
-            # pix_jokji2_wait = screen.getpixel((705 + 85 - 165 * 2 + (account // 2) * 960, 225 + (account % 2) * 540))  # 쪽지2
-            # pix_jokji3_wait = screen.getpixel((705 + 85 - 165 * 1 + (account // 2) * 960, 225 + (account % 2) * 540))  # 쪽지3
-            # pix_jokji4_wait = screen.getpixel((705 + 85 + (account // 2) * 960, 225 + (account % 2) * 540))  # 쪽지4
-            # pix_jokji1_wait = pag.locateCenterOnScreen('pix_jjokji_waiting.png', confidence=0.8, region=(283 + 165 * 0 + (account // 2) * 960, 205 + (account % 2) * 540, 48, 39))
-            # pix_jokji2_wait = pag.locateCenterOnScreen('pix_jjokji_waiting.png', confidence=0.8, region=(283 + 165 * 1 + (account // 2) * 960, 205 + (account % 2) * 540, 48, 39))
-            # pix_jokji3_wait = pag.locateCenterOnScreen('pix_jjokji_waiting.png', confidence=0.8, region=(283 + 165 * 2 + (account // 2) * 960, 205 + (account % 2) * 540, 48, 39))
-            # pix_jokji4_wait = pag.locateCenterOnScreen('pix_jjokji_waiting.png', confidence=0.8, region=(283 + 165 * 3 + (account // 2) * 960, 205 + (account % 2) * 540, 48, 39))
-            # pix_jokji1_wait = screen.getpixel((705-165*3 + (account // 2) * 960,225+account*540)) # 쪽지1
-            # pix_jokji2_wait = screen.getpixel((705-165*2 + (account // 2) * 960,225+account*540)) # 쪽지2
-            # pix_jokji3_wait = screen.getpixel((705-165*1 + (account // 2) * 960,225+account*540)) # 쪽지3
-            # pix_jokji4_wait = screen.getpixel((705 + (account // 2) * 960,225+account*540)) # 쪽지4
             pix_jokji1_wait = screen.getpixel((705 + 85 - 165 * 3 + (account // 2) * 960, 224 + (account%2) * 540))  # 쪽지1
             pix_jokji2_wait = screen.getpixel((705 + 85 - 165 * 2 + (account // 2) * 960, 225 + (account%2) * 540))  # 쪽지2
             pix_jokji3_wait = screen.getpixel((705 + 85 - 165 * 1 + (account // 2) * 960, 225 + (account%2) * 540))  # 쪽지3
@@ -3702,9 +3623,6 @@ def Sowon_jjokji_action(jjokji_numb, account, jjokji_limit):
                         else:
                             screen = ImageGrab.grab()
                             pix_status = screen.getpixel((605 + (account // 2) * 960, 55 + (account % 2) * 540))  # 상단골드
-                            # pix_status_in = (194, 143, 10)  # 생산건물 내
-                            pix_status_in = (227, 163, 2)  # 생산건물 내 07.31. 수정
-                            pix_status_in_dark = (97, 72, 5)  # 건물 안이긴 한데 창이 떠있음
                             if (pix_status == pix_status_in) or (pix_status == pix_status_in_dark):
                                 Kingdom_ready(account, 'kkd_out')
                             else:
@@ -3716,7 +3634,7 @@ def Sowon_jjokji_action(jjokji_numb, account, jjokji_limit):
             # 실질적으로 쪽지 보내기
             if pix_status == pix_upper_void:
                 print('아이템 확인 대기 상태')
-                if pix_jokji1 == pix_give:
+                if pix_jokji1 == pix_green:
                     print('쪽지 1 열려있다')
                     if jjokji_check(1, account):
                         wait_jjokji1 = True
@@ -3739,7 +3657,7 @@ def Sowon_jjokji_action(jjokji_numb, account, jjokji_limit):
                             pag.click(190 + 75 + (account // 2) * 960, 260 + (account % 2) * 540)
                             time.sleep(0.5)
                             print('뭘까??????????????????', pix_jokji1_wait)
-                if pix_jokji2 == pix_give:
+                if pix_jokji2 == pix_green:
                     print('쪽지 2 열려있다')
                     if jjokji_check(2, account):
                         wait_jjokji2 = True
@@ -3761,7 +3679,7 @@ def Sowon_jjokji_action(jjokji_numb, account, jjokji_limit):
                             pag.click(190 + 75 + 165 * 1 + (account // 2) * 960, 260 + (account % 2) * 540)
                             time.sleep(0.5)
                             print('뭘까??????????????????', pix_jokji2_wait)
-                if pix_jokji3 == pix_give:
+                if pix_jokji3 == pix_green:
                     print('쪽지 3 열려있다')
                     if jjokji_check(3, account):
                         wait_jjokji3 = True
@@ -3783,7 +3701,7 @@ def Sowon_jjokji_action(jjokji_numb, account, jjokji_limit):
                             pag.click(190 + 75 + 165 * 2 + (account // 2) * 960, 260 + (account % 2) * 540)
                             time.sleep(0.5)
                             print('뭘까??????????????????', pix_jokji3_wait)
-                if pix_jokji4 == pix_give:
+                if pix_jokji4 == pix_green:
                     print('쪽지 4 열려있다')
                     if jjokji_check(4, account):
                         wait_jjokji4 = True
@@ -4032,12 +3950,6 @@ def Ballon_send(account):
             cond_kkd_balloon_ing = pag.locateCenterOnScreen('cond_kkd_balloon_ing.png', confidence=0.85, region=(364 + (account // 2) * 960, 85 + (account % 2) * 540, 28, 37))  # 열기구 날아다니는 중
             cond_balloon_arrive = pag.locateCenterOnScreen('cond_balloon_arrive.png', confidence=0.96, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 열기구 도착 화면
             cond_balloon_lack_heart = pag.locateCenterOnScreen('cond_balloon_lack_heart.png', confidence=0.9, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 부족!
-            pix_status_bal_what = (85, 63, 0)
-            pix_status_bal_arrive = (170, 169, 168)  # 열기구 보상수령(바닥 글씨 마침표)
-            # pix_status_bal_lobby = (170, 126, 1)  # 열기구 로비
-            pix_status_bal_lobby = (175, 131, 0)  # 열기구 로비
-            pix_status_ballon = (29, 36, 46)  # 열기구 날아다니는 중
-            pix_status_bal_window = (127, 95, 4)  # 열기구 창 떠서 어두워짐
 
             if (pix_status == pix_status_bal_window) or (cond_balloon_lack_heart) or (pix_status == pix_status_bal_what):
                 print('젤리고기 부족..')
@@ -4121,40 +4033,7 @@ def Kingdom_ready(account, whereto):  # 특정 위치 확인
             pix_status2 = screen.getpixel((540 + (account // 2) * 960, 510 + (account % 2) * 540))  # 마침표
             pix_status_boldline1 =screen.getpixel((10 + (account // 2) * 960, 40 + (account % 2) * 540))  # 테두리가 두꺼워졌어요!1
             pix_status_boldline2 = screen.getpixel((10 + (account // 2) * 960, 538 + (account % 2) * 540))  # 테두리가 두꺼워졌어요!2
-            pix_status_boldline_yes = (13, 16, 48)
-
-            pix_status_in = (227, 163, 2)  # 생산건물 내 07.31. 수정
-            pix_status_in_dark = (114,81,1)  # 건물 안이긴 한데 창이 떠있음
-            pix_status_in_magic_dark = (110, 81, 9)  # 건물 안이긴 한데 창이 떠있음
-            pix_status_out = (11, 194, 252)  # 바탕화면(왕국), 트로피컬도 동일
-            pix_status_out_window = (6, 97, 124)  # 창이 떠서 어두워짐
-            pix_status_out_esc = (6, 97, 126)  # 왕국.. ESC나 트로피컬 썬배드로 어두워진..
-            pix_status_sowon = (255, 206, 1)  # 소원나무, 곰젤리열차, 상점 동일
-            pix_status_ballon = (29, 36, 46)  # 열기구 날아다니는 중
-            pix_status_bal_lobby = (170, 126, 1)  # 열기구 로비
-            pix_status_bal_window = (127, 95, 4)  # 열기구 창 떠서 어두워짐
-            # pix_status_adv = (11, 194, 252)  # 모험하기
-            pix_status_kdpass = (253, 253, 253)  # 킹덤패스
-            pix_status_warehouse = (55, 64, 105)  # 창고 뜸
-            pix_status_mail = (60, 70, 105)  # 우편함
-            pix_lackof1 = (243, 233, 223)  # 베이지색
-            pix_status_not_prod = (8, 134, 174)  # 건물 클릭했지만 생산 건물은 아님
-            pix_status_cookiehouse = (8, 138, 179)  # 엥 이게 다 달라?
-            pix_status_lotto = (255, 206, 1)  # 뽑기, 해변교역소
-            pix_status_mycookie = (0, 0, 0)  # 내 쿠키...으... 움직이면 틀어질텐데
-            pix_status_fountain = (84, 93, 134)  # 분수..
-            pix_stats_kkd_start = (11, 10, 42)  # 바탕화면 나갔네
-            pix_status_trade = (255, 206, 2)  # 해상무역센터 로비
-            pix_status_wanted = (29, 10, 12)  # 오늘의 현상수배 선택하는 곳
-            pix_status_fight_comp = (168, 167, 167)  # 모험 전투 후
-            pix_status_fight_comp1 = (121, 98, 74)  # 모험 전투 후1
-            pix_status_temple = (177, 123, 153) # 찬란한 영웅들의 신전 대기화면, 석상화면 같음
-            pix_status_temple_dark = (88, 61, 76) # 찬란한 영웅들의 신전 화면 어두워졌을 때(슬롯 확장 잘못누름)
-            pix_status_arena_lobby = (197, 196, 194)  # 아레나 로비화면!
-
             pix_status_scr1 = screen.getpixel((65 + (account // 2) * 960, 505 + (account % 2) * 540))  # = 왼쪽아래 건설하기 아이콘쪽
-            pix_status1_tropical = (255, 98, 170)  # 트로피칼이다
-            pix_status1_tropical_windowopen = (127, 49, 85)  # 트로피칼에 메뉴창 떠있다
 
             # 220203 추가 - 이미지 확인방식 추가(업뎃 후 픽셀값 변경...)
             cond_kkd_out = pag.locateCenterOnScreen('cond_kkd_out.png', confidence=0.85, region=(825 + (account // 2) * 960, 490 + (account % 2) * 540, 45, 40))  # 쿠키왕국
@@ -4872,7 +4751,6 @@ def Tropical_Event(account):
             screen = ImageGrab.grab()
             pix_status = screen.getpixel((605 + (account // 2) * 960, 55 + (account % 2) * 540))  # 상단골드
             pix_status2 = screen.getpixel((540 + (account // 2) * 960, 510 + (account % 2) * 540))  # 마침표
-            pix_status_out = (0, 181, 255)  # 바탕화면(왕국), 트로피컬도 동일
             cond_adv_mode_select = pag.locateCenterOnScreen('cond_adv_mode_select.png', confidence=0.85, region=(12 + (account // 2) * 960, 38 + (account % 2) * 540, 37, 36))  # Play버튼 누른 후 모험하기 창
             cond_kkd_out = pag.locateCenterOnScreen('cond_kkd_out.png', confidence=0.85, region=(825 + (account // 2) * 960, 490 + (account % 2) * 540, 45, 40))  # 쿠키왕국
             cond_adv_tro_mode = pag.locateCenterOnScreen('cond_adv_tro_mode.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 트로피컬 소다제도의 '도'
@@ -4954,60 +4832,6 @@ def Tropical_Fight(account):
             pix_status = screen.getpixel((605 + (account // 2) * 960, 55 + (account % 2) * 540))  # 상단골드
             pix_status_scr = screen.getpixel((910 + (account // 2) * 960, 55 + (account % 2) * 540))  # = 미세 오른쪽
             pix_status2 = screen.getpixel((540 + (account // 2) * 960, 510 + (account % 2) * 540))  # 마침표
-
-            pix_status_in = (227, 163, 2)  # 생산건물 내 07.31. 수정
-            pix_status_in_dark = (114,81,1)  # 건물 안이긴 한데 창이 떠있음
-            pix_status_in_magic_dark = (110, 81, 9)  # 건물 안이긴 한데 창이 떠있음
-            pix_status_out = (11, 194, 252)  # 바탕화면(왕국), 트로피컬도 동일
-            pix_status_out_window = (6, 97, 124)  # 창이 떠서 어두워짐
-            pix_status_out_esc = (6, 97, 126)  # 왕국.. ESC나 트로피컬 썬배드로 어두워진..
-            pix_status_sowon = (255, 206, 1)  # 소원나무, 곰젤리열차, 상점 동일
-            pix_status_ballon = (29, 36, 46)  # 열기구 날아다니는 중
-            pix_status_bal_lobby = (170, 126, 1)  # 열기구 로비
-            pix_status_bal_window = (127, 95, 4)  # 열기구 창 떠서 어두워짐
-            pix_status_adv = (11, 194, 252)  # 모험하기
-            pix_status_kdpass = (253, 253, 253)  # 킹덤패스
-            pix_status_warehouse = (55, 64, 105)  # 창고 뜸
-            pix_status_mail = (60, 70, 105)  # 우편함
-            pix_lackof1 = (243, 233, 223)  # 베이지색
-            pix_status_not_prod = (8, 134, 174)  # 건물 클릭했지만 생산 건물은 아님
-            pix_status_cookiehouse = (8, 138, 179)  # 엥 이게 다 달라?
-            pix_status_lotto = (255, 206, 1)  # 뽑기, 해변교역소
-            pix_status_mycookie = (0, 0, 0)  # 내 쿠키...으... 움직이면 틀어질텐데
-            pix_status_fountain = (84, 93, 134)  # 분수..
-            pix_stats_kkd_start = (11, 10, 42)  # 바탕화면 나갔네
-            pix_status_trade = (255, 206, 2)  # 해상무역센터 로비
-            pix_status_wanted = (29, 10, 12)  # 오늘의 현상수배 선택하는 곳
-            pix_status_fight_comp = (168, 167, 167)  # 모험 전투 후
-            pix_status_fight_comp1 = (121, 98, 74)  # 모험 전투 후1
-            #
-            # # pix_status_in = (194, 143, 10)  # 생산건물 내
-            # pix_status_in = (227, 163, 2)  # 생산건물 내 07.31. 수정
-            # pix_status_in_dark = (97, 72, 5)  # 건물 안이긴 한데 창이 떠있음
-            # pix_status_out = (0, 181, 255)  # 바탕화면(왕국), 트로피컬도 동일
-            # # pix_status_out_window = (0, 64, 91)   # 창이 떠서 어두워짐
-            # pix_status_out_window = (6, 97, 124)  # 창이 떠서 어두워짐
-            # pix_status_out_esc = (0, 90, 127)  # 왕국.. ESC나 트로피컬 썬배드로 어두워진..
-            # pix_status_sowon = (239, 171, 2)  # 소원나무, 곰젤리열차, 상점 동일
-            # pix_status_ballon = (29, 36, 46)  # 열기구 날아다니는 중
-            # pix_status_bal_lobby = (170, 126, 1)  # 열기구 로비
-            # pix_status_bal_window = (127, 95, 4)  # 열기구 창 떠서 어두워짐
-            # pix_status_adv = (14, 167, 251)  # 모험하기
-            # pix_status_kdpass = (42, 27, 19)  # 킹덤패스
-            # pix_status_warehouse = (55, 64, 105)  # 창고 뜸
-            # pix_status_mail = (60, 70, 105)  # 우편함
-            # pix_lackof1 = (243, 233, 223)  # 베이지색
-            # pix_status_not_prod = (0, 124, 176)  # 건물 클릭했지만 생산 건물은 아님
-            # pix_status_cookiehouse = (0, 129, 182)  # 엥 이게 다 달라?
-            # pix_status_lotto = (255, 189, 8)  # 뽑기, 해변교역소
-            # pix_status_mycookie = (0, 0, 0)  # 내 쿠키...으... 움직이면 틀어질텐데
-            # pix_status_fountain = (84, 93, 134)  # 분수..
-            # pix_stats_kkd_start = (11, 10, 42)  # 바탕화면 나갔네
-            # pix_status_trade = (255, 216, 2)  # 해상무역센터 로비
-            # pix_status_wanted = (29, 10, 12)  # 오늘의 현상수배 선택하는 곳
-            # pix_status_fight_comp = (168, 167, 167)  # 모험 전투 후
-            # pix_status_fight_comp1 = (121, 98, 74)  # 모험 전투 후1
-
             cond_kkd_tro = pag.locateCenterOnScreen('cond_kkd_tro.png', confidence=0.85, region=(18 + (account // 2) * 960, 448 + (account % 2) * 540, 45, 40))  # 트로피칼(좌하단 파라솔 꽃)
             Cond_tropical_knife = pag.locateCenterOnScreen('Cond_tropical_knife.png', confidence=0.8, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 트로피칼 재점령당한 칼모양
             # Cond_tropical_knife_new = pag.locateCenterOnScreen('Cond_tropical_knife_new.png', confidence=0.8, region=(2,32+account*540,917,505))    # 트로피칼 재점령당한 칼모양
@@ -5127,8 +4951,6 @@ def Enter_Screenshot_mode(account, left_where):
                 break
             screen = ImageGrab.grab()
             pix_status_scr = screen.getpixel((910 + (account // 2) * 960, 55 + (account % 2) * 540))  # = 미세 오른쪽
-            pix_clicked = (28, 39, 51)  # 클릭해서 어두워짐
-
             screen_mode_clicked = pag.locateCenterOnScreen('screen_mode_clicked.png', confidence=0.95, region=(876 + (account // 2) * 960, 42 + (account % 2) * 540, 27, 26))
             screen_mode_not_clicked = pag.locateCenterOnScreen('screen_mode_not_clicked.png', confidence=0.95, region=(874 + (account // 2) * 960, 43 + (account % 2) * 540, 27, 25))
             # 876->874
@@ -5654,7 +5476,6 @@ def Angmu_Enter(account, whereto):
             Cond_fountain = pag.locateCenterOnScreen('Cond_fountain.png', confidence=0.9, region=(512 + (account // 2) * 960, 63 + (account % 2) * 540, 44, 30))
             screen = ImageGrab.grab()
             pix_prod = screen.getpixel((630 + (account // 2) * 960, 470 + (account % 2) * 540))  # 보상 수령 가능여부
-            pix_green = (121, 207, 12)
             if (Cond_fountain):       # 분수 보상 받으러 들어가볼까?
                 if (pix_prod == pix_green):    # 분수 보상...?
                     pag.click(random.randint(655 - 25, 655 + 25) + (account // 2) * 960, random.randint(465 - 5, 465 + 5) + (account % 2) * 540)
@@ -6372,6 +6193,9 @@ def Angmu_Aft_Refresh(account):
                     time.sleep(2)
                 # Angmu_Action('trade_tro_1', trade_tro_1)
                 # Angmu_Action('trade_tro_2', trade_tro_2)
+                
+                Angmu_Action_condition((543 + (account // 2) * 960,338 + (account % 2) * 540),account)
+                Angmu_Action_condition((700 + (account // 2) * 960,338 + (account % 2) * 540),account)
 
             # 드래그는 음 조건 봐서 하 이거 맘에 안드는데 바꾸기 기찬...
             if Scroll_count >= 5:
@@ -6739,8 +6563,6 @@ def Kpass_reward(account):
     try:
         screen = ImageGrab.grab()
         pix_pass_reward = screen.getpixel((901 + (account // 2) * 960, 138 + (account % 2) * 540))  # 패스 보상
-        # pix_pass_reward_exist = (254, 0, 0)
-        pix_pass_reward_exist = (255, 0, 0)
         if pix_pass_reward == pix_pass_reward_exist:
             pag.click(870 + (account // 2) * 960, 155 + (account % 2) * 540)
             time.sleep(1)
@@ -6783,22 +6605,20 @@ def Kpass_reward(account):
             pix_kpass2 = screen.getpixel((16 + 143 + (account // 2) * 960, 101 + (account % 2) * 540))  # 시즌 미션
             pix_kpass3 = screen.getpixel((16 - 1 + 143 * 2 + (account // 2) * 960, 101 + (account % 2) * 540))  # 시즌 보상
             pix_reward = screen.getpixel((770 + (account // 2) * 960, 520 + (account % 2) * 540))  # 모두 받기
-            bSelected = (255, 255, 255)  # 어느 탭인지 확인
-            bReward = (121, 207, 16)  # 모두 받기 활성화
-            if pix_kpass1 == bSelected:  # 데일리 미션
+            if pix_kpass1 == pix_white:  # 데일리 미션
                 if pix_reward == bReward:
                     pag.click(random.randint(786, 786 + 80) + (account // 2) * 960, random.randint(506, 506 + 26) + (account % 2) * 540)
                     time.sleep(0.5)
                 else:
                     bPass1 = True
 
-            if pix_kpass2 == bSelected:  # 시즌 미션
+            if pix_kpass2 == pix_white:  # 시즌 미션
                 if pix_reward == bReward:
                     pag.click(random.randint(786, 786 + 80) + (account // 2) * 960, random.randint(506, 506 + 26) + (account % 2) * 540)
                     time.sleep(0.5)
                 else:
                     bPass2 = True
-            if pix_kpass3 == bSelected:  # 시즌 보상
+            if pix_kpass3 == pix_white:  # 시즌 보상
                 if pix_reward == bReward:
                     pag.click(random.randint(786, 786 + 80) + (account // 2) * 960, random.randint(506, 506 + 26) + (account % 2) * 540)
                     time.sleep(0.5)
@@ -7497,7 +7317,6 @@ def research_action1(account, what_research):
         if what_research == 'C':
             screen = ImageGrab.grab()
             pix_research_cookie = screen.getpixel((500 + (account // 2) * 960, 515 + (account % 2) * 540))  # 쿠키 연구
-            pix_research_selected = (58, 73, 109)
             if pix_research_cookie == pix_research_selected:
                 print('쿠키 연구 선택됨!')
                 break
@@ -7578,7 +7397,6 @@ def research_action(account, what_research, where_to):
         if what_research == 'C':
             screen = ImageGrab.grab()
             pix_research_cookie = screen.getpixel((500 + (account // 2) * 960, 515 + (account % 2) * 540))  # 쿠키 연구
-            pix_research_selected = (58, 73, 109)
             if pix_research_cookie == pix_research_selected:
                 print('쿠키 연구 선택됨!')
                 # where_to 숫자 변환
@@ -7994,8 +7812,6 @@ def research_action(account, what_research, where_to):
 
     screen = ImageGrab.grab()
     pix_research_ok_check = screen.getpixel((500 + (account // 2) * 960, 465 + (account % 2) * 540))  # 연구 가능
-    pix_green = (121, 207, 12)  # 녹색(가능)
-    pix_grey = (160, 160, 160)  # 회색(불가능)
 
     if pix_research_ok_check == pix_green:
         pag.click(500 + (account // 2) * 960, 465 + (account % 2) * 540)
@@ -8025,7 +7841,6 @@ def Arena_Event(account):
             screen = ImageGrab.grab()
             pix_status = screen.getpixel((605 + (account // 2) * 960, 55 + (account % 2) * 540))  # 상단골드
             pix_status2 = screen.getpixel((540 + (account // 2) * 960, 510 + (account % 2) * 540))  # 마침표
-            pix_status_out = (0, 181, 255)  # 바탕화면(왕국), 트로피컬도 동일
             cond_adv_mode_select = pag.locateCenterOnScreen('cond_adv_mode_select.png', confidence=0.85, region=(12 + (account // 2) * 960, 38 + (account % 2) * 540, 37, 36))  # Play버튼 누른 후 모험하기 창
             cond_kkd_out = pag.locateCenterOnScreen('cond_kkd_out.png', confidence=0.85, region=(825 + (account // 2) * 960, 490 + (account % 2) * 540, 45, 40))  # 쿠키왕국
             cond_adv_tro_mode = pag.locateCenterOnScreen('cond_adv_tro_mode.png', confidence=0.85, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 트로피컬 소다제도의 '도'
@@ -8208,8 +8023,6 @@ def Arena_action(account, set_max_power):
         bFight_started = False
         bAllIsWell = False
         while not bAllIsWell:
-            pix_tier_up1 = (20, 19, 18)  # 다이아 2티어
-            pix_tier_up2 = (5, 4, 2)  # 마스터 5티어
             pag.click(381  + (account // 2) * 960, 115 + (account % 2) * 540) # 대전하기 버튼 눌러놓기!
             cond_adv_arena_robby = pag.locateCenterOnScreen('cond_adv_arena_robby.png', confidence=0.98, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))  # 아레나 티켓 0
             if not (cond_adv_arena_robby):
@@ -8665,7 +8478,7 @@ def Angmu_Action_condition(ctr, account):
     # 살지말지 고민좀 해보고(다 캡처 못한 영혼석, 사탕, 3렙 스킬 파우더)
     # 3. 3렙 파우더, 시계의 경우 줄 것의 재고 비율이...... 몇 프로로 해야 하나
     # 1. 1렙 파우더, 조각들, 솜은 무조건 구매함(못사면 말고)
-    trade_must_buy = ('crystal_pure', 'crystal_magic', 'crystal_power', 'crystal_quick', 'trade_star',
+    trade_must_buy = ('crystal_pure', 'crystal_magic', 'crystal_power', 'crystal_quick', 'trade_star', 'trade_black',
                       'trade_assist_lv1', 'trade_bomb_lv1', 'trade_fist_lv1', 'trade_recovery_lv1', 'trade_shield_lv1',
                       'trade_shooting_lv1', 'trade_staff_lv1', 'trade_sword_lv1',
                       'trade_cotton')
@@ -9676,31 +9489,6 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         kkd_start = pag.locateCenterOnScreen('init_kkm.png', confidence=0.9, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
                         lack_of_material = pag.locateCenterOnScreen('lack_material.png', confidence=0.95, region=(2 + (account // 2) * 960, 32 + (account % 2) * 540, 917, 505))
                         pix_lackof = screen.getpixel((545 + (account // 2) * 960, 745 - 540 + (account % 2) * 540))  # 재료부족창?
-
-                        pix_lackof1 = (243, 233, 223)  # 베이지색
-                        # pix_wood = (117, 59, 40)  # 나무
-                        # pix_jelbean = (4, 239, 237)  # 젤리빈
-                        # pix_sugar = (255, 255, 255)  # 설탕
-                        # pix_biscuit = (205, 132, 63)  # 비스킷
-                        # pix_berry = (187, 40, 44)  # 젤리베리
-                        # pix_milk = (236, 241, 241)  # 우유
-                        # pix_cotton = (255, 247, 255)  # 솜
-                        # pix_smith = (163, 118, 85)  # 도끼 스미스
-                        # pix_jelly = (15, 174, 202)  # 젤리빈 잼 젤리
-                        # pix_rollc = (214, 146, 105)  # 솔새 롤케
-                        # pix_bread = (142, 66, 8)  # 호밀빵 브레드
-                        # pix_jampy = (168, 29, 42)  # 젤리스튜 잼파이
-                        # pix_doye = (157, 84, 43)  # 비스킷 화분 - 도예
-                        # pix_flower = (255, 30, 130)  # 캔디꽃 - flower
-                        # pix_milky = (213, 229, 234)  # 크림 - milky
-                        # pix_latte = (255, 251, 238)  # 젤리빈 라떼 - latte
-                        # pix_dolls = (109, 235, 249)  # 쿠션 - dolls
-                        # pix_beer = (153, 103, 67)  # 크림루트비어 - beer
-                        # pix_muffin = (190, 92, 59)  # 머핀 - muffin
-                        # pix_jewel = (143, 99, 63)  # 글레이즈드링 - jewel
-                        # pix_magic = (93, 55, 48)  # 마법공방 - magic
-                        # pix_icecream = (254, 253, 229)  # 디즈니 아이스크림 트럭
-
                         screen = ImageGrab.grab()
                         pix_prod = screen.getpixel((610 + (account // 2) * 960, 140 + (account % 2) * 540))
 
@@ -9726,7 +9514,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                             print('jelbean!')
                             Wood_to_Cotton_Quick(account, jelbean_max, quick_production, prod_direction_left)
 
-                        elif pix_prod == pix_sugar:
+                        elif pix_prod == pix_white:
                             pix_error_count = 0
                             print('sugar!')
                             Wood_to_Cotton_Quick(account, sugar_max, quick_production, prod_direction_left)
@@ -11165,36 +10953,6 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         pix_end2 = screen.getpixel((75 + (account // 2) * 960, 480 + (account % 2) * 540))  # 밑바닥칸
                         pix_lackof = screen.getpixel((545 + (account // 2) * 960, 745 - 540 + (account % 2) * 540))  # 재료부족창?
 
-                        pix_arrow = (253, 252, 251)  # 하단 화살표
-                        pix_arrow1 = (251, 248, 246)  # 중단 화살표
-                        pix_arrow2 = (251, 248, 246)  # 밑바닥칸
-                        pix_lackof1 = (243, 233, 223)  # 베이지색
-
-                        # pix_wood = (117, 59, 40)  # 나무
-                        # pix_jelbean = (4, 239, 237)  # 젤리빈
-                        # pix_sugar = (255, 255, 255)  # 설탕
-                        # pix_biscuit = (205, 132, 63)  # 비스킷
-                        # pix_berry = (187, 40, 44)  # 젤리베리
-                        # pix_milk = (236, 241, 241)  # 우유
-                        # pix_cotton = (255, 247, 255)  # 솜
-                        # pix_smith = (163, 118, 85)  # 도끼 스미스
-                        # pix_jelly = (15, 174, 202)  # 젤리빈 잼 젤리
-                        # pix_rollc = (214, 146, 105)  # 솔새 롤케
-                        # pix_bread = (142, 66, 8)  # 호밀빵 브레드
-                        # pix_jampy = (168, 29, 42)  # 젤리스튜 잼파이
-                        # pix_doye = (157, 84, 43)  # 비스킷 화분 - 도예
-                        # pix_flower = (255, 30, 130)  # 캔디꽃 - flower
-                        # pix_milky = (213, 229, 234)  # 크림 - milky
-                        # pix_latte = (255, 251, 238)  # 젤리빈 라떼 - latte
-                        # pix_dolls = (109, 235, 249)  # 쿠션 - dolls
-                        # pix_beer = (153, 103, 67)  # 크림루트비어 - beer
-                        # pix_muffin = (190, 92, 59)  # 머핀 - muffin
-                        # pix_jewel = (143, 99, 63)  # 글레이즈드링 - jewel
-                        # pix_magic = (93, 55, 48)  # 마법공방 - magic
-                        # pix_icecream = (254, 253, 229)  # 디즈니 아이스크림 트럭
-                        # pix_status_in = (194, 144, 10)  # 생산건물 내
-                        pix_status_in = (227, 163, 2)  # 아이스크림 생산건물 내
-
                         if keyboard.is_pressed('space'):
                             break
                         # 이상한 창이 떠있나?
@@ -11221,7 +10979,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                             jelbean_bef_action = Wood_to_Cotton(account, jelbean_min, jelbean_max, jelbean_prod, prod_direction_left)
                             time.sleep(0.5)
 
-                        elif pix_prod == pix_sugar:
+                        elif pix_prod == pix_white:
                             pix_error_count = 0
                             print('sugar!')
                             sugar_bef_action = Wood_to_Cotton(account, sugar_min, sugar_max, sugar_prod, prod_direction_left)
@@ -12754,7 +12512,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         pix_lackof1 = (243, 233, 223)  # 베이지색
                         # pix_wood = (117, 59, 40)  # 나무
                         # pix_jelbean = (4, 239, 237)  # 젤리빈
-                        # pix_sugar = (255, 255, 255)  # 설탕
+                        # pix_white = (255, 255, 255)  # 설탕
                         # pix_biscuit = (205, 132, 63)  # 비스킷
                         # pix_berry = (187, 40, 44)  # 젤리베리
                         # pix_milk = (236, 241, 241)  # 우유
@@ -12800,7 +12558,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                             print('jelbean!')
                             jelbean_bef_action = Wood_to_Cotton_Quick(account, jelbean_max, quick_production, prod_direction_left)
 
-                        elif pix_prod == pix_sugar:
+                        elif pix_prod == pix_white:
                             pix_error_count = 0
                             print('sugar!')
                             sugar_bef_action = Wood_to_Cotton_Quick(account, sugar_max, quick_production, prod_direction_left)
@@ -13413,37 +13171,6 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                         pix_end2 = screen.getpixel((75 + (account // 2) * 960, 480 + (account % 2) * 540))  # 밑바닥칸
                         pix_lackof = screen.getpixel((545 + (account // 2) * 960, 745 - 540 + (account % 2) * 540))  # 재료부족창?
 
-                        pix_arrow = (253, 252, 251)  # 하단 화살표
-                        pix_arrow1 = (251, 248, 246)  # 중단 화살표
-                        pix_arrow2 = (251, 248, 246)  # 밑바닥칸
-                        pix_lackof1 = (243, 233, 223)  # 베이지색
-
-                        # pix_wood = (117, 59, 40)  # 나무
-                        # pix_jelbean = (4, 239, 237)  # 젤리빈
-                        # pix_sugar = (255, 255, 255)  # 설탕
-                        # pix_biscuit = (205, 132, 63)  # 비스킷
-                        # pix_berry = (187, 40, 44)  # 젤리베리
-                        # pix_milk = (236, 241, 241)  # 우유
-                        # pix_cotton = (255, 247, 255)  # 솜
-                        # pix_smith = (163, 118, 85)  # 도끼 스미스
-                        # pix_jelly = (15, 174, 202)  # 젤리빈 잼 젤리
-                        # pix_rollc = (214, 146, 105)  # 솔새 롤케
-                        # pix_bread = (142, 66, 8)  # 호밀빵 브레드
-                        # pix_jampy = (168, 29, 42)  # 젤리스튜 잼파이
-                        # pix_doye = (157, 84, 43)  # 비스킷 화분 - 도예
-                        # pix_flower = (255, 30, 130)  # 캔디꽃 - flower
-                        # pix_milky = (213, 229, 234)  # 크림 - milky
-                        # pix_latte = (255, 251, 238)  # 젤리빈 라떼 - latte
-                        # pix_dolls = (109, 235, 249)  # 쿠션 - dolls
-                        # pix_beer = (153, 103, 67)  # 크림루트비어 - beer
-                        # pix_muffin = (190, 92, 59)  # 머핀 - muffin
-                        # pix_jewel = (143, 99, 63)  # 글레이즈드링 - jewel
-                        # pix_magic = (93, 55, 48)  # 마법공방 - magic
-                        # pix_icecream = (254, 253, 229)  # 디즈니 아이스크림 트럭
-
-                        # pix_status_in = (194, 144, 10)  # 생산건물 내
-                        pix_status_in = (227, 163, 2)  # 아이스크림 생산건물 내
-
                         if keyboard.is_pressed('space'):
                             break
                         # 이상한 창이 떠있나?
@@ -13469,7 +13196,7 @@ if number_of_accounts == 2 or number_of_accounts == 3:
                             print('jelbean!')
                             Wood_to_Cotton(account, jelbean_min, jelbean_max, jelbean_prod, prod_direction_left)
 
-                        elif pix_prod == pix_sugar:
+                        elif pix_prod == pix_white:
                             pix_error_count = 0
                             print('sugar!')
                             Wood_to_Cotton(account, sugar_min, sugar_max, sugar_prod, prod_direction_left)
